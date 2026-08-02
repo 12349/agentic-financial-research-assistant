@@ -1,0 +1,92 @@
+[
+  {
+    "id": "news-nvda-001",
+    "ticker": "NVDA",
+    "headline": "Nvidia Data Center Revenue Hits Record $22.6B in Q3 FY2025, Surpassing Analyst Expectations",
+    "body": "Nvidia reported record data center revenue of $22.6 billion for Q3 FY2025, up 112% year-over-year. The result exceeded Wall Street consensus of $21.1 billion. CEO Jensen Huang cited explosive demand for H100 and H200 GPUs from hyperscalers and cloud providers. The company guided Q4 data center revenue above $37 billion.",
+    "published_at": "2024-11-20T21:00:00Z",
+    "source": "Financial News",
+    "url": "https://example.com/news/nvda-data-center-q3"
+  },
+  {
+    "id": "news-nvda-002",
+    "ticker": "NVDA",
+    "headline": "Nvidia Blackwell GPU Demand Described as 'Insane' as Supply Constraints Ease",
+    "body": "Nvidia's next-generation Blackwell GPU architecture has seen overwhelming demand from major cloud providers including Microsoft Azure, Google Cloud, and Amazon AWS. CFO Colette Kress stated during the earnings call that Blackwell supply is ramping rapidly and the company expects sequential revenue growth. Data center segment remains the primary growth driver, accounting for 88% of total revenue.",
+    "published_at": "2024-11-21T14:30:00Z",
+    "source": "Financial News",
+    "url": "https://example.com/news/nvda-blackwell-demand"
+  },
+  {
+    "id": "news-nvda-003",
+    "ticker": "NVDA",
+    "headline": "Nvidia Q4 Guidance Tops Estimates; Analysts Raise Price Targets Across the Board",
+    "body": "Following Nvidia's blowout Q3 earnings, at least 15 analysts raised their price targets for NVDA stock. The company guided Q4 revenue to approximately $37.5 billion, versus Street estimates of $37.1 billion. Several analysts noted that data center infrastructure spending shows no signs of slowing despite macro uncertainty.",
+    "published_at": "2024-11-22T09:00:00Z",
+    "source": "Financial News",
+    "url": "https://example.com/news/nvda-q4-guidance-analysts"
+  },
+  {
+    "id": "news-tsla-001",
+    "ticker": "TSLA",
+    "headline": "Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles",
+    "body": "Tesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000. The beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.",
+    "published_at": "2024-10-02T16:00:00Z",
+    "source": "Financial News",
+    "url": "https://example.com/news/tsla-q3-deliveries"
+  },
+  {
+    "id": "news-tsla-002",
+    "ticker": "TSLA",
+    "headline": "Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline",
+    "body": "Tesla unveiled its long-awaited robotaxi, the Cybercab, at a Hollywood event. The two-seater autonomous vehicle is priced under $30,000 and is expected to enter production in 2026. Analysts expressed optimism about the long-term vision but concerns about regulatory approvals and production timelines.",
+    "published_at": "2024-10-11T22:00:00Z",
+    "source": "Financial News",
+    "url": "https://example.com/news/tsla-robotaxi-cybercab"
+  },
+  {
+    "id": "news-jpm-001",
+    "ticker": "JPM",
+    "headline": "JPMorgan Q3 Net Income Rises 35% on Higher Interest Income",
+    "body": "JPMorgan Chase reported Q3 2024 net income of $12.9 billion, up 35% from a year earlier, driven by rising net interest income and strong investment banking fees. Revenue of $43.3 billion beat analyst expectations of $41.8 billion. CEO Jamie Dimon warned of geopolitical risks and potential credit deterioration ahead.",
+    "published_at": "2024-10-11T12:00:00Z",
+    "source": "Financial News",
+    "url": "https://example.com/news/jpm-q3-earnings"
+  },
+  {
+    "id": "news-jpm-002",
+    "ticker": "JPM",
+    "headline": "JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B",
+    "body": "JPMorgan Chase raised its full-year net interest income guidance to approximately $92.5 billion, up from its prior guidance of $91 billion. The revision reflects higher-for-longer interest rates and strong loan growth. Analysts viewed the revision positively as it signals confidence in the bank's core earnings power.",
+    "published_at": "2024-10-12T09:00:00Z",
+    "source": "Financial News",
+    "url": "https://example.com/news/jpm-guidance-raise"
+  },
+  {
+    "id": "news-xom-001",
+    "ticker": "XOM",
+    "headline": "Exxon Mobil Warns OPEC Meeting Outcome Could Pressure Oil Prices Further",
+    "body": "Exxon Mobil executives flagged concern over the upcoming OPEC+ ministerial meeting, noting that a potential production increase could pressure crude oil prices into the $70-$75 range. The company reaffirmed its capital discipline strategy, saying it would not alter its $28 billion capex plan regardless of short-term oil price movements.",
+    "published_at": "2024-11-29T13:00:00Z",
+    "source": "Financial News",
+    "url": "https://example.com/news/xom-opec-warning"
+  },
+  {
+    "id": "news-xom-002",
+    "ticker": "XOM",
+    "headline": "OPEC Postpones Production Increases as Oil Prices Slip; Exxon Benefits from Capital Discipline",
+    "body": "Following OPEC's decision to delay production hikes, oil prices stabilized around $75 per barrel. Exxon Mobil's disciplined capital allocation strategy has positioned the company to remain profitable at oil prices as low as $35 per barrel. Analysts note Exxon's Pioneer acquisition integration is proceeding ahead of schedule, adding 300,000 barrels per day of production.",
+    "published_at": "2024-12-05T11:00:00Z",
+    "source": "Financial News",
+    "url": "https://example.com/news/xom-opec-production"
+  },
+  {
+    "id": "news-xom-003",
+    "ticker": "XOM",
+    "headline": "Exxon Q3 Earnings Beat on Pioneer Synergies; OPEC Uncertainty Clouds Q4 Outlook",
+    "body": "Exxon Mobil reported Q3 earnings of $1.92 per share, beating estimates of $1.88. The Pioneer Natural Resources acquisition added $500 million in synergies ahead of schedule. However, executives cautioned that the OPEC+ production policy uncertainty and global demand softness could weigh on Q4 results. The company maintained its $35 billion share buyback program.",
+    "published_at": "2024-11-01T13:00:00Z",
+    "source": "Financial News",
+    "url": "https://example.com/news/xom-q3-results"
+  }
+]

@@ -1,0 +1,323 @@
+{
+  "total": 15,
+  "pass": 8,
+  "warn": 6,
+  "fail": 1,
+  "effective_pass_rate": "14/15",
+  "results": [
+    {
+      "id": "B01",
+      "query": "Is Nvidia stock a buy right now?",
+      "intent": "analyst_ratings",
+      "adversarial": false,
+      "no_data_expected": false,
+      "actual_tools": [
+        "search_news"
+      ],
+      "acceptable_tools": [
+        "get_ratings",
+        "search_news"
+      ],
+      "sources_count": 2,
+      "answer_preview": "[Source: news-nvda-003] Nvidia Q4 Guidance Tops Estimates; Analysts Raise Price Targets Across the Board\nFollowing Nvidia's blowout Q3 earnings, at least 15 analysts raised their price targets for NVD",
+      "verdict": "PASS",
+      "grade_notes": [],
+      "mode": "fallback",
+      "latency_ms": 1
+    },
+    {
+      "id": "B02",
+      "query": "How has Tesla been performing lately?",
+      "intent": "news",
+      "adversarial": false,
+      "no_data_expected": false,
+      "actual_tools": [
+        "search_news"
+      ],
+      "acceptable_tools": [
+        "search_news",
+        "get_ratings",
+        "get_earnings"
+      ],
+      "sources_count": 2,
+      "answer_preview": "[Source: news-tsla-002] Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline\nTesla unveiled its long-awaited robotaxi, the Cybercab, at a Hollywood event. The two-seater autonomous vehicl",
+      "verdict": "PASS",
+      "grade_notes": [],
+      "mode": "fallback",
+      "latency_ms": 0
+    },
+    {
+      "id": "B03",
+      "query": "What revenue did JPMorgan report and how did that compare to what they told investors to expect?",
+      "intent": "earnings_and_guidance",
+      "adversarial": false,
+      "no_data_expected": false,
+      "actual_tools": [
+        "search_news"
+      ],
+      "acceptable_tools": [
+        "get_earnings",
+        "get_guidance"
+      ],
+      "sources_count": 2,
+      "answer_preview": "[Source: news-jpm-002] JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B\nJPMorgan Chase raised its full-year net interest income guidance to approximately $92.5 billion, up from its pri",
+      "verdict": "WARN",
+      "grade_notes": [
+        "WARN: expected one of ['get_earnings', 'get_guidance'], got ['search_news'] \u2014 routing mismatch (may still be acceptable)",
+        "WARN: compound query expected 2 tool calls, got 1: ['search_news']"
+      ],
+      "mode": "fallback",
+      "latency_ms": 0
+    },
+    {
+      "id": "B04",
+      "query": "Will Exxon raise its dividend this year?",
+      "intent": "news",
+      "adversarial": false,
+      "no_data_expected": false,
+      "actual_tools": [
+        "search_news"
+      ],
+      "acceptable_tools": [
+        "search_news"
+      ],
+      "sources_count": 2,
+      "answer_preview": "[Source: news-xom-001] Exxon Mobil Warns OPEC Meeting Outcome Could Pressure Oil Prices Further\nExxon Mobil executives flagged concern over the upcoming OPEC+ ministerial meeting, noting that a potent",
+      "verdict": "PASS",
+      "grade_notes": [],
+      "mode": "fallback",
+      "latency_ms": 0
+    },
+    {
+      "id": "B05",
+      "query": "What's the analyst view on Apple stock?",
+      "intent": "analyst_ratings",
+      "adversarial": false,
+      "no_data_expected": true,
+      "actual_tools": [
+        "search_news"
+      ],
+      "acceptable_tools": [
+        "get_ratings",
+        "search_news"
+      ],
+      "sources_count": 2,
+      "answer_preview": "[Source: news-nvda-003] Nvidia Q4 Guidance Tops Estimates; Analysts Raise Price Targets Across the Board\nFollowing Nvidia's blowout Q3 earnings, at least 15 analysts raised their price targets for NVD",
+      "verdict": "FAIL",
+      "grade_notes": [
+        "Returned 2 source(s) for AAPL which has no fixture data"
+      ],
+      "mode": "fallback",
+      "latency_ms": 1
+    },
+    {
+      "id": "B06",
+      "query": "What is XOM guiding for next quarter?",
+      "intent": "guidance",
+      "adversarial": false,
+      "no_data_expected": false,
+      "actual_tools": [
+        "search_news"
+      ],
+      "acceptable_tools": [
+        "get_guidance"
+      ],
+      "sources_count": 2,
+      "answer_preview": "[Source: news-xom-002] OPEC Postpones Production Increases as Oil Prices Slip; Exxon Benefits from Capital Discipline\nFollowing OPEC's decision to delay production hikes, oil prices stabilized around ",
+      "verdict": "WARN",
+      "grade_notes": [
+        "WARN: expected one of ['get_guidance'], got ['search_news'] \u2014 routing mismatch (may still be acceptable)"
+      ],
+      "mode": "fallback",
+      "latency_ms": 0
+    },
+    {
+      "id": "B07",
+      "query": "By how much did Nvidia miss or beat analyst EPS estimates?",
+      "intent": "earnings",
+      "adversarial": false,
+      "no_data_expected": false,
+      "actual_tools": [
+        "get_guidance",
+        "get_earnings"
+      ],
+      "acceptable_tools": [
+        "get_earnings"
+      ],
+      "sources_count": 2,
+      "answer_preview": "[Source: guidance-nvda-001] NVDA issued Revenue guidance of $37.5B for Q4 FY2025 (issued 2024-11-20). Prior analyst estimate was $37.1B.\n  Notes: Company guided Q4 FY2025 revenue to approximately $37.",
+      "verdict": "PASS",
+      "grade_notes": [],
+      "mode": "fallback",
+      "latency_ms": 1
+    },
+    {
+      "id": "B08",
+      "query": "How do Wall Street analysts feel about JPMorgan, and did the bank's actual Q3 numbers back that up?",
+      "intent": "ratings_and_earnings",
+      "adversarial": false,
+      "no_data_expected": false,
+      "actual_tools": [
+        "get_ratings"
+      ],
+      "acceptable_tools": [
+        "get_ratings",
+        "get_earnings"
+      ],
+      "sources_count": 2,
+      "answer_preview": "Analyst sentiment on JPM is currently BULLISH.\n[Source: rating-jpm-003] Of 3 recent ratings: 3 bullish, 0 neutral, 0 bearish. Average price target: $273.\n[Source: rating-jpm-003] Deutsche Bank (Matt O",
+      "verdict": "WARN",
+      "grade_notes": [
+        "WARN: compound query expected 2 tool calls, got 1: ['get_ratings']"
+      ],
+      "mode": "fallback",
+      "latency_ms": 0
+    },
+    {
+      "id": "B09",
+      "query": "What's happening broadly with electric vehicle stocks right now?",
+      "intent": "news",
+      "adversarial": false,
+      "no_data_expected": false,
+      "actual_tools": [
+        "search_news"
+      ],
+      "acceptable_tools": [
+        "search_news"
+      ],
+      "sources_count": 2,
+      "answer_preview": "[Source: news-xom-002] OPEC Postpones Production Increases as Oil Prices Slip; Exxon Benefits from Capital Discipline\nFollowing OPEC's decision to delay production hikes, oil prices stabilized around ",
+      "verdict": "PASS",
+      "grade_notes": [],
+      "mode": "fallback",
+      "latency_ms": 0
+    },
+    {
+      "id": "B10",
+      "query": "What will Nvidia earn per share next quarter?",
+      "intent": "adversarial_future",
+      "adversarial": true,
+      "no_data_expected": true,
+      "actual_tools": [
+        "get_earnings"
+      ],
+      "acceptable_tools": [
+        "search_news",
+        "get_earnings",
+        "get_guidance"
+      ],
+      "sources_count": 1,
+      "answer_preview": "[Source: earnings-nvda-001] NVDA Q3 FY2025 earnings (reported 2024-11-20): Revenue $35.1B vs. estimate $33.2B \u2014 BEAT (+5.8%). EPS $0.81 vs. estimate $0.74 \u2014 BEAT (+9.5%). Revenue grew 93.6% year-over-",
+      "verdict": "WARN",
+      "grade_notes": [
+        "OK: adversarial query handled gracefully"
+      ],
+      "mode": "fallback",
+      "latency_ms": 0
+    },
+    {
+      "id": "B11",
+      "query": "Has Tesla changed its guidance upward or downward in recent months?",
+      "intent": "guidance",
+      "adversarial": false,
+      "no_data_expected": false,
+      "actual_tools": [
+        "search_news"
+      ],
+      "acceptable_tools": [
+        "get_guidance",
+        "search_news"
+      ],
+      "sources_count": 2,
+      "answer_preview": "[Source: news-tsla-001] Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles\nTesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000. The beat was driven by strong Model",
+      "verdict": "PASS",
+      "grade_notes": [],
+      "mode": "fallback",
+      "latency_ms": 0
+    },
+    {
+      "id": "B12",
+      "query": "Show me recent analyst upgrades for JPM",
+      "intent": "analyst_ratings",
+      "adversarial": false,
+      "no_data_expected": false,
+      "actual_tools": [
+        "get_ratings",
+        "search_news"
+      ],
+      "acceptable_tools": [
+        "get_ratings"
+      ],
+      "sources_count": 4,
+      "answer_preview": "Analyst sentiment on JPM is currently BULLISH.\n[Source: rating-jpm-003] Of 3 recent ratings: 3 bullish, 0 neutral, 0 bearish. Average price target: $273.\n[Source: rating-jpm-003] Deutsche Bank (Matt O",
+      "verdict": "PASS",
+      "grade_notes": [],
+      "mode": "fallback",
+      "latency_ms": 0
+    },
+    {
+      "id": "B13",
+      "query": "How exposed is Exxon to crude oil price volatility?",
+      "intent": "news",
+      "adversarial": false,
+      "no_data_expected": false,
+      "actual_tools": [
+        "search_news"
+      ],
+      "acceptable_tools": [
+        "search_news"
+      ],
+      "sources_count": 2,
+      "answer_preview": "[Source: news-xom-002] OPEC Postpones Production Increases as Oil Prices Slip; Exxon Benefits from Capital Discipline\nFollowing OPEC's decision to delay production hikes, oil prices stabilized around ",
+      "verdict": "PASS",
+      "grade_notes": [],
+      "mode": "fallback",
+      "latency_ms": 0
+    },
+    {
+      "id": "B14",
+      "query": "Is TSLA outperforming revenue consensus?",
+      "intent": "earnings",
+      "adversarial": false,
+      "no_data_expected": false,
+      "actual_tools": [
+        "get_ratings",
+        "search_news"
+      ],
+      "acceptable_tools": [
+        "get_earnings"
+      ],
+      "sources_count": 4,
+      "answer_preview": "Analyst sentiment on TSLA is currently BULLISH.\n[Source: rating-tsla-001] Of 3 recent ratings: 2 bullish, 1 neutral, 0 bearish. Average price target: $312.\n[Source: rating-tsla-001] Wedbush Securities",
+      "verdict": "WARN",
+      "grade_notes": [
+        "WARN: expected one of ['get_earnings'], got ['get_ratings', 'search_news'] \u2014 routing mismatch (may still be acceptable)",
+        "DOCUMENTED BUG: 'outperform' keyword triggered get_ratings instead of get_earnings. Answer will be about analyst consensus, not earnings actuals."
+      ],
+      "mode": "fallback",
+      "latency_ms": 0
+    },
+    {
+      "id": "B15",
+      "query": "What forward guidance has ZZZZ management provided to investors?",
+      "intent": "guidance",
+      "adversarial": true,
+      "no_data_expected": true,
+      "actual_tools": [
+        "search_news"
+      ],
+      "acceptable_tools": [
+        "get_guidance",
+        "search_news"
+      ],
+      "sources_count": 0,
+      "answer_preview": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).",
+      "verdict": "WARN",
+      "grade_notes": [
+        "OK: adversarial query handled gracefully"
+      ],
+      "mode": "fallback",
+      "latency_ms": 0
+    }
+  ]
+}

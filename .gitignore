@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Trace logs (generated at runtime — don't commit)
+logs/
+
+# Environment / secrets
+.env
+.env.local
+*.env
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build / dist
+dist/
+build/
+*.egg-info/
+
+# Temporary
+/tmp/
+*.log
+
+# Classifier model weights (large; regenerate with: python3 classifier/train.py)
+classifier/model/
+
+# Embedded / cloned repos (not part of this project)
+agentic-financial-research-assistant/

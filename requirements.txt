@@ -1,0 +1,16 @@
+# Core (required for Flask API server)
+flask>=3.0.0
+
+# Optional: LLM planner + synthesis
+# Groq (free tier, no card required) — set LLM_PROVIDER=groq and GROQ_API_KEY
+# Anthropic Claude (paid)            — set LLM_PROVIDER=anthropic and ANTHROPIC_API_KEY
+# The openai package is used as the Groq client (OpenAI-compatible endpoint)
+openai>=1.0.0
+anthropic>=0.30.0
+
+# Optional: live financial data API
+# Set FINANCIAL_DATA_API_KEY to activate
+requests>=2.31.0
+
+# Note: offline mode (zero env vars) has NO external dependencies.
+# The core agent logic uses only Python standard library.

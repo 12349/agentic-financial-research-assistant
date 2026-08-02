@@ -1,0 +1,80 @@
+[
+  {
+    "id": "guidance-nvda-001",
+    "ticker": "NVDA",
+    "period": "Q4 FY2025",
+    "issued_date": "2024-11-20",
+    "metric": "Revenue",
+    "guidance_value": 37500000000,
+    "guidance_unit": "USD",
+    "guidance_low": 37000000000,
+    "guidance_high": 38000000000,
+    "analyst_estimate_prior": 37100000000,
+    "notes": "Company guided Q4 FY2025 revenue to approximately $37.5B (+/- 2%), above Street consensus of $37.1B at time of guidance."
+  },
+  {
+    "id": "guidance-nvda-002",
+    "ticker": "NVDA",
+    "period": "Q3 FY2025",
+    "issued_date": "2024-08-28",
+    "metric": "Revenue",
+    "guidance_value": 32500000000,
+    "guidance_unit": "USD",
+    "guidance_low": 31500000000,
+    "guidance_high": 33500000000,
+    "analyst_estimate_prior": 31700000000,
+    "notes": "Company guided Q3 FY2025 revenue to approximately $32.5B, versus analyst estimates of $31.7B at time of guidance."
+  },
+  {
+    "id": "guidance-tsla-001",
+    "ticker": "TSLA",
+    "period": "FY2024",
+    "issued_date": "2024-07-23",
+    "metric": "Vehicle Deliveries",
+    "guidance_value": 1800000,
+    "guidance_unit": "units",
+    "guidance_low": 1750000,
+    "guidance_high": 1850000,
+    "analyst_estimate_prior": 1820000,
+    "notes": "Tesla reaffirmed FY2024 delivery guidance of approximately 1.8 million vehicles, slightly below analyst consensus of 1.82M."
+  },
+  {
+    "id": "guidance-jpm-001",
+    "ticker": "JPM",
+    "period": "FY2024",
+    "issued_date": "2024-10-11",
+    "metric": "Net Interest Income",
+    "guidance_value": 92500000000,
+    "guidance_unit": "USD",
+    "guidance_low": 91500000000,
+    "guidance_high": 93500000000,
+    "analyst_estimate_prior": 91000000000,
+    "notes": "JPMorgan raised FY2024 NII guidance to approximately $92.5B from prior guidance of $91B, ahead of analyst consensus of $91B."
+  },
+  {
+    "id": "guidance-jpm-002",
+    "ticker": "JPM",
+    "period": "Q3 2024",
+    "issued_date": "2024-07-12",
+    "metric": "Net Interest Income",
+    "guidance_value": 23000000000,
+    "guidance_unit": "USD",
+    "guidance_low": 22500000000,
+    "guidance_high": 23500000000,
+    "analyst_estimate_prior": 22800000000,
+    "notes": "JPMorgan guided Q3 2024 NII to approximately $23B, slightly above analyst estimates of $22.8B."
+  },
+  {
+    "id": "guidance-xom-001",
+    "ticker": "XOM",
+    "period": "FY2024",
+    "issued_date": "2024-02-01",
+    "metric": "Capital Expenditure",
+    "guidance_value": 28000000000,
+    "guidance_unit": "USD",
+    "guidance_low": 26000000000,
+    "guidance_high": 30000000000,
+    "analyst_estimate_prior": 27500000000,
+    "notes": "Exxon guided FY2024 capex to $28B, consistent with prior year plan, in line with analyst estimates."
+  }
+]

@@ -1,0 +1,150 @@
+{
+  "total": 8,
+  "agree": 6,
+  "diverge": 2,
+  "agreement_rate": "6/8",
+  "results": [
+    {
+      "id": "Q1",
+      "label": "NVDA data center (spec)",
+      "query": "How did Nvidia's data center business perform last quarter?",
+      "expected_intent": "search_news",
+      "rule_tools": [
+        "search_news"
+      ],
+      "llm_tools": [
+        "get_earnings",
+        "search_news"
+      ],
+      "llm_mode": "llm-groq",
+      "agree": false,
+      "divergence_note": "LLM called {'get_earnings'} but rule did not",
+      "rule_latency_ms": 0.0,
+      "llm_latency_ms": 1609.3
+    },
+    {
+      "id": "Q2",
+      "label": "TSLA analyst sentiment (spec)",
+      "query": "What's the current analyst sentiment on Tesla?",
+      "expected_intent": "get_ratings",
+      "rule_tools": [
+        "get_ratings"
+      ],
+      "llm_tools": [
+        "get_ratings"
+      ],
+      "llm_mode": "llm-groq",
+      "agree": true,
+      "divergence_note": "",
+      "rule_latency_ms": 0.0,
+      "llm_latency_ms": 379.2
+    },
+    {
+      "id": "Q3",
+      "label": "JPM guidance vs earnings (spec)",
+      "query": "Did JPMorgan's actual earnings beat or miss their own guidance?",
+      "expected_intent": "get_guidance+get_earnings",
+      "rule_tools": [
+        "get_guidance",
+        "get_earnings"
+      ],
+      "llm_tools": [
+        "get_earnings",
+        "get_guidance"
+      ],
+      "llm_mode": "llm-groq",
+      "agree": true,
+      "divergence_note": "",
+      "rule_latency_ms": 0.0,
+      "llm_latency_ms": 283.3
+    },
+    {
+      "id": "Q4",
+      "label": "XOM OPEC outlook (spec)",
+      "query": "What's the outlook for Exxon given the upcoming OPEC meeting?",
+      "expected_intent": "search_news",
+      "rule_tools": [
+        "search_news"
+      ],
+      "llm_tools": [
+        "search_news",
+        "get_guidance"
+      ],
+      "llm_mode": "llm-groq",
+      "agree": false,
+      "divergence_note": "LLM called {'get_guidance'} but rule did not",
+      "rule_latency_ms": 0.1,
+      "llm_latency_ms": 405.5
+    },
+    {
+      "id": "Q5",
+      "label": "Unknown ticker ZZZZ (spec)",
+      "query": "What is the latest news on ZZZZ stock?",
+      "expected_intent": "search_news",
+      "rule_tools": [
+        "search_news"
+      ],
+      "llm_tools": [
+        "search_news"
+      ],
+      "llm_mode": "llm-groq",
+      "agree": true,
+      "divergence_note": "",
+      "rule_latency_ms": 0.2,
+      "llm_latency_ms": 359.1
+    },
+    {
+      "id": "Q6",
+      "label": "JPM earnings (stress)",
+      "query": "How much did JPMorgan earn last quarter?",
+      "expected_intent": "get_earnings",
+      "rule_tools": [
+        "get_earnings"
+      ],
+      "llm_tools": [
+        "get_earnings"
+      ],
+      "llm_mode": "llm-groq",
+      "agree": true,
+      "divergence_note": "",
+      "rule_latency_ms": 0.0,
+      "llm_latency_ms": 375.6
+    },
+    {
+      "id": "Q7",
+      "label": "XOM guidance vs actuals (stress)",
+      "query": "What is XOM reporting vs what they guided?",
+      "expected_intent": "get_guidance+get_earnings",
+      "rule_tools": [
+        "get_guidance",
+        "get_earnings"
+      ],
+      "llm_tools": [
+        "get_earnings",
+        "get_guidance"
+      ],
+      "llm_mode": "llm-groq",
+      "agree": true,
+      "divergence_note": "",
+      "rule_latency_ms": 0.1,
+      "llm_latency_ms": 525.2
+    },
+    {
+      "id": "Q8",
+      "label": "GS on NVDA (stress)",
+      "query": "What did Goldman Sachs say about Nvidia?",
+      "expected_intent": "search_news",
+      "rule_tools": [
+        "search_news"
+      ],
+      "llm_tools": [
+        "search_news"
+      ],
+      "llm_mode": "llm-groq",
+      "agree": true,
+      "divergence_note": "",
+      "rule_latency_ms": 0.1,
+      "llm_latency_ms": 763.2
+    }
+  ]
+}
