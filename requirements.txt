@@ -14,3 +14,5 @@ requests>=2.31.0
 
 # Note: offline mode (zero env vars) has NO external dependencies.
 # The core agent logic uses only Python standard library.
+torch
+transformers
