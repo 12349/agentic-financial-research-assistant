@@ -4,7 +4,10 @@ An LLM-orchestrated research agent that answers compound financial questions by 
 
 Demonstrates: agentic tool orchestration · fine-tuned NLP classifier (DistilBERT) · structured data grounding · offline-first API design · containerized deployment.
 
+**🚀 Live demo:** [agentic-financial-research-assistant.onrender.com](https://agentic-financial-research-assistant.onrender.com/)
+
 ---
+
 
 ## 🎬 Demo Video
 
