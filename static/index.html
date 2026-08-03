@@ -490,6 +490,32 @@
       }
     }
 
+    /* ===== Footer ===== */
+    footer {
+      position: relative;
+      z-index: 2;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 24px 24px 40px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--ink-faint);
+    }
+
+    footer .author {
+      color: var(--ink-dim);
+    }
+
+    footer .author span {
+      color: var(--amber);
+      font-weight: 600;
+    }
+
     @media (max-width: 520px) {
       .tool-grid {
         grid-template-columns: 1fr;
@@ -736,6 +762,12 @@
       runBtn.disabled = false;
     }
   </script>
+
+  <footer>
+    <span class="author">Built by <span>Mahaboob Johny Shaik</span></span>
+    <span>FinAgent &mdash; Research Terminal</span>
+  </footer>
+
 </body>
 
 </html>
