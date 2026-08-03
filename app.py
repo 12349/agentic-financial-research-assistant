@@ -35,6 +35,13 @@ def index():
     return send_from_directory(app.static_folder, "index.html")
 
 
+@app.route("/favicon.ico", methods=["GET"])
+def favicon():
+    """Serve the SVG favicon — silences the browser's automatic /favicon.ico request."""
+    return send_from_directory(app.static_folder, "favicon.svg",
+                               mimetype="image/svg+xml")
+
+
 @app.route("/", methods=["OPTIONS"])
 @app.route("/<path:p>", methods=["OPTIONS"])
 def options_handler(p=None):  # noqa: ARG001

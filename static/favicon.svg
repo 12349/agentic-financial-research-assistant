@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#0A0C08"/>
+  <!-- candlestick bars: green / amber / red -->
+  <rect x="7"    y="14" width="3"   height="11" rx="1" fill="#00D9A3"/>
+  <rect x="8.5"  y="10" width="0.8" height="4"         fill="#00D9A3"/>
+  <rect x="8.5"  y="25" width="0.8" height="3"         fill="#00D9A3"/>
+  <rect x="14"   y="9"  width="3"   height="14" rx="1" fill="#FFB000"/>
+  <rect x="15.5" y="5"  width="0.8" height="4"         fill="#FFB000"/>
+  <rect x="15.5" y="23" width="0.8" height="3"         fill="#FFB000"/>
+  <rect x="21"   y="16" width="3"   height="8"  rx="1" fill="#FF5C5C"/>
+  <rect x="22.5" y="12" width="0.8" height="4"         fill="#FF5C5C"/>
+  <rect x="22.5" y="24" width="0.8" height="3"         fill="#FF5C5C"/>
+</svg>
