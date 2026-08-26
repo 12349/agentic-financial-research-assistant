@@ -1,9 +1,10 @@
 """
 tools/search_news.py
 
-Searches financial news articles using TF-IDF similarity.
+Searches financial news articles using vector embeddings (all-MiniLM-L6-v2 + FAISS IndexFlatIP)
+with automated fallback to TF-IDF similarity.
 
-Offline mode (default):  loads data/news_fixtures.json
+Offline mode (default):  loads data/news_fixtures.json into in-memory FAISS index
 Online mode:             calls the financial data API when FINANCIAL_DATA_API_KEY is set
 
 Returns a list of dicts, each with keys:
@@ -17,7 +18,7 @@ import math
 import time
 import re
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Tuple
 
 # ---------------------------------------------------------------------------
 # Path to fixture file (relative to project root)
@@ -25,9 +26,152 @@ from typing import Optional
 _DATA_DIR = Path(__file__).parent.parent / "data"
 _FIXTURES_PATH = _DATA_DIR / "news_fixtures.json"
 
+# Threshold for semantic cosine similarity (range: -1.0 to 1.0; typically 0.0 to 1.0)
+DEFAULT_SIMILARITY_THRESHOLD = float(os.environ.get("NEWS_SIMILARITY_THRESHOLD", "0.30"))
+# Threshold for TF-IDF cosine similarity fallback
+DEFAULT_TFIDF_THRESHOLD = float(os.environ.get("NEWS_TFIDF_THRESHOLD", "0.05"))
+
 
 # ---------------------------------------------------------------------------
-# TF-IDF helpers (pure Python, no dependencies)
+# Fixture loading helper
+# ---------------------------------------------------------------------------
+
+def _load_fixtures() -> list[dict]:
+    with open(_FIXTURES_PATH, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+# ---------------------------------------------------------------------------
+# In-Memory Semantic Index (FAISS IndexFlatIP + all-MiniLM-L6-v2)
+# ---------------------------------------------------------------------------
+
+class _SemanticNewsIndex:
+    """
+    In-memory vector store built once at startup/import time.
+    Uses SentenceTransformer ('all-MiniLM-L6-v2') and faiss.IndexFlatIP.
+    Normalized embeddings ensure inner product equals cosine similarity.
+    """
+
+    def __init__(self):
+        self._initialized = False
+        self._model = None
+        self._index = None
+        self._articles = []
+        self._available = False
+        self._init_error = None
+
+    def ensure_initialized(self):
+        if self._initialized:
+            return
+
+        engine_config = os.environ.get("NEWS_SEARCH_ENGINE", "semantic").lower()
+        if engine_config == "tfidf":
+            self._available = False
+            self._init_error = "NEWS_SEARCH_ENGINE configured to tfidf"
+            self._initialized = True
+            return
+
+        try:
+            import numpy as np
+            import faiss
+            from sentence_transformers import SentenceTransformer
+
+            articles = _load_fixtures()
+            if not articles:
+                self._articles = []
+                self._index = None
+                self._available = True
+                self._initialized = True
+                return
+
+            corpus_texts = [f"{a['headline']}. {a['body']}" for a in articles]
+            model = SentenceTransformer("all-MiniLM-L6-v2")
+            embeddings = model.encode(
+                corpus_texts,
+                normalize_embeddings=True,
+                convert_to_numpy=True,
+                show_progress_bar=False,
+            ).astype(np.float32)
+
+            dim = embeddings.shape[1]
+            index = faiss.IndexFlatIP(dim)
+            index.add(embeddings)
+
+            self._model = model
+            self._index = index
+            self._articles = articles
+            self._available = True
+            self._initialized = True
+        except Exception as exc:
+            self._available = False
+            self._init_error = str(exc)
+            self._initialized = True
+            print(f"[search_news] Semantic search initialization unavailable ({exc}). Using TF-IDF fallback.")
+
+    @property
+    def is_available(self) -> bool:
+        self.ensure_initialized()
+        return self._available
+
+
+# Global singleton instance
+_semantic_index = _SemanticNewsIndex()
+
+
+def _search_semantic(query: str, ticker: Optional[str], top_k: int, threshold: float) -> list[dict]:
+    """Execute vector similarity search over FAISS in-memory index."""
+    import numpy as np
+
+    idx = _semantic_index
+    if not idx.is_available or idx._index is None or not idx._articles:
+        return []
+
+    # Encode query with L2-normalization for cosine similarity
+    query_vec = idx._model.encode(
+        [query],
+        normalize_embeddings=True,
+        convert_to_numpy=True,
+        show_progress_bar=False,
+    ).astype(np.float32)
+
+    # Search all indexed documents
+    k_candidates = len(idx._articles)
+    distances, indices = idx._index.search(query_vec, k_candidates)
+
+    ticker_upper = ticker.upper() if ticker else None
+    results = []
+
+    for score, doc_idx in zip(distances[0], indices[0]):
+        if doc_idx < 0 or doc_idx >= len(idx._articles):
+            continue
+
+        article = idx._articles[doc_idx]
+
+        # Apply ticker filter if specified
+        if ticker_upper and article["ticker"].upper() != ticker_upper:
+            continue
+
+        # Apply similarity threshold guardrail
+        if float(score) < threshold:
+            continue
+
+        result = dict(article)
+        result["score"] = round(float(score), 4)
+        result["source_ref"] = {
+            "ticker": article["ticker"],
+            "channel": "news",
+            "record_id": article["id"],
+        }
+        results.append(result)
+
+        if len(results) >= top_k:
+            break
+
+    return results
+
+
+# ---------------------------------------------------------------------------
+# TF-IDF Fallback helpers (pure Python, zero external dependencies)
 # ---------------------------------------------------------------------------
 
 def _tokenize(text: str) -> list[str]:
@@ -65,16 +209,8 @@ def _cosine(a: dict[str, float], b: dict[str, float]) -> float:
     return dot / (norm_a * norm_b)
 
 
-# ---------------------------------------------------------------------------
-# Offline search (TF-IDF over fixtures)
-# ---------------------------------------------------------------------------
-
-def _load_fixtures() -> list[dict]:
-    with open(_FIXTURES_PATH, "r") as f:
-        return json.load(f)
-
-
-def _search_offline(query: str, ticker: Optional[str], top_k: int) -> list[dict]:
+def _search_tfidf(query: str, ticker: Optional[str], top_k: int, threshold: float) -> list[dict]:
+    """Fallback offline search using pure-Python TF-IDF."""
     articles = _load_fixtures()
 
     # Filter by ticker if specified
@@ -92,10 +228,11 @@ def _search_offline(query: str, ticker: Optional[str], top_k: int) -> list[dict]
 
     query_vec = _tf_vector(_tokenize(query), idf)
     scored = []
-    for i, (article, tokens) in enumerate(zip(articles, corpus_tokens)):
+    for article, tokens in zip(articles, corpus_tokens):
         doc_vec = _tf_vector(tokens, idf)
         score = _cosine(query_vec, doc_vec)
-        scored.append((score, article))
+        if score >= threshold:
+            scored.append((score, article))
 
     scored.sort(key=lambda x: x[0], reverse=True)
     results = []
@@ -112,15 +249,23 @@ def _search_offline(query: str, ticker: Optional[str], top_k: int) -> list[dict]
 
 
 # ---------------------------------------------------------------------------
+# Offline Search Dispatcher
+# ---------------------------------------------------------------------------
+
+def _search_offline(query: str, ticker: Optional[str], top_k: int) -> Tuple[list[dict], str]:
+    if _semantic_index.is_available:
+        return _search_semantic(query, ticker, top_k, DEFAULT_SIMILARITY_THRESHOLD), "semantic"
+    return _search_tfidf(query, ticker, top_k, DEFAULT_TFIDF_THRESHOLD), "tfidf"
+
+
+# ---------------------------------------------------------------------------
 # Online search (financial data API)
 # ---------------------------------------------------------------------------
 
-# Set NEWS_API_URL (and FINANCIAL_DATA_API_KEY) to point at your data provider.
-# Example: NEWS_API_URL=https://api.yourprovider.com/v2/news
 _NEWS_API_URL = os.environ.get("NEWS_API_URL", "")
 
 
-def _search_online(query: str, ticker: Optional[str], top_k: int) -> list[dict]:
+def _search_online(query: str, ticker: Optional[str], top_k: int) -> Tuple[list[dict], str]:
     """Call the financial data news API. Falls back to offline on any error."""
     try:
         import requests  # noqa: PLC0415
@@ -159,9 +304,8 @@ def _search_online(query: str, ticker: Optional[str], top_k: int) -> list[dict]:
                 },
             }
             results.append(result)
-        return results
+        return results, "live_api"
     except Exception as exc:  # noqa: BLE001
-        # Degrade gracefully: return offline results
         print(f"[search_news] Online fetch failed ({exc}), falling back to offline.")
         return _search_offline(query, ticker, top_k)
 
@@ -181,29 +325,36 @@ def search_news(query: str, ticker: Optional[str] = None, top_k: int = 3) -> dic
 
     Returns:
         {
-          "results":   list of article dicts (with source_ref),
-          "mode":      "offline" | "online",
-          "tool":      "search_news",
-          "query":     original query,
-          "ticker":    ticker filter (or None),
+          "results":    list of article dicts (with source_ref),
+          "mode":       "offline" | "online",
+          "engine":     "semantic" | "tfidf" | "live_api",
+          "tool":       "search_news",
+          "query":      original query,
+          "ticker":     ticker filter (or None),
+          "latency_ms": elapsed time in milliseconds,
         }
     """
     t0 = time.time()
     mode = "online" if os.environ.get("FINANCIAL_DATA_API_KEY") else "offline"
 
     if mode == "online":
-        results = _search_online(query, ticker, top_k)
+        results, engine = _search_online(query, ticker, top_k)
     else:
-        results = _search_offline(query, ticker, top_k)
+        results, engine = _search_offline(query, ticker, top_k)
 
     return {
         "results": results,
         "mode": mode,
+        "engine": engine,
         "tool": "search_news",
         "query": query,
         "ticker": ticker,
         "latency_ms": round((time.time() - t0) * 1000, 1),
     }
+
+
+# Pre-initialize semantic index at module import time
+_semantic_index.ensure_initialized()
 
 
 # ---------------------------------------------------------------------------

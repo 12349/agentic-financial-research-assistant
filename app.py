@@ -53,13 +53,35 @@ def options_handler(p=None):  # noqa: ARG001
 def health():
     """Health check endpoint."""
     api_key_set = bool(os.environ.get("FINANCIAL_DATA_API_KEY"))
-    llm_key_set = bool(os.environ.get("ANTHROPIC_API_KEY"))
+    anthropic_key = bool(os.environ.get("ANTHROPIC_API_KEY"))
+    groq_key = bool(os.environ.get("GROQ_API_KEY"))
+
+    if groq_key:
+        llm = "groq"
+        planner = "llm-groq"
+    elif anthropic_key:
+        llm = "anthropic"
+        planner = "llm-anthropic"
+    else:
+        llm = "rule-based-fallback"
+        planner = "rule-based"
+
+    # Detect active search engine from the singleton index
+    try:
+        from tools.search_news import _semantic_index
+        search_engine = "semantic" if _semantic_index.is_available else "tfidf"
+    except Exception:  # noqa: BLE001
+        search_engine = "tfidf"
+
     return jsonify({
         "status": "ok",
         "mode": "online" if api_key_set else "offline",
-        "llm": "anthropic" if llm_key_set else "rule-based-fallback",
+        "llm": llm,
+        "planner": planner,
+        "search_engine": search_engine,
         "financial_data_api": api_key_set,
-        "anthropic_api": llm_key_set,
+        "anthropic_api": anthropic_key,
+        "groq_api": groq_key,
     })
 
 
@@ -70,7 +92,7 @@ def list_tools():
         "tools": [
             {
                 "name": "search_news",
-                "description": "Semantic search over financial news articles (TF-IDF offline, live API online)",
+                "description": "Semantic vector search over financial news articles (sentence-transformers + FAISS offline, live API online)",
                 "args": {"query": "str", "ticker": "str | None"},
             },
             {

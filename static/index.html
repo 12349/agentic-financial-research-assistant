@@ -77,13 +77,8 @@
     }
 
     @keyframes scroll-ticker {
-      from {
-        transform: translateX(0);
-      }
-
-      to {
-        transform: translateX(-50%);
-      }
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
     }
 
     .ticker-item {
@@ -97,23 +92,12 @@
       border-right: 1px solid var(--line);
     }
 
-    .ticker-item .tk {
-      color: var(--ink);
-      font-weight: 600;
-    }
-
-    .ticker-item .up {
-      color: var(--verified);
-    }
-
-    .ticker-item .down {
-      color: var(--bearish);
-    }
+    .ticker-item .tk  { color: var(--ink); font-weight: 600; }
+    .ticker-item .up  { color: var(--verified); }
+    .ticker-item .down{ color: var(--bearish); }
 
     @media (prefers-reduced-motion: reduce) {
-      .ticker-track {
-        animation: none;
-      }
+      .ticker-track { animation: none; }
     }
 
     /* ===== Header ===== */
@@ -153,6 +137,7 @@
       gap: 18px;
       font-size: 12px;
       padding-top: 4px;
+      flex-wrap: wrap;
     }
 
     .status-tag {
@@ -209,9 +194,7 @@
       max-width: 780px;
     }
 
-    h1 .accent {
-      color: var(--amber);
-    }
+    h1 .accent { color: var(--amber); }
 
     .sub {
       margin-top: 20px;
@@ -221,9 +204,7 @@
       line-height: 1.65;
     }
 
-    .sub .verified-word {
-      color: var(--verified);
-    }
+    .sub .verified-word { color: var(--verified); }
 
     /* ===== Query panel ===== */
     .query-panel {
@@ -267,9 +248,7 @@
       outline: none;
     }
 
-    #query-input::placeholder {
-      color: var(--ink-faint);
-    }
+    #query-input::placeholder { color: var(--ink-faint); }
 
     #run-btn {
       background: var(--amber);
@@ -281,17 +260,37 @@
       letter-spacing: 0.04em;
       padding: 0 26px;
       cursor: pointer;
-      transition: background 120ms ease;
+      transition: background 120ms ease, opacity 120ms ease;
+      min-width: 90px;
     }
 
-    #run-btn:hover {
-      background: #FFC94D;
-    }
-
+    #run-btn:hover   { background: #FFC94D; }
     #run-btn:disabled {
       background: var(--amber-dim);
       color: #3a2c00;
       cursor: default;
+    }
+
+    /* Loading pulse on button */
+    @keyframes btn-pulse {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0.5; }
+    }
+    #run-btn.loading { animation: btn-pulse 900ms ease infinite; }
+
+    /* Blinking cursor in trace */
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+    .trace-cursor {
+      display: inline-block;
+      width: 7px;
+      height: 13px;
+      background: var(--amber);
+      animation: blink 700ms step-end infinite;
+      vertical-align: middle;
+      margin-left: 4px;
     }
 
     .try-row {
@@ -303,10 +302,7 @@
       font-size: 12.5px;
     }
 
-    .try-label {
-      color: var(--ink-faint);
-      margin-right: 6px;
-    }
+    .try-label { color: var(--ink-faint); margin-right: 6px; }
 
     .try-chip {
       color: var(--ink-dim);
@@ -327,14 +323,8 @@
     }
 
     /* ===== Trace / result area ===== */
-    .result-zone {
-      margin-top: 18px;
-      display: none;
-    }
-
-    .result-zone.active {
-      display: block;
-    }
+    .result-zone        { margin-top: 18px; display: none; }
+    .result-zone.active { display: block; }
 
     .trace-panel {
       border: 1px solid var(--line);
@@ -349,30 +339,26 @@
       display: flex;
       gap: 10px;
       padding: 3px 0;
+      align-items: center;
       opacity: 0;
       animation: trace-in 220ms ease forwards;
     }
 
-    @keyframes trace-in {
-      to {
-        opacity: 1;
-      }
-    }
+    @keyframes trace-in { to { opacity: 1; } }
 
-    .trace-line .t-ok {
+    .trace-line .t-ok   { color: var(--verified); }
+    .trace-line .t-ms   { color: var(--ink-faint); min-width: 62px; display: inline-block; }
+    .trace-line .t-tool { color: var(--amber); }
+    .trace-line .t-score {
       color: var(--verified);
+      font-size: 11px;
+      border: 1px solid rgba(0,217,163,0.3);
+      padding: 1px 6px;
+      margin-left: 2px;
+      flex-shrink: 0;
     }
 
-    .trace-line .t-ms {
-      color: var(--ink-faint);
-      min-width: 62px;
-      display: inline-block;
-    }
-
-    .trace-line .t-tool {
-      color: var(--amber);
-    }
-
+    /* ===== Answer panel ===== */
     .answer-panel {
       border: 1px solid var(--line-bright);
       background: var(--panel);
@@ -382,13 +368,46 @@
     .answer-panel .meta-row {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       font-size: 11px;
       color: var(--ink-faint);
       letter-spacing: 0.05em;
       margin-bottom: 16px;
       padding-bottom: 12px;
       border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
+      gap: 8px;
     }
+
+    .meta-left { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+
+    /* Engine badge */
+    .engine-badge {
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border: 1px solid var(--verified);
+      color: var(--verified);
+    }
+    .engine-badge.tfidf {
+      border-color: var(--amber-dim);
+      color: var(--amber);
+    }
+
+    /* Copy button */
+    #copy-btn {
+      background: none;
+      border: 1px solid var(--line-bright);
+      color: var(--ink-dim);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 4px 11px;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: border-color 120ms, color 120ms;
+    }
+    #copy-btn:hover { border-color: var(--amber); color: var(--amber); }
+    #copy-btn.copied { border-color: var(--verified); color: var(--verified); }
 
     .answer-text {
       font-family: var(--font-display);
@@ -422,9 +441,7 @@
       padding: 4px 9px;
     }
 
-    .source-chip .tk {
-      color: var(--verified);
-    }
+    .source-chip .tk { color: var(--verified); }
 
     /* ===== Tool grid ===== */
     .tools-section {
@@ -458,9 +475,7 @@
       transition: background 150ms ease;
     }
 
-    .tool-cell:hover {
-      background: var(--panel);
-    }
+    .tool-cell:hover { background: var(--panel); }
 
     .tool-fn {
       color: var(--amber);
@@ -470,9 +485,7 @@
       margin-bottom: 10px;
     }
 
-    .tool-fn .paren {
-      color: var(--ink-faint);
-    }
+    .tool-fn .paren { color: var(--ink-faint); }
 
     .tool-desc {
       color: var(--ink-dim);
@@ -481,13 +494,8 @@
     }
 
     @media (max-width: 780px) {
-      .tool-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .tool-cell:nth-child(3) {
-        border-left: none;
-      }
+      .tool-grid { grid-template-columns: repeat(2, 1fr); }
+      .tool-cell:nth-child(3) { border-left: none; }
     }
 
     /* ===== Footer ===== */
@@ -507,36 +515,16 @@
       color: var(--ink-faint);
     }
 
-    footer .author {
-      color: var(--ink-dim);
-    }
-
-    footer .author span {
-      color: var(--amber);
-      font-weight: 600;
-    }
+    footer .tagline { color: var(--ink-dim); }
+    footer .stack   { color: var(--ink-faint); font-size: 11px; }
+    footer .stack span { color: var(--amber); }
 
     @media (max-width: 520px) {
-      .tool-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .tool-cell {
-        border-left: none !important;
-        border-top: 1px solid var(--line);
-      }
-
-      .tool-cell:first-child {
-        border-top: none;
-      }
-
-      .query-row {
-        flex-direction: column;
-      }
-
-      #run-btn {
-        padding: 14px;
-      }
+      .tool-grid { grid-template-columns: 1fr; }
+      .tool-cell { border-left: none !important; border-top: 1px solid var(--line); }
+      .tool-cell:first-child { border-top: none; }
+      .query-row { flex-direction: column; }
+      #run-btn { padding: 14px; }
     }
   </style>
 </head>
@@ -551,8 +539,8 @@
     <div class="brand">FinAgent<span class="dim">/ research-terminal</span></div>
     <div class="status-tags">
       <div class="status-tag" id="mode-tag"><span class="led"></span><span id="mode-text">OFFLINE MODE</span></div>
-      <div class="status-tag" id="planner-tag"><span class="led"></span><span id="planner-text">RULE-BASED
-          PLANNER</span></div>
+      <div class="status-tag" id="planner-tag"><span class="led"></span><span id="planner-text">RULE-BASED PLANNER</span></div>
+      <div class="status-tag online" id="engine-tag"><span class="led"></span><span id="engine-text">SEMANTIC ENGINE</span></div>
     </div>
   </header>
 
@@ -573,15 +561,11 @@
       </div>
       <div class="try-row">
         <span class="try-label">TRY:</span>
-        <button class="try-chip" data-q="How did Nvidia's data center business perform last quarter?">NVDA data center
-          performance</button>
-        <button class="try-chip" data-q="What's the current analyst sentiment on Tesla?">Tesla analyst
-          sentiment</button>
-        <button class="try-chip" data-q="Did JPMorgan's actual earnings beat or miss their own guidance?">JPM earnings
-          vs guidance</button>
-        <button class="try-chip" data-q="What's the outlook for Exxon given the upcoming OPEC meeting?">Exxon OPEC
-          outlook</button>
-        <button class="try-chip" data-q="What did Goldman Sachs say about Nvidia?">Goldman on Nvidia</button>
+        <button class="try-chip" data-q="How did Nvidia's data center business perform last quarter?">NVDA data center performance</button>
+        <button class="try-chip" data-q="What's the current analyst sentiment on Tesla?">Tesla analyst sentiment</button>
+        <button class="try-chip" data-q="Did JPMorgan's actual earnings beat or miss their own guidance?">JPM earnings vs guidance</button>
+        <button class="try-chip" data-q="What's the outlook for Exxon given the upcoming OPEC meeting?">Exxon OPEC outlook</button>
+        <button class="try-chip" data-q="What are Nvidia's latest analyst ratings and price targets?">NVDA analyst ratings</button>
       </div>
     </div>
 
@@ -589,8 +573,12 @@
       <div class="trace-panel" id="trace-panel"></div>
       <div class="answer-panel" id="answer-panel" style="display:none;">
         <div class="meta-row">
-          <span id="answer-mode">MODE: FALLBACK</span>
-          <span id="answer-calls">TOOL CALLS: 0</span>
+          <div class="meta-left">
+            <span id="answer-mode">MODE: FALLBACK</span>
+            <span id="answer-calls">TOOL CALLS: 0</span>
+            <span id="answer-engine-badge" class="engine-badge">SEMANTIC</span>
+          </div>
+          <button id="copy-btn">COPY ↗</button>
         </div>
         <div class="answer-text" id="answer-text"></div>
         <div class="sources-row" id="sources-row"></div>
@@ -603,7 +591,7 @@
     <div class="tool-grid">
       <div class="tool-cell">
         <span class="tool-fn">search_news<span class="paren">()</span></span>
-        <div class="tool-desc">Semantic search over financial news articles. TF-IDF offline, pluggable live API.</div>
+        <div class="tool-desc">Semantic vector search via <strong style="color:var(--ink)">all-MiniLM-L6-v2 + FAISS IndexFlatIP</strong>. Cosine similarity scoring with threshold guardrail. TF-IDF fallback if model unavailable.</div>
       </div>
       <div class="tool-cell">
         <span class="tool-fn">get_ratings<span class="paren">()</span></span>
@@ -622,97 +610,117 @@
   </section>
 
   <script>
-    // ---- Ticker tape: built from real sample headlines, duplicated for seamless scroll ----
+    // ---- Ticker tape ----
     const tickerItems = [
-      { tk: 'NVDA', dir: 'up', text: 'Data center revenue hits record $22.6B, +112% YoY' },
+      { tk: 'NVDA', dir: 'up',   text: 'Data center revenue hits record $22.6B, +112% YoY' },
       { tk: 'TSLA', dir: 'down', text: 'Deliveries miss estimates as price cuts weigh on margin' },
-      { tk: 'JPM', dir: 'up', text: 'Q3 revenue $43.3B beats est. $41.8B — NII ahead of guidance' },
-      { tk: 'XOM', dir: 'down', text: 'Warns OPEC+ meeting outcome could pressure crude prices' },
-      { tk: 'AMZN', dir: 'up', text: 'AWS growth reaccelerates on AI workload demand' },
+      { tk: 'JPM',  dir: 'up',   text: 'Q3 revenue $43.3B beats est. $41.8B — NII ahead of guidance' },
+      { tk: 'XOM',  dir: 'down', text: 'Warns OPEC+ meeting outcome could pressure crude prices' },
+      { tk: 'AMZN', dir: 'up',   text: 'AWS growth reaccelerates on AI workload demand' },
     ];
     const track = document.getElementById('ticker-track');
-    function renderTicker() {
+    (function renderTicker() {
       const html = tickerItems.map(i =>
         `<span class="ticker-item"><span class="tk">${i.tk}</span><span class="${i.dir}">${i.dir === 'up' ? '▲' : '▼'}</span>${i.text}</span>`
       ).join('');
-      track.innerHTML = html + html; // duplicate for seamless loop
-    }
-    renderTicker();
+      track.innerHTML = html + html;
+    })();
 
-    // ---- Escape helper (never trust server text in innerHTML) ----
+    // ---- XSS-safe escape helper ----
     function escHtml(str) {
-      const div = document.createElement('div');
-      div.textContent = str == null ? '' : String(str);
-      return div.innerHTML;
+      const d = document.createElement('div');
+      d.textContent = str == null ? '' : String(str);
+      return d.innerHTML;
     }
 
-    // ---- Health check → set header status tags ----
+    // ---- Health check → header status badges ----
     async function checkHealth() {
       try {
-        const res = await fetch('/health');
+        const res  = await fetch('/health');
         const data = await res.json();
-        const modeTag = document.getElementById('mode-tag');
-        const modeText = document.getElementById('mode-text');
-        const plannerTag = document.getElementById('planner-tag');
-        const plannerText = document.getElementById('planner-text');
 
-        const online = !!(data.financial_data_api || data.benzinga_api);
-        modeText.textContent = online ? 'ONLINE MODE' : 'OFFLINE MODE';
-        modeTag.classList.toggle('online', online);
+        // Data mode badge
+        const online = !!(data.financial_data_api);
+        document.getElementById('mode-text').textContent = online ? 'ONLINE MODE' : 'OFFLINE MODE';
+        document.getElementById('mode-tag').classList.toggle('online', online);
 
-        const llmOn = !!data.anthropic_api || (data.llm && data.llm !== 'rule-based-fallback');
-        plannerText.textContent = llmOn ? 'LLM PLANNER' : 'RULE-BASED PLANNER';
-        plannerTag.classList.toggle('online', llmOn);
-      } catch (e) {
-        // Health endpoint unreachable — leave default offline/rule-based labels, fail quiet
-      }
+        // Planner badge
+        const llmOn = data.planner && data.planner !== 'rule-based';
+        document.getElementById('planner-text').textContent = llmOn
+          ? (data.planner === 'llm-groq' ? 'GROQ PLANNER' : 'LLM PLANNER')
+          : 'RULE-BASED PLANNER';
+        document.getElementById('planner-tag').classList.toggle('online', llmOn);
+
+        // Search engine badge
+        const semantic = data.search_engine === 'semantic';
+        document.getElementById('engine-text').textContent = semantic ? 'SEMANTIC ENGINE' : 'TFIDF FALLBACK';
+        document.getElementById('engine-tag').classList.toggle('online', semantic);
+      } catch (e) { /* fail quiet */ }
     }
     checkHealth();
 
-    // ---- Query flow ----
-    const input = document.getElementById('query-input');
-    const runBtn = document.getElementById('run-btn');
-    const resultZone = document.getElementById('result-zone');
-    const tracePanel = document.getElementById('trace-panel');
-    const answerPanel = document.getElementById('answer-panel');
-    const answerText = document.getElementById('answer-text');
-    const answerMode = document.getElementById('answer-mode');
-    const answerCalls = document.getElementById('answer-calls');
-    const sourcesRow = document.getElementById('sources-row');
+    // ---- DOM refs ----
+    const input        = document.getElementById('query-input');
+    const runBtn       = document.getElementById('run-btn');
+    const resultZone   = document.getElementById('result-zone');
+    const tracePanel   = document.getElementById('trace-panel');
+    const answerPanel  = document.getElementById('answer-panel');
+    const answerText   = document.getElementById('answer-text');
+    const answerMode   = document.getElementById('answer-mode');
+    const answerCalls  = document.getElementById('answer-calls');
+    const answerEngine = document.getElementById('answer-engine-badge');
+    const sourcesRow   = document.getElementById('sources-row');
     const latencyLabel = document.getElementById('latency-label');
+    const copyBtn      = document.getElementById('copy-btn');
 
+    // ---- Try-chips ----
     document.querySelectorAll('.try-chip').forEach(btn => {
-      btn.addEventListener('click', () => {
-        input.value = btn.dataset.q;
-        runQuery();
-      });
+      btn.addEventListener('click', () => { input.value = btn.dataset.q; runQuery(); });
     });
     input.addEventListener('keydown', e => { if (e.key === 'Enter') runQuery(); });
     runBtn.addEventListener('click', runQuery);
 
-    function addTraceLine(text, delay) {
-      return new Promise(resolve => {
-        setTimeout(() => {
-          const line = document.createElement('div');
-          line.className = 'trace-line';
-          line.innerHTML = text;
-          tracePanel.appendChild(line);
-          resolve();
-        }, delay);
+    // ---- Copy button ----
+    copyBtn.addEventListener('click', () => {
+      const text = answerText.innerText || '';
+      navigator.clipboard.writeText(text).then(() => {
+        copyBtn.textContent = 'COPIED ✓';
+        copyBtn.classList.add('copied');
+        setTimeout(() => { copyBtn.textContent = 'COPY ↗'; copyBtn.classList.remove('copied'); }, 2000);
       });
+    });
+
+    // ---- Trace line helper ----
+    function addTraceLine(html, delay) {
+      return new Promise(resolve => setTimeout(() => {
+        const line = document.createElement('div');
+        line.className = 'trace-line';
+        line.innerHTML = html;
+        tracePanel.appendChild(line);
+        resolve();
+      }, delay));
     }
 
+    // ---- Main query handler ----
     async function runQuery() {
       const q = input.value.trim();
       if (!q) return;
 
+      // Loading state
       runBtn.disabled = true;
+      runBtn.textContent = 'RUNNING';
+      runBtn.classList.add('loading');
       resultZone.classList.add('active');
       tracePanel.innerHTML = '';
       answerPanel.style.display = 'none';
       latencyLabel.textContent = '';
 
-      await addTraceLine(`<span class="t-ms">[0.0ms]</span> <span class="t-ok">✓</span> planner routing query…`, 80);
+      // Blinking cursor while waiting
+      const cursorEl = document.createElement('div');
+      cursorEl.className = 'trace-line';
+      cursorEl.style.opacity = '1';
+      cursorEl.innerHTML = `<span class="t-ms">[ ... ]</span> <span class="trace-cursor"></span>`;
+      tracePanel.appendChild(cursorEl);
 
       let data;
       const t0 = performance.now();
@@ -724,48 +732,89 @@
         });
         data = await res.json();
       } catch (e) {
-        await addTraceLine(`<span class="t-ok" style="color:var(--bearish)">✗</span> request failed — is the server running on this origin?`, 120);
+        cursorEl.remove();
+        addTraceLine(`<span class="t-ok" style="color:var(--bearish)">✗</span> request failed — is the server running?`, 0);
         runBtn.disabled = false;
+        runBtn.textContent = 'RUN →';
+        runBtn.classList.remove('loading');
         return;
       }
       const elapsed = (performance.now() - t0).toFixed(0);
 
+      // Remove blinking cursor, render real trace
+      cursorEl.remove();
+
       const toolSteps = (data.trace || []).filter(t => t.tool && !t.tool.startsWith('__'));
+      let delay = 60;
       for (const step of toolSteps) {
-        const ms = (step.latency_ms !== undefined ? step.latency_ms : 0).toFixed ? step.latency_ms.toFixed(1) : step.latency_ms;
+        const ms = step.latency_ms != null ? Number(step.latency_ms).toFixed(1) : '0.0';
+
+        // For search_news: show top similarity score if available
+        let scoreHtml = '';
+        if (step.tool === 'search_news') {
+          const results = step.output && step.output.results;
+          const engine  = step.output && step.output.engine;
+          if (results && results.length > 0 && results[0].score != null) {
+            const score = Number(results[0].score).toFixed(4);
+            scoreHtml = `<span class="t-score">sim=${score}</span>`;
+          }
+          if (engine) {
+            scoreHtml += ` <span style="color:var(--ink-faint);font-size:11px;">[${escHtml(engine)}]</span>`;
+          }
+        }
+
         await addTraceLine(
-          `<span class="t-ms">[${ms}ms]</span> <span class="t-ok">✓</span> <span class="t-tool">${escHtml(step.tool)}</span>() executed`,
-          140
+          `<span class="t-ms">[${ms}ms]</span> <span class="t-ok">✓</span> <span class="t-tool">${escHtml(step.tool)}</span>()${scoreHtml}`,
+          delay
         );
+        delay += 100;
       }
-      await addTraceLine(`<span class="t-ms">[${elapsed}ms]</span> <span class="t-ok">✓</span> grounded — ${((data.sources || []).length)} source(s) cited`, 160);
+      await addTraceLine(
+        `<span class="t-ms">[${elapsed}ms]</span> <span class="t-ok">✓</span> grounded — ${(data.sources||[]).length} source(s) cited`,
+        delay
+      );
 
       latencyLabel.textContent = `${elapsed}ms · ${escHtml(data.mode || 'fallback')}`;
 
-      // Render answer with citations highlighted
-      let answerHtml = escHtml(data.answer || 'No answer returned.');
-      answerHtml = answerHtml.replace(/\[Source: ([^\]]+)\]/g, '<span class="cite">[$1]</span>');
-      answerText.innerHTML = answerHtml.replace(/\n/g, '<br>');
+      // Render cited answer
+      let ansHtml = escHtml(data.answer || 'No answer returned.');
+      ansHtml = ansHtml.replace(/\[Source: ([^\]]+)\]/g, '<span class="cite">[$1]</span>');
+      answerText.innerHTML = ansHtml.replace(/\n/g, '<br>');
 
-      answerMode.textContent = `MODE: ${(data.mode || 'fallback').toUpperCase()}`;
+      answerMode.textContent  = `MODE: ${(data.mode || 'fallback').toUpperCase()}`;
       answerCalls.textContent = `TOOL CALLS: ${toolSteps.length}`;
 
+      // Engine badge in answer panel
+      const engineUsed = toolSteps
+        .filter(s => s.tool === 'search_news' && s.output && s.output.engine)
+        .map(s => s.output.engine)[0] || null;
+      if (engineUsed) {
+        answerEngine.textContent = engineUsed.toUpperCase();
+        answerEngine.className = 'engine-badge' + (engineUsed === 'semantic' ? '' : ' tfidf');
+        answerEngine.style.display = '';
+      } else {
+        answerEngine.style.display = 'none';
+      }
+
+      // Source chips
       sourcesRow.innerHTML = '';
       (data.sources || []).forEach(s => {
         const chip = document.createElement('span');
         chip.className = 'source-chip';
-        chip.innerHTML = `<span class="tk">${escHtml(s.ticker || '')}</span> · ${escHtml(s.channel || '')} · ${escHtml(s.record_id || '')}`;
+        chip.innerHTML = `<span class="tk">${escHtml(s.ticker||'')}</span> · ${escHtml(s.channel||'')} · ${escHtml(s.record_id||'')}`;
         sourcesRow.appendChild(chip);
       });
 
       answerPanel.style.display = 'block';
       runBtn.disabled = false;
+      runBtn.textContent = 'RUN →';
+      runBtn.classList.remove('loading');
     }
   </script>
 
   <footer>
-    <span class="author">Built by <span>Mahaboob Johny Shaik</span></span>
-    <span>FinAgent &mdash; Research Terminal</span>
+    <span class="tagline">FinAgent &mdash; Agentic Financial Research Terminal</span>
+    <span class="stack">Semantic retrieval · <span>all-MiniLM-L6-v2</span> + <span>FAISS</span> · Multi-agent orchestration</span>
   </footer>
 
 </body>

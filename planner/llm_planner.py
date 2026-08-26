@@ -33,7 +33,7 @@ _TOOL_DESCRIPTIONS = """
 You have access to 4 tools for financial research:
 
 1. search_news(query: str, ticker: str | None)
-   - Searches financial news articles using TF-IDF similarity
+   - Searches financial news articles using semantic vector embeddings (all-MiniLM-L6-v2 + FAISS)
    - Use for: recent news, performance narratives, macro events, outlook
    - Example: search_news("NVDA data center performance", ticker="NVDA")
 

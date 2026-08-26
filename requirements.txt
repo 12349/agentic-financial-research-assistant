@@ -12,7 +12,6 @@ anthropic>=0.30.0
 # Set FINANCIAL_DATA_API_KEY to activate
 requests>=2.31.0
 
-# Note: offline mode (zero env vars) has NO external dependencies.
-# The core agent logic uses only Python standard library.
-torch
-transformers
+# Semantic Search (embeddings + in-memory vector index)
+sentence-transformers>=3.0.0
+faiss-cpu>=1.8.0
