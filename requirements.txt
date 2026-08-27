@@ -1,17 +1,27 @@
 # Core (required for Flask API server)
 flask>=3.0.0
 
-# Optional: LLM planner + synthesis
-# Groq (free tier, no card required) — set LLM_PROVIDER=groq and GROQ_API_KEY
-# Anthropic Claude (paid)            — set LLM_PROVIDER=anthropic and ANTHROPIC_API_KEY
-# The openai package is used as the Groq client (OpenAI-compatible endpoint)
+# LLM planner + synthesis
+# Installed by default. Only activated at runtime if the matching API key
+# (GROQ_API_KEY / ANTHROPIC_API_KEY) is set — otherwise the rule-based planner is used.
+# The openai package is used as the Groq client (OpenAI-compatible endpoint).
 openai>=1.0.0
 anthropic>=0.30.0
 
-# Optional: live financial data API
-# Set FINANCIAL_DATA_API_KEY to activate
+# Live financial data API (optional at runtime)
+# Set FINANCIAL_DATA_API_KEY to activate; safe to install even in offline mode.
 requests>=2.31.0
 
-# Semantic Search (embeddings + in-memory vector index)
+# Semantic search (embeddings + in-memory vector index)
+# Required for the default search_news() offline path.
 sentence-transformers>=3.0.0
 faiss-cpu>=1.8.0
+
+# Optional — ML sentiment scoring (classifier/predict.py)
+# Not required for the core demo. Without these packages installed AND model weights
+# present (run classifier/train.py to generate), get_ratings.py automatically falls
+# back to keyword-based sentiment scoring — same output schema, no code change needed.
+# torch>=2.0.0
+# transformers>=4.40.0
+# datasets>=2.18.0
+# scikit-learn>=1.4.0

@@ -20,6 +20,11 @@ import re
 from pathlib import Path
 from typing import Optional, Tuple
 
+# Suppress the HuggingFace Hub "unauthenticated requests" warning that appears on
+# terminals without HF_TOKEN set. This is output suppression only — model loading
+# behaviour is unchanged. Set the env var before any huggingface_hub imports fire.
+os.environ.setdefault("HF_HUB_DISABLE_IMPLICIT_TOKEN", "1")
+
 # ---------------------------------------------------------------------------
 # Path to fixture file (relative to project root)
 # ---------------------------------------------------------------------------
@@ -74,6 +79,10 @@ class _SemanticNewsIndex:
         try:
             import numpy as np
             import faiss
+            # Suppress the HuggingFace Hub "unauthenticated requests" warning that
+            # appears on terminals without HF_TOKEN set. Model loading is unchanged.
+            import logging as _logging
+            _logging.getLogger("huggingface_hub").setLevel(_logging.ERROR)
             from sentence_transformers import SentenceTransformer
 
             articles = _load_fixtures()

@@ -164,5 +164,8 @@ if __name__ == "__main__":
     debug = os.environ.get("FLASK_DEBUG", "0") == "1"
     print(f"Starting Financial Research Agent on port {port}")
     print(f"  FINANCIAL_DATA_API_KEY: {'set' if os.environ.get('FINANCIAL_DATA_API_KEY') else 'NOT SET (offline mode)'}")
-    print(f"  ANTHROPIC_API_KEY: {'set' if os.environ.get('ANTHROPIC_API_KEY') else 'NOT SET (rule-based fallback)'}")
+    print(f"  GROQ_API_KEY:           {'set' if os.environ.get('GROQ_API_KEY') else 'NOT SET'}")
+    print(f"  ANTHROPIC_API_KEY:      {'set' if os.environ.get('ANTHROPIC_API_KEY') else 'NOT SET'}")
+    if not os.environ.get("GROQ_API_KEY") and not os.environ.get("ANTHROPIC_API_KEY"):
+        print("  → No LLM key detected — using rule-based planner (fallback mode)")
     app.run(host="0.0.0.0", port=port, debug=debug)

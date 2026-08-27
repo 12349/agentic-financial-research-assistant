@@ -18,6 +18,8 @@ logs/
 # Environment / secrets
 .env
 .env.local
+.env.production
+.env.render
 *.env
 
 # macOS

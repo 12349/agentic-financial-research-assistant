@@ -84,7 +84,7 @@ Each tool is a thin wrapper: live REST API call when credentials are present, bu
 git clone https://github.com/your-username/agentic-financial-research-assistant
 cd agentic-financial-research-assistant
 
-pip install -r requirements.txt    # Flask + sentence-transformers + faiss-cpu
+pip install -r requirements.txt    # Flask, sentence-transformers, faiss-cpu, openai, anthropic, requests
 
 # Verify everything works — zero env vars required
 python run_tests.py                # → 5/5 PASSED
@@ -94,6 +94,16 @@ python app.py                      # → http://localhost:5000
 ```
 
 No API keys, no database, no config. Open `http://localhost:5000` and start asking questions.
+
+> **HuggingFace Hub warning:** Without `HF_TOKEN` set, the terminal will print:
+> `"Warning: You are sending unauthenticated requests to the HF Hub."`
+> This is cosmetic — no functionality is affected. To suppress it for demos:
+> ```bash
+> export HF_HUB_DISABLE_IMPLICIT_TOKEN=1   # Linux/macOS
+> # or
+> $env:HF_HUB_DISABLE_IMPLICIT_TOKEN="1"  # PowerShell
+> ```
+
 
 ---
 
@@ -151,6 +161,14 @@ python app.py
   "tool_calls_made": 2
 }
 ```
+
+The `mode` field has three possible values:
+
+| Value | Meaning |
+|-------|---------|
+| `"fallback"` | Rule-based planner + deterministic synthesizer (no LLM key set) |
+| `"llm-groq"` or `"llm-anthropic"` | LLM planned and synthesized the response |
+| `"hybrid"` | One layer used the LLM, the other fell back — e.g. LLM planned but synthesis used the deterministic formatter due to an LLM error, or vice versa |
 
 ### `GET /health`
 
@@ -228,21 +246,26 @@ Results: [`eval/llm_vs_rule_results.json`](eval/llm_vs_rule_results.json)
 
 ## Sentiment Classifier
 
-`get_ratings` uses a two-layer approach:
+`get_ratings` uses a two-layer sentiment approach:
 
-1. **DistilBERT** — fine-tuned on 9,568 financial headlines. Returns `ml_sentiment` + `ml_confidence` per analyst note.
-2. **Keyword bucket** — Buy/Sell/Hold → bullish/neutral/bearish. Always available, zero dependencies.
+1. **DistilBERT** (`classifier/predict.py`) — fine-tuned on 9,568 financial headlines (Twitter Financial News Sentiment + 25 hand-labelled fixture notes). Returns `ml_sentiment` + `ml_confidence` per analyst note when weights are present.
+2. **Keyword bucket** — maps rating action (Buy/Sell/Hold → bullish/neutral/bearish). Always available, zero dependencies, identical output schema.
 
-DistilBERT takes precedence when weights are present; falls back automatically otherwise.
+**Honest state of this feature:**
+- The classifier code is fully implemented and trained.
+- Model weights are **not committed** (large binary; excluded via `.gitignore`).
+- `torch`, `transformers`, `datasets`, and `scikit-learn` are **not in `requirements.txt`** — they are optional.
+- Without weights present, `get_ratings.py`'s `_ml_score_notes()` silently no-ops and the keyword bucket is used instead. This is intentional, not a bug — the output schema is identical either way.
+
+To activate ML scoring:
 
 ```bash
 pip install torch transformers datasets scikit-learn
-python classifier/train.py     # ~3–5 min on CPU
-python classifier/evaluate.py  # precision / recall / F1
+python classifier/train.py     # fine-tune DistilBERT, ~3–5 min on CPU
+python classifier/evaluate.py  # precision / recall / F1 on held-out set
 ```
 
-> Weights are gitignored (large binary). Run `train.py` to regenerate locally.  
-> Real metrics: [`classifier/training_results.md`](classifier/training_results.md)
+> Real training metrics (precision, recall, F1 by class) are committed: [`classifier/training_results.md`](classifier/training_results.md)
 
 ---
 
@@ -310,7 +333,7 @@ Multi-stage build, HEALTHCHECK for ECS/K8s auto-recovery. Full build log: [`depl
 
 **Bounded tool-calling.** Hard cap of 4 tool calls per query. Ungoverned agent loops are a production risk. Cap configurable via `MAX_TOOL_CALLS` in `orchestrator.py`.
 
-**Degrades, never crashes.** Tool failures produce partial answers. `/query` never returns an unstructured 500.
+**Degrades, never crashes.** Individual tool failures are caught per-call inside the orchestrator and return partial answers with HTTP 200 — a single failed data source never sinks the whole response. Only an unhandled exception reaching Flask itself returns HTTP 500, and even then the body is always structured JSON (`query`, `answer`, `sources`, `trace`, `mode: "error"`) — never a raw traceback or Flask's default HTML error page.
 
 **Pluggable providers.** Every endpoint is an env var. No vendor name is hardcoded in application logic.
 
@@ -324,15 +347,14 @@ Multi-stage build, HEALTHCHECK for ECS/K8s auto-recovery. Full build log: [`depl
 
 ---
 
-## Built by
+## Go Ingestor (standalone stub)
 
-**Mahaboob Johny Shaik** &nbsp;·&nbsp; [Live demo](https://agentic-financial-research-assistant.onrender.com/)
+`go-ingestor/` demonstrates a streaming ingestion pattern — polling a news API (or reading a local fixture) and normalizing articles into a `NewsDoc` struct. **It is NOT currently wired to this Flask app**: there is no `/ingest` endpoint to receive its output. It exists to show the ingestion design, not as a working end-to-end pipeline in this build.
 
+See [`go-ingestor/README.md`](go-ingestor/README.md) for full usage details and the engineering rationale for why it is not wired up yet.
 
 ---
 
+## Built by
 
-## 🎬 Demo Video
-
-<div align="center">
-  <a href="https://www.loom.com/share/80d64063e2b645db856e6a32f6fe836f" target="_blank">
+**Mahaboob Johny Shaik** &nbsp;·&nbsp; [Live demo](https://agentic-financial-research-assistant.onrender.com/)

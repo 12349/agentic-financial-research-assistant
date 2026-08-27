@@ -6,9 +6,12 @@ LLM-based planner — provider-agnostic.
 Provider selection via LLM_PROVIDER env var:
   - "groq"       → Groq free-tier API (OpenAI-compatible), model llama-3.3-70b-versatile
                     Requires: GROQ_API_KEY
-  - "anthropic"  → Anthropic Claude, model claude-3-haiku-20240307
+  - "anthropic"  → Anthropic Claude haiku (claude-3-haiku-20240307)
                     Requires: ANTHROPIC_API_KEY
   - "none" / unset → rule-based fallback (zero dependencies, always works)
+
+Auto-detection: if LLM_PROVIDER is not set, Groq is tried first (GROQ_API_KEY),
+then Anthropic (ANTHROPIC_API_KEY), then rule-based fallback.
 
 Falls back to rule_based.plan() on any provider failure or missing key.
 
@@ -25,8 +28,11 @@ Available tools:
 import os
 import json
 import re
+import logging
 from typing import Optional
 from .rule_based import plan as fallback_plan
+
+_log = logging.getLogger(__name__)
 
 # Tool definitions for the prompt
 _TOOL_DESCRIPTIONS = """
@@ -157,6 +163,8 @@ def _plan_via_anthropic(query: str) -> Optional[list[dict]]:
         import anthropic  # noqa: PLC0415
         client = anthropic.Anthropic(api_key=api_key)
         response = client.messages.create(
+            # Haiku: fast/cheap, sufficient for structured tool-routing and templated
+            # grounding — not a reasoning bottleneck for this task.
             model="claude-3-haiku-20240307",
             max_tokens=512,
             system=_SYSTEM_PROMPT,
@@ -183,6 +191,7 @@ def plan(query: str) -> tuple[list[dict], str]:
         where mode is "llm-groq", "llm-anthropic", or "fallback"
     """
     provider = os.environ.get("LLM_PROVIDER", "").lower()
+    provider_explicitly_set = bool(os.environ.get("LLM_PROVIDER"))
 
     # Auto-detect if LLM_PROVIDER not set but a key is present
     if not provider:
@@ -194,9 +203,21 @@ def plan(query: str) -> tuple[list[dict], str]:
     parsed = None
 
     if provider == "groq":
+        if provider_explicitly_set and not os.environ.get("GROQ_API_KEY"):
+            _log.warning(
+                "LLM_PROVIDER=groq set but GROQ_API_KEY is missing "
+                "— falling back to rule-based planner."
+            )
+            return fallback_plan(query), "fallback"
         parsed = _plan_via_groq(query)
         mode_label = "llm-groq"
     elif provider == "anthropic":
+        if provider_explicitly_set and not os.environ.get("ANTHROPIC_API_KEY"):
+            _log.warning(
+                "LLM_PROVIDER=anthropic set but ANTHROPIC_API_KEY is missing "
+                "— falling back to rule-based planner."
+            )
+            return fallback_plan(query), "fallback"
         parsed = _plan_via_anthropic(query)
         mode_label = "llm-anthropic"
     else:
