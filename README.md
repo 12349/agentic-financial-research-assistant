@@ -120,7 +120,18 @@ export ANTHROPIC_API_KEY=sk-ant-...
 python app.py                      # header badge: ANTHROPIC PLANNER
 ```
 
-Both keys are optional and independent. Without either, the rule-based fallback planner is used — all 5 acceptance tests pass with zero env vars.
+`LLM_PROVIDER` is **auto-detected** from whichever key is present. Everything else — tools, grounding, tracing — is unchanged.
+
+---
+
+## The 4 Tools
+
+| Tool | Offline | Online | Purpose |
+|------|---------|--------|---------|
+| `search_news(query, ticker)` | all-MiniLM-L6-v2 + FAISS over fixtures | REST news API | News, narratives, macro events |
+| `get_ratings(ticker)` | Fixture data + keyword sentiment | REST ratings API | Analyst consensus, price targets |
+| `get_guidance(ticker)` | `guidance_fixtures.json` | REST guidance API | Company revenue/EPS forecasts |
+| `get_earnings(ticker)` | `earnings_fixtures.json` | REST earnings API | Actual vs. estimated, beat/miss |
 
 ---
 
@@ -224,7 +235,7 @@ A systematic evaluation set built to conference-paper rigor standards:
 # Regenerate (deterministic — same output every run)
 PYTHONPATH=. python3 eval/generate_eval_set.py
 
-# Run the independent IRR second pass
+# Run the self-consistency re-annotation pass
 PYTHONPATH=. python3 eval/irr_second_pass.py
 ```
 
@@ -246,20 +257,25 @@ PYTHONPATH=. python3 eval/irr_second_pass.py
 
 All gold labels are grounded exclusively in `data/*.json` fixture records.
 
-### Inter-Rater Reliability (IRR)
+### Label Self-Consistency Check
 
-A 15% random sample (n=34, `random.Random(999)`) was labeled by a second independent rater:
+A 15% random sample (n=34, `random.Random(999)`) was re-annotated by the same author
+applying a different analytical framework (information-needs analysis vs. semantic-intent).
+This measures **labeling self-consistency**, not independent inter-rater reliability.
+Bootstrap 95% CIs (B=10,000) are reported; wide CIs reflect small n near ceiling.
 
-| Metric | Value |
-|--------|-------|
-| Tool-set exact-match % | **97.1%** |
-| Tool-set Cohen's κ | **0.9671** |
-| Category exact-match % | **94.1%** |
-| Category Cohen's κ | **0.9183** |
-| Avg fact-overlap (Jaccard) | **0.976** |
+| Metric | Value | 95% CI (bootstrap) |
+|--------|-------|--------------------|
+| Tool-set exact-match % | **97.1%** | — |
+| Tool-set Cohen's κ | **0.9671** | [0.90, 1.00] |
+| Category exact-match % | **94.1%** | — |
+| Category Cohen's κ | **0.9183** | [0.80, 1.00] |
+| Avg fact-overlap (Jaccard) | **0.976** | — |
 
-All metrics are in the *almost perfect* agreement range (κ > 0.80).
-Full analysis: [`eval/gold_label_agreement.md`](eval/gold_label_agreement.md)
+> **Limitation**: both annotation passes were performed by the same author.
+> These numbers measure within-author consistency, not independent agreement.
+> A genuinely independent rater (different person or different model family)
+> is needed before claiming IRR for publication. See `eval/gold_label_agreement.md`.
 
 ---
 

@@ -47,3 +47,6 @@ classifier/model/
 
 # Embedded / cloned repos (not part of this project)
 agentic-financial-research-assistant/
+
+# Unrelated local directories
+WEDDING PROJECT/
