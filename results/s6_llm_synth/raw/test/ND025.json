@@ -1,0 +1,38 @@
+{
+  "id": "ND025",
+  "query_id": "ND025",
+  "query": "What is the options flow on NVDA calls expiring next Friday?",
+  "category": "no_data",
+  "gold_tools": [],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "What is the options flow on NVDA calls expiring next Friday?",
+        "ticker": "NVDA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "What is the options flow on NVDA calls expiring next Friday?",
+      "ticker": "NVDA",
+      "latency_ms": 41.8
+    }
+  ],
+  "answer": "Based on the available data, there is no information regarding the options flow for NVDA call options expiring next Friday.\n\nSources used:\n- [Source: search_news_0]",
+  "sources": [],
+  "llm_elapsed_ms": 2248,
+  "llm_prompt_tokens": 251,
+  "llm_gen_tokens": 37,
+  "llm_tok_per_sec": 23.0,
+  "latency_ms": 2291.05,
+  "tool_exec_ms": 41.8
+}

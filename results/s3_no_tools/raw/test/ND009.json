@@ -1,0 +1,18 @@
+{
+  "id": "ND009",
+  "query_id": "ND009",
+  "query": "What dividend does Exxon Mobil pay?",
+  "category": "no_data",
+  "gold_tools": [],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "I don't have specific and up-to-date information on Exxon Mobil's current dividend payment in my memory. For the most accurate and recent details, I recommend checking Exxon Mobil's official financial reports or their investor relations website.",
+  "llm_elapsed_ms": 2193,
+  "llm_prompt_tokens": 74,
+  "llm_gen_tokens": 45,
+  "tool_outputs": [],
+  "answer": "I don't have specific and up-to-date information on Exxon Mobil's current dividend payment in my memory. For the most accurate and recent details, I recommend checking Exxon Mobil's official financial reports or their investor relations website.",
+  "sources": [],
+  "latency_ms": 2193.79,
+  "tool_exec_ms": 0.0
+}

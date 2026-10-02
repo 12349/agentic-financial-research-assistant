@@ -1,0 +1,20 @@
+{
+  "id": "N002",
+  "query_id": "N002",
+  "query": "Any recent news about Tesla deliveries?",
+  "category": "single_tool",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "I don't have real-time access to current news or data. However, as of my last update in October 2023, Tesla regularly releases information on their production and delivery numbers through quarterly earnings reports and press releases. For the most recent updates, you might want to check Tesla's official announcements or financial filings.",
+  "llm_elapsed_ms": 3115,
+  "llm_prompt_tokens": 74,
+  "llm_gen_tokens": 66,
+  "tool_outputs": [],
+  "answer": "I don't have real-time access to current news or data. However, as of my last update in October 2023, Tesla regularly releases information on their production and delivery numbers through quarterly earnings reports and press releases. For the most recent updates, you might want to check Tesla's official announcements or financial filings.",
+  "sources": [],
+  "latency_ms": 3115.99,
+  "tool_exec_ms": 0.0
+}

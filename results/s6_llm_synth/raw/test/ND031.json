@@ -1,0 +1,40 @@
+{
+  "id": "ND031",
+  "query_id": "ND031",
+  "query": "What's the news on Coinbase's regulatory battles?",
+  "category": "no_data",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "What's the news on Coinbase's regulatory battles?",
+        "ticker": null
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "What's the news on Coinbase's regulatory battles?",
+      "ticker": null,
+      "latency_ms": 45.6
+    }
+  ],
+  "answer": "Based on the available data, there is no recent specific news reported regarding Coinbase's ongoing regulatory battles.\n\nSources used:\n- [Source: search_news_01]",
+  "sources": [],
+  "llm_elapsed_ms": 1973,
+  "llm_prompt_tokens": 241,
+  "llm_gen_tokens": 34,
+  "llm_tok_per_sec": 23.1,
+  "latency_ms": 2019.43,
+  "tool_exec_ms": 45.62
+}

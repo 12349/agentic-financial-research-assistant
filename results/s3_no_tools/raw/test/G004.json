@@ -1,0 +1,20 @@
+{
+  "id": "G004",
+  "query_id": "G004",
+  "query": "How much is Exxon planning to spend on capital expenditures in FY2024?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_guidance"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "ExxonMobil has not publicly disclosed a specific amount for capital expenditures (CAPEX) for fiscal year 2024 as of my last update. CAPEX plans can vary based on market conditions and strategic decisions, so it's best to check the company\u2019s latest press releases or financial filings for the most current information.",
+  "llm_elapsed_ms": 3183,
+  "llm_prompt_tokens": 84,
+  "llm_gen_tokens": 68,
+  "tool_outputs": [],
+  "answer": "ExxonMobil has not publicly disclosed a specific amount for capital expenditures (CAPEX) for fiscal year 2024 as of my last update. CAPEX plans can vary based on market conditions and strategic decisions, so it's best to check the company\u2019s latest press releases or financial filings for the most current information.",
+  "sources": [],
+  "latency_ms": 3184.06,
+  "tool_exec_ms": 0.0
+}

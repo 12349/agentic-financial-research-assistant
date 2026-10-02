@@ -1,0 +1,25 @@
+{
+  "id": "A021",
+  "query_id": "A021",
+  "query": "Research Nvidia for me.",
+  "category": "ambiguous",
+  "gold_tools": [
+    "get_earnings",
+    "get_ratings",
+    "search_news",
+    "get_guidance"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "[\"search_news\", {\"query\": \"Nvidia\", \"ticker\": \"NVDA\"}]",
+  "llm_elapsed_ms": 1089,
+  "llm_prompt_tokens": 446,
+  "llm_gen_tokens": 20,
+  "llm_tok_per_sec": 23.7,
+  "parsed_ok": true,
+  "tool_outputs": [],
+  "answer": "No data was found to answer this query.",
+  "sources": [],
+  "latency_ms": 1089.6,
+  "tool_exec_ms": 0.0
+}

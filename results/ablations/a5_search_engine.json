@@ -1,0 +1,8 @@
+{
+  "ablation": "A5_search_engine",
+  "split": "dev",
+  "n_news_queries": 17,
+  "mean_top1_semantic_score": 0.5594,
+  "mean_top1_tfidf_score": 0.5594,
+  "top1_article_agreement_rate": 0.9412
+}

@@ -1,0 +1,22 @@
+{
+  "id": "G009",
+  "query_id": "G009",
+  "query": "I'd like to understand Exxon's capex commitment range for the current fiscal year.",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_guidance"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "[]",
+  "llm_elapsed_ms": 405,
+  "llm_prompt_tokens": 458,
+  "llm_gen_tokens": 2,
+  "llm_tok_per_sec": 44.1,
+  "parsed_ok": true,
+  "tool_outputs": [],
+  "answer": "No data was found to answer this query.",
+  "sources": [],
+  "latency_ms": 405.79,
+  "tool_exec_ms": 0.0
+}

@@ -1,0 +1,50 @@
+{"id": "ext_001", "query": "What are the current analyst ratings for NVDA?", "gold_tools": ["get_ratings"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_002", "query": "How has Tesla's stock price changed over the past quarter according to news articles?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_003", "query": "What is JPMorgan's projected earnings growth rate for this year?", "gold_tools": ["get_earnings", "get_guidance"], "category": "dual_tool", "generator": "llama3.1:8b"}
+{"id": "ext_004", "query": "Has ExxonMobil provided any updates on its dividend policy in recent news articles?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_005", "query": "What is the average rating given by analysts to NVDA's stock?", "gold_tools": ["get_ratings"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_006", "query": "How does Tesla's current stock price compare to its guidance from last quarter?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_007", "query": "Can we find any information about JPMorgan's plans for expansion into new markets?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_008", "query": "Are there any analyst ratings that suggest a buy or sell signal for TSLA?", "gold_tools": ["get_ratings"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_009", "query": "What is the projected earnings per share (EPS) for NVDA in the current fiscal year?", "gold_tools": ["get_guidance", "get_earnings"], "category": "dual_tool", "generator": "llama3.1:8b"}
+{"id": "ext_010", "query": "Has ExxonMobil made any significant changes to its business strategy recently?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_011", "query": "How does JPMorgan's current stock price compare to its guidance from last quarter?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_012", "query": "Can we find any news articles that discuss Tesla's plans for autonomous driving technology?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_013", "query": "What is the average target price given by analysts to NVDA's stock?", "gold_tools": ["get_ratings"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_014", "query": "Are there any analyst ratings that suggest a hold or neutral signal for XOM?", "gold_tools": ["get_ratings"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_015", "query": "How has JPMorgan's stock price changed over the past year according to earnings reports?", "gold_tools": ["get_earnings", "search_news"], "category": "dual_tool", "generator": "llama3.1:8b"}
+{"id": "ext_016", "query": "Can we find any information about Tesla's plans for expanding its product line?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_017", "query": "What is the projected revenue growth rate for NVDA in the current fiscal year?", "gold_tools": ["get_earnings", "get_guidance"], "category": "dual_tool", "generator": "llama3.1:8b"}
+{"id": "ext_018", "query": "Has ExxonMobil provided any updates on its sustainability initiatives in recent news articles?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_019", "query": "How does TSLA's current stock price compare to its guidance from last quarter?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_020", "query": "Can we find any analyst ratings that suggest a sell signal for JPM?", "gold_tools": ["get_ratings"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_021", "query": "What is the average rating given by analysts to XOM's stock?", "gold_tools": ["get_ratings"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_022", "query": "Are there any news articles that discuss JPMorgan's plans for digital transformation?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_023", "query": "How has NVDA's stock price changed over the past quarter according to earnings reports?", "gold_tools": ["get_earnings", "search_news"], "category": "dual_tool", "generator": "llama3.1:8b"}
+{"id": "ext_024", "query": "Can we find any information about Tesla's plans for entering new markets?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_025", "query": "What is the projected EPS growth rate for TSLA in the current fiscal year?", "gold_tools": ["get_earnings"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_026", "query": "Has ExxonMobil made any significant changes to its leadership team recently?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_027", "query": "How does XOM's current stock price compare to its guidance from last quarter?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_028", "query": "Can we find any analyst ratings that suggest a buy signal for JPM?", "gold_tools": ["get_ratings"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_029", "query": "What is the average target price given by analysts to TSLA's stock?", "gold_tools": ["get_ratings"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_030", "query": "Are there any news articles that discuss NVDA's plans for expanding into new markets?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_031", "query": "How has Tesla's stock price changed over the past year according to earnings reports?", "gold_tools": ["get_earnings", "search_news"], "category": "dual_tool", "generator": "llama3.1:8b"}
+{"id": "ext_032", "query": "Can we find any information about JPMorgan's plans for reducing its carbon footprint?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_033", "query": "What is the projected revenue growth rate for XOM in the current fiscal year?", "gold_tools": ["get_earnings", "get_guidance"], "category": "dual_tool", "generator": "llama3.1:8b"}
+{"id": "ext_034", "query": "Has ExxonMobil provided any updates on its exploration and production activities in recent news articles?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_035", "query": "How does NVDA's current stock price compare to its guidance from last quarter?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_036", "query": "Can we find any analyst ratings that suggest a hold signal for TSLA?", "gold_tools": ["get_ratings"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_037", "query": "What is the average rating given by analysts to JPM's stock?", "gold_tools": ["get_ratings"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_038", "query": "What are the implications of NVDA's recent decline in stock price on its future growth prospects?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_039", "query": "How does TSLA's high debt level impact its ability to invest in new technologies?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_040", "query": "Can JPM's strong earnings growth be sustained in a rising interest rate environment?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_041", "query": "What are the potential risks and opportunities for XOM as it expands into renewable energy sources?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_042", "query": "Will AAPL's recent shift towards services-based revenue model lead to increased profitability?", "gold_tools": ["get_earnings", "search_news"], "category": "dual_tool", "generator": "llama3.1:8b"}
+{"id": "ext_043", "query": "How does MSFT's acquisition strategy impact its competitive position in the cloud computing market?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_044", "query": "What are the implications of NVDA's reliance on a single customer (Apple) for a significant portion of its revenue?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_045", "query": "Can TSLA overcome its production and delivery challenges to meet growing demand?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_046", "query": "Will JPM's strong balance sheet be enough to withstand potential economic downturns?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_047", "query": "How does XOM's diversification into new energy sources impact its traditional oil and gas business?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_048", "query": "What are the potential risks and opportunities for AAPL as it expands into emerging markets?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_049", "query": "Can MSFT's artificial intelligence capabilities help it gain a competitive edge in the cloud computing market?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}
+{"id": "ext_050", "query": "Will NVDA's recent product launches be enough to drive growth and increase market share?", "gold_tools": ["search_news"], "category": "single_tool", "generator": "llama3.1:8b"}

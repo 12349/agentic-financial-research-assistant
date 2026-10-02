@@ -116,9 +116,9 @@ REACT_STOP_TOKEN = "Final Answer:"
 # ---------------------------------------------------------------------------
 FINANCEBENCH_URL = (
     "https://raw.githubusercontent.com/patronus-ai/financebench/main/data/"
-    "financebench_open_source.json"
+    "financebench_open_source.jsonl"
 )
-FINANCEBENCH_LOCAL = f"{RESULTS_DIR}/financebench/financebench_oss.json"
+FINANCEBENCH_LOCAL = f"{RESULTS_DIR}/financebench/financebench_oss.jsonl"
 FINANCEBENCH_LICENSE = "Apache 2.0"
 FINANCEBENCH_CITE = "Islam et al., arXiv:2311.11944"
 

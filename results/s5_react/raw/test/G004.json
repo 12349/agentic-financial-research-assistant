@@ -1,0 +1,55 @@
+{
+  "id": "G004",
+  "query_id": "G004",
+  "query": "How much is Exxon planning to spend on capital expenditures in FY2024?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_guidance"
+  ],
+  "pred_tools": [
+    "get_guidance"
+  ],
+  "plan": [
+    {
+      "tool": "get_guidance",
+      "args": {
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "ticker": "XOM",
+      "guidance": [
+        {
+          "id": "guidance-xom-001",
+          "ticker": "XOM",
+          "period": "FY2024",
+          "issued_date": "2024-02-01",
+          "metric": "Capital Expenditure",
+          "guidance_value": 28000000000,
+          "guidance_unit": "USD",
+          "guidance_low": 26000000000,
+          "guidance_high": 30000000000,
+          "analyst_estimate_prior": 27500000000,
+          "notes": "Exxon guided FY2024 capex to $28B, consistent with prior year plan, in line with analyst estimates.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "guidance",
+            "record_id": "guidance-xom-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_guidance",
+      "latency_ms": 0.4
+    }
+  ],
+  "answer": "Exxon is planning to spend approximately $28 billion on capital expenditures for fiscal year 2024, with a range of $26-30 billion [Source: guidance-xom-001]. This guidance was consistent with their prior year plans and in line with analyst estimates.",
+  "react_history": "Question: How much is Exxon planning to spend on capital expenditures in FY2024?\nThought: To answer this question, I need to find the company's guidance for capital expenditures for fiscal year 2024.\nAction: get_guidance[{\"ticker\": \"XOM\"}]\nObservation: {\"ticker\": \"XOM\", \"guidance\": [{\"id\": \"guidance-xom-001\", \"ticker\": \"XOM\", \"period\": \"FY2024\", \"issued_date\": \"2024-02-01\", \"metric\": \"Capital Expenditure\", \"guidance_value\": 28000000000, \"guidance_unit\": \"USD\", \"guidance_low\": 26000000000, \"guidance_high\": 30000000000, \"analyst_estimate_prior\": 27500000000, \"notes\": \"Exxon guided FY2024 capex to $28B, consistent with prior year plan, in line with analyst estimates.\", \"source_ref\": {\"ticker\": \"XOM\", \"channel\": \"guidance\", \"record_id\": \"guidance-xom-001\"}}], \"mode\": \"offline\", \"tool\": \"get_guidance\", \"latency_ms\": 0.4}\nThought: I have the information needed to answer the question.\nFinal Answer: Exxon is planning to spend approximately $28 billion on capital expenditures for fiscal year 2024, with a range of $26-30 billion [Source: guidance-xom-001]. This guidance was consistent with their prior year plans and in line with analyst estimates.\n",
+  "steps": 2,
+  "sources": [],
+  "latency_ms": 6453.47,
+  "llm_elapsed_ms": 6451,
+  "llm_gen_tokens": 114
+}

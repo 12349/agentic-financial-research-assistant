@@ -1,0 +1,23 @@
+{
+  "id": "A026",
+  "query_id": "A026",
+  "query": "Give me a Tesla deep dive.",
+  "category": "ambiguous",
+  "gold_tools": [
+    "get_earnings",
+    "get_guidance",
+    "get_ratings",
+    "search_news"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "Tesla is an American electric vehicle and clean energy company founded by Elon Musk in 2003. Key points include:\n\n1. **Products**: Offers electric cars (Model S, Model X, Model 3, Model Y), energy storage systems (Powerwall, Powerpack), solar panels, and solar roof tiles.\n2. **Market Cap**: As of the latest data, Tesla has a market capitalization exceeding $500 billion.\n3. **Revenue**: In 2021, Tesla reported revenue of approximately $56.4 billion.\n4. **Stock Performance**: Tesla's stock price has seen significant growth since its initial public offering in 2010.\n5. **Innovation**: Known for advancements in battery technology and autonomous driving systems (FSD).\n6. **Challenges**: Faces competition from other automakers, regulatory hurdles, and supply chain issues.\n\nThis provides a brief overview of Tesla's core business and financial highlights.",
+  "llm_elapsed_ms": 9193,
+  "llm_prompt_tokens": 74,
+  "llm_gen_tokens": 196,
+  "tool_outputs": [],
+  "answer": "Tesla is an American electric vehicle and clean energy company founded by Elon Musk in 2003. Key points include:\n\n1. **Products**: Offers electric cars (Model S, Model X, Model 3, Model Y), energy storage systems (Powerwall, Powerpack), solar panels, and solar roof tiles.\n2. **Market Cap**: As of the latest data, Tesla has a market capitalization exceeding $500 billion.\n3. **Revenue**: In 2021, Tesla reported revenue of approximately $56.4 billion.\n4. **Stock Performance**: Tesla's stock price has seen significant growth since its initial public offering in 2010.\n5. **Innovation**: Known for advancements in battery technology and autonomous driving systems (FSD).\n6. **Challenges**: Faces competition from other automakers, regulatory hurdles, and supply chain issues.\n\nThis provides a brief overview of Tesla's core business and financial highlights.",
+  "sources": [],
+  "latency_ms": 9194.23,
+  "tool_exec_ms": 0.0
+}

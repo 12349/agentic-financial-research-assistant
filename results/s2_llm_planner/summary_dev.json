@@ -1,0 +1,64 @@
+{
+  "system_id": "s2_llm_planner",
+  "split": "dev",
+  "timestamp": "2026-10-02T03:56:39Z",
+  "n_queries": 3,
+  "tool_selection": {
+    "n_queries": 3,
+    "precision_mean": 1.0,
+    "precision_ci_95": [
+      1.0,
+      1.0
+    ],
+    "recall_mean": 1.0,
+    "recall_ci_95": [
+      1.0,
+      1.0
+    ],
+    "f1_mean": 1.0,
+    "f1_ci_95": [
+      1.0,
+      1.0
+    ],
+    "exact_match_rate": 1.0,
+    "exact_ci_95": [
+      1.0,
+      1.0
+    ],
+    "abstention_acc": NaN,
+    "tool_calls_per_q": 1.0,
+    "per_category": {
+      "single_tool": {
+        "n": 3,
+        "precision_mean": 1.0,
+        "recall_mean": 1.0,
+        "f1_mean": 1.0,
+        "exact_rate": 1.0
+      }
+    }
+  },
+  "synthesis_quality": {
+    "n_queries": 3,
+    "citation_valid_mean": 1.0,
+    "citation_ci_95": [
+      1.0,
+      1.0
+    ],
+    "faithfulness_mean": 0.2222,
+    "faithfulness_ci_95": [
+      0.2,
+      0.2667
+    ],
+    "unsupported_rate_mean": 0.875,
+    "unsupported_ci_95": [
+      0.875,
+      0.875
+    ],
+    "abstention_acc": NaN
+  },
+  "model": "qwen2.5:7b-instruct",
+  "mean_latency_ms": 3777.62,
+  "mean_llm_latency_ms": 3776.33,
+  "mean_gen_tokens": 22.0,
+  "parse_success_rate": 1.0
+}

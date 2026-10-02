@@ -1,0 +1,47 @@
+{
+  "benchmark_query": "What is the current analyst sentiment on Tesla stock?",
+  "hardware": {
+    "model": "Mac16,10",
+    "chip": "Apple M4",
+    "ram_gb": 16,
+    "os": "macOS 27.0",
+    "note": "qwen3.6 (23GB) uses NVMe-backed unified memory mapping. Cold-start load: 3-5 min. Warm inference: ~8-15 tok/s. llama3.1:8b (4.7GB) fits entirely in RAM. ~25-35 tok/s."
+  },
+  "n_warmup": 2,
+  "n_runs": 30,
+  "results": {
+    "S1": {
+      "system": "S1 (rule-planner)",
+      "cold_ms": 657.19,
+      "mean_ms": 11.86,
+      "std_ms": 0.1,
+      "median_ms": 11.82,
+      "p95_ms": 12.09
+    },
+    "S4": {
+      "system": "S4 (call-all)",
+      "cold_ms": 38.63,
+      "mean_ms": 18.81,
+      "std_ms": 0.58,
+      "median_ms": 18.61,
+      "p95_ms": 19.83
+    },
+    "S2": {
+      "system": "S2 (llm-planner)",
+      "cold_ms": 3714.05,
+      "mean_ms": 1061.36,
+      "std_ms": 9.28,
+      "median_ms": 1061.14,
+      "p95_ms": 1074.48,
+      "mean_llm_only_ms": 1026.27
+    },
+    "S3": {
+      "system": "S3 (no-tools)",
+      "cold_ms": 2630.6,
+      "mean_ms": 2505.73,
+      "std_ms": 8.71,
+      "median_ms": 2501.74,
+      "p95_ms": 2523.06
+    }
+  }
+}

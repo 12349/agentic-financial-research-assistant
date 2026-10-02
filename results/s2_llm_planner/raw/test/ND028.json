@@ -1,0 +1,20 @@
+{
+  "id": "ND028",
+  "query_id": "ND028",
+  "query": "Show me JPMorgan's credit default swap spreads.",
+  "category": "no_data",
+  "gold_tools": [],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "[]",
+  "llm_elapsed_ms": 379,
+  "llm_prompt_tokens": 452,
+  "llm_gen_tokens": 2,
+  "llm_tok_per_sec": 44.5,
+  "parsed_ok": true,
+  "tool_outputs": [],
+  "answer": "No data was found to answer this query.",
+  "sources": [],
+  "latency_ms": 380.01,
+  "tool_exec_ms": 0.0
+}

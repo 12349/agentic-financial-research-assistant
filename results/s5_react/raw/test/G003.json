@@ -1,0 +1,73 @@
+{
+  "id": "G003",
+  "query_id": "G003",
+  "query": "What is JPMorgan's NII guidance for FY2024?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_guidance"
+  ],
+  "pred_tools": [
+    "get_guidance"
+  ],
+  "plan": [
+    {
+      "tool": "get_guidance",
+      "args": {
+        "ticker": "JPM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "ticker": "JPM",
+      "guidance": [
+        {
+          "id": "guidance-jpm-001",
+          "ticker": "JPM",
+          "period": "FY2024",
+          "issued_date": "2024-10-11",
+          "metric": "Net Interest Income",
+          "guidance_value": 92500000000,
+          "guidance_unit": "USD",
+          "guidance_low": 91500000000,
+          "guidance_high": 93500000000,
+          "analyst_estimate_prior": 91000000000,
+          "notes": "JPMorgan raised FY2024 NII guidance to approximately $92.5B from prior guidance of $91B, ahead of analyst consensus of $91B.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "guidance",
+            "record_id": "guidance-jpm-001"
+          }
+        },
+        {
+          "id": "guidance-jpm-002",
+          "ticker": "JPM",
+          "period": "Q3 2024",
+          "issued_date": "2024-07-12",
+          "metric": "Net Interest Income",
+          "guidance_value": 23000000000,
+          "guidance_unit": "USD",
+          "guidance_low": 22500000000,
+          "guidance_high": 23500000000,
+          "analyst_estimate_prior": 22800000000,
+          "notes": "JPMorgan guided Q3 2024 NII to approximately $23B, slightly above analyst estimates of $22.8B.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "guidance",
+            "record_id": "guidance-jpm-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_guidance",
+      "latency_ms": 0.9
+    }
+  ],
+  "answer": "JPMorgan Chase & Co. (JPM) has provided FY2024 Net Interest Income (NII) guidance of approximately $92.5 billion, with a range between $91.5 billion and $93.5 billion. This guidance was issued on October 11, 2024, and it is higher than the previous guidance of around $91 billion and exceeds the analyst consensus of $91 billion.\n\nSource: guidance-jpm-001",
+  "react_history": "Question: What is JPMorgan's NII guidance for FY2024?\nThought: I need to find JPMorgan Chase & Co.'s (JPM) FY2024 Net Interest Income (NII) guidance.\nAction: get_guidance[{\"ticker\": \"JPM\"}]\nObservation: {\"ticker\": \"JPM\", \"guidance\": [{\"id\": \"guidance-jpm-001\", \"ticker\": \"JPM\", \"period\": \"FY2024\", \"issued_date\": \"2024-10-11\", \"metric\": \"Net Interest Income\", \"guidance_value\": 92500000000, \"guidance_unit\": \"USD\", \"guidance_low\": 91500000000, \"guidance_high\": 93500000000, \"analyst_estimate_prior\": 91000000000, \"notes\": \"JPMorgan raised FY2024 NII guidance to approximately $92.5B from prior guidance of $91B, ahead of analyst consensus of $91B.\", \"source_ref\": {\"ticker\": \"JPM\", \"channel\": \"guidance\", \"record_id\": \"guidance-jpm-001\"}}, {\"id\": \"guidance-jpm-002\", \"ticker\": \"JPM\", \"period\": \"Q3 2024\"\nThought: Final Answer: JPMorgan Chase & Co. (JPM) has provided FY2024 Net Interest Income (NII) guidance of approximately $92.5 billion, with a range between $91.5 billion and $93.5 billion. This guidance was issued on October 11, 2024, and it is higher than the previous guidance of around $91 billion and exceeds the analyst consensus of $91 billion.\n\nSource: guidance-jpm-001\n",
+  "steps": 2,
+  "sources": [],
+  "latency_ms": 8269.9,
+  "llm_elapsed_ms": 8267,
+  "llm_gen_tokens": 152
+}

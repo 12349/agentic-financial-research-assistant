@@ -1,0 +1,58 @@
+{
+  "id": "G016",
+  "query_id": "G016",
+  "query": "Can you summarize the spread between JPMorgan's NII guidance floor and ceiling for FY2024?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_guidance"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Can you summarize the spread between JPMorgan's NII guidance floor and ceiling for FY2024?",
+        "ticker": "JPM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [
+        {
+          "id": "news-jpm-002",
+          "ticker": "JPM",
+          "headline": "JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B",
+          "body": "JPMorgan Chase raised its full-year net interest income guidance to approximately $92.5 billion, up from its prior guidance of $91 billion. The revision reflects higher-for-longer interest rates and strong loan growth. Analysts viewed the revision positively as it signals confidence in the bank's core earnings power.",
+          "published_at": "2024-10-12T09:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/jpm-guidance-raise",
+          "score": 0.4199,
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "news",
+            "record_id": "news-jpm-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Can you summarize the spread between JPMorgan's NII guidance floor and ceiling for FY2024?",
+      "ticker": "JPM",
+      "latency_ms": 11.0
+    }
+  ],
+  "answer": "[Source: news-jpm-002] JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B\nJPMorgan Chase raised its full-year net interest income guidance to approximately $92.5 billion, up from its prior guidance of $91 billion. The revision reflects higher-for-longer interest rates and strong loan growth. Analysts viewed the revision positively as it signals confidence in the bank's core earnings power.",
+  "sources": [
+    {
+      "ticker": "JPM",
+      "channel": "news",
+      "record_id": "news-jpm-002"
+    }
+  ],
+  "latency_ms": 10.98,
+  "tool_exec_ms": 10.96
+}

@@ -1,0 +1,5 @@
+System,Cold Latency (ms),Warm Mean (ms),Warm Std (ms),Warm Median (ms),Warm P95 (ms)
+S1 (rule-planner),657.2,11.9,0.1,11.8,12.1
+S4 (call-all),38.6,18.8,0.6,18.6,19.8
+S2 (llm-planner),3714.1,1061.4,9.3,1061.1,1074.5
+S3 (no-tools),2630.6,2505.7,8.7,2501.7,2523.1

@@ -1,0 +1,79 @@
+{
+  "id": "N003",
+  "query_id": "N003",
+  "query": "What happened at JPMorgan's latest earnings announcement?",
+  "category": "dual_tool",
+  "gold_tools": [
+    "get_earnings",
+    "search_news"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "What happened at JPMorgan's latest earnings announcement?",
+        "ticker": "JPM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [
+        {
+          "id": "news-jpm-002",
+          "ticker": "JPM",
+          "headline": "JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B",
+          "body": "JPMorgan Chase raised its full-year net interest income guidance to approximately $92.5 billion, up from its prior guidance of $91 billion. The revision reflects higher-for-longer interest rates and strong loan growth. Analysts viewed the revision positively as it signals confidence in the bank's core earnings power.",
+          "published_at": "2024-10-12T09:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/jpm-guidance-raise",
+          "score": 0.5975,
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "news",
+            "record_id": "news-jpm-002"
+          }
+        },
+        {
+          "id": "news-jpm-001",
+          "ticker": "JPM",
+          "headline": "JPMorgan Q3 Net Income Rises 35% on Higher Interest Income",
+          "body": "JPMorgan Chase reported Q3 2024 net income of $12.9 billion, up 35% from a year earlier, driven by rising net interest income and strong investment banking fees. Revenue of $43.3 billion beat analyst expectations of $41.8 billion. CEO Jamie Dimon warned of geopolitical risks and potential credit deterioration ahead.",
+          "published_at": "2024-10-11T12:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/jpm-q3-earnings",
+          "score": 0.5931,
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "news",
+            "record_id": "news-jpm-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "What happened at JPMorgan's latest earnings announcement?",
+      "ticker": "JPM",
+      "latency_ms": 130.1
+    }
+  ],
+  "answer": "[Source: news-jpm-002] JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B\nJPMorgan Chase raised its full-year net interest income guidance to approximately $92.5 billion, up from its prior guidance of $91 billion. The revision reflects higher-for-longer interest rates and strong loan growth. Analysts viewed the revision positively as it signals confidence in the bank's core earnings power.\n[Source: news-jpm-001] Additionally: JPMorgan Q3 Net Income Rises 35% on Higher Interest Income",
+  "sources": [
+    {
+      "ticker": "JPM",
+      "channel": "news",
+      "record_id": "news-jpm-002"
+    },
+    {
+      "ticker": "JPM",
+      "channel": "news",
+      "record_id": "news-jpm-001"
+    }
+  ],
+  "latency_ms": 130.08,
+  "tool_exec_ms": 130.06
+}

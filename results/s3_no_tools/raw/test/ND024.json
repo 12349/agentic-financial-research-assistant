@@ -1,0 +1,20 @@
+{
+  "id": "ND024",
+  "query_id": "ND024",
+  "query": "Give me Google's analyst ratings and price targets.",
+  "category": "no_data",
+  "gold_tools": [
+    "get_ratings"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "I don't have real-time data access, so I can't provide current analyst ratings and price targets for Google (Alphabet Inc.). For the most accurate and up-to-date information, please check a financial news site or a stock market analysis platform.",
+  "llm_elapsed_ms": 2466,
+  "llm_prompt_tokens": 77,
+  "llm_gen_tokens": 51,
+  "tool_outputs": [],
+  "answer": "I don't have real-time data access, so I can't provide current analyst ratings and price targets for Google (Alphabet Inc.). For the most accurate and up-to-date information, please check a financial news site or a stock market analysis platform.",
+  "sources": [],
+  "latency_ms": 2467.1,
+  "tool_exec_ms": 0.0
+}

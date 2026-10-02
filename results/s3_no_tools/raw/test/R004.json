@@ -1,0 +1,20 @@
+{
+  "id": "R004",
+  "query_id": "R004",
+  "query": "What is Exxon Mobil's average analyst price target?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_ratings"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "I don't have access to real-time or up-to-date information on specific stock price targets. Analysts' price targets for Exxon Mobil can vary and are regularly updated based on market conditions and company performance. For the most current and accurate information, you should check financial news websites, research reports from investment banks, or financial data providers.",
+  "llm_elapsed_ms": 3199,
+  "llm_prompt_tokens": 77,
+  "llm_gen_tokens": 68,
+  "tool_outputs": [],
+  "answer": "I don't have access to real-time or up-to-date information on specific stock price targets. Analysts' price targets for Exxon Mobil can vary and are regularly updated based on market conditions and company performance. For the most current and accurate information, you should check financial news websites, research reports from investment banks, or financial data providers.",
+  "sources": [],
+  "latency_ms": 3199.68,
+  "tool_exec_ms": 0.0
+}

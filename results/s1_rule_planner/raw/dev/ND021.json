@@ -1,0 +1,76 @@
+{
+  "id": "ND021",
+  "query_id": "ND021",
+  "query": "What is Tesla's short interest percentage?",
+  "category": "no_data",
+  "gold_tools": [],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "What is Tesla's short interest percentage?",
+        "ticker": "TSLA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [
+        {
+          "id": "news-tsla-001",
+          "ticker": "TSLA",
+          "headline": "Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles",
+          "body": "Tesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000. The beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.",
+          "published_at": "2024-10-02T16:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/tsla-q3-deliveries",
+          "score": 0.3764,
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "news",
+            "record_id": "news-tsla-001"
+          }
+        },
+        {
+          "id": "news-tsla-002",
+          "ticker": "TSLA",
+          "headline": "Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline",
+          "body": "Tesla unveiled its long-awaited robotaxi, the Cybercab, at a Hollywood event. The two-seater autonomous vehicle is priced under $30,000 and is expected to enter production in 2026. Analysts expressed optimism about the long-term vision but concerns about regulatory approvals and production timelines.",
+          "published_at": "2024-10-11T22:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/tsla-robotaxi-cybercab",
+          "score": 0.3476,
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "news",
+            "record_id": "news-tsla-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "What is Tesla's short interest percentage?",
+      "ticker": "TSLA",
+      "latency_ms": 5.6
+    }
+  ],
+  "answer": "[Source: news-tsla-001] Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles\nTesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000. The beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.\n[Source: news-tsla-002] Additionally: Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline",
+  "sources": [
+    {
+      "ticker": "TSLA",
+      "channel": "news",
+      "record_id": "news-tsla-001"
+    },
+    {
+      "ticker": "TSLA",
+      "channel": "news",
+      "record_id": "news-tsla-002"
+    }
+  ],
+  "latency_ms": 5.6,
+  "tool_exec_ms": 5.59
+}

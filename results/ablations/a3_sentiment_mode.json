@@ -1,0 +1,35 @@
+{
+  "ablation": "A3_sentiment_mode",
+  "split": "dev",
+  "n_ratings_queries": 18,
+  "per_ticker": {
+    "NVDA": {
+      "total_ratings": 4,
+      "ml_scored_count": 4,
+      "mean_confidence": 0.781,
+      "keyword_vs_ml_agreement": 0.75,
+      "ml_consensus": "bullish"
+    },
+    "TSLA": {
+      "total_ratings": 3,
+      "ml_scored_count": 3,
+      "mean_confidence": 0.646,
+      "keyword_vs_ml_agreement": 0.667,
+      "ml_consensus": "bullish"
+    },
+    "JPM": {
+      "total_ratings": 3,
+      "ml_scored_count": 3,
+      "mean_confidence": 0.903,
+      "keyword_vs_ml_agreement": 1.0,
+      "ml_consensus": "bullish"
+    },
+    "XOM": {
+      "total_ratings": 2,
+      "ml_scored_count": 2,
+      "mean_confidence": 0.776,
+      "keyword_vs_ml_agreement": 0.0,
+      "ml_consensus": "neutral"
+    }
+  }
+}

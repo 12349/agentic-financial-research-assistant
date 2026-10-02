@@ -1,0 +1,226 @@
+{
+  "id": "R005",
+  "query_id": "R005",
+  "query": "Has Goldman Sachs changed their price target on NVDA recently?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "get_ratings",
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "NVDA"
+      }
+    },
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Has Goldman Sachs changed their price target on NVDA recently?",
+        "ticker": "NVDA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "ticker": "NVDA",
+      "ratings": [
+        {
+          "id": "rating-nvda-002",
+          "ticker": "NVDA",
+          "analyst_firm": "Bank of America",
+          "analyst_name": "Vivek Arya",
+          "rating": "Buy",
+          "prior_rating": "Buy",
+          "price_target": 190.0,
+          "prior_price_target": 165.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-22",
+          "notes": "Sees Blackwell cycle as multi-year AI infrastructure tailwind.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-nvda-002"
+          },
+          "ml_sentiment": "bearish",
+          "ml_confidence": 0.707
+        },
+        {
+          "id": "rating-nvda-001",
+          "ticker": "NVDA",
+          "analyst_firm": "Goldman Sachs",
+          "analyst_name": "Toshiya Hari",
+          "rating": "Buy",
+          "prior_rating": "Buy",
+          "price_target": 165.0,
+          "prior_price_target": 135.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-21",
+          "notes": "Raised PT on data center demand strength and Blackwell ramp confirmation.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-nvda-001"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.977
+        },
+        {
+          "id": "rating-nvda-004",
+          "ticker": "NVDA",
+          "analyst_firm": "Citi",
+          "analyst_name": "Atif Malik",
+          "rating": "Buy",
+          "prior_rating": "Buy",
+          "price_target": 175.0,
+          "prior_price_target": 150.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-21",
+          "notes": "Q4 guidance above Street; raises FY2026 estimates by 15%.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-nvda-004"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.943
+        },
+        {
+          "id": "rating-nvda-003",
+          "ticker": "NVDA",
+          "analyst_firm": "Morgan Stanley",
+          "analyst_name": "Joseph Moore",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 160.0,
+          "prior_price_target": 150.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-20",
+          "notes": "Supply constraints easing; data center demand exceeds prior estimates.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-nvda-003"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.496
+        }
+      ],
+      "summary": {
+        "total_ratings": 4,
+        "bullish": 3,
+        "neutral": 0,
+        "bearish": 1,
+        "consensus": "bullish",
+        "ml_scored_count": 4,
+        "avg_price_target": 172.5
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 38.1
+    },
+    {
+      "results": [
+        {
+          "id": "news-nvda-003",
+          "ticker": "NVDA",
+          "headline": "Nvidia Q4 Guidance Tops Estimates; Analysts Raise Price Targets Across the Board",
+          "body": "Following Nvidia's blowout Q3 earnings, at least 15 analysts raised their price targets for NVDA stock. The company guided Q4 revenue to approximately $37.5 billion, versus Street estimates of $37.1 billion. Several analysts noted that data center infrastructure spending shows no signs of slowing despite macro uncertainty.",
+          "published_at": "2024-11-22T09:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/nvda-q4-guidance-analysts",
+          "score": 0.615,
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "news",
+            "record_id": "news-nvda-003"
+          }
+        },
+        {
+          "id": "news-nvda-001",
+          "ticker": "NVDA",
+          "headline": "Nvidia Data Center Revenue Hits Record $22.6B in Q3 FY2025, Surpassing Analyst Expectations",
+          "body": "Nvidia reported record data center revenue of $22.6 billion for Q3 FY2025, up 112% year-over-year. The result exceeded Wall Street consensus of $21.1 billion. CEO Jensen Huang cited explosive demand for H100 and H200 GPUs from hyperscalers and cloud providers. The company guided Q4 data center revenue above $37 billion.",
+          "published_at": "2024-11-20T21:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/nvda-data-center-q3",
+          "score": 0.3872,
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "news",
+            "record_id": "news-nvda-001"
+          }
+        },
+        {
+          "id": "news-nvda-002",
+          "ticker": "NVDA",
+          "headline": "Nvidia Blackwell GPU Demand Described as 'Insane' as Supply Constraints Ease",
+          "body": "Nvidia's next-generation Blackwell GPU architecture has seen overwhelming demand from major cloud providers including Microsoft Azure, Google Cloud, and Amazon AWS. CFO Colette Kress stated during the earnings call that Blackwell supply is ramping rapidly and the company expects sequential revenue growth. Data center segment remains the primary growth driver, accounting for 88% of total revenue.",
+          "published_at": "2024-11-21T14:30:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/nvda-blackwell-demand",
+          "score": 0.3436,
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "news",
+            "record_id": "news-nvda-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Has Goldman Sachs changed their price target on NVDA recently?",
+      "ticker": "NVDA",
+      "latency_ms": 31.6
+    }
+  ],
+  "answer": "Goldman Sachs has indeed raised its price target for NVIDIA Corporation (NVDA) stock. On November 21, 2024, Goldman Sachs analyst Toshiya Hari raised the price target to $165.0 from $135.0, citing data center demand strength and confirmation of Blackwell ramp as key factors [Source: rating-nvda-001].\n\nSources used:\n- [Source: rating-nvda-001]",
+  "sources": [
+    {
+      "ticker": "NVDA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-nvda-002"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-nvda-001"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-nvda-004"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-nvda-003"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "news",
+      "record_id": "news-nvda-003"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "news",
+      "record_id": "news-nvda-001"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "news",
+      "record_id": "news-nvda-002"
+    }
+  ],
+  "llm_elapsed_ms": 12355,
+  "llm_prompt_tokens": 1860,
+  "llm_gen_tokens": 99,
+  "llm_tok_per_sec": 22.1,
+  "latency_ms": 12425.53,
+  "tool_exec_ms": 69.71
+}

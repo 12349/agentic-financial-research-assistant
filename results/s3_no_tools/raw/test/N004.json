@@ -1,0 +1,20 @@
+{
+  "id": "N004",
+  "query_id": "N004",
+  "query": "Is there news about OPEC and Exxon?",
+  "category": "single_tool",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "I don't have real-time data access to provide the latest news about OPEC and Exxon. For the most current information, please check recent financial news sources or official statements from OPEC and Exxon.",
+  "llm_elapsed_ms": 1999,
+  "llm_prompt_tokens": 76,
+  "llm_gen_tokens": 41,
+  "tool_outputs": [],
+  "answer": "I don't have real-time data access to provide the latest news about OPEC and Exxon. For the most current information, please check recent financial news sources or official statements from OPEC and Exxon.",
+  "sources": [],
+  "latency_ms": 1999.8,
+  "tool_exec_ms": 0.0
+}

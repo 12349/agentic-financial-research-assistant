@@ -1,0 +1,20 @@
+{
+  "id": "E007",
+  "query_id": "E007",
+  "query": "How well did JPMorgan do relative to Wall Street's revenue expectations in Q2 2024?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_earnings"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "I don't have specific data for Q2 2024 as that information isn't available yet. Financial results for future quarters are not known until they are officially released by the company. If you provide a more recent or historical quarter, I can try to give you an answer based on available data.",
+  "llm_elapsed_ms": 2986,
+  "llm_prompt_tokens": 90,
+  "llm_gen_tokens": 63,
+  "tool_outputs": [],
+  "answer": "I don't have specific data for Q2 2024 as that information isn't available yet. Financial results for future quarters are not known until they are officially released by the company. If you provide a more recent or historical quarter, I can try to give you an answer based on available data.",
+  "sources": [],
+  "latency_ms": 2986.7,
+  "tool_exec_ms": 0.0
+}

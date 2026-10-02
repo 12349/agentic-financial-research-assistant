@@ -1,0 +1,37 @@
+{
+  "id": "D061",
+  "query_id": "D061",
+  "query": "Tesla's delivery guidance and whether Dan Ives sees FSD as a catalyst \u2014 tell me both.",
+  "category": "dual_tool",
+  "gold_tools": [
+    "get_guidance",
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Tesla's delivery guidance and whether Dan Ives sees FSD as a catalyst \u2014 tell me both.",
+        "ticker": "TSLA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Tesla's delivery guidance and whether Dan Ives sees FSD as a catalyst \u2014 tell me both.",
+      "ticker": "TSLA",
+      "latency_ms": 6.3
+    }
+  ],
+  "answer": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).",
+  "sources": [],
+  "latency_ms": 6.32,
+  "tool_exec_ms": 6.31
+}

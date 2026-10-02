@@ -1,0 +1,16 @@
+{
+  "ablation": "A1_tool_cap",
+  "split": "dev",
+  "n_queries": 45,
+  "cap_4": {
+    "f1": 0.4778,
+    "exact_match": 0.2444,
+    "tool_calls_per_q": 1.2
+  },
+  "cap_unlimited": {
+    "f1": 0.4778,
+    "exact_match": 0.2444,
+    "tool_calls_per_q": 1.2
+  },
+  "finding": "Rule-based planner naturally emits at most 2 tools, so cap 4 vs unlimited has identical behavior on S1; cap primarily protects against runaway ReAct loops."
+}

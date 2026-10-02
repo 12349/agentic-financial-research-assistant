@@ -1,0 +1,40 @@
+{
+  "id": "ND004",
+  "query_id": "ND004",
+  "query": "Any news about Alphabet's antitrust case?",
+  "category": "no_data",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Any news about Alphabet's antitrust case?",
+        "ticker": null
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Any news about Alphabet's antitrust case?",
+      "ticker": null,
+      "latency_ms": 29.5
+    }
+  ],
+  "answer": "Based on the available data, there is no recent information regarding Alphabet's antitrust case.\n\nSources used:\n- [Source: search_news_01]",
+  "sources": [],
+  "llm_elapsed_ms": 1889,
+  "llm_prompt_tokens": 239,
+  "llm_gen_tokens": 32,
+  "llm_tok_per_sec": 22.8,
+  "latency_ms": 1919.39,
+  "tool_exec_ms": 29.46
+}

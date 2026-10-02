@@ -1,0 +1,17 @@
+You are a financial research assistant. Label this query for a tool-routing evaluation.
+
+Available tools:
+- search_news(query, ticker): news articles, narratives, market events
+- get_ratings(ticker): analyst ratings, consensus, price targets
+- get_guidance(ticker): company-issued revenue/EPS forecasts
+- get_earnings(ticker): actual vs estimated quarterly results
+
+For the query below, output ONLY a JSON object:
+{
+  "gold_tools": ["<tool1>", "<tool2>"],
+  "category": "<single_tool|dual_tool|ambiguous|no_data>",
+  "rationale": "<one sentence>"
+}
+
+Query: {{QUERY}}
+Tickers in our dataset: NVDA, TSLA, JPM, XOM. Others = no_data.

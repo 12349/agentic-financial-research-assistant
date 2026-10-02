@@ -1,0 +1,118 @@
+{
+  "id": "A027",
+  "query_id": "A027",
+  "query": "I'm looking at XOM for my portfolio \u2014 what do I need to know?",
+  "category": "ambiguous",
+  "gold_tools": [
+    "get_ratings",
+    "get_earnings",
+    "search_news",
+    "get_guidance"
+  ],
+  "pred_tools": [
+    "get_ratings",
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "XOM"
+      }
+    },
+    {
+      "tool": "search_news",
+      "args": {
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "llm_raw_response": "[{\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"XOM\"}}, {\"tool\": \"search_news\", \"args\": {\"ticker\": \"XOM\"}}]",
+  "llm_elapsed_ms": 2024,
+  "llm_prompt_tokens": 458,
+  "llm_gen_tokens": 38,
+  "llm_tok_per_sec": 23.0,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "ticker": "XOM",
+      "ratings": [
+        {
+          "id": "rating-xom-001",
+          "ticker": "XOM",
+          "analyst_firm": "Piper Sandler",
+          "analyst_name": "Ryan Todd",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 135.0,
+          "prior_price_target": 130.0,
+          "action": "Maintains",
+          "date": "2024-11-05",
+          "notes": "Pioneer integration tracking ahead of plan; structural cost advantages intact.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-xom-001"
+          },
+          "ml_sentiment": "neutral",
+          "ml_confidence": 0.752
+        },
+        {
+          "id": "rating-xom-002",
+          "ticker": "XOM",
+          "analyst_firm": "JPMorgan",
+          "analyst_name": "Phil Gresh",
+          "rating": "Neutral",
+          "prior_rating": "Neutral",
+          "price_target": 118.0,
+          "prior_price_target": 118.0,
+          "action": "Maintains",
+          "date": "2024-11-01",
+          "notes": "Oil price uncertainty from OPEC policy caps upside; disciplined capex a positive.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-xom-002"
+          },
+          "ml_sentiment": "bearish",
+          "ml_confidence": 0.799
+        }
+      ],
+      "summary": {
+        "total_ratings": 2,
+        "bullish": 0,
+        "neutral": 1,
+        "bearish": 1,
+        "consensus": "neutral",
+        "ml_scored_count": 2,
+        "avg_price_target": 126.5
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 31.8
+    },
+    {
+      "tool": "search_news",
+      "error": "search_news() missing 1 required positional argument: 'query'",
+      "results": [],
+      "ratings": [],
+      "guidance": [],
+      "earnings": []
+    }
+  ],
+  "answer": "Analyst sentiment on XOM is currently NEUTRAL.\n[Source: rating-xom-001] Of 2 recent ratings: 0 bullish, 1 neutral, 1 bearish. Average price target: $126.\n[Source: rating-xom-001] Piper Sandler (Ryan Todd) Maintains at Overweight, PT $135.0 (from $130.0). Pioneer integration tracking ahead of plan; structural cost advantages intact.\n[Source: rating-xom-002] JPMorgan (Phil Gresh) Maintains at Neutral, PT $118.0 (from $118.0). Oil price uncertainty from OPEC policy caps upside; disciplined capex a positive.\n\n\u26a0 Data gaps: No news data was available for this query (tool: search_news).",
+  "sources": [
+    {
+      "ticker": "XOM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-xom-001"
+    },
+    {
+      "ticker": "XOM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-xom-002"
+    }
+  ],
+  "latency_ms": 2057.04,
+  "tool_exec_ms": 31.8
+}

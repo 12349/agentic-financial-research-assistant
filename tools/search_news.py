@@ -24,6 +24,9 @@ from typing import Optional, Tuple
 # terminals without HF_TOKEN set. This is output suppression only — model loading
 # behaviour is unchanged. Set the env var before any huggingface_hub imports fire.
 os.environ.setdefault("HF_HUB_DISABLE_IMPLICIT_TOKEN", "1")
+os.environ.setdefault("KMP_DUPLICATE_LIB_OK", "TRUE")
+os.environ.setdefault("OMP_NUM_THREADS", "1")
+os.environ.setdefault("TOKENIZERS_PARALLELISM", "false")
 
 # ---------------------------------------------------------------------------
 # Path to fixture file (relative to project root)

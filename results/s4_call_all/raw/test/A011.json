@@ -1,0 +1,255 @@
+{
+  "id": "A011",
+  "query_id": "A011",
+  "query": "Break down what's happening with the JPM story.",
+  "category": "ambiguous",
+  "gold_tools": [
+    "search_news",
+    "get_earnings",
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "search_news",
+    "get_ratings",
+    "get_guidance",
+    "get_earnings"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Break down what's happening with the JPM story.",
+        "ticker": "JPM"
+      }
+    },
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "JPM"
+      }
+    },
+    {
+      "tool": "get_guidance",
+      "args": {
+        "ticker": "JPM"
+      }
+    },
+    {
+      "tool": "get_earnings",
+      "args": {
+        "ticker": "JPM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Break down what's happening with the JPM story.",
+      "ticker": "JPM",
+      "latency_ms": 13.6
+    },
+    {
+      "ticker": "JPM",
+      "ratings": [
+        {
+          "id": "rating-jpm-003",
+          "ticker": "JPM",
+          "analyst_firm": "Deutsche Bank",
+          "analyst_name": "Matt O'Connor",
+          "rating": "Buy",
+          "prior_rating": "Buy",
+          "price_target": 275.0,
+          "prior_price_target": 255.0,
+          "action": "Raises Price Target",
+          "date": "2024-10-15",
+          "notes": "Strong capital markets rebound; credit quality better than feared.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-jpm-003"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.878
+        },
+        {
+          "id": "rating-jpm-001",
+          "ticker": "JPM",
+          "analyst_firm": "Wells Fargo",
+          "analyst_name": "Mike Mayo",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 280.0,
+          "prior_price_target": 250.0,
+          "action": "Raises Price Target",
+          "date": "2024-10-14",
+          "notes": "Best-in-class franchise; NII guidance raise signals sustained earnings power.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-jpm-001"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.902
+        },
+        {
+          "id": "rating-jpm-002",
+          "ticker": "JPM",
+          "analyst_firm": "Oppenheimer",
+          "analyst_name": "Chris Kotowski",
+          "rating": "Outperform",
+          "prior_rating": "Outperform",
+          "price_target": 265.0,
+          "prior_price_target": 240.0,
+          "action": "Raises Price Target",
+          "date": "2024-10-14",
+          "notes": "Investment banking recovery and NII strength drive estimate upgrades.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-jpm-002"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.93
+        }
+      ],
+      "summary": {
+        "total_ratings": 3,
+        "bullish": 3,
+        "neutral": 0,
+        "bearish": 0,
+        "consensus": "bullish",
+        "ml_scored_count": 3,
+        "avg_price_target": 273.33
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 10.1
+    },
+    {
+      "ticker": "JPM",
+      "guidance": [
+        {
+          "id": "guidance-jpm-001",
+          "ticker": "JPM",
+          "period": "FY2024",
+          "issued_date": "2024-10-11",
+          "metric": "Net Interest Income",
+          "guidance_value": 92500000000,
+          "guidance_unit": "USD",
+          "guidance_low": 91500000000,
+          "guidance_high": 93500000000,
+          "analyst_estimate_prior": 91000000000,
+          "notes": "JPMorgan raised FY2024 NII guidance to approximately $92.5B from prior guidance of $91B, ahead of analyst consensus of $91B.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "guidance",
+            "record_id": "guidance-jpm-001"
+          }
+        },
+        {
+          "id": "guidance-jpm-002",
+          "ticker": "JPM",
+          "period": "Q3 2024",
+          "issued_date": "2024-07-12",
+          "metric": "Net Interest Income",
+          "guidance_value": 23000000000,
+          "guidance_unit": "USD",
+          "guidance_low": 22500000000,
+          "guidance_high": 23500000000,
+          "analyst_estimate_prior": 22800000000,
+          "notes": "JPMorgan guided Q3 2024 NII to approximately $23B, slightly above analyst estimates of $22.8B.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "guidance",
+            "record_id": "guidance-jpm-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_guidance",
+      "latency_ms": 0.1
+    },
+    {
+      "ticker": "JPM",
+      "earnings": [
+        {
+          "id": "earnings-jpm-001",
+          "ticker": "JPM",
+          "period": "Q3 2024",
+          "report_date": "2024-10-11",
+          "revenue_actual": 43315000000,
+          "revenue_estimate": 41800000000,
+          "revenue_beat_miss": "beat",
+          "revenue_surprise_pct": 3.62,
+          "eps_actual": 4.37,
+          "eps_estimate": 3.99,
+          "eps_beat_miss": "beat",
+          "eps_surprise_pct": 9.52,
+          "net_income_actual": 12900000000,
+          "data_center_revenue": null,
+          "yoy_revenue_growth_pct": 6.4,
+          "notes": "Net interest income of $23.5B exceeded guidance midpoint of $23B. Investment banking fees up 31% YoY. CEO Dimon warned of geopolitical and credit risks.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "earnings",
+            "record_id": "earnings-jpm-001"
+          }
+        },
+        {
+          "id": "earnings-jpm-002",
+          "ticker": "JPM",
+          "period": "Q2 2024",
+          "report_date": "2024-07-12",
+          "revenue_actual": 50986000000,
+          "revenue_estimate": 42200000000,
+          "revenue_beat_miss": "beat",
+          "revenue_surprise_pct": 20.82,
+          "eps_actual": 6.12,
+          "eps_estimate": 4.19,
+          "eps_beat_miss": "beat",
+          "eps_surprise_pct": 46.06,
+          "net_income_actual": 18149000000,
+          "data_center_revenue": null,
+          "yoy_revenue_growth_pct": 21.5,
+          "notes": "Q2 included $7.9B gain from Visa share exchange. Excluding one-time items, underlying revenue was $42.4B.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "earnings",
+            "record_id": "earnings-jpm-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_earnings",
+      "latency_ms": 0.0
+    }
+  ],
+  "answer": "Analyst sentiment on JPM is currently BULLISH.\n[Source: rating-jpm-003] Of 3 recent ratings: 3 bullish, 0 neutral, 0 bearish. Average price target: $273.\n[Source: rating-jpm-003] Deutsche Bank (Matt O'Connor) Raises Price Target at Buy, PT $275.0 (from $255.0). Strong capital markets rebound; credit quality better than feared.\n[Source: rating-jpm-001] Wells Fargo (Mike Mayo) Raises Price Target at Overweight, PT $280.0 (from $250.0). Best-in-class franchise; NII guidance raise signals sustained earnings power.\n\n[Source: guidance-jpm-001] JPM issued Net Interest Income guidance of $92.5B for FY2024 (issued 2024-10-11). Prior analyst estimate was $91.0B.\n  Notes: JPMorgan raised FY2024 NII guidance to approximately $92.5B from prior guidance of $91B, ahead of analyst consensus of $91B.\n\n[Source: earnings-jpm-001] JPM Q3 2024 earnings (reported 2024-10-11): Revenue $43.3B vs. estimate $41.8B \u2014 BEAT (+3.6%). EPS $4.37 vs. estimate $3.99 \u2014 BEAT (+9.5%). Revenue grew 6.4% year-over-year.\n  Notes: Net interest income of $23.5B exceeded guidance midpoint of $23B. Investment banking fees up 31% YoY. CEO Dimon warned of geopolitical and credit risks.\n\n\u26a0 Data gaps: No news data was available for this query (tool: search_news).",
+  "sources": [
+    {
+      "ticker": "JPM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-jpm-003"
+    },
+    {
+      "ticker": "JPM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-jpm-001"
+    },
+    {
+      "ticker": "JPM",
+      "channel": "guidance",
+      "record_id": "guidance-jpm-001"
+    },
+    {
+      "ticker": "JPM",
+      "channel": "earnings",
+      "record_id": "earnings-jpm-001"
+    }
+  ],
+  "latency_ms": 23.99,
+  "tool_exec_ms": 23.96
+}

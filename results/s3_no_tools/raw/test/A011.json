@@ -1,0 +1,22 @@
+{
+  "id": "A011",
+  "query_id": "A011",
+  "query": "Break down what's happening with the JPM story.",
+  "category": "ambiguous",
+  "gold_tools": [
+    "search_news",
+    "get_earnings",
+    "get_ratings"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "I don't have specific recent details about JPMorgan Chase (JPM) without a current data source. JPMorgan Chase is a large U.S. bank, and its performance can be influenced by various factors including market conditions, financial results, regulatory changes, and management decisions. For the most accurate and up-to-date information on JPM's story, please refer to their latest press releases or financial reports.",
+  "llm_elapsed_ms": 3959,
+  "llm_prompt_tokens": 78,
+  "llm_gen_tokens": 84,
+  "tool_outputs": [],
+  "answer": "I don't have specific recent details about JPMorgan Chase (JPM) without a current data source. JPMorgan Chase is a large U.S. bank, and its performance can be influenced by various factors including market conditions, financial results, regulatory changes, and management decisions. For the most accurate and up-to-date information on JPM's story, please refer to their latest press releases or financial reports.",
+  "sources": [],
+  "latency_ms": 3959.75,
+  "tool_exec_ms": 0.0
+}

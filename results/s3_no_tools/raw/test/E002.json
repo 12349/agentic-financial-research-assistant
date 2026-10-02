@@ -1,0 +1,20 @@
+{
+  "id": "E002",
+  "query_id": "E002",
+  "query": "Did Tesla beat or miss on EPS last quarter?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_earnings"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "Tesla reported missing EPS estimates for the most recent quarter. The company reported earnings per share of $1.26, which was below the Wall Street consensus estimate of $1.30.",
+  "llm_elapsed_ms": 2140,
+  "llm_prompt_tokens": 77,
+  "llm_gen_tokens": 40,
+  "tool_outputs": [],
+  "answer": "Tesla reported missing EPS estimates for the most recent quarter. The company reported earnings per share of $1.26, which was below the Wall Street consensus estimate of $1.30.",
+  "sources": [],
+  "latency_ms": 2141.17,
+  "tool_exec_ms": 0.0
+}

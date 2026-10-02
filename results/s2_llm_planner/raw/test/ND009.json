@@ -1,0 +1,20 @@
+{
+  "id": "ND009",
+  "query_id": "ND009",
+  "query": "What dividend does Exxon Mobil pay?",
+  "category": "no_data",
+  "gold_tools": [],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "[]",
+  "llm_elapsed_ms": 278,
+  "llm_prompt_tokens": 448,
+  "llm_gen_tokens": 2,
+  "llm_tok_per_sec": 44.6,
+  "parsed_ok": true,
+  "tool_outputs": [],
+  "answer": "No data was found to answer this query.",
+  "sources": [],
+  "latency_ms": 278.7,
+  "tool_exec_ms": 0.0
+}

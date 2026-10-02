@@ -1,0 +1,42 @@
+{
+  "id": "N001",
+  "query_id": "N001",
+  "query": "What's the latest news on Nvidia?",
+  "category": "single_tool",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "latest news",
+        "ticker": "NVDA"
+      }
+    }
+  ],
+  "llm_raw_response": "[{\"tool\": \"search_news\", \"args\": {\"query\": \"latest news\", \"ticker\": \"NVDA\"}}]",
+  "llm_elapsed_ms": 1488,
+  "llm_prompt_tokens": 449,
+  "llm_gen_tokens": 27,
+  "llm_tok_per_sec": 23.3,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "latest news",
+      "ticker": "NVDA",
+      "latency_ms": 508.9
+    }
+  ],
+  "answer": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).",
+  "sources": [],
+  "latency_ms": 1997.37,
+  "tool_exec_ms": 508.96
+}

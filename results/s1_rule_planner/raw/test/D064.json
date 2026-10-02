@@ -1,0 +1,77 @@
+{
+  "id": "D064",
+  "query_id": "D064",
+  "query": "NVDA guided Q4 above consensus \u2014 did the financial press pick up on that?",
+  "category": "dual_tool",
+  "gold_tools": [
+    "get_guidance",
+    "search_news"
+  ],
+  "pred_tools": [
+    "get_guidance"
+  ],
+  "plan": [
+    {
+      "tool": "get_guidance",
+      "args": {
+        "ticker": "NVDA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "ticker": "NVDA",
+      "guidance": [
+        {
+          "id": "guidance-nvda-001",
+          "ticker": "NVDA",
+          "period": "Q4 FY2025",
+          "issued_date": "2024-11-20",
+          "metric": "Revenue",
+          "guidance_value": 37500000000,
+          "guidance_unit": "USD",
+          "guidance_low": 37000000000,
+          "guidance_high": 38000000000,
+          "analyst_estimate_prior": 37100000000,
+          "notes": "Company guided Q4 FY2025 revenue to approximately $37.5B (+/- 2%), above Street consensus of $37.1B at time of guidance.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "guidance",
+            "record_id": "guidance-nvda-001"
+          }
+        },
+        {
+          "id": "guidance-nvda-002",
+          "ticker": "NVDA",
+          "period": "Q3 FY2025",
+          "issued_date": "2024-08-28",
+          "metric": "Revenue",
+          "guidance_value": 32500000000,
+          "guidance_unit": "USD",
+          "guidance_low": 31500000000,
+          "guidance_high": 33500000000,
+          "analyst_estimate_prior": 31700000000,
+          "notes": "Company guided Q3 FY2025 revenue to approximately $32.5B, versus analyst estimates of $31.7B at time of guidance.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "guidance",
+            "record_id": "guidance-nvda-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_guidance",
+      "latency_ms": 0.1
+    }
+  ],
+  "answer": "[Source: guidance-nvda-001] NVDA issued Revenue guidance of $37.5B for Q4 FY2025 (issued 2024-11-20). Prior analyst estimate was $37.1B.\n  Notes: Company guided Q4 FY2025 revenue to approximately $37.5B (+/- 2%), above Street consensus of $37.1B at time of guidance.",
+  "sources": [
+    {
+      "ticker": "NVDA",
+      "channel": "guidance",
+      "record_id": "guidance-nvda-001"
+    }
+  ],
+  "latency_ms": 0.08,
+  "tool_exec_ms": 0.06
+}

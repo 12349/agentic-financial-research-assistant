@@ -1,0 +1,23 @@
+{
+  "id": "A021",
+  "query_id": "A021",
+  "query": "Research Nvidia for me.",
+  "category": "ambiguous",
+  "gold_tools": [
+    "get_earnings",
+    "get_ratings",
+    "search_news",
+    "get_guidance"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "I don't have real-time data access, but I can provide general information about Nvidia:\n\nNvidia Corporation is an American technology company that designs graphics processing units (GPUs) and other processors. It's headquartered in Santa Clara, California. Nvidia is known for its GPU products used in gaming, professional visualization, data centers, and self-driving cars. The company also develops AI and machine learning technologies.",
+  "llm_elapsed_ms": 3822,
+  "llm_prompt_tokens": 72,
+  "llm_gen_tokens": 81,
+  "tool_outputs": [],
+  "answer": "I don't have real-time data access, but I can provide general information about Nvidia:\n\nNvidia Corporation is an American technology company that designs graphics processing units (GPUs) and other processors. It's headquartered in Santa Clara, California. Nvidia is known for its GPU products used in gaming, professional visualization, data centers, and self-driving cars. The company also develops AI and machine learning technologies.",
+  "sources": [],
+  "latency_ms": 3823.01,
+  "tool_exec_ms": 0.0
+}

@@ -1,0 +1,144 @@
+{
+  "id": "D012",
+  "query_id": "D012",
+  "query": "XOM's latest financials and where analysts have their price targets \u2014 give me both.",
+  "category": "dual_tool",
+  "gold_tools": [
+    "get_earnings",
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "get_earnings",
+    "get_ratings"
+  ],
+  "plan": [
+    {
+      "tool": "get_earnings",
+      "args": {
+        "ticker": "XOM"
+      }
+    },
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "llm_raw_response": "[{\"tool\": \"get_earnings\", \"args\": {\"ticker\": \"XOM\"}}, {\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"XOM\"}}]",
+  "llm_elapsed_ms": 2107,
+  "llm_prompt_tokens": 459,
+  "llm_gen_tokens": 40,
+  "llm_tok_per_sec": 23.1,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "ticker": "XOM",
+      "earnings": [
+        {
+          "id": "earnings-xom-001",
+          "ticker": "XOM",
+          "period": "Q3 2024",
+          "report_date": "2024-11-01",
+          "revenue_actual": 90025000000,
+          "revenue_estimate": 90200000000,
+          "revenue_beat_miss": "miss",
+          "revenue_surprise_pct": -0.19,
+          "eps_actual": 1.92,
+          "eps_estimate": 1.88,
+          "eps_beat_miss": "beat",
+          "eps_surprise_pct": 2.13,
+          "net_income_actual": 8610000000,
+          "data_center_revenue": null,
+          "yoy_revenue_growth_pct": -5.0,
+          "notes": "EPS beat driven by Pioneer synergies of $500M ahead of schedule. Revenue slightly missed due to lower oil prices. $35B buyback program maintained.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "earnings",
+            "record_id": "earnings-xom-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_earnings",
+      "latency_ms": 0.5
+    },
+    {
+      "ticker": "XOM",
+      "ratings": [
+        {
+          "id": "rating-xom-001",
+          "ticker": "XOM",
+          "analyst_firm": "Piper Sandler",
+          "analyst_name": "Ryan Todd",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 135.0,
+          "prior_price_target": 130.0,
+          "action": "Maintains",
+          "date": "2024-11-05",
+          "notes": "Pioneer integration tracking ahead of plan; structural cost advantages intact.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-xom-001"
+          },
+          "ml_sentiment": "neutral",
+          "ml_confidence": 0.752
+        },
+        {
+          "id": "rating-xom-002",
+          "ticker": "XOM",
+          "analyst_firm": "JPMorgan",
+          "analyst_name": "Phil Gresh",
+          "rating": "Neutral",
+          "prior_rating": "Neutral",
+          "price_target": 118.0,
+          "prior_price_target": 118.0,
+          "action": "Maintains",
+          "date": "2024-11-01",
+          "notes": "Oil price uncertainty from OPEC policy caps upside; disciplined capex a positive.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-xom-002"
+          },
+          "ml_sentiment": "bearish",
+          "ml_confidence": 0.799
+        }
+      ],
+      "summary": {
+        "total_ratings": 2,
+        "bullish": 0,
+        "neutral": 1,
+        "bearish": 1,
+        "consensus": "neutral",
+        "ml_scored_count": 2,
+        "avg_price_target": 126.5
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 32.4
+    }
+  ],
+  "answer": "[Source: earnings-xom-001] XOM Q3 2024 earnings (reported 2024-11-01): Revenue $90.0B vs. estimate $90.2B \u2014 MISS (-0.2%). EPS $1.92 vs. estimate $1.88 \u2014 BEAT (+2.1%). Revenue grew -5.0% year-over-year.\n  Notes: EPS beat driven by Pioneer synergies of $500M ahead of schedule. Revenue slightly missed due to lower oil prices. $35B buyback program maintained.\n\nAnalyst sentiment on XOM is currently NEUTRAL.\n[Source: rating-xom-001] Of 2 recent ratings: 0 bullish, 1 neutral, 1 bearish. Average price target: $126.\n[Source: rating-xom-001] Piper Sandler (Ryan Todd) Maintains at Overweight, PT $135.0 (from $130.0). Pioneer integration tracking ahead of plan; structural cost advantages intact.\n[Source: rating-xom-002] JPMorgan (Phil Gresh) Maintains at Neutral, PT $118.0 (from $118.0). Oil price uncertainty from OPEC policy caps upside; disciplined capex a positive.",
+  "sources": [
+    {
+      "ticker": "XOM",
+      "channel": "earnings",
+      "record_id": "earnings-xom-001"
+    },
+    {
+      "ticker": "XOM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-xom-001"
+    },
+    {
+      "ticker": "XOM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-xom-002"
+    }
+  ],
+  "latency_ms": 2140.79,
+  "tool_exec_ms": 32.86
+}

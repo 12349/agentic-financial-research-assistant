@@ -1,0 +1,69 @@
+{
+  "id": "N016",
+  "query_id": "N016",
+  "query": "I heard there were some interesting developments at Exxon's last quarterly result. What stood out?",
+  "category": "single_tool",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [
+    "get_earnings"
+  ],
+  "plan": [
+    {
+      "tool": "get_earnings",
+      "args": {
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "llm_raw_response": "[{\"tool\": \"get_earnings\", \"args\": {\"ticker\": \"XOM\"}}]",
+  "llm_elapsed_ms": 1274,
+  "llm_prompt_tokens": 459,
+  "llm_gen_tokens": 22,
+  "llm_tok_per_sec": 23.6,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "ticker": "XOM",
+      "earnings": [
+        {
+          "id": "earnings-xom-001",
+          "ticker": "XOM",
+          "period": "Q3 2024",
+          "report_date": "2024-11-01",
+          "revenue_actual": 90025000000,
+          "revenue_estimate": 90200000000,
+          "revenue_beat_miss": "miss",
+          "revenue_surprise_pct": -0.19,
+          "eps_actual": 1.92,
+          "eps_estimate": 1.88,
+          "eps_beat_miss": "beat",
+          "eps_surprise_pct": 2.13,
+          "net_income_actual": 8610000000,
+          "data_center_revenue": null,
+          "yoy_revenue_growth_pct": -5.0,
+          "notes": "EPS beat driven by Pioneer synergies of $500M ahead of schedule. Revenue slightly missed due to lower oil prices. $35B buyback program maintained.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "earnings",
+            "record_id": "earnings-xom-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_earnings",
+      "latency_ms": 0.2
+    }
+  ],
+  "answer": "[Source: earnings-xom-001] XOM Q3 2024 earnings (reported 2024-11-01): Revenue $90.0B vs. estimate $90.2B \u2014 MISS (-0.2%). EPS $1.92 vs. estimate $1.88 \u2014 BEAT (+2.1%). Revenue grew -5.0% year-over-year.\n  Notes: EPS beat driven by Pioneer synergies of $500M ahead of schedule. Revenue slightly missed due to lower oil prices. $35B buyback program maintained.",
+  "sources": [
+    {
+      "ticker": "XOM",
+      "channel": "earnings",
+      "record_id": "earnings-xom-001"
+    }
+  ],
+  "latency_ms": 1275.45,
+  "tool_exec_ms": 0.17
+}

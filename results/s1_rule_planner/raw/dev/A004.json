@@ -1,0 +1,38 @@
+{
+  "id": "A004",
+  "query_id": "A004",
+  "query": "What's going on with XOM?",
+  "category": "ambiguous",
+  "gold_tools": [
+    "search_news",
+    "get_earnings",
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "What's going on with XOM?",
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "What's going on with XOM?",
+      "ticker": "XOM",
+      "latency_ms": 123.5
+    }
+  ],
+  "answer": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).",
+  "sources": [],
+  "latency_ms": 123.5,
+  "tool_exec_ms": 123.48
+}

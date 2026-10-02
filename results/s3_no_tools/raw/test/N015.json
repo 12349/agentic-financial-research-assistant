@@ -1,0 +1,20 @@
+{
+  "id": "N015",
+  "query_id": "N015",
+  "query": "What percentage of Nvidia's total revenue now comes from data center?",
+  "category": "single_tool",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "As of the latest quarterly reports, approximately 40% of Nvidia's total revenue comes from the data center segment. This figure can fluctuate based on market conditions and product demand.",
+  "llm_elapsed_ms": 1860,
+  "llm_prompt_tokens": 80,
+  "llm_gen_tokens": 38,
+  "tool_outputs": [],
+  "answer": "As of the latest quarterly reports, approximately 40% of Nvidia's total revenue comes from the data center segment. This figure can fluctuate based on market conditions and product demand.",
+  "sources": [],
+  "latency_ms": 1860.85,
+  "tool_exec_ms": 0.0
+}

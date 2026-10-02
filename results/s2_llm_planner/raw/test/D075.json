@@ -1,0 +1,159 @@
+{
+  "id": "D075",
+  "query_id": "D075",
+  "query": "XOM guidance on capex and the JPMorgan analyst's neutral stance on the stock.",
+  "category": "dual_tool",
+  "gold_tools": [
+    "get_guidance",
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "get_guidance",
+    "get_ratings"
+  ],
+  "plan": [
+    {
+      "tool": "get_guidance",
+      "args": {
+        "ticker": "XOM"
+      }
+    },
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "JPM"
+      }
+    }
+  ],
+  "llm_raw_response": "[{\"tool\": \"get_guidance\", \"args\": {\"ticker\": \"XOM\"}}, {\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"JPM\"}}]",
+  "llm_elapsed_ms": 2059,
+  "llm_prompt_tokens": 460,
+  "llm_gen_tokens": 39,
+  "llm_tok_per_sec": 23.1,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "ticker": "XOM",
+      "guidance": [
+        {
+          "id": "guidance-xom-001",
+          "ticker": "XOM",
+          "period": "FY2024",
+          "issued_date": "2024-02-01",
+          "metric": "Capital Expenditure",
+          "guidance_value": 28000000000,
+          "guidance_unit": "USD",
+          "guidance_low": 26000000000,
+          "guidance_high": 30000000000,
+          "analyst_estimate_prior": 27500000000,
+          "notes": "Exxon guided FY2024 capex to $28B, consistent with prior year plan, in line with analyst estimates.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "guidance",
+            "record_id": "guidance-xom-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_guidance",
+      "latency_ms": 0.4
+    },
+    {
+      "ticker": "JPM",
+      "ratings": [
+        {
+          "id": "rating-jpm-003",
+          "ticker": "JPM",
+          "analyst_firm": "Deutsche Bank",
+          "analyst_name": "Matt O'Connor",
+          "rating": "Buy",
+          "prior_rating": "Buy",
+          "price_target": 275.0,
+          "prior_price_target": 255.0,
+          "action": "Raises Price Target",
+          "date": "2024-10-15",
+          "notes": "Strong capital markets rebound; credit quality better than feared.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-jpm-003"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.878
+        },
+        {
+          "id": "rating-jpm-001",
+          "ticker": "JPM",
+          "analyst_firm": "Wells Fargo",
+          "analyst_name": "Mike Mayo",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 280.0,
+          "prior_price_target": 250.0,
+          "action": "Raises Price Target",
+          "date": "2024-10-14",
+          "notes": "Best-in-class franchise; NII guidance raise signals sustained earnings power.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-jpm-001"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.902
+        },
+        {
+          "id": "rating-jpm-002",
+          "ticker": "JPM",
+          "analyst_firm": "Oppenheimer",
+          "analyst_name": "Chris Kotowski",
+          "rating": "Outperform",
+          "prior_rating": "Outperform",
+          "price_target": 265.0,
+          "prior_price_target": 240.0,
+          "action": "Raises Price Target",
+          "date": "2024-10-14",
+          "notes": "Investment banking recovery and NII strength drive estimate upgrades.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-jpm-002"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.93
+        }
+      ],
+      "summary": {
+        "total_ratings": 3,
+        "bullish": 3,
+        "neutral": 0,
+        "bearish": 0,
+        "consensus": "bullish",
+        "ml_scored_count": 3,
+        "avg_price_target": 273.33
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 34.3
+    }
+  ],
+  "answer": "[Source: guidance-xom-001] XOM issued Capital Expenditure guidance of $28.0B for FY2024 (issued 2024-02-01). Prior analyst estimate was $27.5B.\n  Notes: Exxon guided FY2024 capex to $28B, consistent with prior year plan, in line with analyst estimates.\n\nAnalyst sentiment on JPM is currently BULLISH.\n[Source: rating-jpm-003] Of 3 recent ratings: 3 bullish, 0 neutral, 0 bearish. Average price target: $273.\n[Source: rating-jpm-003] Deutsche Bank (Matt O'Connor) Raises Price Target at Buy, PT $275.0 (from $255.0). Strong capital markets rebound; credit quality better than feared.\n[Source: rating-jpm-001] Wells Fargo (Mike Mayo) Raises Price Target at Overweight, PT $280.0 (from $250.0). Best-in-class franchise; NII guidance raise signals sustained earnings power.",
+  "sources": [
+    {
+      "ticker": "XOM",
+      "channel": "guidance",
+      "record_id": "guidance-xom-001"
+    },
+    {
+      "ticker": "JPM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-jpm-003"
+    },
+    {
+      "ticker": "JPM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-jpm-001"
+    }
+  ],
+  "latency_ms": 2094.17,
+  "tool_exec_ms": 34.81
+}

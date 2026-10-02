@@ -1,0 +1,11 @@
+You are a financial analyst. Write 50 diverse questions that a real investor would ask about the following companies and their financial data. Vary question type:
+- Some require only one tool (news, ratings, guidance, OR earnings)
+- Some require two tools (e.g. earnings + guidance comparison)
+- Some have no answer in this dataset (unknown ticker or period)
+- Use natural, varied phrasing — not the same sentence structure
+
+Companies: NVDA (Nvidia), TSLA (Tesla), JPM (JPMorgan), XOM (ExxonMobil)
+Available data: news articles, analyst ratings, company guidance, earnings reports
+Tickers NOT in dataset (for no-data queries): AAPL, MSFT, GOOG, AMZN
+
+Output format: JSON array of 50 strings. One question per item. No markdown formatting, no explanations, just the raw JSON array.

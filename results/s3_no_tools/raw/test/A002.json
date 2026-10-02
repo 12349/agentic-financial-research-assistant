@@ -1,0 +1,22 @@
+{
+  "id": "A002",
+  "query_id": "A002",
+  "query": "What's the outlook for Tesla?",
+  "category": "ambiguous",
+  "gold_tools": [
+    "get_guidance",
+    "get_ratings",
+    "search_news"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "The outlook for Tesla is positive, with strong growth in vehicle sales and revenue. The company has a robust pipeline of new models and technologies, including battery advancements and autonomous driving features. Tesla also benefits from expanding charging infrastructure and increasing market share in both electric vehicles and energy storage solutions. However, the stock price can be volatile due to market conditions and regulatory challenges.",
+  "llm_elapsed_ms": 3458,
+  "llm_prompt_tokens": 74,
+  "llm_gen_tokens": 73,
+  "tool_outputs": [],
+  "answer": "The outlook for Tesla is positive, with strong growth in vehicle sales and revenue. The company has a robust pipeline of new models and technologies, including battery advancements and autonomous driving features. Tesla also benefits from expanding charging infrastructure and increasing market share in both electric vehicles and energy storage solutions. However, the stock price can be volatile due to market conditions and regulatory challenges.",
+  "sources": [],
+  "latency_ms": 3458.54,
+  "tool_exec_ms": 0.0
+}

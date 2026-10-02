@@ -1,0 +1,22 @@
+{
+  "id": "N015",
+  "query_id": "N015",
+  "query": "What percentage of Nvidia's total revenue now comes from data center?",
+  "category": "single_tool",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "[]",
+  "llm_elapsed_ms": 378,
+  "llm_prompt_tokens": 454,
+  "llm_gen_tokens": 2,
+  "llm_tok_per_sec": 44.7,
+  "parsed_ok": true,
+  "tool_outputs": [],
+  "answer": "No data was found to answer this query.",
+  "sources": [],
+  "latency_ms": 379.04,
+  "tool_exec_ms": 0.0
+}

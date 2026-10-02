@@ -1,0 +1,22 @@
+{
+  "ablation": "A4_planner_type",
+  "split": "dev",
+  "rule_planner_s1": {
+    "f1": 0.4778,
+    "precision": 0.5778,
+    "recall": 0.4519,
+    "exact_match": 0.2444,
+    "abstention_acc": 0.0,
+    "tool_calls_per_q": 1.2,
+    "mean_latency_ms": 27.19
+  },
+  "llm_planner_s2": {
+    "f1": 1.0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "exact_match": 1.0,
+    "abstention_acc": NaN,
+    "tool_calls_per_q": 1.0,
+    "mean_latency_ms": 3777.62
+  }
+}

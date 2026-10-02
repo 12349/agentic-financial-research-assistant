@@ -1,0 +1,83 @@
+{
+  "system_id": "s5_react",
+  "split": "test",
+  "timestamp": "2026-10-02T04:49:20Z",
+  "n_queries": 47,
+  "tool_selection": {
+    "n_queries": 47,
+    "precision_mean": 0.4858,
+    "precision_ci_95": [
+      0.3475,
+      0.6241
+    ],
+    "recall_mean": 0.4362,
+    "recall_ci_95": [
+      0.305,
+      0.5674
+    ],
+    "f1_mean": 0.4333,
+    "f1_ci_95": [
+      0.3085,
+      0.5596
+    ],
+    "exact_match_rate": 0.3404,
+    "exact_ci_95": [
+      0.2128,
+      0.4894
+    ],
+    "abstention_acc": 0.7143,
+    "tool_calls_per_q": 0.89,
+    "per_category": {
+      "single_tool": {
+        "n": 21,
+        "precision_mean": 0.5397,
+        "recall_mean": 0.619,
+        "f1_mean": 0.5635,
+        "exact_rate": 0.4762
+      },
+      "dual_tool": {
+        "n": 12,
+        "precision_mean": 0.25,
+        "recall_mean": 0.1667,
+        "f1_mean": 0.1944,
+        "exact_rate": 0.0833
+      },
+      "ambiguous": {
+        "n": 7,
+        "precision_mean": 0.7857,
+        "recall_mean": 0.3571,
+        "f1_mean": 0.4571,
+        "exact_rate": 0.1429
+      },
+      "no_data": {
+        "n": 7,
+        "precision_mean": 0.4286,
+        "recall_mean": 0.4286,
+        "f1_mean": 0.4286,
+        "exact_rate": 0.5714
+      }
+    }
+  },
+  "synthesis_quality": {
+    "n_queries": 47,
+    "citation_valid_mean": 0.3222,
+    "citation_ci_95": [
+      0.175,
+      0.475
+    ],
+    "faithfulness_mean": 0.0403,
+    "faithfulness_ci_95": [
+      0.0111,
+      0.0763
+    ],
+    "unsupported_rate_mean": 0.6838,
+    "unsupported_ci_95": [
+      0.5846,
+      0.7737
+    ],
+    "abstention_acc": 0.1429
+  },
+  "model": "qwen2.5:7b-instruct",
+  "mean_latency_ms": 17140.25,
+  "mean_steps": 1.83
+}

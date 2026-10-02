@@ -1,0 +1,20 @@
+{
+  "id": "G003",
+  "query_id": "G003",
+  "query": "What is JPMorgan's NII guidance for FY2024?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_guidance"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "I don't have specific information about JPMorgan's Net Interest Income (NII) guidance for fiscal year 2024 in my current knowledge base. Companies typically provide such guidance during their earnings calls or financial reports, which I do not have real-time access to. For the most accurate and up-to-date information, please refer to JPMorgan's official announcements or filings.",
+  "llm_elapsed_ms": 3671,
+  "llm_prompt_tokens": 83,
+  "llm_gen_tokens": 79,
+  "tool_outputs": [],
+  "answer": "I don't have specific information about JPMorgan's Net Interest Income (NII) guidance for fiscal year 2024 in my current knowledge base. Companies typically provide such guidance during their earnings calls or financial reports, which I do not have real-time access to. For the most accurate and up-to-date information, please refer to JPMorgan's official announcements or filings.",
+  "sources": [],
+  "latency_ms": 3671.24,
+  "tool_exec_ms": 0.0
+}

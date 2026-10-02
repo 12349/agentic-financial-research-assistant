@@ -1,0 +1,34 @@
+{
+  "id": "ND025",
+  "query_id": "ND025",
+  "query": "What is the options flow on NVDA calls expiring next Friday?",
+  "category": "no_data",
+  "gold_tools": [],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "What is the options flow on NVDA calls expiring next Friday?",
+        "ticker": "NVDA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "What is the options flow on NVDA calls expiring next Friday?",
+      "ticker": "NVDA",
+      "latency_ms": 5.8
+    }
+  ],
+  "answer": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).",
+  "sources": [],
+  "latency_ms": 5.77,
+  "tool_exec_ms": 5.76
+}

@@ -1,0 +1,273 @@
+{
+  "id": "R015",
+  "query_id": "R015",
+  "query": "Tell me about Piper Sandler's stance on Exxon Mobil.",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "search_news",
+    "get_ratings",
+    "get_guidance",
+    "get_earnings"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Tell me about Piper Sandler's stance on Exxon Mobil.",
+        "ticker": "NVDA"
+      }
+    },
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "NVDA"
+      }
+    },
+    {
+      "tool": "get_guidance",
+      "args": {
+        "ticker": "NVDA"
+      }
+    },
+    {
+      "tool": "get_earnings",
+      "args": {
+        "ticker": "NVDA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Tell me about Piper Sandler's stance on Exxon Mobil.",
+      "ticker": "NVDA",
+      "latency_ms": 12.1
+    },
+    {
+      "ticker": "NVDA",
+      "ratings": [
+        {
+          "id": "rating-nvda-002",
+          "ticker": "NVDA",
+          "analyst_firm": "Bank of America",
+          "analyst_name": "Vivek Arya",
+          "rating": "Buy",
+          "prior_rating": "Buy",
+          "price_target": 190.0,
+          "prior_price_target": 165.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-22",
+          "notes": "Sees Blackwell cycle as multi-year AI infrastructure tailwind.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-nvda-002"
+          },
+          "ml_sentiment": "bearish",
+          "ml_confidence": 0.707
+        },
+        {
+          "id": "rating-nvda-001",
+          "ticker": "NVDA",
+          "analyst_firm": "Goldman Sachs",
+          "analyst_name": "Toshiya Hari",
+          "rating": "Buy",
+          "prior_rating": "Buy",
+          "price_target": 165.0,
+          "prior_price_target": 135.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-21",
+          "notes": "Raised PT on data center demand strength and Blackwell ramp confirmation.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-nvda-001"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.977
+        },
+        {
+          "id": "rating-nvda-004",
+          "ticker": "NVDA",
+          "analyst_firm": "Citi",
+          "analyst_name": "Atif Malik",
+          "rating": "Buy",
+          "prior_rating": "Buy",
+          "price_target": 175.0,
+          "prior_price_target": 150.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-21",
+          "notes": "Q4 guidance above Street; raises FY2026 estimates by 15%.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-nvda-004"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.943
+        },
+        {
+          "id": "rating-nvda-003",
+          "ticker": "NVDA",
+          "analyst_firm": "Morgan Stanley",
+          "analyst_name": "Joseph Moore",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 160.0,
+          "prior_price_target": 150.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-20",
+          "notes": "Supply constraints easing; data center demand exceeds prior estimates.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-nvda-003"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.496
+        }
+      ],
+      "summary": {
+        "total_ratings": 4,
+        "bullish": 3,
+        "neutral": 0,
+        "bearish": 1,
+        "consensus": "bullish",
+        "ml_scored_count": 4,
+        "avg_price_target": 172.5
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 12.3
+    },
+    {
+      "ticker": "NVDA",
+      "guidance": [
+        {
+          "id": "guidance-nvda-001",
+          "ticker": "NVDA",
+          "period": "Q4 FY2025",
+          "issued_date": "2024-11-20",
+          "metric": "Revenue",
+          "guidance_value": 37500000000,
+          "guidance_unit": "USD",
+          "guidance_low": 37000000000,
+          "guidance_high": 38000000000,
+          "analyst_estimate_prior": 37100000000,
+          "notes": "Company guided Q4 FY2025 revenue to approximately $37.5B (+/- 2%), above Street consensus of $37.1B at time of guidance.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "guidance",
+            "record_id": "guidance-nvda-001"
+          }
+        },
+        {
+          "id": "guidance-nvda-002",
+          "ticker": "NVDA",
+          "period": "Q3 FY2025",
+          "issued_date": "2024-08-28",
+          "metric": "Revenue",
+          "guidance_value": 32500000000,
+          "guidance_unit": "USD",
+          "guidance_low": 31500000000,
+          "guidance_high": 33500000000,
+          "analyst_estimate_prior": 31700000000,
+          "notes": "Company guided Q3 FY2025 revenue to approximately $32.5B, versus analyst estimates of $31.7B at time of guidance.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "guidance",
+            "record_id": "guidance-nvda-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_guidance",
+      "latency_ms": 0.1
+    },
+    {
+      "ticker": "NVDA",
+      "earnings": [
+        {
+          "id": "earnings-nvda-001",
+          "ticker": "NVDA",
+          "period": "Q3 FY2025",
+          "report_date": "2024-11-20",
+          "revenue_actual": 35082000000,
+          "revenue_estimate": 33170000000,
+          "revenue_beat_miss": "beat",
+          "revenue_surprise_pct": 5.76,
+          "eps_actual": 0.81,
+          "eps_estimate": 0.74,
+          "eps_beat_miss": "beat",
+          "eps_surprise_pct": 9.46,
+          "net_income_actual": 19309000000,
+          "data_center_revenue": 30770000000,
+          "yoy_revenue_growth_pct": 93.6,
+          "notes": "Record quarter driven by data center segment at $30.8B. Gaming revenue was $3.3B. CEO Jensen Huang cited 'insane' Blackwell demand.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "earnings",
+            "record_id": "earnings-nvda-001"
+          }
+        },
+        {
+          "id": "earnings-nvda-002",
+          "ticker": "NVDA",
+          "period": "Q2 FY2025",
+          "report_date": "2024-08-28",
+          "revenue_actual": 30040000000,
+          "revenue_estimate": 28710000000,
+          "revenue_beat_miss": "beat",
+          "revenue_surprise_pct": 4.63,
+          "eps_actual": 0.68,
+          "eps_estimate": 0.64,
+          "eps_beat_miss": "beat",
+          "eps_surprise_pct": 6.25,
+          "net_income_actual": 16599000000,
+          "data_center_revenue": 26272000000,
+          "yoy_revenue_growth_pct": 122.4,
+          "notes": "Another record quarter; data center revenue up 154% YoY.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "earnings",
+            "record_id": "earnings-nvda-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_earnings",
+      "latency_ms": 0.0
+    }
+  ],
+  "answer": "Analyst sentiment on NVDA is currently BULLISH.\n[Source: rating-nvda-002] Of 4 recent ratings: 3 bullish, 0 neutral, 1 bearish. Average price target: $172.\n[Source: rating-nvda-002] Bank of America (Vivek Arya) Raises Price Target at Buy, PT $190.0 (from $165.0). Sees Blackwell cycle as multi-year AI infrastructure tailwind.\n[Source: rating-nvda-001] Goldman Sachs (Toshiya Hari) Raises Price Target at Buy, PT $165.0 (from $135.0). Raised PT on data center demand strength and Blackwell ramp confirmation.\n\n[Source: guidance-nvda-001] NVDA issued Revenue guidance of $37.5B for Q4 FY2025 (issued 2024-11-20). Prior analyst estimate was $37.1B.\n  Notes: Company guided Q4 FY2025 revenue to approximately $37.5B (+/- 2%), above Street consensus of $37.1B at time of guidance.\n\n[Source: earnings-nvda-001] NVDA Q3 FY2025 earnings (reported 2024-11-20): Revenue $35.1B vs. estimate $33.2B \u2014 BEAT (+5.8%). EPS $0.81 vs. estimate $0.74 \u2014 BEAT (+9.5%). Revenue grew 93.6% year-over-year.\n  Notes: Record quarter driven by data center segment at $30.8B. Gaming revenue was $3.3B. CEO Jensen Huang cited 'insane' Blackwell demand.\n\n\u26a0 Data gaps: No news data was available for this query (tool: search_news).",
+  "sources": [
+    {
+      "ticker": "NVDA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-nvda-002"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-nvda-001"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "guidance",
+      "record_id": "guidance-nvda-001"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "earnings",
+      "record_id": "earnings-nvda-001"
+    }
+  ],
+  "latency_ms": 24.63,
+  "tool_exec_ms": 24.6
+}

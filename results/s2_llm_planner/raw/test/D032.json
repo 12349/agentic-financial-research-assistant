@@ -1,0 +1,23 @@
+{
+  "id": "D032",
+  "query_id": "D032",
+  "query": "Tesla set delivery expectations for FY2024 \u2014 was that mentioned in any recent coverage?",
+  "category": "dual_tool",
+  "gold_tools": [
+    "get_guidance",
+    "search_news"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "[\"search_news\"={\"query\": \"Tesla set delivery expectations for FY2024\", \"ticker\": \"TSLA\"}]",
+  "llm_elapsed_ms": 1613,
+  "llm_prompt_tokens": 460,
+  "llm_gen_tokens": 29,
+  "llm_tok_per_sec": 23.3,
+  "parsed_ok": false,
+  "tool_outputs": [],
+  "answer": "No data was found to answer this query.",
+  "sources": [],
+  "latency_ms": 1614.25,
+  "tool_exec_ms": 0.0
+}

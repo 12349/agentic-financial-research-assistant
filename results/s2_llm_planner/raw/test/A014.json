@@ -1,0 +1,122 @@
+{
+  "id": "A014",
+  "query_id": "A014",
+  "query": "How confident should I be about Tesla's future?",
+  "category": "ambiguous",
+  "gold_tools": [
+    "get_guidance",
+    "get_ratings",
+    "search_news"
+  ],
+  "pred_tools": [
+    "get_ratings"
+  ],
+  "plan": [
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "TSLA"
+      }
+    }
+  ],
+  "llm_raw_response": "[{\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"TSLA\"}}]",
+  "llm_elapsed_ms": 1271,
+  "llm_prompt_tokens": 451,
+  "llm_gen_tokens": 21,
+  "llm_tok_per_sec": 23.6,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "ticker": "TSLA",
+      "ratings": [
+        {
+          "id": "rating-tsla-001",
+          "ticker": "TSLA",
+          "analyst_firm": "Wedbush Securities",
+          "analyst_name": "Dan Ives",
+          "rating": "Outperform",
+          "prior_rating": "Outperform",
+          "price_target": 400.0,
+          "prior_price_target": 300.0,
+          "action": "Raises Price Target",
+          "date": "2024-12-01",
+          "notes": "Tesla AI and FSD monetization opportunity undervalued; Cybercab a long-term catalyst.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-tsla-001"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.914
+        },
+        {
+          "id": "rating-tsla-003",
+          "ticker": "TSLA",
+          "analyst_firm": "UBS",
+          "analyst_name": "Joseph Spak",
+          "rating": "Neutral",
+          "prior_rating": "Neutral",
+          "price_target": 226.0,
+          "prior_price_target": 197.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-25",
+          "notes": "Cautious on near-term EV competition; autonomous timeline uncertain.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-tsla-003"
+          },
+          "ml_sentiment": "bearish",
+          "ml_confidence": 0.499
+        },
+        {
+          "id": "rating-tsla-002",
+          "ticker": "TSLA",
+          "analyst_firm": "Morgan Stanley",
+          "analyst_name": "Adam Jonas",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 310.0,
+          "prior_price_target": 270.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-15",
+          "notes": "Full self-driving revenue model gaining credibility post-Cybercab reveal.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-tsla-002"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.524
+        }
+      ],
+      "summary": {
+        "total_ratings": 3,
+        "bullish": 2,
+        "neutral": 0,
+        "bearish": 1,
+        "consensus": "bullish",
+        "ml_scored_count": 3,
+        "avg_price_target": 312.0
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 37.9
+    }
+  ],
+  "answer": "Analyst sentiment on TSLA is currently BULLISH.\n[Source: rating-tsla-001] Of 3 recent ratings: 2 bullish, 0 neutral, 1 bearish. Average price target: $312.\n[Source: rating-tsla-001] Wedbush Securities (Dan Ives) Raises Price Target at Outperform, PT $400.0 (from $300.0). Tesla AI and FSD monetization opportunity undervalued; Cybercab a long-term catalyst.\n[Source: rating-tsla-003] UBS (Joseph Spak) Raises Price Target at Neutral, PT $226.0 (from $197.0). Cautious on near-term EV competition; autonomous timeline uncertain.",
+  "sources": [
+    {
+      "ticker": "TSLA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-tsla-001"
+    },
+    {
+      "ticker": "TSLA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-tsla-003"
+    }
+  ],
+  "latency_ms": 1310.01,
+  "tool_exec_ms": 37.93
+}

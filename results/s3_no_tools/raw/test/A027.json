@@ -1,0 +1,23 @@
+{
+  "id": "A027",
+  "query_id": "A027",
+  "query": "I'm looking at XOM for my portfolio \u2014 what do I need to know?",
+  "category": "ambiguous",
+  "gold_tools": [
+    "get_ratings",
+    "get_earnings",
+    "search_news",
+    "get_guidance"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "ExxonMobil (XOM) is a large-cap energy company. Key points to consider include:\n\n1. **Sector Sensitivity**: Energy prices and policies significantly impact its performance.\n2. **Dividend History**: Known for consistent dividends, though this can vary.\n3. **Debt Levels**: Manageable debt but watch for changes in the oil market that could affect leverage.\n4. **Operational Efficiency**: Focus on exploration success rates, production costs, and refining margins.\n5. **Regulatory Risks**: Environmental regulations and geopolitical factors can influence operations.\n\nAlways review the latest financial reports and consider your risk tolerance before investing.",
+  "llm_elapsed_ms": 6001,
+  "llm_prompt_tokens": 84,
+  "llm_gen_tokens": 129,
+  "tool_outputs": [],
+  "answer": "ExxonMobil (XOM) is a large-cap energy company. Key points to consider include:\n\n1. **Sector Sensitivity**: Energy prices and policies significantly impact its performance.\n2. **Dividend History**: Known for consistent dividends, though this can vary.\n3. **Debt Levels**: Manageable debt but watch for changes in the oil market that could affect leverage.\n4. **Operational Efficiency**: Focus on exploration success rates, production costs, and refining margins.\n5. **Regulatory Risks**: Environmental regulations and geopolitical factors can influence operations.\n\nAlways review the latest financial reports and consider your risk tolerance before investing.",
+  "sources": [],
+  "latency_ms": 6001.52,
+  "tool_exec_ms": 0.0
+}

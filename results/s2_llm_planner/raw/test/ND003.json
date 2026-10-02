@@ -1,0 +1,40 @@
+{
+  "id": "ND003",
+  "query_id": "ND003",
+  "query": "What is Amazon's forward revenue guidance?",
+  "category": "no_data",
+  "gold_tools": [
+    "get_guidance"
+  ],
+  "pred_tools": [
+    "get_guidance"
+  ],
+  "plan": [
+    {
+      "tool": "get_guidance",
+      "args": {
+        "ticker": "AMZN"
+      }
+    }
+  ],
+  "llm_raw_response": "[{\"tool\": \"get_guidance\", \"args\": {\"ticker\": \"AMZN\"}}]",
+  "llm_elapsed_ms": 1105,
+  "llm_prompt_tokens": 449,
+  "llm_gen_tokens": 21,
+  "llm_tok_per_sec": 23.6,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "ticker": "AMZN",
+      "guidance": [],
+      "error": "No guidance data found for AMZN",
+      "mode": "offline",
+      "tool": "get_guidance",
+      "latency_ms": 0.3
+    }
+  ],
+  "answer": "No data was found to answer this query.\n\nNo guidance data was available for AMZN.",
+  "sources": [],
+  "latency_ms": 1106.54,
+  "tool_exec_ms": 0.35
+}

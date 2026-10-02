@@ -1,0 +1,44 @@
+{
+  "id": "A011",
+  "query_id": "A011",
+  "query": "Break down what's happening with the JPM story.",
+  "category": "ambiguous",
+  "gold_tools": [
+    "search_news",
+    "get_earnings",
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "JPM story",
+        "ticker": "JPM"
+      }
+    }
+  ],
+  "llm_raw_response": "[{\"tool\": \"search_news\", \"args\": {\"query\": \"JPM story\", \"ticker\": \"JPM\"}}]",
+  "llm_elapsed_ms": 1540,
+  "llm_prompt_tokens": 452,
+  "llm_gen_tokens": 28,
+  "llm_tok_per_sec": 23.3,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "JPM story",
+      "ticker": "JPM",
+      "latency_ms": 395.1
+    }
+  ],
+  "answer": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).",
+  "sources": [],
+  "latency_ms": 1936.08,
+  "tool_exec_ms": 395.07
+}

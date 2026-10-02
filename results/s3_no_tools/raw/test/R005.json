@@ -1,0 +1,20 @@
+{
+  "id": "R005",
+  "query_id": "R005",
+  "query": "Has Goldman Sachs changed their price target on NVDA recently?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_ratings"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "I don't have real-time data access to provide the most current information. As of my last update, I don't have specific details on any recent price target changes for NVIDIA (NVDA) by Goldman Sachs. For the latest information, please check financial news outlets or direct sources from Goldman Sachs.",
+  "llm_elapsed_ms": 2894,
+  "llm_prompt_tokens": 79,
+  "llm_gen_tokens": 61,
+  "tool_outputs": [],
+  "answer": "I don't have real-time data access to provide the most current information. As of my last update, I don't have specific details on any recent price target changes for NVIDIA (NVDA) by Goldman Sachs. For the latest information, please check financial news outlets or direct sources from Goldman Sachs.",
+  "sources": [],
+  "latency_ms": 2894.38,
+  "tool_exec_ms": 0.0
+}

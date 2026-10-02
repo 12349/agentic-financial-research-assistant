@@ -1,0 +1,58 @@
+{
+  "id": "R014",
+  "query_id": "R014",
+  "query": "How does Dan Ives at Wedbush view Tesla's AI opportunity?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "How does Dan Ives at Wedbush view Tesla's AI opportunity?",
+        "ticker": "TSLA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [
+        {
+          "id": "news-tsla-002",
+          "ticker": "TSLA",
+          "headline": "Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline",
+          "body": "Tesla unveiled its long-awaited robotaxi, the Cybercab, at a Hollywood event. The two-seater autonomous vehicle is priced under $30,000 and is expected to enter production in 2026. Analysts expressed optimism about the long-term vision but concerns about regulatory approvals and production timelines.",
+          "published_at": "2024-10-11T22:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/tsla-robotaxi-cybercab",
+          "score": 0.33,
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "news",
+            "record_id": "news-tsla-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "How does Dan Ives at Wedbush view Tesla's AI opportunity?",
+      "ticker": "TSLA",
+      "latency_ms": 97.4
+    }
+  ],
+  "answer": "[Source: news-tsla-002] Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline\nTesla unveiled its long-awaited robotaxi, the Cybercab, at a Hollywood event. The two-seater autonomous vehicle is priced under $30,000 and is expected to enter production in 2026. Analysts expressed optimism about the long-term vision but concerns about regulatory approvals and production timelines.",
+  "sources": [
+    {
+      "ticker": "TSLA",
+      "channel": "news",
+      "record_id": "news-tsla-002"
+    }
+  ],
+  "latency_ms": 97.39,
+  "tool_exec_ms": 97.36
+}

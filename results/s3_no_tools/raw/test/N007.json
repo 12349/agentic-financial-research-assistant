@@ -1,0 +1,20 @@
+{
+  "id": "N007",
+  "query_id": "N007",
+  "query": "Did JPMorgan raise its net interest income outlook? What was reported?",
+  "category": "single_tool",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "I don't have specific recent data on JPMorgan's net interest income outlook in my current knowledge base. For the most accurate and up-to-date information, please refer to JPMorgan's latest earnings report or press releases.",
+  "llm_elapsed_ms": 2268,
+  "llm_prompt_tokens": 82,
+  "llm_gen_tokens": 47,
+  "tool_outputs": [],
+  "answer": "I don't have specific recent data on JPMorgan's net interest income outlook in my current knowledge base. For the most accurate and up-to-date information, please refer to JPMorgan's latest earnings report or press releases.",
+  "sources": [],
+  "latency_ms": 2268.64,
+  "tool_exec_ms": 0.0
+}

@@ -1,0 +1,20 @@
+{
+  "id": "ND003",
+  "query_id": "ND003",
+  "query": "What is Amazon's forward revenue guidance?",
+  "category": "no_data",
+  "gold_tools": [
+    "get_guidance"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "Amazon has not provided specific forward revenue guidance for the current fiscal year. Revenue guidance can vary and is typically released during earnings calls or press releases. For the most accurate and up-to-date information, please refer to the latest Amazon earnings report or press release.",
+  "llm_elapsed_ms": 2509,
+  "llm_prompt_tokens": 75,
+  "llm_gen_tokens": 52,
+  "tool_outputs": [],
+  "answer": "Amazon has not provided specific forward revenue guidance for the current fiscal year. Revenue guidance can vary and is typically released during earnings calls or press releases. For the most accurate and up-to-date information, please refer to the latest Amazon earnings report or press release.",
+  "sources": [],
+  "latency_ms": 2510.1,
+  "tool_exec_ms": 0.0
+}

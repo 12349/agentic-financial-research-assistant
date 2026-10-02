@@ -1,0 +1,20 @@
+{
+  "id": "ND031",
+  "query_id": "ND031",
+  "query": "What's the news on Coinbase's regulatory battles?",
+  "category": "no_data",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "As of my last update in October 2023, I don't have specific details on ongoing or recent regulatory battles involving Coinbase. Regulatory environments for cryptocurrency exchanges can change frequently, and detailed updates would be best sourced from official Coinbase communications or recent financial news outlets that cover the company's regulatory interactions.",
+  "llm_elapsed_ms": 2965,
+  "llm_prompt_tokens": 77,
+  "llm_gen_tokens": 62,
+  "tool_outputs": [],
+  "answer": "As of my last update in October 2023, I don't have specific details on ongoing or recent regulatory battles involving Coinbase. Regulatory environments for cryptocurrency exchanges can change frequently, and detailed updates would be best sourced from official Coinbase communications or recent financial news outlets that cover the company's regulatory interactions.",
+  "sources": [],
+  "latency_ms": 2965.61,
+  "tool_exec_ms": 0.0
+}

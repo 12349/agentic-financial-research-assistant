@@ -1,0 +1,22 @@
+{
+  "id": "A014",
+  "query_id": "A014",
+  "query": "How confident should I be about Tesla's future?",
+  "category": "ambiguous",
+  "gold_tools": [
+    "get_guidance",
+    "get_ratings",
+    "search_news"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "Tesla has shown strong growth in recent years with innovations in electric vehicles and energy storage solutions. However, market confidence can fluctuate based on various factors such as regulatory changes, supply chain issues, and competitive pressures. It's important to conduct thorough research and consider multiple sources before making investment decisions.",
+  "llm_elapsed_ms": 2832,
+  "llm_prompt_tokens": 77,
+  "llm_gen_tokens": 59,
+  "tool_outputs": [],
+  "answer": "Tesla has shown strong growth in recent years with innovations in electric vehicles and energy storage solutions. However, market confidence can fluctuate based on various factors such as regulatory changes, supply chain issues, and competitive pressures. It's important to conduct thorough research and consider multiple sources before making investment decisions.",
+  "sources": [],
+  "latency_ms": 2832.57,
+  "tool_exec_ms": 0.0
+}

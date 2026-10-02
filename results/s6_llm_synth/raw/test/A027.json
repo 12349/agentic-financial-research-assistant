@@ -1,0 +1,43 @@
+{
+  "id": "A027",
+  "query_id": "A027",
+  "query": "I'm looking at XOM for my portfolio \u2014 what do I need to know?",
+  "category": "ambiguous",
+  "gold_tools": [
+    "get_ratings",
+    "get_earnings",
+    "search_news",
+    "get_guidance"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "I'm looking at XOM for my portfolio \u2014 what do I need to know?",
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "I'm looking at XOM for my portfolio \u2014 what do I need to know?",
+      "ticker": "XOM",
+      "latency_ms": 45.8
+    }
+  ],
+  "answer": "Based on the available data, there is no recent news or specific information directly related to ExxonMobil (XOM) that would provide insights for your portfolio decision at this moment [Source: <record_id>]. However, it's important to consider XOM\u2019s historical performance, financial health, and industry position when making investment decisions.\n\nSources used:\n- [Source: <record_id>]",
+  "sources": [],
+  "llm_elapsed_ms": 4141,
+  "llm_prompt_tokens": 262,
+  "llm_gen_tokens": 79,
+  "llm_tok_per_sec": 22.7,
+  "latency_ms": 4187.89,
+  "tool_exec_ms": 45.76
+}

@@ -1,0 +1,20 @@
+{
+  "id": "R015",
+  "query_id": "R015",
+  "query": "Tell me about Piper Sandler's stance on Exxon Mobil.",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_ratings"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "Piper Sandler has maintained a positive outlook on Exxon Mobil, assigning it an \"Outperform\" rating as of my last update. However, for the most current stance and analysis, please refer to the latest research reports from Piper Sandler or their official website.",
+  "llm_elapsed_ms": 2581,
+  "llm_prompt_tokens": 79,
+  "llm_gen_tokens": 54,
+  "tool_outputs": [],
+  "answer": "Piper Sandler has maintained a positive outlook on Exxon Mobil, assigning it an \"Outperform\" rating as of my last update. However, for the most current stance and analysis, please refer to the latest research reports from Piper Sandler or their official website.",
+  "sources": [],
+  "latency_ms": 2581.84,
+  "tool_exec_ms": 0.0
+}

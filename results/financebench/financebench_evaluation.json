@@ -1,0 +1,110 @@
+{
+  "benchmark": "FinanceBench (Islam et al., arXiv:2311.11944)",
+  "license": "Apache 2.0",
+  "total_benchmark_samples": 150,
+  "in_scope_ticker_samples": 5,
+  "tickers_evaluated": [
+    "NVDA",
+    "XOM",
+    "TSLA",
+    "JPM"
+  ],
+  "stated_limitations": [
+    "FinanceBench is designed for document QA over SEC 10-K/10-Q filings.",
+    "Our system queries structured Q3 2024 fixture data; many FinanceBench questions reference prior fiscal years (2022, 2023).",
+    "This serves as an external sanity check for ticker and domain relevance, not an apples-to-apples full financial QA benchmark."
+  ],
+  "samples": [
+    {
+      "financebench_id": "financebench_id_00299",
+      "ticker": "JPM",
+      "question": "Which of JPM's business segments had the lowest net revenue in 2021 Q1?",
+      "gold_answer": "Corporate. Its net revenue was -$473 million.",
+      "plan": [
+        {
+          "tool": "search_news",
+          "args": {
+            "query": "Which of JPM's business segments had the lowest net revenue in 2021 Q1?",
+            "ticker": "JPM"
+          }
+        }
+      ],
+      "system_answer": "[Source: news-jpm-001] JPMorgan Q3 Net Income Rises 35% on Higher Interest Income\nJPMorgan Chase reported Q3 2024 net income of $12.9 billion, up 35% from a year earlier, driven by rising net interest income and strong investment banking fees. Revenue of $43.3 billion beat analyst expectations of $41.8 billion. CEO Jamie Dimon warned of geopolitical risks and potential credit deterioration ahead.\n[Source: news-jpm-002] Additionally: JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B",
+      "tool_outputs_count": 1
+    },
+    {
+      "financebench_id": "financebench_id_02119",
+      "ticker": "JPM",
+      "question": "If JPM went bankrupted by the end by 2021 Q1 and liquidated all of its assets to pay its shareholders, how much could each shareholder get?",
+      "gold_answer": "They could receive $66.56 per share.",
+      "plan": [
+        {
+          "tool": "search_news",
+          "args": {
+            "query": "If JPM went bankrupted by the end by 2021 Q1 and liquidated all of its assets to pay its shareholders, how much could each shareholder get?",
+            "ticker": "JPM"
+          }
+        }
+      ],
+      "system_answer": "[Source: news-jpm-001] JPMorgan Q3 Net Income Rises 35% on Higher Interest Income\nJPMorgan Chase reported Q3 2024 net income of $12.9 billion, up 35% from a year earlier, driven by rising net interest income and strong investment banking fees. Revenue of $43.3 billion beat analyst expectations of $41.8 billion. CEO Jamie Dimon warned of geopolitical risks and potential credit deterioration ahead.\n[Source: news-jpm-002] Additionally: JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B",
+      "tool_outputs_count": 1
+    },
+    {
+      "financebench_id": "financebench_id_00206",
+      "ticker": "JPM",
+      "question": "Are JPM's gross margins historically consistent (not fluctuating more than roughly 2% each year)? If gross margins are not a relevant metric for a company like this, then please state that and explain why.",
+      "gold_answer": "Since JPM is a financial institution, gross margin is not a relevant metric.",
+      "plan": [
+        {
+          "tool": "search_news",
+          "args": {
+            "query": "Are JPM's gross margins historically consistent (not fluctuating more than roughly 2% each year)? If gross margins are not a relevant metric for a company like this, then please state that and explain why.",
+            "ticker": "JPM"
+          }
+        }
+      ],
+      "system_answer": "[Source: news-jpm-002] JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B\nJPMorgan Chase raised its full-year net interest income guidance to approximately $92.5 billion, up from its prior guidance of $91 billion. The revision reflects higher-for-longer interest rates and strong loan growth. Analysts viewed the revision positively as it signals confidence in the bank's core earnings power.\n[Source: news-jpm-001] Additionally: JPMorgan Q3 Net Income Rises 35% on Higher Interest Income",
+      "tool_outputs_count": 1
+    },
+    {
+      "financebench_id": "financebench_id_00394",
+      "ticker": "JPM",
+      "question": "In 2022 Q2, which of JPM's business segments had the highest net income?",
+      "gold_answer": "Corporate & Investment Bank. Its net income was $3725 million.",
+      "plan": [
+        {
+          "tool": "get_earnings",
+          "args": {
+            "ticker": "JPM"
+          }
+        },
+        {
+          "tool": "search_news",
+          "args": {
+            "query": "In 2022 Q2, which of JPM's business segments had the highest net income?",
+            "ticker": "JPM"
+          }
+        }
+      ],
+      "system_answer": "[Source: earnings-jpm-001] JPM Q3 2024 earnings (reported 2024-10-11): Revenue $43.3B vs. estimate $41.8B \u2014 BEAT (+3.6%). EPS $4.37 vs. estimate $3.99 \u2014 BEAT (+9.5%). Revenue grew 6.4% year-over-year.\n  Notes: Net interest income of $23.5B exceeded guidance midpoint of $23B. Investment banking fees up 31% YoY. CEO Dimon warned of geopolitical and credit risks.\n\n[Source: news-jpm-001] JPMorgan Q3 Net Income Rises 35% on Higher Interest Income\nJPMorgan Chase reported Q3 2024 net income of $12.9 billion, up 35% from a year earlier, driven by rising net interest income and strong investment banking fees. Revenue of $43.3 billion beat analyst expectations of $41.8 billion. CEO Jamie Dimon warned of geopolitical risks and potential credit deterioration ahead.\n[Source: news-jpm-002] Additionally: JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B",
+      "tool_outputs_count": 2
+    },
+    {
+      "financebench_id": "financebench_id_02049",
+      "ticker": "JPM",
+      "question": "Looking at VaR, did the risk that JPM faced in the second fiscal quarter of 2023 decrease compared to the same period in the prior year?",
+      "gold_answer": "Yes. It decreased.",
+      "plan": [
+        {
+          "tool": "search_news",
+          "args": {
+            "query": "Looking at VaR, did the risk that JPM faced in the second fiscal quarter of 2023 decrease compared to the same period in the prior year?",
+            "ticker": "JPM"
+          }
+        }
+      ],
+      "system_answer": "[Source: news-jpm-002] JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B\nJPMorgan Chase raised its full-year net interest income guidance to approximately $92.5 billion, up from its prior guidance of $91 billion. The revision reflects higher-for-longer interest rates and strong loan growth. Analysts viewed the revision positively as it signals confidence in the bank's core earnings power.",
+      "tool_outputs_count": 1
+    }
+  ]
+}

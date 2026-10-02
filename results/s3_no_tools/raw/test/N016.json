@@ -1,0 +1,20 @@
+{
+  "id": "N016",
+  "query_id": "N016",
+  "query": "I heard there were some interesting developments at Exxon's last quarterly result. What stood out?",
+  "category": "single_tool",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "ExxonMobil reported strong earnings in its most recent quarter, driven by higher oil prices. Key highlights included record profits and increased production levels. However, the company also faced challenges related to maintenance delays at its facilities. For exact figures and more details, please refer to their official press release or financial reports.",
+  "llm_elapsed_ms": 2985,
+  "llm_prompt_tokens": 85,
+  "llm_gen_tokens": 63,
+  "tool_outputs": [],
+  "answer": "ExxonMobil reported strong earnings in its most recent quarter, driven by higher oil prices. Key highlights included record profits and increased production levels. However, the company also faced challenges related to maintenance delays at its facilities. For exact figures and more details, please refer to their official press release or financial reports.",
+  "sources": [],
+  "latency_ms": 2986.07,
+  "tool_exec_ms": 0.0
+}

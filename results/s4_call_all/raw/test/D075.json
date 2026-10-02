@@ -1,0 +1,214 @@
+{
+  "id": "D075",
+  "query_id": "D075",
+  "query": "XOM guidance on capex and the JPMorgan analyst's neutral stance on the stock.",
+  "category": "dual_tool",
+  "gold_tools": [
+    "get_guidance",
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "search_news",
+    "get_ratings",
+    "get_guidance",
+    "get_earnings"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "XOM guidance on capex and the JPMorgan analyst's neutral stance on the stock.",
+        "ticker": "XOM"
+      }
+    },
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "XOM"
+      }
+    },
+    {
+      "tool": "get_guidance",
+      "args": {
+        "ticker": "XOM"
+      }
+    },
+    {
+      "tool": "get_earnings",
+      "args": {
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [
+        {
+          "id": "news-xom-001",
+          "ticker": "XOM",
+          "headline": "Exxon Mobil Warns OPEC Meeting Outcome Could Pressure Oil Prices Further",
+          "body": "Exxon Mobil executives flagged concern over the upcoming OPEC+ ministerial meeting, noting that a potential production increase could pressure crude oil prices into the $70-$75 range. The company reaffirmed its capital discipline strategy, saying it would not alter its $28 billion capex plan regardless of short-term oil price movements.",
+          "published_at": "2024-11-29T13:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/xom-opec-warning",
+          "score": 0.3495,
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "news",
+            "record_id": "news-xom-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "XOM guidance on capex and the JPMorgan analyst's neutral stance on the stock.",
+      "ticker": "XOM",
+      "latency_ms": 10.5
+    },
+    {
+      "ticker": "XOM",
+      "ratings": [
+        {
+          "id": "rating-xom-001",
+          "ticker": "XOM",
+          "analyst_firm": "Piper Sandler",
+          "analyst_name": "Ryan Todd",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 135.0,
+          "prior_price_target": 130.0,
+          "action": "Maintains",
+          "date": "2024-11-05",
+          "notes": "Pioneer integration tracking ahead of plan; structural cost advantages intact.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-xom-001"
+          },
+          "ml_sentiment": "neutral",
+          "ml_confidence": 0.752
+        },
+        {
+          "id": "rating-xom-002",
+          "ticker": "XOM",
+          "analyst_firm": "JPMorgan",
+          "analyst_name": "Phil Gresh",
+          "rating": "Neutral",
+          "prior_rating": "Neutral",
+          "price_target": 118.0,
+          "prior_price_target": 118.0,
+          "action": "Maintains",
+          "date": "2024-11-01",
+          "notes": "Oil price uncertainty from OPEC policy caps upside; disciplined capex a positive.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-xom-002"
+          },
+          "ml_sentiment": "bearish",
+          "ml_confidence": 0.799
+        }
+      ],
+      "summary": {
+        "total_ratings": 2,
+        "bullish": 0,
+        "neutral": 1,
+        "bearish": 1,
+        "consensus": "neutral",
+        "ml_scored_count": 2,
+        "avg_price_target": 126.5
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 22.1
+    },
+    {
+      "ticker": "XOM",
+      "guidance": [
+        {
+          "id": "guidance-xom-001",
+          "ticker": "XOM",
+          "period": "FY2024",
+          "issued_date": "2024-02-01",
+          "metric": "Capital Expenditure",
+          "guidance_value": 28000000000,
+          "guidance_unit": "USD",
+          "guidance_low": 26000000000,
+          "guidance_high": 30000000000,
+          "analyst_estimate_prior": 27500000000,
+          "notes": "Exxon guided FY2024 capex to $28B, consistent with prior year plan, in line with analyst estimates.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "guidance",
+            "record_id": "guidance-xom-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_guidance",
+      "latency_ms": 0.1
+    },
+    {
+      "ticker": "XOM",
+      "earnings": [
+        {
+          "id": "earnings-xom-001",
+          "ticker": "XOM",
+          "period": "Q3 2024",
+          "report_date": "2024-11-01",
+          "revenue_actual": 90025000000,
+          "revenue_estimate": 90200000000,
+          "revenue_beat_miss": "miss",
+          "revenue_surprise_pct": -0.19,
+          "eps_actual": 1.92,
+          "eps_estimate": 1.88,
+          "eps_beat_miss": "beat",
+          "eps_surprise_pct": 2.13,
+          "net_income_actual": 8610000000,
+          "data_center_revenue": null,
+          "yoy_revenue_growth_pct": -5.0,
+          "notes": "EPS beat driven by Pioneer synergies of $500M ahead of schedule. Revenue slightly missed due to lower oil prices. $35B buyback program maintained.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "earnings",
+            "record_id": "earnings-xom-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_earnings",
+      "latency_ms": 0.0
+    }
+  ],
+  "answer": "[Source: news-xom-001] Exxon Mobil Warns OPEC Meeting Outcome Could Pressure Oil Prices Further\nExxon Mobil executives flagged concern over the upcoming OPEC+ ministerial meeting, noting that a potential production increase could pressure crude oil prices into the $70-$75 range. The company reaffirmed its capital discipline strategy, saying it would not alter its $28 billion capex plan regardless of short-term oil price movements.\n\nAnalyst sentiment on XOM is currently NEUTRAL.\n[Source: rating-xom-001] Of 2 recent ratings: 0 bullish, 1 neutral, 1 bearish. Average price target: $126.\n[Source: rating-xom-001] Piper Sandler (Ryan Todd) Maintains at Overweight, PT $135.0 (from $130.0). Pioneer integration tracking ahead of plan; structural cost advantages intact.\n[Source: rating-xom-002] JPMorgan (Phil Gresh) Maintains at Neutral, PT $118.0 (from $118.0). Oil price uncertainty from OPEC policy caps upside; disciplined capex a positive.\n\n[Source: guidance-xom-001] XOM issued Capital Expenditure guidance of $28.0B for FY2024 (issued 2024-02-01). Prior analyst estimate was $27.5B.\n  Notes: Exxon guided FY2024 capex to $28B, consistent with prior year plan, in line with analyst estimates.\n\n[Source: earnings-xom-001] XOM Q3 2024 earnings (reported 2024-11-01): Revenue $90.0B vs. estimate $90.2B \u2014 MISS (-0.2%). EPS $1.92 vs. estimate $1.88 \u2014 BEAT (+2.1%). Revenue grew -5.0% year-over-year.\n  Notes: EPS beat driven by Pioneer synergies of $500M ahead of schedule. Revenue slightly missed due to lower oil prices. $35B buyback program maintained.",
+  "sources": [
+    {
+      "ticker": "XOM",
+      "channel": "news",
+      "record_id": "news-xom-001"
+    },
+    {
+      "ticker": "XOM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-xom-001"
+    },
+    {
+      "ticker": "XOM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-xom-002"
+    },
+    {
+      "ticker": "XOM",
+      "channel": "guidance",
+      "record_id": "guidance-xom-001"
+    },
+    {
+      "ticker": "XOM",
+      "channel": "earnings",
+      "record_id": "earnings-xom-001"
+    }
+  ],
+  "latency_ms": 32.86,
+  "tool_exec_ms": 32.82
+}

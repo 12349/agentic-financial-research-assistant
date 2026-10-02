@@ -1,0 +1,18 @@
+{
+  "id": "ND025",
+  "query_id": "ND025",
+  "query": "What is the options flow on NVDA calls expiring next Friday?",
+  "category": "no_data",
+  "gold_tools": [],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "I don't have real-time data access to provide the current options flow for NVDA (NVIDIA Corporation) call options expiring next Friday. For accurate and up-to-date information, please refer to a reliable financial news source or a securities exchange platform.",
+  "llm_elapsed_ms": 2505,
+  "llm_prompt_tokens": 81,
+  "llm_gen_tokens": 52,
+  "tool_outputs": [],
+  "answer": "I don't have real-time data access to provide the current options flow for NVDA (NVIDIA Corporation) call options expiring next Friday. For accurate and up-to-date information, please refer to a reliable financial news source or a securities exchange platform.",
+  "sources": [],
+  "latency_ms": 2505.46,
+  "tool_exec_ms": 0.0
+}

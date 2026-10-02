@@ -1,0 +1,18 @@
+{
+  "id": "ND028",
+  "query_id": "ND028",
+  "query": "Show me JPMorgan's credit default swap spreads.",
+  "category": "no_data",
+  "gold_tools": [],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "I don't have real-time data access to provide current JPMorgan credit default swap (CDS) spreads. These spreads can fluctuate frequently and are typically only available from financial markets or specific services that track such data. For the most accurate and up-to-date information, you should consult a financial data provider or JPMorgan\u2019s official reports.",
+  "llm_elapsed_ms": 3373,
+  "llm_prompt_tokens": 78,
+  "llm_gen_tokens": 71,
+  "tool_outputs": [],
+  "answer": "I don't have real-time data access to provide current JPMorgan credit default swap (CDS) spreads. These spreads can fluctuate frequently and are typically only available from financial markets or specific services that track such data. For the most accurate and up-to-date information, you should consult a financial data provider or JPMorgan\u2019s official reports.",
+  "sources": [],
+  "latency_ms": 3373.58,
+  "tool_exec_ms": 0.0
+}

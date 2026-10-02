@@ -1,0 +1,148 @@
+{
+  "id": "N007",
+  "query_id": "N007",
+  "query": "Did JPMorgan raise its net interest income outlook? What was reported?",
+  "category": "single_tool",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [
+    "get_guidance",
+    "get_earnings"
+  ],
+  "plan": [
+    {
+      "tool": "get_guidance",
+      "args": {
+        "ticker": "JPM"
+      }
+    },
+    {
+      "tool": "get_earnings",
+      "args": {
+        "ticker": "JPM"
+      }
+    }
+  ],
+  "llm_raw_response": "[{\"tool\": \"get_guidance\", \"args\": {\"ticker\": \"JPM\"}}, {\"tool\": \"get_earnings\", \"args\": {\"ticker\": \"JPM\"}}]",
+  "llm_elapsed_ms": 2168,
+  "llm_prompt_tokens": 456,
+  "llm_gen_tokens": 41,
+  "llm_tok_per_sec": 23.1,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "ticker": "JPM",
+      "guidance": [
+        {
+          "id": "guidance-jpm-001",
+          "ticker": "JPM",
+          "period": "FY2024",
+          "issued_date": "2024-10-11",
+          "metric": "Net Interest Income",
+          "guidance_value": 92500000000,
+          "guidance_unit": "USD",
+          "guidance_low": 91500000000,
+          "guidance_high": 93500000000,
+          "analyst_estimate_prior": 91000000000,
+          "notes": "JPMorgan raised FY2024 NII guidance to approximately $92.5B from prior guidance of $91B, ahead of analyst consensus of $91B.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "guidance",
+            "record_id": "guidance-jpm-001"
+          }
+        },
+        {
+          "id": "guidance-jpm-002",
+          "ticker": "JPM",
+          "period": "Q3 2024",
+          "issued_date": "2024-07-12",
+          "metric": "Net Interest Income",
+          "guidance_value": 23000000000,
+          "guidance_unit": "USD",
+          "guidance_low": 22500000000,
+          "guidance_high": 23500000000,
+          "analyst_estimate_prior": 22800000000,
+          "notes": "JPMorgan guided Q3 2024 NII to approximately $23B, slightly above analyst estimates of $22.8B.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "guidance",
+            "record_id": "guidance-jpm-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_guidance",
+      "latency_ms": 0.5
+    },
+    {
+      "ticker": "JPM",
+      "earnings": [
+        {
+          "id": "earnings-jpm-001",
+          "ticker": "JPM",
+          "period": "Q3 2024",
+          "report_date": "2024-10-11",
+          "revenue_actual": 43315000000,
+          "revenue_estimate": 41800000000,
+          "revenue_beat_miss": "beat",
+          "revenue_surprise_pct": 3.62,
+          "eps_actual": 4.37,
+          "eps_estimate": 3.99,
+          "eps_beat_miss": "beat",
+          "eps_surprise_pct": 9.52,
+          "net_income_actual": 12900000000,
+          "data_center_revenue": null,
+          "yoy_revenue_growth_pct": 6.4,
+          "notes": "Net interest income of $23.5B exceeded guidance midpoint of $23B. Investment banking fees up 31% YoY. CEO Dimon warned of geopolitical and credit risks.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "earnings",
+            "record_id": "earnings-jpm-001"
+          }
+        },
+        {
+          "id": "earnings-jpm-002",
+          "ticker": "JPM",
+          "period": "Q2 2024",
+          "report_date": "2024-07-12",
+          "revenue_actual": 50986000000,
+          "revenue_estimate": 42200000000,
+          "revenue_beat_miss": "beat",
+          "revenue_surprise_pct": 20.82,
+          "eps_actual": 6.12,
+          "eps_estimate": 4.19,
+          "eps_beat_miss": "beat",
+          "eps_surprise_pct": 46.06,
+          "net_income_actual": 18149000000,
+          "data_center_revenue": null,
+          "yoy_revenue_growth_pct": 21.5,
+          "notes": "Q2 included $7.9B gain from Visa share exchange. Excluding one-time items, underlying revenue was $42.4B.",
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "earnings",
+            "record_id": "earnings-jpm-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_earnings",
+      "latency_ms": 0.2
+    }
+  ],
+  "answer": "[Source: guidance-jpm-001] JPM issued Net Interest Income guidance of $92.5B for FY2024 (issued 2024-10-11). Prior analyst estimate was $91.0B.\n  Notes: JPMorgan raised FY2024 NII guidance to approximately $92.5B from prior guidance of $91B, ahead of analyst consensus of $91B.\n\n[Source: earnings-jpm-001] JPM Q3 2024 earnings (reported 2024-10-11): Revenue $43.3B vs. estimate $41.8B \u2014 BEAT (+3.6%). EPS $4.37 vs. estimate $3.99 \u2014 BEAT (+9.5%). Revenue grew 6.4% year-over-year.\n  Notes: Net interest income of $23.5B exceeded guidance midpoint of $23B. Investment banking fees up 31% YoY. CEO Dimon warned of geopolitical and credit risks.",
+  "sources": [
+    {
+      "ticker": "JPM",
+      "channel": "guidance",
+      "record_id": "guidance-jpm-001"
+    },
+    {
+      "ticker": "JPM",
+      "channel": "earnings",
+      "record_id": "earnings-jpm-001"
+    }
+  ],
+  "latency_ms": 2169.5,
+  "tool_exec_ms": 0.7
+}

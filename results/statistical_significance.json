@@ -1,0 +1,12 @@
+{
+  "mcnemar_exact_match": {
+    "b": 19,
+    "c": 4,
+    "stat": 8.5217,
+    "p_value": 0.003509
+  },
+  "wilcoxon_f1": {
+    "stat": 130.0,
+    "p_value": 0.093521
+  }
+}
