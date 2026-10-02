@@ -41,6 +41,58 @@ All reported numbers postdate the critical macOS OpenMP and tokenization stabili
 - All hyperparameter selection, prompt drafting, and ablations (A1–A5) were developed and executed exclusively on `QUERIES_DEV` ($n=45$) and `QUERIES_TRAIN` ($n=137$).
 - The human annotation sample (`eval/human_annotation_sample.csv`, $n=50$) was extracted exclusively from the dev and train splits, completely preserving test set blinding.
 
+### 2.1 Full Disclosure: Metric Debugging Inspection of Test Split Outputs
+During the Phase 2.5 metric audit (Item 1), the deterministic formatter's implausible initial metrics ($0.081$ faithfulness, $0.613$ unsupported rate) were investigated by printing and inspecting the following **12 test-split result files**:
+1. [`results/s1_rule_planner/raw/test/A002.json`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/results/s1_rule_planner/raw/test/A002.json)
+2. [`results/s1_rule_planner/raw/test/A011.json`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/results/s1_rule_planner/raw/test/A011.json)
+3. [`results/s1_rule_planner/raw/test/A014.json`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/results/s1_rule_planner/raw/test/A014.json)
+4. [`results/s1_rule_planner/raw/test/A021.json`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/results/s1_rule_planner/raw/test/A021.json)
+5. [`results/s1_rule_planner/raw/test/A026.json`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/results/s1_rule_planner/raw/test/A026.json)
+6. [`results/s1_rule_planner/raw/test/A027.json`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/results/s1_rule_planner/raw/test/A027.json)
+7. [`results/s1_rule_planner/raw/test/A031.json`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/results/s1_rule_planner/raw/test/A031.json)
+8. [`results/s1_rule_planner/raw/test/D011.json`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/results/s1_rule_planner/raw/test/D011.json)
+9. [`results/s1_rule_planner/raw/test/D012.json`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/results/s1_rule_planner/raw/test/D012.json)
+10. [`results/s1_rule_planner/raw/test/D022.json`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/results/s1_rule_planner/raw/test/D022.json)
+11. [`results/s1_rule_planner/raw/test/D054.json`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/results/s1_rule_planner/raw/test/D054.json) *(inspected to diagnose rounding of `5.76%` to `+5.8%`)*
+12. [`results/s1_rule_planner/raw/test/E002.json`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/results/s1_rule_planner/raw/test/E002.json) *(inspected to diagnose rounding of `-1.25%` to `-1.2%`)*
+
+**Methodological Implication**: Although no system prompts or model weights were tuned on test (the changes were strictly bug fixes in the metric evaluator [`experiments/metrics/synthesis_quality.py`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/experiments/metrics/synthesis_quality.py)), inspecting test outputs means the metric code had visibility into test data. To validate that the corrected metric does not overfit to these instances, an independent 30-answer validation set constructed entirely from DEV outputs and synthetic corruptions is evaluated in Section 2 of Phase 2.75.
+
+---
+
+### 2.2 ReAct Agent (`s5_react.py`) Code Modifications & Test Invariance Proof
+Following the initial test run of S5 in commit `b8f8f4f`, [`experiments/systems/s5_react.py`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/experiments/systems/s5_react.py) was modified in commit `1a6102a` solely to support the A1 tool-cap ablation parameter (`max_steps`).
+
+**Exact Git Diff (`git diff b8f8f4f 1a6102a -- experiments/systems/s5_react.py`)**:
+```diff
+--- a/experiments/systems/s5_react.py
++++ b/experiments/systems/s5_react.py
+@@ -68,7 +68,7 @@ def parse_action(text: str) -> Optional[tuple[str, dict]]:
+     return tool_name, {}
+ 
+ 
+-def run_react_query(query: str, client: OllamaClient) -> dict:
++def run_react_query(query: str, client: OllamaClient, max_steps: int = REACT_MAX_STEPS) -> dict:
+     """Run multi-step ReAct agent on a single query."""
+     history = f"Question: {query}\n"
+     tools_called = []
+@@ -81,7 +81,7 @@ def run_react_query(query: str, client: OllamaClient) -> dict:
+ 
+     t0 = time.perf_counter()
+ 
+-    for step in range(REACT_MAX_STEPS):
++    for step in range(max_steps):
+         steps += 1
+         prompt = f"{_REACT_SYSTEM_PROMPT}\n\n{history}Thought:"
+         resp = client.generate(prompt, num_predict=256)
+```
+
+**Proof of Invariance for Reported S5 Test Numbers**:
+1. In Python, default parameter evaluation binds `max_steps = REACT_MAX_STEPS = 4` when `run_react_query` is invoked without the optional argument.
+2. In `run_s5()` (which executes the test evaluation), line 170 calls `res = run_react_query(query_text, client)` with no `max_steps` passed, executing identically to the original function.
+3. The prompt template, system prompt, parser, and stopping conditions (`_FINAL_ANSWER_RE`) remain 100% byte-for-byte identical between commits `b8f8f4f` and `1a6102a`.
+4. The reported test numbers in `results/s5_react/summary_test.json` are identical to the original run because the execution path for cap=4 is completely unchanged.
+
 ---
 
 ## 3. Prompt Iteration History
