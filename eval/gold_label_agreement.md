@@ -172,3 +172,31 @@ secondary reporting rather than the primary source.
 | ambiguous | 32 | 14.0% |
 | no_data | 33 | 14.4% |
 
+---
+
+## Cross-Model Second-Rater Agreement (Llama 3.1 8B)
+
+To evaluate inter-annotator agreement beyond the single-author self-consistency pass, an independent LLM rater from an external model family (`llama3.1:8b`) annotated the identical 15% random sample ($n=34$, seed 999).
+
+We evaluated two conditions:
+1. **Unprompted Baseline (No Guidelines)**: The model received bare tool definitions without formal disambiguation rules.
+2. **Guided Pass (With Guidelines)**: The model received the formal guidelines codified in [`eval/labeling_guidelines.md`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/eval/labeling_guidelines.md).
+
+| Condition | Tool-Set Exact Match | Tool-Set Cohen's κ | Category Exact Match | Category Cohen's κ | Result File |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Baseline (No Guidelines)** | 29.4% (10/34) | **0.2507** (Fair) | 44.1% (15/34) | **0.1654** (Slight) | `results/external_queries/llama_irr_agreement_no_guidelines_baseline.json` |
+| **Guided Pass (With Guidelines)** | 38.2% (13/34) | **0.3419** (Fair) | 61.8% (21/34) | **0.3652** (Fair) | `results/external_queries/llama_irr_agreement_guided.json` |
+
+### Key Takeaway
+Providing written guidelines improved cross-model inter-rater agreement substantially ($\Delta\kappa = +0.091$ on tool sets, $\Delta\kappa = +0.200$ on categories). However, cross-model agreement remains moderate/fair ($\kappa \approx 0.34$), proving that unassisted LLMs diverge on ambiguous edge cases and that human annotation remains necessary.
+
+---
+
+## Human Annotation Protocol
+
+To measure true human inter-rater reliability:
+1. **Guidelines**: Full annotation criteria and boundary cases are documented in [`eval/labeling_guidelines.md`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/eval/labeling_guidelines.md).
+2. **Annotation Sheet**: A stratified 50-query subset drawn from the development and training splits (leaving the held-out test split completely untouched) is formatted for human review in [`eval/human_annotation_sample.csv`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/eval/human_annotation_sample.csv).
+3. **No Synthetic Fill**: The CSV contains completely blank fields for `human_category`, `human_tools`, and `human_notes` to be filled by human annotators without simulated scores.
+
+

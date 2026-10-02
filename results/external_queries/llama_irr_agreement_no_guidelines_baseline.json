@@ -1,0 +1,10 @@
+{
+  "rater_model": "llama3.1:8b",
+  "n_sample": 34,
+  "sampling_seed": 999,
+  "exact_tool_set_match_rate": 0.2941,
+  "exact_category_match_rate": 0.4412,
+  "cohens_kappa_tool_sets": 0.2507,
+  "cohens_kappa_categories": 0.1654,
+  "stated_limitation": "This is a second-rater pass conducted with an independent LLM family (llama3.1:8b), not an independent human rater."
+}

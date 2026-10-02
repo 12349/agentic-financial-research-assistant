@@ -1,0 +1,34 @@
+You are an expert financial research annotator. Label the query below according to the following strict guidelines:
+
+### System Scope & Tools:
+Supported tickers: NVDA (Nvidia), TSLA (Tesla), JPM (JPMorgan), XOM (ExxonMobil). Any other ticker is out-of-scope.
+
+Available tools:
+- get_earnings: Historical quarterly/annual reported results (revenue, EPS, beat/miss, net income).
+- get_guidance: Company-issued forward management outlook/targets for future periods.
+- get_ratings: Wall Street analyst ratings (Buy/Hold/Sell), price targets, revisions, consensus.
+- search_news: Press articles, news developments, product launches, lawsuits, macro events.
+
+### Categories & Routing Rules:
+1. "no_data":
+   - Any query about companies outside NVDA, TSLA, JPM, XOM (e.g. Amazon, Google, Apple, Coinbase).
+   - Any query about unsupported financial instruments (options flow, CDS spreads, technical indicators).
+   - For "no_data", "gold_tools" MUST be empty list [].
+2. "single_tool":
+   - Query asks for exactly one specific financial domain for a supported ticker.
+   - Example: "What was Nvidia's revenue last quarter?" -> ["get_earnings"]
+3. "dual_tool":
+   - Query explicitly joins two distinct financial domains. Both tools must be listed.
+   - Example: "Tesla Q3 earnings and analyst price targets" -> ["get_earnings", "get_ratings"]
+4. "ambiguous":
+   - Query mentions a supported ticker (NVDA, TSLA, JPM, XOM) but is broad, open-ended, or underspecified (e.g. "What's the outlook for Tesla?", "Research Nvidia").
+   - By default, assigns ["search_news"] for high-level research. Never label supported companies as "no_data".
+
+Query: {{QUERY}}
+
+Output ONLY a JSON object:
+{
+  "gold_tools": ["<tool1>", "<tool2>"],
+  "category": "<single_tool|dual_tool|ambiguous|no_data>",
+  "rationale": "<brief explanation>"
+}

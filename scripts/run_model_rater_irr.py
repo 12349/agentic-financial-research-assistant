@@ -48,10 +48,10 @@ def run_llama_irr():
     sample_indices = sorted(rng.sample(range(len(all_queries)), sample_size))
     sample = [all_queries[i] for i in sample_indices]
 
-    prompt_template = Path("eval/external_queries/labeling_prompt.txt").read_text(encoding="utf-8")
+    prompt_template = Path("eval/external_queries/labeling_prompt_with_guidelines.txt").read_text(encoding="utf-8")
     client = rater_client(model=SECOND_MODEL)
 
-    print(f"Running LLM rater pass with {SECOND_MODEL} on n={len(sample)} queries...")
+    print(f"Running LLM rater pass (with guidelines) using {SECOND_MODEL} on n={len(sample)} queries...")
 
     author_tool_sets = []
     author_categories = []
@@ -113,31 +113,32 @@ def run_llama_irr():
         "rater_model": SECOND_MODEL,
         "n_sample": len(sample),
         "sampling_seed": 999,
+        "with_guidelines": True,
         "exact_tool_set_match_rate": round(exact_tools_rate, 4),
         "exact_category_match_rate": round(exact_cat_rate, 4),
         "cohens_kappa_tool_sets": round(kappa_tools, 4),
         "cohens_kappa_categories": round(kappa_cat, 4),
         "stated_limitation": (
-            "This is a second-rater pass conducted with an independent LLM family (llama3.1:8b), "
-            "not an independent human rater."
+            "This is a second-rater pass conducted with an independent LLM family (llama3.1:8b) "
+            "provided with explicit labeling guidelines (eval/labeling_guidelines.md), not an independent human rater."
         ),
     }
 
-    out_file = Path("eval/external_queries/llama_irr_labels.jsonl")
+    out_file = Path("eval/external_queries/llama_irr_labels_guided.jsonl")
     with open(out_file, "w", encoding="utf-8") as f:
         for r in records:
             f.write(json.dumps(r) + "\n")
 
-    summary_file = Path(RESULTS_DIR) / "external_queries" / "llama_irr_agreement.json"
+    summary_file = Path(RESULTS_DIR) / "external_queries" / "llama_irr_agreement_guided.json"
     summary_file.parent.mkdir(parents=True, exist_ok=True)
     with open(summary_file, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2)
 
-    print(f"\nSaved LLM rater results to {out_file}")
+    print(f"\nSaved LLM rater (guided) results to {out_file}")
     print(f"Summary saved to {summary_file}")
-    print(f"Tool-set Kappa:  {kappa_tools:.4f}")
-    print(f"Category Kappa:  {kappa_cat:.4f}")
-    print(f"Exact Tools Acc: {exact_tools_rate:.4f}")
+    print(f"Tool-set Kappa (with guidelines): {kappa_tools:.4f}")
+    print(f"Category Kappa (with guidelines): {kappa_cat:.4f}")
+    print(f"Exact Tools Acc (with guidelines): {exact_tools_rate:.4f}")
 
 
 if __name__ == "__main__":
