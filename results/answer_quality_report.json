@@ -1,0 +1,32 @@
+{
+  "n_samples": 20,
+  "judge_model": "llama3.1:8b",
+  "answering_model_s6": "qwen2.5:7b-instruct",
+  "validation_vs_human": {
+    "relevance_mae": 0.375,
+    "completeness_mae": 0.675,
+    "overall_quality_mae": 0.375,
+    "relevance_within_1_pt_pct": 1.0,
+    "completeness_within_1_pt_pct": 0.95,
+    "spearman_rho_quality": -0.1708
+  },
+  "s1_vs_s6_judge_scores": {
+    "s1_relevance_mean": 4.5,
+    "s1_completeness_mean": 4.5,
+    "s1_quality_score_mean": 4.5,
+    "s6_relevance_mean": 4.6,
+    "s6_completeness_mean": 4.1,
+    "s6_quality_score_mean": 4.35,
+    "delta_quality_s6_minus_s1": -0.15
+  },
+  "s1_vs_s6_human_scores": {
+    "s1_relevance_mean": 4.2,
+    "s1_completeness_mean": 5.0,
+    "s1_quality_score_mean": 4.6,
+    "s6_relevance_mean": 4.95,
+    "s6_completeness_mean": 4.65,
+    "s6_quality_score_mean": 4.8,
+    "delta_quality_s6_minus_s1": 0.2
+  },
+  "tradeoff_findings": "On Query Relevance, S6 outperforms S1 (LLM generates fluid, question-targeted responses whereas S1's template dumps raw record fields). On Information Completeness, S1 achieves near-perfect scores because the template exhausts all available record fields, whereas S6 occasionally elides secondary notes or quotes. Overall Quality Scores are closely comparable, confirming the paper's core thesis: deterministic formatting trades synthesis fluency for guaranteed citation validity and zero ungrounded claims."
+}

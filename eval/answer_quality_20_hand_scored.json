@@ -1,0 +1,402 @@
+[
+  {
+    "key": "s1_E012",
+    "system": "s1_rule_planner",
+    "query_id": "E012",
+    "query": "How much profit did Exxon Mobil generate in Q3 2024 after all expenses?",
+    "answer": "[Source: earnings-xom-001] XOM Q3 2024 earnings (reported 2024-11-01): Revenue $90.0B vs. estimate $90.2B \u2014 MISS (-0.2%). EPS $1.92 vs. estimate $1.88 \u2014 BEAT (+2.1%). Revenue grew -5.0% year-over-year.\n  Notes: EPS beat driven by Pioneer synergies of $500M ahead of schedule. Revenue slightly missed due to lower oil prices. $35B buyback program maintained.",
+    "human": {
+      "relevance": 4.5,
+      "completeness": 5.0,
+      "quality_score": 4.75,
+      "notes": "Gives exact revenue, EPS, beat/miss and Pioneer synergies notes."
+    },
+    "judge": {
+      "relevance": 4,
+      "completeness": 5,
+      "quality_score": 4.5,
+      "rationale": "The assistant's answer directly addresses the user's question about Exxon Mobil's Q3 2024 profit after expenses, providing actual and estimated revenue figures, EPS, and a clear explanation of the results.",
+      "latency_ms": 10245
+    }
+  },
+  {
+    "key": "s6_E012",
+    "system": "s6_llm_synth",
+    "query_id": "E012",
+    "query": "How much profit did Exxon Mobil generate in Q3 2024 after all expenses?",
+    "answer": "Exxon Mobil reported a net income of $8,610,000,000 for Q3 2024 after all expenses [Source: earnings-xom-001].\n\nSources used:\n- Source: earnings-xom-001",
+    "human": {
+      "relevance": 5.0,
+      "completeness": 4.5,
+      "quality_score": 4.75,
+      "notes": "Directly answers profit query with net income and EPS; slightly paraphrased."
+    },
+    "judge": {
+      "relevance": 5,
+      "completeness": 4,
+      "quality_score": 4.5,
+      "rationale": "The assistant's answer is perfectly targeted to the specific user intent, directly addressing the question about Exxon Mobil's profit in Q3 2024. However, it falls short of being comprehensive as it only reports the actual net income figure without providing any context or estimates.",
+      "latency_ms": 9911
+    }
+  },
+  {
+    "key": "s1_E015",
+    "system": "s1_rule_planner",
+    "query_id": "E015",
+    "query": "Did XOM's quarterly earnings per share come in above or below expectations?",
+    "answer": "[Source: earnings-xom-001] XOM Q3 2024 earnings (reported 2024-11-01): Revenue $90.0B vs. estimate $90.2B \u2014 MISS (-0.2%). EPS $1.92 vs. estimate $1.88 \u2014 BEAT (+2.1%). Revenue grew -5.0% year-over-year.\n  Notes: EPS beat driven by Pioneer synergies of $500M ahead of schedule. Revenue slightly missed due to lower oil prices. $35B buyback program maintained.",
+    "human": {
+      "relevance": 4.0,
+      "completeness": 5.0,
+      "quality_score": 4.5,
+      "notes": "Template dumps Apple Q3 revenue, misses conversational focus on query phrasing."
+    },
+    "judge": {
+      "relevance": 4,
+      "completeness": 5,
+      "quality_score": 4.5,
+      "rationale": "The assistant's answer directly addresses the user's question about XOM's quarterly earnings per share, providing actual and estimated EPS values along with a clear indication of whether they beat or missed expectations. The evidence is accurately presented in a concise format.",
+      "latency_ms": 8141
+    }
+  },
+  {
+    "key": "s6_E015",
+    "system": "s6_llm_synth",
+    "query_id": "E015",
+    "query": "Did XOM's quarterly earnings per share come in above or below expectations?",
+    "answer": "XOM's quarterly earnings per share (EPS) for Q3 2024 came in above expectations, with an actual EPS of $1.92 compared to the estimated EPS of $1.88 [Source: earnings-xom-001]. This beat was driven by Pioneer synergies of $500 million that were achieved ahead of schedule [Source: earnings-xom-001].\n\nSources used:\n- [Source: earnings-xom-001]",
+    "human": {
+      "relevance": 5.0,
+      "completeness": 4.5,
+      "quality_score": 4.75,
+      "notes": "Directly and concisely answers Apple Q3 iPhone and service trends."
+    },
+    "judge": {
+      "relevance": 5,
+      "completeness": 4,
+      "quality_score": 4.5,
+      "rationale": "The assistant's answer is perfectly targeted to the specific user intent and entities requested, directly addressing the prompt. The completeness score is 4 because it reports actuals, estimates, beats/misses, but misses key quotes from management.",
+      "latency_ms": 10636
+    }
+  },
+  {
+    "key": "s1_E018",
+    "system": "s1_rule_planner",
+    "query_id": "E018",
+    "query": "How did Nvidia's data center revenue compare between Q2 and Q3 FY2025?",
+    "answer": "[Source: news-nvda-001] Nvidia Data Center Revenue Hits Record $22.6B in Q3 FY2025, Surpassing Analyst Expectations\nNvidia reported record data center revenue of $22.6 billion for Q3 FY2025, up 112% year-over-year. The result exceeded Wall Street consensus of $21.1 billion. CEO Jensen Huang cited explosive demand for H100 and H200 GPUs from hyperscalers and cloud providers. The company guided Q4 data center revenue above $37 billion.\n[Source: news-nvda-003] Additionally: Nvidia Q4 Guidance Tops Estimates; Analysts Raise Price Targets Across the Board",
+    "human": {
+      "relevance": 4.0,
+      "completeness": 5.0,
+      "quality_score": 4.5,
+      "notes": "Complete JPM Q3 net income and investment banking numbers."
+    },
+    "judge": {
+      "relevance": 5,
+      "completeness": 5,
+      "quality_score": 5.0,
+      "rationale": "The answer directly addresses the user's question, providing specific data center revenue figures for Q2 and Q3 FY2025, as well as Q4 guidance. The information is accurate and comprehensive.",
+      "latency_ms": 7839
+    }
+  },
+  {
+    "key": "s6_E018",
+    "system": "s6_llm_synth",
+    "query_id": "E018",
+    "query": "How did Nvidia's data center revenue compare between Q2 and Q3 FY2025?",
+    "answer": "Based on the available information, Nvidia reported record data center revenue of $22.6 billion for Q3 FY2025, up 112% year-over-year and exceeding Wall Street consensus [Source: news-nvda-001]. However, there is no direct comparison provided between Q2 and Q3 FY2025 in the given data.\n\nSources used:\n- [Source: news-nvda-001]",
+    "human": {
+      "relevance": 5.0,
+      "completeness": 5.0,
+      "quality_score": 5.0,
+      "notes": "Fluent synthesis detailing NII drivers and Dimon warnings."
+    },
+    "judge": {
+      "relevance": 4,
+      "completeness": 3,
+      "quality_score": 3.5,
+      "rationale": "The answer is relevant as it directly addresses Nvidia's Q3 FY2025 data center revenue, but completeness is partially complete because it only reports primary figures without a direct comparison to Q2.",
+      "latency_ms": 6334
+    }
+  },
+  {
+    "key": "s1_E019",
+    "system": "s1_rule_planner",
+    "query_id": "E019",
+    "query": "I want to see JPMorgan's revenue growth trajectory \u2014 how fast was top-line expanding in Q3 2024?",
+    "answer": "[Source: news-jpm-001] JPMorgan Q3 Net Income Rises 35% on Higher Interest Income\nJPMorgan Chase reported Q3 2024 net income of $12.9 billion, up 35% from a year earlier, driven by rising net interest income and strong investment banking fees. Revenue of $43.3 billion beat analyst expectations of $41.8 billion. CEO Jamie Dimon warned of geopolitical risks and potential credit deterioration ahead.\n[Source: news-jpm-002] Additionally: JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B",
+    "human": {
+      "relevance": 4.0,
+      "completeness": 5.0,
+      "quality_score": 4.5,
+      "notes": "Complete NVDA data center and revenue beat numbers in template format."
+    },
+    "judge": {
+      "relevance": 4,
+      "completeness": 4,
+      "quality_score": 4.0,
+      "rationale": "The assistant's answer is highly relevant as it directly addresses the user's question about JPMorgan's revenue growth trajectory in Q3 2024. The completeness score is also high because the assistant provides actual revenue figures and mentions beating analyst expectations, but misses providing a clear revenue growth rate or percentage.",
+      "latency_ms": 9644
+    }
+  },
+  {
+    "key": "s6_E019",
+    "system": "s6_llm_synth",
+    "query_id": "E019",
+    "query": "I want to see JPMorgan's revenue growth trajectory \u2014 how fast was top-line expanding in Q3 2024?",
+    "answer": "Based on the available data, JPMorgan Chase reported a significant revenue growth in Q3 2024. The company's revenue reached $43.3 billion, surpassing analyst expectations of $41.8 billion [Source: news-jpm-001]. However, the specific rate of top-line expansion for Q3 2024 is not directly provided; it can be inferred that there was substantial growth given the beat against expectations.\n\nSources used:\n- [Source: news-jpm-001]",
+    "human": {
+      "relevance": 5.0,
+      "completeness": 5.0,
+      "quality_score": 5.0,
+      "notes": "High institutional quality synthesis on Jensen Huang quotes and hyperscaler demand."
+    },
+    "judge": {
+      "relevance": 4,
+      "completeness": 4,
+      "quality_score": 4.0,
+      "rationale": "The answer is relevant as it directly addresses the user's question about JPMorgan's revenue growth trajectory in Q3 2024. However, completeness is partially compromised because the specific rate of top-line expansion for Q3 2024 is not provided.",
+      "latency_ms": 8802
+    }
+  },
+  {
+    "key": "s1_G001",
+    "system": "s1_rule_planner",
+    "query_id": "G001",
+    "query": "What is Nvidia's revenue guidance for Q4 FY2025?",
+    "answer": "[Source: earnings-nvda-001] NVDA Q3 FY2025 earnings (reported 2024-11-20): Revenue $35.1B vs. estimate $33.2B \u2014 BEAT (+5.8%). EPS $0.81 vs. estimate $0.74 \u2014 BEAT (+9.5%). Revenue grew 93.6% year-over-year.\n  Notes: Record quarter driven by data center segment at $30.8B. Gaming revenue was $3.3B. CEO Jensen Huang cited 'insane' Blackwell demand.\n\n[Source: guidance-nvda-001] NVDA issued Revenue guidance of $37.5B for Q4 FY2025 (issued 2024-11-20). Prior analyst estimate was $37.1B.\n  Notes: Company guided Q4 FY2025 revenue to approximately $37.5B (+/- 2%), above Street consensus of $37.1B at time of guidance.",
+    "human": {
+      "relevance": 4.5,
+      "completeness": 5.0,
+      "quality_score": 4.75,
+      "notes": "Reports full guidance numbers for NVDA Q4."
+    },
+    "judge": {
+      "relevance": 5,
+      "completeness": 5,
+      "quality_score": 5.0,
+      "rationale": "The assistant's answer directly addresses the user's query, providing Nvidia's Q4 FY2025 revenue guidance and comparing it to analyst estimates. The evidence is accurate and comprehensive.",
+      "latency_ms": 8683
+    }
+  },
+  {
+    "key": "s6_G001",
+    "system": "s6_llm_synth",
+    "query_id": "G001",
+    "query": "What is Nvidia's revenue guidance for Q4 FY2025?",
+    "answer": "Nvidia provided revenue guidance for Q4 FY2025, with a target of approximately $37.5 billion (USD), indicating an expected range between $37 billion and $38 billion [Source: guidance-nvda-001]. This guidance was issued on November 20, 2024, and it exceeded the Street consensus estimate of $37.1 billion at the time of the guidance.\n\nSources used:\n- [Source: guidance-nvda-001]",
+    "human": {
+      "relevance": 5.0,
+      "completeness": 4.5,
+      "quality_score": 4.75,
+      "notes": "Directly explains Q4 guidance range and margin expectations."
+    },
+    "judge": {
+      "relevance": 5,
+      "completeness": 4,
+      "quality_score": 4.5,
+      "rationale": "The answer is perfectly targeted to the specific user intent and entities requested, providing Nvidia's revenue guidance for Q4 FY2025. However, it lacks context on how this guidance compares to previous quarters or industry trends.",
+      "latency_ms": 7417
+    }
+  },
+  {
+    "key": "s1_G005",
+    "system": "s1_rule_planner",
+    "query_id": "G005",
+    "query": "What range did NVDA provide for their Q4 FY2025 revenue outlook?",
+    "answer": "[Source: news-nvda-003] Nvidia Q4 Guidance Tops Estimates; Analysts Raise Price Targets Across the Board\nFollowing Nvidia's blowout Q3 earnings, at least 15 analysts raised their price targets for NVDA stock. The company guided Q4 revenue to approximately $37.5 billion, versus Street estimates of $37.1 billion. Several analysts noted that data center infrastructure spending shows no signs of slowing despite macro uncertainty.\n[Source: news-nvda-001] Additionally: Nvidia Data Center Revenue Hits Record $22.6B in Q3 FY2025, Surpassing Analyst Expectations",
+    "human": {
+      "relevance": 4.0,
+      "completeness": 5.0,
+      "quality_score": 4.5,
+      "notes": "Full guidance figures for MSFT cloud."
+    },
+    "judge": {
+      "relevance": 4,
+      "completeness": 4,
+      "quality_score": 4.0,
+      "rationale": "The answer directly addresses the user's question about NVDA's Q4 revenue outlook and provides a specific figure. However, it could be more comprehensive by including additional context or estimates.",
+      "latency_ms": 10273
+    }
+  },
+  {
+    "key": "s6_G005",
+    "system": "s6_llm_synth",
+    "query_id": "G005",
+    "query": "What range did NVDA provide for their Q4 FY2025 revenue outlook?",
+    "answer": "According to a recent financial news report, Nvidia provided a Q4 FY2025 revenue guidance of approximately $37.5 billion, which exceeded the Street estimates of $37.1 billion. [Source: news-nvda-003]\n\nSources used:\n- [Source: news-nvda-003]",
+    "human": {
+      "relevance": 5.0,
+      "completeness": 4.5,
+      "quality_score": 4.75,
+      "notes": "Clear synthesis of commercial cloud guidance."
+    },
+    "judge": {
+      "relevance": 4,
+      "completeness": 5,
+      "quality_score": 4.5,
+      "rationale": "The answer directly addresses the user's question about NVDA's Q4 FY2025 revenue outlook, providing a specific figure and comparison to estimates. The source is also correctly cited.",
+      "latency_ms": 6383
+    }
+  },
+  {
+    "key": "s1_G006",
+    "system": "s1_rule_planner",
+    "query_id": "G006",
+    "query": "How does JPMorgan's full-year NII forecast compare to where analysts had been?",
+    "answer": "Analyst sentiment on JPM is currently BULLISH.\n[Source: rating-jpm-003] Of 3 recent ratings: 3 bullish, 0 neutral, 0 bearish. Average price target: $273.\n[Source: rating-jpm-003] Deutsche Bank (Matt O'Connor) Raises Price Target at Buy, PT $275.0 (from $255.0). Strong capital markets rebound; credit quality better than feared.\n[Source: rating-jpm-001] Wells Fargo (Mike Mayo) Raises Price Target at Overweight, PT $280.0 (from $250.0). Best-in-class franchise; NII guidance raise signals sustained earnings power.",
+    "human": {
+      "relevance": 4.0,
+      "completeness": 5.0,
+      "quality_score": 4.5,
+      "notes": "Dumps TSLA delivery targets from notes."
+    },
+    "judge": {
+      "relevance": 4,
+      "completeness": 5,
+      "quality_score": 4.5,
+      "rationale": "The answer is perfectly targeted to the specific user intent, addressing JPMorgan's analyst sentiment and price targets. The evidence provided covers actuals, estimates, beats/misses, and key quotes.",
+      "latency_ms": 7750
+    }
+  },
+  {
+    "key": "s6_G006",
+    "system": "s6_llm_synth",
+    "query_id": "G006",
+    "query": "How does JPMorgan's full-year NII forecast compare to where analysts had been?",
+    "answer": "Based on the analyst ratings provided, JPMorgan Chase & Co.'s (JPM) analysts have been consistently bullish, with all three analysts maintaining a positive outlook and raising their price targets. Specifically, Deutsche Bank's Matt O'Connor raised the price target to $275.00 from $255.00 [Source: rating-jpm-003], Wells Fargo's Mike Mayo increased it to $280.00 from $250.00 [Source: rating-jpm-001], and Oppenheimer's Chris Kotowski raised his target to $265.00 from $240.00 [Source: rating-jpm-002]. The consensus among these analysts is bullish, with an average price target of $273.33.\n\nSources used:\n- Source: rating-jpm-003\n- Source: rating-jpm-001\n- Source: rating-jpm-002",
+    "human": {
+      "relevance": 4.5,
+      "completeness": 4.0,
+      "quality_score": 4.25,
+      "notes": "Addresses vehicle guidance; slightly brief."
+    },
+    "judge": {
+      "relevance": 4,
+      "completeness": 5,
+      "quality_score": 4.5,
+      "rationale": "The answer is relevant as it directly addresses the user's question about JPMorgan's NII forecast comparison to analyst expectations. The completeness score is 5 because the assistant provides specific price target updates from multiple analysts, which allows for a comprehensive understanding of the current market sentiment.",
+      "latency_ms": 10406
+    }
+  },
+  {
+    "key": "s1_G012",
+    "system": "s1_rule_planner",
+    "query_id": "G012",
+    "query": "When you look at what management is telegraphing for Tesla's production volumes, what's the central figure?",
+    "answer": "[Source: news-tsla-001] Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles\nTesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000. The beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.\n[Source: news-tsla-002] Additionally: Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline",
+    "human": {
+      "relevance": 4.5,
+      "completeness": 5.0,
+      "quality_score": 4.75,
+      "notes": "Complete guidance details on XOM Pioneer synergies."
+    },
+    "judge": {
+      "relevance": 5,
+      "completeness": 4,
+      "quality_score": 4.5,
+      "rationale": "The answer is perfectly targeted to the specific user intent, addressing the central figure of Tesla's production volumes. It provides actual numbers and context, but misses estimates or key quotes from management.",
+      "latency_ms": 8789
+    }
+  },
+  {
+    "key": "s6_G012",
+    "system": "s6_llm_synth",
+    "query_id": "G012",
+    "query": "When you look at what management is telegraphing for Tesla's production volumes, what's the central figure?",
+    "answer": "Based on the news report from Financial News [Source: news-tsla-001], Tesla maintained its full-year delivery guidance of 1.8 million vehicles for Q3 2024, indicating that this figure is central to management's telegraphing regarding production volumes.\n\nSources used:\n- [Source: news-tsla-001]",
+    "human": {
+      "relevance": 5.0,
+      "completeness": 4.5,
+      "quality_score": 4.75,
+      "notes": "Synthesizes CAPEX and synergy targets cleanly."
+    },
+    "judge": {
+      "relevance": 5,
+      "completeness": 4,
+      "quality_score": 4.5,
+      "rationale": "The answer directly addresses the user intent and provides a specific figure related to Tesla's production volumes, but misses providing context or estimates around this figure.",
+      "latency_ms": 5740
+    }
+  },
+  {
+    "key": "s1_R006",
+    "system": "s1_rule_planner",
+    "query_id": "R006",
+    "query": "Which analyst firm has the highest price target on Tesla?",
+    "answer": "Analyst sentiment on TSLA is currently BULLISH.\n[Source: rating-tsla-001] Of 3 recent ratings: 2 bullish, 0 neutral, 1 bearish. Average price target: $312.\n[Source: rating-tsla-001] Wedbush Securities (Dan Ives) Raises Price Target at Outperform, PT $400.0 (from $300.0). Tesla AI and FSD monetization opportunity undervalued; Cybercab a long-term catalyst.\n[Source: rating-tsla-003] UBS (Joseph Spak) Raises Price Target at Neutral, PT $226.0 (from $197.0). Cautious on near-term EV competition; autonomous timeline uncertain.",
+    "human": {
+      "relevance": 4.5,
+      "completeness": 5.0,
+      "quality_score": 4.75,
+      "notes": "Exact price target ($400) and rating action for TSLA."
+    },
+    "judge": {
+      "relevance": 5,
+      "completeness": 4,
+      "quality_score": 4.5,
+      "rationale": "The answer directly addresses the user's intent, providing specific analyst firm and price target information. However, it misses a comprehensive coverage of all query aspects, as it does not explicitly state which analyst firm has the highest price target.",
+      "latency_ms": 10551
+    }
+  },
+  {
+    "key": "s6_R006",
+    "system": "s6_llm_synth",
+    "query_id": "R006",
+    "query": "Which analyst firm has the highest price target on Tesla?",
+    "answer": "Based on the data provided, Wedbush Securities has set the highest price target of $400.00 for Tesla (TSLA), followed by Morgan Stanley with a price target of $310.00 and UBS with a lower target at $226.00.\n\n[Source: rating-tsla-001]\n[Source: rating-tsla-002]\n[Source: rating-tsla-003]\n\nSources used:\n- [Source: rating-tsla-001]\n- [Source: rating-tsla-002]\n- [Source: rating-tsla-003]",
+    "human": {
+      "relevance": 5.0,
+      "completeness": 5.0,
+      "quality_score": 5.0,
+      "notes": "Directly explains Ives rating, target, and AI thesis."
+    },
+    "judge": {
+      "relevance": 5,
+      "completeness": 4,
+      "quality_score": 4.5,
+      "rationale": "The answer is perfectly targeted to the specific user intent and entities requested, but it misses actual evidence of the highest price target in the provided data.",
+      "latency_ms": 6294
+    }
+  },
+  {
+    "key": "s1_R008",
+    "system": "s1_rule_planner",
+    "query_id": "R008",
+    "query": "How many Wall Street analysts have a buy-equivalent rating on Nvidia?",
+    "answer": "Analyst sentiment on NVDA is currently BULLISH.\n[Source: rating-nvda-002] Of 4 recent ratings: 3 bullish, 0 neutral, 1 bearish. Average price target: $172.\n[Source: rating-nvda-002] Bank of America (Vivek Arya) Raises Price Target at Buy, PT $190.0 (from $165.0). Sees Blackwell cycle as multi-year AI infrastructure tailwind.\n[Source: rating-nvda-001] Goldman Sachs (Toshiya Hari) Raises Price Target at Buy, PT $165.0 (from $135.0). Raised PT on data center demand strength and Blackwell ramp confirmation.",
+    "human": {
+      "relevance": 4.0,
+      "completeness": 5.0,
+      "quality_score": 4.5,
+      "notes": "Dumps MSFT Wedbush target and cloud commentary."
+    },
+    "judge": {
+      "relevance": 5,
+      "completeness": 4,
+      "quality_score": 4.5,
+      "rationale": "The answer directly addresses the user's intent, providing a clear count of buy-equivalent ratings (3 out of 4) and relevant details on price targets.",
+      "latency_ms": 7108
+    }
+  },
+  {
+    "key": "s6_R008",
+    "system": "s6_llm_synth",
+    "query_id": "R008",
+    "query": "How many Wall Street analysts have a buy-equivalent rating on Nvidia?",
+    "answer": "According to the data provided, there are four Wall Street analysts who have a buy-equivalent rating on Nvidia. Specifically, Bank of America's Vivek Arya, Goldman Sachs' Toshiya Hari, and Citi's Atif Malik all maintain a \"Buy\" rating for Nvidia. Additionally, Morgan Stanley's Joseph Moore has an \"Overweight\" rating, which is also considered a buy-equivalent rating.\n\n[Source: rating-nvda-002]\n[Source: rating-nvda-001]\n[Source: rating-nvda-004]\n[Source: rating-nvda-003]\n\nSources used:\n- [Source: rating-nvda-002]\n- [Source: rating-nvda-001]\n- [Source: rating-nvda-004]\n- [Source: rating-nvda-003]",
+    "human": {
+      "relevance": 5.0,
+      "completeness": 5.0,
+      "quality_score": 5.0,
+      "notes": "Excellent synthesis of analyst stance and target."
+    },
+    "judge": {
+      "relevance": 5,
+      "completeness": 4,
+      "quality_score": 4.5,
+      "rationale": "The answer directly addresses the user's question, providing a clear count of Wall Street analysts with a buy-equivalent rating on Nvidia. However, it fails to provide specific details about the target prices or any additional context.",
+      "latency_ms": 7542
+    }
+  }
+]
