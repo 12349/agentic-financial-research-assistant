@@ -3,8 +3,8 @@
   "split": "dev",
   "formatter_s1": {
     "citation_validity": 1.0,
-    "faithfulness": 0.1004,
-    "unsupported_rate": 0.6002
+    "faithfulness": 1.0,
+    "unsupported_rate": 0.0
   },
   "llm_s6": {
     "citation_validity": null,

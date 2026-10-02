@@ -4,5 +4,11 @@
   "n_news_queries": 17,
   "mean_top1_semantic_score": 0.5594,
   "mean_top1_tfidf_score": 0.5594,
-  "top1_article_agreement_rate": 0.9412
+  "top1_article_agreement_rate": 0.9412,
+  "precision_at_1_semantic": 0.9412,
+  "precision_at_1_tfidf": 0.9412,
+  "precision_at_1_on_retrieved": 1.0,
+  "finding": "FAISS semantic retrieval and TF-IDF achieve identical Top-1 Precision (0.941 across all 17 queries, 1.000 among retrieved). On 16 of 17 queries, both engines retrieve the exact same article.",
+  "explanation_status": "HYPOTHESIS",
+  "hypothesis": "In a small corpus of 12 curated news articles (3 per ticker), high term specificity (distinct company names and event topics) allows keyword overlap to perform as well as dense embeddings. This finding is an empirical observation on this benchmark and is hypothesized to degrade on larger corpora."
 }

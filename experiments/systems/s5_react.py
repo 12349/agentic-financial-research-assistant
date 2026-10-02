@@ -68,7 +68,7 @@ def parse_action(text: str) -> Optional[tuple[str, dict]]:
     return tool_name, {}
 
 
-def run_react_query(query: str, client: OllamaClient) -> dict:
+def run_react_query(query: str, client: OllamaClient, max_steps: int = REACT_MAX_STEPS) -> dict:
     """Run multi-step ReAct agent on a single query."""
     history = f"Question: {query}\n"
     tools_called = []
@@ -81,7 +81,7 @@ def run_react_query(query: str, client: OllamaClient) -> dict:
 
     t0 = time.perf_counter()
 
-    for step in range(REACT_MAX_STEPS):
+    for step in range(max_steps):
         steps += 1
         prompt = f"{_REACT_SYSTEM_PROMPT}\n\n{history}Thought:"
         resp = client.generate(prompt, num_predict=256)

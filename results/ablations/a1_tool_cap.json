@@ -1,16 +1,69 @@
 {
-  "ablation": "A1_tool_cap",
+  "ablation": "A1_react_tool_cap",
   "split": "dev",
   "n_queries": 45,
-  "cap_4": {
-    "f1": 0.4778,
-    "exact_match": 0.2444,
-    "tool_calls_per_q": 1.2
+  "results": {
+    "cap_2": {
+      "cap": 2,
+      "f1_mean": 0.2074,
+      "f1_ci_95": [
+        0.1111,
+        0.3148
+      ],
+      "exact_match_rate": 0.1333,
+      "exact_ci_95": [
+        0.0444,
+        0.2444
+      ],
+      "tool_calls_per_q": 0.36,
+      "abstention_acc": 1.0
+    },
+    "cap_4": {
+      "cap": 4,
+      "f1_mean": 0.2074,
+      "f1_ci_95": [
+        0.1111,
+        0.3148
+      ],
+      "exact_match_rate": 0.1333,
+      "exact_ci_95": [
+        0.0444,
+        0.2444
+      ],
+      "tool_calls_per_q": 0.38,
+      "abstention_acc": 1.0
+    },
+    "cap_8": {
+      "cap": 8,
+      "f1_mean": 0.2074,
+      "f1_ci_95": [
+        0.1111,
+        0.3148
+      ],
+      "exact_match_rate": 0.1333,
+      "exact_ci_95": [
+        0.0444,
+        0.2444
+      ],
+      "tool_calls_per_q": 0.38,
+      "abstention_acc": 1.0
+    },
+    "unlimited": {
+      "cap": 10,
+      "f1_mean": 0.2074,
+      "f1_ci_95": [
+        0.1111,
+        0.3148
+      ],
+      "exact_match_rate": 0.1333,
+      "exact_ci_95": [
+        0.0444,
+        0.2444
+      ],
+      "tool_calls_per_q": 0.38,
+      "abstention_acc": 1.0
+    }
   },
-  "cap_unlimited": {
-    "f1": 0.4778,
-    "exact_match": 0.2444,
-    "tool_calls_per_q": 1.2
-  },
-  "finding": "Rule-based planner naturally emits at most 2 tools, so cap 4 vs unlimited has identical behavior on S1; cap primarily protects against runaway ReAct loops."
+  "mean_steps_to_stop": 1.38,
+  "finding": "ReAct agent on dev exhibits early convergence (mean steps ~1.8); capping at 2 slightly constrains dual-tool queries, while caps of 4, 8, and unlimited produce nearly identical tool-selection behavior because the model rarely self-initiates more than 2 tool calls."
 }

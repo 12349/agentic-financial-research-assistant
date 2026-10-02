@@ -1,4 +1,4 @@
 Ablation ID,Variable Tested,Key Metric,Baseline Value,Ablated Value,Finding
-A1: Tool Cap,Cap=4 vs. Cap=Unlimited,Tool Selection F1,0.478,0.478,Cap=4 protects against loops; rule planner naturally emits <=2 tools.
+A1: ReAct Tool Cap,Cap=2 vs. Cap=4 vs. Cap=8 vs. Unlimited,Tool Selection F1 / Calls per Q,Cap 4: F1=0.207 (0.38 tools/q),Cap 2: 0.36 t/q | Unlim: 0.38 t/q,ReAct agent stops early (mean 1.38 steps); cap>=4 yields identical behavior to unlimited.
 A3: Sentiment Scoring,DistilBERT ML vs. Keyword Action,Agreement Rate & Mean Conf,ML Confidence 0.78,Keyword Agreement ~70%,DistilBERT captures subtle sentiment nuances in analyst commentary.
-A5: News Search Engine,FAISS Semantic vs. TF-IDF,Top-1 Retrieval Agreement,Semantic Score 0.559,Top-1 Agreement 0.941,High top-1 overlap on domain fixtures; semantic enables fuzzy concept matching.
+A5: News Search Engine,FAISS Semantic vs. TF-IDF,Precision@1 & Top-1 Agreement,P@1 (Semantic) = 0.941,P@1 (TF-IDF) = 0.941 (Agr: 0.941),Identical Precision@1 (0.941) on curated 12-doc corpus (Hypothesis: lexical distinctness).

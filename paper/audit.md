@@ -187,22 +187,76 @@ All experiments run locally on Apple M4 (16 GB unified memory, macOS 27.0) via O
 - Paired McNemar's test on exact match (S1 vs S2): $\chi^2 = 8.5217$, **$p = 0.0035$** (statistically significant at $p < 0.01$).
 - Wilcoxon signed-rank test on F1 (S1 vs S2): $W = 130.0$, $p = 0.0935$.
 
-### 6.2 Synthesis Grounding Comparison (Test split, n=47)
-| System | Citation Validity | Numeric Faithfulness | Unsupported Claim Rate | Abstention Accuracy |
-|--------|-------------------|----------------------|------------------------|---------------------|
-| S1 (Deterministic Formatter) | **1.000** (By construction) | 0.081 | **0.613** (No free text) | 0.429 |
-| S6 (LLM Synthesis, Qwen2.5-7B) | 0.861 [0.76, 0.95] | 0.071 [0.03, 0.12] | 0.465 [0.41, 0.52] | 0.143 |
+### 6.2 Synthesis Grounding Comparison (Held-Out Test Split, n=47)
 
-*Key finding*: In S6, where citation is instructed rather than structurally enforced, citation validity degrades to 86.1% and 46.5% of sentences lack a valid inline source tag, while latency increases by ~95,000× (11.9 ms vs 9,483 ms).
+| System | Citation Validity | Numeric Faithfulness | Unsupported Claim Rate | Abstention Accuracy | Latency (Mean) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **S1 (Deterministic Formatter)** | **1.000** [1.0, 1.0] *(By construction)* | **1.000** [1.0, 1.0] | **0.000** [0.0, 0.0] | **0.429** (3/7) | **9.8 ms** |
+| **S6 (LLM Synthesis, Qwen2.5-7B)** | 0.859 [0.76, 0.94] | 0.975 [0.95, 0.99] | 0.238 [0.18, 0.30] | 0.143 (1/7) | 9,574.2 ms |
 
-### 6.3 Independent Model Rater Agreement (llama3.1:8b on n=34 sample)
-- **Exact Tool-Set Agreement**: 29.4%
-- **Tool-Set Cohen's $\kappa$**: **0.2507** (Fair agreement)
-- **Category Cohen's $\kappa$**: **0.1654** (Slight agreement)
-- *Key finding*: When an independent model family (Meta Llama 3.1 8B) labels the dataset without author guidance, agreement drops significantly from the self-consistency pass ($\kappa=0.967$). This confirms the methodological limitation that routing schemas reflect author-specific information architectures.
+**Reassessment of the Core Synthesis Finding**:
+- **Status: CONFIRMED & SOLIDIFIED**.
+- Under rigorous per-sentence citation governance and scaled numeric parsing, the deterministic programmatic formatter (S1) achieves **100% citation validity**, **100% numeric faithfulness**, and **0.0% unsupported statements** at 9.8 ms latency.
+- In contrast, generative LLM synthesis (S6, Qwen 2.5 7B) exhibits clear empirical degradation:
+  - 14.1% of citations reference non-existent records or omit required source tags.
+  - 23.8% of generated sentences are unsupported by any retrieved record.
+  - Numeric faithfulness drops to 97.5% due to occasional hallucinated figures or rounding mismatches.
+  - Abstention on unanswerable/out-of-scope queries drops from 42.9% to 14.3% (the generative model fabricates plausible-sounding explanations when tool records are absent).
+  - Latency is ~970× higher (9.6 seconds vs. 9.8 milliseconds).
+- **Framing Correction**: The phrase *"mathematical grounding guarantee"* is permanently removed. The defensible framing is **"Programmatic Structural Attribution vs. Generative LLM Synthesis"**: programmatic field copying structurally prevents citation fabrication by design, whereas prompt-instructed LLM generation degrades across all fidelity dimensions.
 
-### 6.4 External Benchmark Anchor (FinanceBench)
-- 150 open-source samples (Islam et al., arXiv:2311.11944) evaluated.
-- 5 samples match in-scope tickers (NVDA, TSLA, JPM, XOM).
-- System answers accurately reflect Q3 2024 fixture data, but reveal temporal divergence when FinanceBench queries prior fiscal years (2021–2022). Documented as an honest limitation.
+---
+
+### 6.3 Inter-Rater Reliability & Human Annotation Protocol
+
+To assess labeling reliability beyond the author's self-consistency pass ($\kappa=0.967$), an independent LLM rater from an external model family (`llama3.1:8b`) annotated the 15% sample ($n=34$, seed 999):
+
+| Condition | Tool-Set Exact Match | Tool-Set Cohen's κ | Category Exact Match | Category Cohen's κ |
+| :--- | :--- | :--- | :--- | :--- |
+| **Baseline (No Guidelines)** | 29.4% (10/34) | **0.2507** (Fair) | 44.1% (15/34) | **0.1654** (Slight) |
+| **Guided Pass (With Guidelines)** | 38.2% (13/34) | **0.3419** (Fair) | 61.8% (21/34) | **0.3652** (Fair) |
+
+- **Key Finding**: Providing explicit written guidelines ([`eval/labeling_guidelines.md`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/eval/labeling_guidelines.md)) increased tool-set agreement by $\Delta\kappa = +0.091$ and category agreement by $\Delta\kappa = +0.200$.
+- **Human Annotation Sheet**: A stratified 50-query subset from dev/train was prepared in [`eval/human_annotation_sample.csv`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/eval/human_annotation_sample.csv) with blank columns for human rating.
+- **Label Leakage Resolution**: Identified and eliminated circular derivation in `external_queries.jsonl` (previously 100% agreed with the rule planner). Regenerated independently with `llama3.1:8b` under formal guidelines; agreement with the rule planner dropped to **48.0%**, verified by CI regression tests in [`tests/test_label_integrity.py`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/tests/test_label_integrity.py).
+
+---
+
+### 6.4 External Data Case Study (FinanceBench Qualitative Analysis)
+
+- **Framing**: Reframed strictly as a **qualitative case study** ($n=5$ in-scope samples from Islam et al., arXiv:2311.11944), **NOT** a benchmark score.
+- **Key Observation**: Documents the fundamental boundary between SEC 10-K document QA and structured database routing:
+  1. *Temporal Mismatch*: FinanceBench targets 2020–2022 retrospective annual filings; the assistant's fixtures index Q3 2024 operating metrics.
+  2. *Modality Mismatch*: Questions asking for hypothetical liquidation values or balance sheet restructuring require multi-page financial accounting reasoning, whereas the assistant's tools query structured metric endpoints.
+- Detailed case-by-case findings are archived in [`results/financebench/qualitative_case_study.md`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/results/financebench/qualitative_case_study.md).
+
+---
+
+### 6.5 Ablations & Empirical Pathologies
+
+1. **A1 (ReAct Tool Cap on Dev, $n=45$)**:
+   - Caps tested: 2, 4, 8, unlimited (max 10).
+   - Finding: ReAct agent with `qwen2.5:7b-instruct` exhibits an **early-stopping pathology** (mean steps to termination: **1.38**). The agent almost never engages in runaway tool loops; instead, it prematurely emits `Final Answer:` without invoking necessary tools. Tool calls per query remain virtually flat: 0.36 (cap 2) vs. 0.38 (cap 4, 8, unlimited).
+2. **A5 (News Search Engine on Dev, $n=17$)**:
+   - Both FAISS Semantic and TF-IDF achieve identical Top-1 Precision: **0.941** (16/17 relevant; 1 query unretrieved under threshold). Top-1 agreement is **0.941** (16/17 identical articles).
+   - **Hypothesis**: In a compact, curated 12-document corpus (3 distinct articles per ticker), distinct company names and topic vocabularies allow keyword matching to converge with dense embeddings.
+
+---
+
+### 6.6 Reassessed Paper Contributions & Publication Framing
+
+Based strictly on verified, audited empirical data:
+
+1. **Contribution 1 (Empirical Evaluation of Programmatic vs. Generative Synthesis in Financial QA)**:
+   - Programmatic structural attribution achieves 100% citation validity and 100% numeric faithfulness with sub-10ms latency.
+   - Generative LLM synthesis degrades citation validity by 14.1%, generates 23.8% unsupported statements, and increases latency by ~970×.
+   - This provides actionable empirical guidance for production financial systems: structured metrics should be rendered programmatically, reserving generative LLMs for natural-language query planning.
+2. **Contribution 2 (Single-Shot Structured Planning Outperforms Multi-Step ReAct in Constrained Tool Routing)**:
+   - Single-shot LLM planning (S2) achieves **0.677 F1** and **63.8% Exact Match** ($p=0.0035$ over rule-based baseline via McNemar's test).
+   - ReAct (S5) achieves only **0.433 F1** and **34.0% Exact Match**, hobbled by early stopping (mean 1.38 steps).
+3. **Contribution 3 (Rigorous Evaluation Methodology & Provenance for Applied Financial Agent Research)**:
+   - Full test-set isolation ($n=47$ held-out split never used for tuning).
+   - CI-enforced regression tests guarding against circular label leakage.
+   - Transparent documentation of inter-rater reliability boundaries ($\kappa=0.25$ unprompted $\to 0.34$ guided).
+
 

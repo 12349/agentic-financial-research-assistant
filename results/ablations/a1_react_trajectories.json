@@ -1,0 +1,513 @@
+[
+  {
+    "query": "How much profit did Exxon Mobil generate in Q3 2024 after all expenses?",
+    "gold_tools": [
+      "get_earnings"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "Did XOM's quarterly earnings per share come in above or below expectations?",
+    "gold_tools": [
+      "get_earnings"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [
+      [
+        1,
+        "get_earnings"
+      ]
+    ],
+    "stopped_at_step": 2
+  },
+  {
+    "query": "How did Nvidia's data center revenue compare between Q2 and Q3 FY2025?",
+    "gold_tools": [
+      "get_earnings"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "I want to see JPMorgan's revenue growth trajectory \u2014 how fast was top-line expanding in Q3 2024?",
+    "gold_tools": [
+      "get_earnings"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [
+      [
+        1,
+        "get_earnings"
+      ]
+    ],
+    "stopped_at_step": 2
+  },
+  {
+    "query": "What is Nvidia's revenue guidance for Q4 FY2025?",
+    "gold_tools": [
+      "get_guidance"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "What range did NVDA provide for their Q4 FY2025 revenue outlook?",
+    "gold_tools": [
+      "get_guidance"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "How does JPMorgan's full-year NII forecast compare to where analysts had been?",
+    "gold_tools": [
+      "get_guidance"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "When you look at what management is telegraphing for Tesla's production volumes, what's the central figure?",
+    "gold_tools": [
+      "get_guidance"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "Which analyst firm has the highest price target on Tesla?",
+    "gold_tools": [
+      "get_ratings"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [
+      [
+        1,
+        "get_ratings"
+      ],
+      [
+        2,
+        "search_news"
+      ],
+      [
+        3,
+        "get_ratings"
+      ]
+    ],
+    "stopped_at_step": 4
+  },
+  {
+    "query": "How many Wall Street analysts have a buy-equivalent rating on Nvidia?",
+    "gold_tools": [
+      "get_ratings"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "How does Dan Ives at Wedbush view Tesla's AI opportunity?",
+    "gold_tools": [
+      "get_ratings"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [
+      [
+        1,
+        "search_news"
+      ]
+    ],
+    "stopped_at_step": 2
+  },
+  {
+    "query": "What's Adam Jonas at Morgan Stanley saying about Tesla's self-driving prospects?",
+    "gold_tools": [
+      "get_ratings"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "What happened at JPMorgan's latest earnings announcement?",
+    "gold_tools": [
+      "get_earnings",
+      "search_news"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [
+      [
+        1,
+        "get_earnings"
+      ]
+    ],
+    "stopped_at_step": 2
+  },
+  {
+    "query": "Is there any color on how the Pioneer acquisition is integrating at Exxon?",
+    "gold_tools": [
+      "search_news"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "Which cloud providers are driving the Nvidia data center surge?",
+    "gold_tools": [
+      "search_news"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "Has Tesla's autonomous vehicle timeline generated skepticism among market observers?",
+    "gold_tools": [
+      "search_news"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "Search for recent headlines about Nvidia earnings and analyst reactions.",
+    "gold_tools": [
+      "search_news"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "What was the Tesla Model Y demand story in China?",
+    "gold_tools": [
+      "search_news"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [
+      [
+        1,
+        "search_news"
+      ]
+    ],
+    "stopped_at_step": 2
+  },
+  {
+    "query": "How do Exxon's capex plans relate to what they actually generated in earnings?",
+    "gold_tools": [
+      "get_earnings",
+      "get_guidance"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "After seeing Nvidia's massive earnings beat, did any analysts adjust their stance?",
+    "gold_tools": [
+      "get_earnings",
+      "get_ratings"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "Correlate Tesla's EPS surprise with how analyst sentiment has shifted since the report.",
+    "gold_tools": [
+      "get_earnings",
+      "get_ratings"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "Exxon's earnings were driven by Pioneer synergies \u2014 is the analyst community pricing that in?",
+    "gold_tools": [
+      "get_earnings",
+      "get_ratings"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "What were NVDA's Q3 numbers and what did the press write about the results?",
+    "gold_tools": [
+      "get_earnings",
+      "search_news"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "Tesla's latest quarterly results and any news coverage of the delivery numbers.",
+    "gold_tools": [
+      "get_earnings",
+      "search_news"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [
+      [
+        1,
+        "get_earnings"
+      ],
+      [
+        2,
+        "get_earnings"
+      ]
+    ],
+    "stopped_at_step": 3
+  },
+  {
+    "query": "How were JPM's Q3 earnings received in the financial press?",
+    "gold_tools": [
+      "get_earnings",
+      "search_news"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "I want to understand Nvidia's data center revenue results and the broader story around Blackwell GPU demand.",
+    "gold_tools": [
+      "get_earnings",
+      "search_news"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "Give me Tesla's Q3 financials and what Morgan Stanley thinks about the stock.",
+    "gold_tools": [
+      "get_earnings",
+      "get_ratings"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "XOM earnings plus how Piper Sandler views the stock \u2014 side by side please.",
+    "gold_tools": [
+      "get_earnings",
+      "get_ratings"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "Nvidia's record quarter and the wave of analyst upgrades that followed \u2014 summarize both.",
+    "gold_tools": [
+      "get_earnings",
+      "get_ratings"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "Tesla's delivery guidance and whether Dan Ives sees FSD as a catalyst \u2014 tell me both.",
+    "gold_tools": [
+      "get_guidance",
+      "get_ratings"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "How does Exxon's $28B capex plan look alongside the OPEC production delay news?",
+    "gold_tools": [
+      "get_guidance",
+      "search_news"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [
+      [
+        1,
+        "search_news"
+      ]
+    ],
+    "stopped_at_step": 2
+  },
+  {
+    "query": "Oppenheimer and Deutsche Bank on JPM \u2014 show those ratings with the Q3 earnings news.",
+    "gold_tools": [
+      "get_ratings",
+      "search_news"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [
+      [
+        1,
+        "get_ratings"
+      ]
+    ],
+    "stopped_at_step": 2
+  },
+  {
+    "query": "JPM's actual Q3 revenue and whether the bank's own NII guidance was exceeded.",
+    "gold_tools": [
+      "get_earnings",
+      "get_guidance"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "JPM's Q2 2024 blowout earnings and the Deutsche Bank analyst's post-earnings call.",
+    "gold_tools": [
+      "get_earnings",
+      "get_ratings"
+    ],
+    "category": "dual_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "What's going on with XOM?",
+    "gold_tools": [
+      "search_news",
+      "get_earnings",
+      "get_ratings"
+    ],
+    "category": "ambiguous",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "How has Tesla been performing lately?",
+    "gold_tools": [
+      "search_news",
+      "get_earnings"
+    ],
+    "category": "ambiguous",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "Give me a summary of Exxon Mobil.",
+    "gold_tools": [
+      "search_news",
+      "get_earnings",
+      "get_ratings"
+    ],
+    "category": "ambiguous",
+    "tools_by_step": [
+      [
+        1,
+        "search_news"
+      ]
+    ],
+    "stopped_at_step": 2
+  },
+  {
+    "query": "Can you run a quick check on Tesla for me?",
+    "gold_tools": [
+      "search_news",
+      "get_earnings",
+      "get_ratings"
+    ],
+    "category": "ambiguous",
+    "tools_by_step": [
+      [
+        1,
+        "search_news"
+      ]
+    ],
+    "stopped_at_step": 2
+  },
+  {
+    "query": "How are things looking at Exxon Mobil from a financial standpoint?",
+    "gold_tools": [
+      "get_earnings",
+      "get_guidance",
+      "get_ratings"
+    ],
+    "category": "ambiguous",
+    "tools_by_step": [
+      [
+        1,
+        "get_ratings"
+      ]
+    ],
+    "stopped_at_step": 2
+  },
+  {
+    "query": "I'm interested in the energy sector \u2014 how is Exxon faring?",
+    "gold_tools": [
+      "search_news",
+      "get_earnings",
+      "get_ratings"
+    ],
+    "category": "ambiguous",
+    "tools_by_step": [
+      [
+        1,
+        "get_ratings"
+      ]
+    ],
+    "stopped_at_step": 2
+  },
+  {
+    "query": "How did Meta Platforms do on earnings last quarter?",
+    "gold_tools": [
+      "get_earnings"
+    ],
+    "category": "no_data",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "What is Tesla's short interest percentage?",
+    "gold_tools": [],
+    "category": "no_data",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "What are the top institutional holders of XOM shares?",
+    "gold_tools": [],
+    "category": "no_data",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "How much net income did JPMorgan report in Q2 2024?",
+    "gold_tools": [
+      "get_earnings"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [],
+    "stopped_at_step": 1
+  },
+  {
+    "query": "How did Tesla's delivery guidance compare to the analyst consensus at that time?",
+    "gold_tools": [
+      "get_guidance"
+    ],
+    "category": "single_tool",
+    "tools_by_step": [
+      [
+        1,
+        "get_guidance"
+      ]
+    ],
+    "stopped_at_step": 2
+  }
+]

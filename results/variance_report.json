@@ -1,0 +1,54 @@
+{
+  "study": "seed_variance_evaluation",
+  "split": "test",
+  "n_queries": 47,
+  "seeds_evaluated": [
+    42,
+    101,
+    202,
+    303
+  ],
+  "temperature": 0.0,
+  "greedy_decoding_observation": "Under temperature=0 (greedy argmax token decoding), local Ollama inference produces strictly identical tool selections and text outputs across different seed initializations (spread = 0.0000 across seeds 42, 101, 202, 303).",
+  "systems": {
+    "s2_llm_planner": {
+      "metric": "Tool Selection F1",
+      "seeds": {
+        "42": 0.6773,
+        "101": 0.6773,
+        "202": 0.6773,
+        "303": 0.6773
+      },
+      "mean": 0.6773,
+      "spread": 0.0,
+      "exact_match_mean": 0.6383,
+      "exact_match_spread": 0.0
+    },
+    "s5_react": {
+      "metric": "Tool Selection F1",
+      "seeds": {
+        "42": 0.4333,
+        "101": 0.4333,
+        "202": 0.4333,
+        "303": 0.4333
+      },
+      "mean": 0.4333,
+      "spread": 0.0,
+      "exact_match_mean": 0.3404,
+      "exact_match_spread": 0.0
+    },
+    "s6_llm_synth": {
+      "metric": "Numeric Faithfulness",
+      "seeds": {
+        "42": 0.9749,
+        "101": 0.9749,
+        "202": 0.9749,
+        "303": 0.9749
+      },
+      "mean": 0.9749,
+      "spread": 0.0,
+      "citation_validity_mean": 0.8592,
+      "citation_validity_spread": 0.0
+    }
+  }
+}
