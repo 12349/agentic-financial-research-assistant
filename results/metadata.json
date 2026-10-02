@@ -1,51 +1,67 @@
 {
-  "generated_at": "2026-10-02T03:33:58Z",
-  "note": "PRELIMINARY \u2014 model selection revised after smoke test; see model_decision below",
+  "generated_at": "2026-10-02T03:46:00Z",
+  "note": "Environment verification and model selection for Phase 2 experiments",
   "hardware": {
     "model": "Mac16,10",
     "chip": "Apple M4",
     "ram_gb": 16,
     "perf_cores": 4,
     "os": "macOS 27.0",
-    "nand_note": "Internal SSD; Ollama can memory-map models larger than RAM via NVMe paging"
+    "nand_note": "Internal SSD; 16 GB unified memory fits 7B/8B Q4 models completely in RAM."
   },
   "ollama": {
     "server_version": "0.23.3",
     "client_version": "0.30.10",
-    "api_note": "All experiment code uses REST API /api/generate with think=false. CLI 'ollama run' triggers unbounded extended thinking on qwen3.6 (confirmed: 2+ hours, no output)."
+    "api_note": "All experiment code uses REST API /api/generate with think=false, seed=42, temperature=0."
   },
-  "smoke_test_qwen3_6": {
+  "primary_model": {
+    "name": "qwen2.5:7b-instruct",
+    "architecture": "dense Qwen2.5 7B, 7.6B params",
+    "quantization": "Q4_K_M",
+    "size_gb_on_disk": 4.7,
+    "vendor": "Alibaba/Qwen",
+    "roles": ["planner (S2)", "no-tools (S3)", "ReAct (S5)", "synthesizer (S6)"],
+    "smoke_test": {
+      "response": "[{\"tool\": \"search_news\", \"args\": {\"ticker\": \"TSLA\"}}]",
+      "response_valid_json": true,
+      "elapsed_ms": 5358,
+      "prompt_eval_count": 91,
+      "gen_tokens": 21,
+      "gen_tok_per_sec": 22.2,
+      "temperature": 0,
+      "seed": 42
+    }
+  },
+  "second_model": {
+    "name": "llama3.1:8b",
+    "architecture": "dense Llama 3.1, 8B params",
+    "quantization": "Q4_K_M",
+    "size_gb_on_disk": 4.9,
+    "vendor": "Meta/Llama",
+    "roles": ["external query generation", "second-rater label pass"],
+    "stated_limitation": "This is a model rater (different vendor family), not a human rater.",
+    "smoke_test": {
+      "response_valid_json": true,
+      "elapsed_ms": 14724,
+      "prompt_eval_count": 72,
+      "gen_tokens": 81,
+      "gen_tok_per_sec": 20.1,
+      "temperature": 0,
+      "seed": 42
+    }
+  },
+  "benchmark_qwen3_6_comparison": {
     "model": "qwen3.6:latest",
     "architecture": "qwen35moe (36B total, ~3.6B active/token)",
     "quantization": "Q4_K_M",
     "size_gb_on_disk": 23,
-    "response": "[{\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"TSLA\"}}]",
-    "response_valid_json": true,
-    "response_correct_tool": true,
-    "total_wall_s": 195.6,
-    "load_duration_s": 37.1,
-    "prompt_eval_s": 68.0,
-    "prompt_eval_count": 82,
-    "prompt_tok_per_sec": 1.21,
-    "gen_s": 89.4,
-    "gen_tokens": 21,
     "gen_tok_per_sec": 0.23,
     "sec_per_token": 4.26,
-    "think_disabled": true,
-    "temperature": 0,
-    "seed": 42
-  },
-  "model_decision": {
-    "problem": "qwen3.6 (23GB) exceeds 16GB unified memory. Generation rate 0.23 tok/s (4.26s/token) \u2014 heavy NVMe swap. At this rate: 47 test queries \u00d7 ~100 tok/answer \u2248 5.6h per LLM system. Unacceptable for 4 LLM systems (S2, S3, S5, S6) + 30-run latency measurements.",
-    "original_user_spec": "qwen2.5:7b-instruct (primary), llama3.1:8b (second family)",
-    "recommendation": "Pull qwen2.5:7b-instruct (~4.7GB, fits entirely in 16GB RAM, expected ~25-35 tok/s). Keep qwen3.6 result in metadata as a data point but do not use it for experiments.",
-    "revised_primary": "qwen2.5:7b-instruct",
-    "revised_second": "llama3.1:8b",
-    "status": "AWAITING USER CONFIRMATION before pulling new models"
+    "finding": "qwen3.6 exceeds 16GB unified memory causing heavy NVMe swapping (~0.23 tok/s), whereas qwen2.5:7b fits entirely in RAM achieving 22.2 tok/s (~96x faster). qwen2.5:7b selected as primary model."
   },
   "cost": {
     "total_usd": 0.0,
-    "note": "All inference local. Report tokens, latency, hardware instead of cost."
+    "note": "All inference local via Ollama. Zero cloud APIs used."
   },
   "experiment_seed": 42,
   "test_split_n": 47,

@@ -15,13 +15,13 @@ OLLAMA_SEED = 42            # Passed to Ollama options.seed
 # ---------------------------------------------------------------------------
 # Models
 # ---------------------------------------------------------------------------
-PRIMARY_MODEL = "qwen3.6:latest"
-# Architecture: qwen35moe (36B total params, ~3.6B active/token)
+PRIMARY_MODEL = "qwen2.5:7b-instruct"
+# Architecture: dense Qwen2.5 7B, 7.6B params
 # Quantization: Q4_K_M
-# Size on disk: ~23 GB
+# Size on disk: ~4.7 GB
 # Vendor family: Alibaba/Qwen
 # Roles: planner (S2), no-tools (S3), ReAct (S5), synthesizer (S6)
-# IMPORTANT: always use think=False; CLI ollama run triggers unbounded thinking mode
+# NOTE: fits entirely in 16GB RAM (~20-25 tok/s). Extended thinking disabled.
 
 SECOND_MODEL = "llama3.1:8b"
 # Architecture: dense Llama 3.1, 8B params
