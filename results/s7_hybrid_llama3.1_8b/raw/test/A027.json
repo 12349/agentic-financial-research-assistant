@@ -1,0 +1,45 @@
+{
+  "id": "A027",
+  "query_id": "A027",
+  "query": "I'm looking at XOM for my portfolio \u2014 what do I need to know?",
+  "category": "ambiguous",
+  "gold_tools": [
+    "get_ratings",
+    "get_earnings",
+    "search_news",
+    "get_guidance"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "I'm looking at XOM for my portfolio \u2014 what do I need to know?",
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "I'm looking at XOM for my portfolio \u2014 what do I need to know?",
+      "ticker": "XOM",
+      "latency_ms": 43.4
+    }
+  ],
+  "answer": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).",
+  "sources": [],
+  "verification_meta": {
+    "revised": true,
+    "n_initial_issues": 6,
+    "pruned_count": 0
+  },
+  "latency_ms": 12630.04,
+  "tool_exec_ms": 43.41,
+  "synth_ms": 12586.47
+}

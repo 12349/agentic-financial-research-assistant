@@ -1,0 +1,98 @@
+{
+  "id": "N012",
+  "query_id": "N012",
+  "query": "Is there any color on how the Pioneer acquisition is integrating at Exxon?",
+  "category": "single_tool",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [
+    "get_ratings"
+  ],
+  "plan": [
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "ticker": "XOM",
+      "ratings": [
+        {
+          "id": "rating-xom-001",
+          "ticker": "XOM",
+          "analyst_firm": "Piper Sandler",
+          "analyst_name": "Ryan Todd",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 135.0,
+          "prior_price_target": 130.0,
+          "action": "Maintains",
+          "date": "2024-11-05",
+          "notes": "Pioneer integration tracking ahead of plan; structural cost advantages intact.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-xom-001"
+          },
+          "ml_sentiment": "neutral",
+          "ml_confidence": 0.752
+        },
+        {
+          "id": "rating-xom-002",
+          "ticker": "XOM",
+          "analyst_firm": "JPMorgan",
+          "analyst_name": "Phil Gresh",
+          "rating": "Neutral",
+          "prior_rating": "Neutral",
+          "price_target": 118.0,
+          "prior_price_target": 118.0,
+          "action": "Maintains",
+          "date": "2024-11-01",
+          "notes": "Oil price uncertainty from OPEC policy caps upside; disciplined capex a positive.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-xom-002"
+          },
+          "ml_sentiment": "bearish",
+          "ml_confidence": 0.799
+        }
+      ],
+      "summary": {
+        "total_ratings": 2,
+        "bullish": 0,
+        "neutral": 1,
+        "bearish": 1,
+        "consensus": "neutral",
+        "ml_scored_count": 2,
+        "avg_price_target": 126.5
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 1104.2
+    }
+  ],
+  "answer": "Based on the analyst ratings provided, there is a mixed sentiment regarding the integration of Pioneer into Exxon. Piper Sandler's Ryan Todd maintains an \"Overweight\" rating with a price target of $135.00, noting that the integration is tracking ahead of plan and maintaining structural cost advantages [Source: rating-xom-001]. In contrast, JPMorgan's Phil Gresh has maintained a \"Neutral\" rating with a price target of $118.00, citing oil price uncertainty from OPEC policy as a factor that caps upside potential [Source: rating-xom-002].\n\nSources used:\n- Source: rating-xom-001\n- Source: rating-xom-002",
+  "sources": [
+    {
+      "ticker": "XOM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-xom-001"
+    },
+    {
+      "ticker": "XOM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-xom-002"
+    }
+  ],
+  "llm_elapsed_ms": 9378,
+  "llm_prompt_tokens": 686,
+  "llm_gen_tokens": 152,
+  "llm_tok_per_sec": 22.2,
+  "latency_ms": 10484.15,
+  "tool_exec_ms": 1104.22
+}

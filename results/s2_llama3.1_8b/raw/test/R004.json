@@ -1,0 +1,22 @@
+{
+  "id": "R004",
+  "query_id": "R004",
+  "query": "What is Exxon Mobil's average analyst price target?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_ratings"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "[\n  {\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"XOM\"}},\n]",
+  "llm_elapsed_ms": 1334,
+  "llm_prompt_tokens": 432,
+  "llm_gen_tokens": 21,
+  "llm_tok_per_sec": 22.4,
+  "parsed_ok": false,
+  "tool_outputs": [],
+  "answer": "No data was found to answer this query.",
+  "sources": [],
+  "latency_ms": 1335.05,
+  "tool_exec_ms": 0.0
+}

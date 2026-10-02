@@ -113,7 +113,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 20.5
+      "latency_ms": 30.2
     }
   ],
   "answer": "According to the data provided, there are four Wall Street analysts who have a buy-equivalent rating on Nvidia. Specifically, Bank of America's Vivek Arya, Goldman Sachs' Toshiya Hari, and Citi's Atif Malik all maintain a \"Buy\" rating for Nvidia. Additionally, Morgan Stanley's Joseph Moore has an \"Overweight\" rating, which is also considered a buy-equivalent rating.\n\n[Source: rating-nvda-002]\n[Source: rating-nvda-001]\n[Source: rating-nvda-004]\n[Source: rating-nvda-003]\n\nSources used:\n- [Source: rating-nvda-002]\n- [Source: rating-nvda-001]\n- [Source: rating-nvda-004]\n- [Source: rating-nvda-003]",
@@ -139,10 +139,10 @@
       "record_id": "rating-nvda-003"
     }
   ],
-  "llm_elapsed_ms": 12828,
+  "llm_elapsed_ms": 12887,
   "llm_prompt_tokens": 1084,
   "llm_gen_tokens": 187,
-  "llm_tok_per_sec": 21.9,
-  "latency_ms": 12849.26,
-  "tool_exec_ms": 20.48
+  "llm_tok_per_sec": 21.8,
+  "latency_ms": 12918.56,
+  "tool_exec_ms": 30.21
 }

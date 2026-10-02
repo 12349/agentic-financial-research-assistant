@@ -72,7 +72,7 @@
       "tool": "search_news",
       "query": "What range did NVDA provide for their Q4 FY2025 revenue outlook?",
       "ticker": "NVDA",
-      "latency_ms": 30.6
+      "latency_ms": 162.7
     }
   ],
   "answer": "According to a recent financial news report, Nvidia provided a Q4 FY2025 revenue guidance of approximately $37.5 billion, which exceeded the Street estimates of $37.1 billion. [Source: news-nvda-003]\n\nSources used:\n- [Source: news-nvda-003]",
@@ -93,10 +93,10 @@
       "record_id": "news-nvda-002"
     }
   ],
-  "llm_elapsed_ms": 6670,
-  "llm_prompt_tokens": 970,
+  "llm_elapsed_ms": 6885,
+  "llm_prompt_tokens": 971,
   "llm_gen_tokens": 71,
-  "llm_tok_per_sec": 22.3,
-  "latency_ms": 6700.89,
-  "tool_exec_ms": 30.6
+  "llm_tok_per_sec": 21.3,
+  "latency_ms": 7049.3,
+  "tool_exec_ms": 162.71
 }

@@ -33,11 +33,11 @@ def synthesize_with_llm(query: str, tool_outputs: list[dict], client) -> tuple[s
     return resp.response, sources, resp
 
 
-def run_s6(split_path: str, split_name: str = "test", limit: Optional[int] = None) -> dict:
+def run_s6(split_path: str, split_name: str = "test", limit: Optional[int] = None, model: str = PRIMARY_MODEL) -> dict:
     """Run S6 evaluation on a dataset split."""
-    client = synthesizer_client(model=PRIMARY_MODEL)
+    client = synthesizer_client(model=model)
     if not client.is_available():
-        raise RuntimeError(f"Model '{PRIMARY_MODEL}' not available in Ollama. Run: ollama pull {PRIMARY_MODEL}")
+        raise RuntimeError(f"Model '{model}' not available in Ollama. Run: ollama pull {model}")
 
     queries = load_queries(split_path)
     if limit:
@@ -47,7 +47,7 @@ def run_s6(split_path: str, split_name: str = "test", limit: Optional[int] = Non
     latencies = []
     llm_latencies = []
 
-    print(f"--- Running S6 (llm-synth with {PRIMARY_MODEL}) on {split_name} (n={len(queries)}) ---")
+    print(f"--- Running S6 (llm-synth with {model}) on {split_name} (n={len(queries)}) ---")
 
     for i, q in enumerate(queries):
         query_text = q["query"]
@@ -92,13 +92,14 @@ def run_s6(split_path: str, split_name: str = "test", limit: Optional[int] = Non
     synth_eval = evaluate_synthesis_quality(records)
 
     extra_summary = {
-        "model": PRIMARY_MODEL,
+        "model": model,
         "mean_latency_ms": round(sum(latencies) / len(latencies), 2) if latencies else 0.0,
         "mean_llm_latency_ms": round(sum(llm_latencies) / len(llm_latencies), 2) if llm_latencies else 0.0,
     }
 
+    system_id = "s6_llm_synth" if model == PRIMARY_MODEL else f"s6_{model.replace(':', '_')}"
     summary_file = save_system_results(
-        system_id="s6_llm_synth",
+        system_id=system_id,
         split_name=split_name,
         records=records,
         tool_eval=tool_eval,
@@ -126,7 +127,9 @@ if __name__ == "__main__":
                         help="Split to evaluate: 'dev' (default) or 'test'")
     parser.add_argument("--limit", type=int, default=None,
                         help="Optional limit on number of queries")
+    parser.add_argument("--model", type=str, default=PRIMARY_MODEL,
+                        help="Model name (default: PRIMARY_MODEL)")
     args = parser.parse_args()
 
     split_path = QUERIES_TEST if args.split == "test" else QUERIES_DEV
-    run_s6(split_path, split_name=args.split, limit=args.limit)
+    run_s6(split_path, split_name=args.split, limit=args.limit, model=args.model)

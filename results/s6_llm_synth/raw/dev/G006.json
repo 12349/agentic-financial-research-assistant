@@ -93,7 +93,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 76.5
+      "latency_ms": 1168.2
     }
   ],
   "answer": "Based on the analyst ratings provided, JPMorgan Chase & Co.'s (JPM) analysts have been consistently bullish, with all three analysts maintaining a positive outlook and raising their price targets. Specifically, Deutsche Bank's Matt O'Connor raised the price target to $275.00 from $255.00 [Source: rating-jpm-003], Wells Fargo's Mike Mayo increased it to $280.00 from $250.00 [Source: rating-jpm-001], and Oppenheimer's Chris Kotowski raised his target to $265.00 from $240.00 [Source: rating-jpm-002]. The consensus among these analysts is bullish, with an average price target of $273.33.\n\nSources used:\n- Source: rating-jpm-003\n- Source: rating-jpm-001\n- Source: rating-jpm-002",
@@ -114,10 +114,10 @@
       "record_id": "rating-jpm-002"
     }
   ],
-  "llm_elapsed_ms": 12646,
-  "llm_prompt_tokens": 881,
+  "llm_elapsed_ms": 12548,
+  "llm_prompt_tokens": 883,
   "llm_gen_tokens": 208,
-  "llm_tok_per_sec": 22.0,
-  "latency_ms": 12722.98,
-  "tool_exec_ms": 76.5
+  "llm_tok_per_sec": 22.3,
+  "latency_ms": 13717.53,
+  "tool_exec_ms": 1168.23
 }

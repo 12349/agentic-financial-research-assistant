@@ -1,0 +1,100 @@
+{
+  "id": "R004",
+  "query_id": "R004",
+  "query": "What is Exxon Mobil's average analyst price target?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "get_ratings"
+  ],
+  "plan": [
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "ticker": "XOM",
+      "ratings": [
+        {
+          "id": "rating-xom-001",
+          "ticker": "XOM",
+          "analyst_firm": "Piper Sandler",
+          "analyst_name": "Ryan Todd",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 135.0,
+          "prior_price_target": 130.0,
+          "action": "Maintains",
+          "date": "2024-11-05",
+          "notes": "Pioneer integration tracking ahead of plan; structural cost advantages intact.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-xom-001"
+          },
+          "ml_sentiment": "neutral",
+          "ml_confidence": 0.752
+        },
+        {
+          "id": "rating-xom-002",
+          "ticker": "XOM",
+          "analyst_firm": "JPMorgan",
+          "analyst_name": "Phil Gresh",
+          "rating": "Neutral",
+          "prior_rating": "Neutral",
+          "price_target": 118.0,
+          "prior_price_target": 118.0,
+          "action": "Maintains",
+          "date": "2024-11-01",
+          "notes": "Oil price uncertainty from OPEC policy caps upside; disciplined capex a positive.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-xom-002"
+          },
+          "ml_sentiment": "bearish",
+          "ml_confidence": 0.799
+        }
+      ],
+      "summary": {
+        "total_ratings": 2,
+        "bullish": 0,
+        "neutral": 1,
+        "bearish": 1,
+        "consensus": "neutral",
+        "ml_scored_count": 2,
+        "avg_price_target": 126.5
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 37.2
+    }
+  ],
+  "answer": "Analyst sentiment on XOM is currently NEUTRAL.\n[Source: rating-xom-001] Of 2 recent ratings: 0 bullish, 1 neutral, 1 bearish. Average price target: $126.\n[Source: rating-xom-001] Piper Sandler (Ryan Todd) Maintains at Overweight, PT $135.0 (from $130.0). Pioneer integration tracking ahead of plan; structural cost advantages intact.\n[Source: rating-xom-002] JPMorgan (Phil Gresh) Maintains at Neutral, PT $118.0 (from $118.0). Oil price uncertainty from OPEC policy caps upside; disciplined capex a positive.",
+  "sources": [
+    {
+      "ticker": "XOM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-xom-001"
+    },
+    {
+      "ticker": "XOM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-xom-002"
+    }
+  ],
+  "verification_meta": {
+    "revised": true,
+    "n_initial_issues": 4,
+    "pruned_count": 0
+  },
+  "latency_ms": 14790.65,
+  "tool_exec_ms": 37.24,
+  "synth_ms": 14753.28
+}

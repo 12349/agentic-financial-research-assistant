@@ -1,0 +1,149 @@
+{
+  "id": "D076",
+  "query_id": "D076",
+  "query": "NVDA's Q3 YoY growth and whether Morgan Stanley adjusted their price target.",
+  "category": "dual_tool",
+  "gold_tools": [
+    "get_earnings",
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "get_ratings"
+  ],
+  "plan": [
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "NVDA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "ticker": "NVDA",
+      "ratings": [
+        {
+          "id": "rating-nvda-002",
+          "ticker": "NVDA",
+          "analyst_firm": "Bank of America",
+          "analyst_name": "Vivek Arya",
+          "rating": "Buy",
+          "prior_rating": "Buy",
+          "price_target": 190.0,
+          "prior_price_target": 165.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-22",
+          "notes": "Sees Blackwell cycle as multi-year AI infrastructure tailwind.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-nvda-002"
+          },
+          "ml_sentiment": "bearish",
+          "ml_confidence": 0.707
+        },
+        {
+          "id": "rating-nvda-001",
+          "ticker": "NVDA",
+          "analyst_firm": "Goldman Sachs",
+          "analyst_name": "Toshiya Hari",
+          "rating": "Buy",
+          "prior_rating": "Buy",
+          "price_target": 165.0,
+          "prior_price_target": 135.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-21",
+          "notes": "Raised PT on data center demand strength and Blackwell ramp confirmation.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-nvda-001"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.977
+        },
+        {
+          "id": "rating-nvda-004",
+          "ticker": "NVDA",
+          "analyst_firm": "Citi",
+          "analyst_name": "Atif Malik",
+          "rating": "Buy",
+          "prior_rating": "Buy",
+          "price_target": 175.0,
+          "prior_price_target": 150.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-21",
+          "notes": "Q4 guidance above Street; raises FY2026 estimates by 15%.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-nvda-004"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.943
+        },
+        {
+          "id": "rating-nvda-003",
+          "ticker": "NVDA",
+          "analyst_firm": "Morgan Stanley",
+          "analyst_name": "Joseph Moore",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 160.0,
+          "prior_price_target": 150.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-20",
+          "notes": "Supply constraints easing; data center demand exceeds prior estimates.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-nvda-003"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.496
+        }
+      ],
+      "summary": {
+        "total_ratings": 4,
+        "bullish": 3,
+        "neutral": 0,
+        "bearish": 1,
+        "consensus": "bullish",
+        "ml_scored_count": 4,
+        "avg_price_target": 172.5
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 37.2
+    }
+  ],
+  "answer": "Based on the tool output, here is the answer to the user's question:\n\nNVDA's Q3 YoY growth was not directly reported in the provided data. However, we can infer that the company has been performing well based on the analyst ratings.\n\nMorgan Stanley adjusted their price target for NVDA from $150.0 to $160.0 [Source: rating-nvda-003].\n\nThe consensus among analysts is bullish, with 3 out of 4 ratings being \"Buy\" or \"Overweight\". The average price target is $172.5 [Source: summary].\n\nSources used:\n* Tool output for NVDA ratings and summary",
+  "sources": [
+    {
+      "ticker": "NVDA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-nvda-002"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-nvda-001"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-nvda-004"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-nvda-003"
+    }
+  ],
+  "llm_elapsed_ms": 10668,
+  "llm_prompt_tokens": 1006,
+  "llm_gen_tokens": 132,
+  "llm_tok_per_sec": 20.8,
+  "latency_ms": 10705.99,
+  "tool_exec_ms": 37.23
+}

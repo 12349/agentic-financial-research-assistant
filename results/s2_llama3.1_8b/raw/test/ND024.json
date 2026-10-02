@@ -1,0 +1,58 @@
+{
+  "id": "ND024",
+  "query_id": "ND024",
+  "query": "Give me Google's analyst ratings and price targets.",
+  "category": "no_data",
+  "gold_tools": [
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "get_ratings",
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "GOOG"
+      }
+    },
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "GOOG analyst ratings",
+        "ticker": "GOOG"
+      }
+    }
+  ],
+  "llm_raw_response": "```json\n[\n  {\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"GOOG\"}},\n  {\"tool\": \"search_news\", \"args\": {\"query\": \"GOOG analyst ratings\", \"ticker\": \"GOOG\"}}\n]\n```",
+  "llm_elapsed_ms": 2847,
+  "llm_prompt_tokens": 432,
+  "llm_gen_tokens": 52,
+  "llm_tok_per_sec": 21.3,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "ticker": "GOOG",
+      "ratings": [],
+      "summary": null,
+      "error": "No ratings data found for GOOG",
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 0.4
+    },
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "GOOG analyst ratings",
+      "ticker": "GOOG",
+      "latency_ms": 38.9
+    }
+  ],
+  "answer": "No data was found to answer this query.\n\nNo analyst ratings data was available for GOOG.\nNo news data was available for this query (tool: search_news).",
+  "sources": [],
+  "latency_ms": 2887.67,
+  "tool_exec_ms": 39.36
+}

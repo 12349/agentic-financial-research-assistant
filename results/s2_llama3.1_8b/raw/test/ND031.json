@@ -1,0 +1,58 @@
+{
+  "id": "ND031",
+  "query_id": "ND031",
+  "query": "What's the news on Coinbase's regulatory battles?",
+  "category": "no_data",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [
+    "search_news",
+    "get_ratings"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Coinbase regulatory battles",
+        "ticker": "COIN"
+      }
+    },
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "COIN"
+      }
+    }
+  ],
+  "llm_raw_response": "[\n  {\"tool\": \"search_news\", \"args\": {\"query\": \"Coinbase regulatory battles\", \"ticker\": \"COIN\"}},\n  {\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"COIN\"}}\n]",
+  "llm_elapsed_ms": 2685,
+  "llm_prompt_tokens": 432,
+  "llm_gen_tokens": 48,
+  "llm_tok_per_sec": 21.1,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Coinbase regulatory battles",
+      "ticker": "COIN",
+      "latency_ms": 39.3
+    },
+    {
+      "ticker": "COIN",
+      "ratings": [],
+      "summary": null,
+      "error": "No ratings data found for COIN",
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 0.2
+    }
+  ],
+  "answer": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).\nNo analyst ratings data was available for COIN.",
+  "sources": [],
+  "latency_ms": 2725.37,
+  "tool_exec_ms": 39.46
+}

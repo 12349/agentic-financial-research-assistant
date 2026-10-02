@@ -1,0 +1,40 @@
+{
+  "id": "ND031",
+  "query_id": "ND031",
+  "query": "What's the news on Coinbase's regulatory battles?",
+  "category": "no_data",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "What's the news on Coinbase's regulatory battles?",
+        "ticker": null
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "What's the news on Coinbase's regulatory battles?",
+      "ticker": null,
+      "latency_ms": 43.5
+    }
+  ],
+  "answer": "Unfortunately, there is no data available on Coinbase's regulatory battles in the provided tool outputs.\n\nThe search_news tool returned an empty list of results, indicating that no relevant news articles were found. The mode is set to offline and the engine used was semantic. \n\nSources used:\n\n* None (no data or error)",
+  "sources": [],
+  "llm_elapsed_ms": 3563,
+  "llm_prompt_tokens": 221,
+  "llm_gen_tokens": 64,
+  "llm_tok_per_sec": 21.3,
+  "latency_ms": 3607.72,
+  "tool_exec_ms": 43.53
+}

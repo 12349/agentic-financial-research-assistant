@@ -1,0 +1,57 @@
+{
+  "id": "ND003",
+  "query_id": "ND003",
+  "query": "What is Amazon's forward revenue guidance?",
+  "category": "no_data",
+  "gold_tools": [
+    "get_guidance"
+  ],
+  "pred_tools": [
+    "get_guidance",
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "get_guidance",
+      "args": {
+        "ticker": "AMZN"
+      }
+    },
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Amazon forward revenue guidance",
+        "ticker": "AMZN"
+      }
+    }
+  ],
+  "llm_raw_response": "[\n  {\"tool\": \"get_guidance\", \"args\": {\"ticker\": \"AMZN\"}},\n  {\"tool\": \"search_news\", \"args\": {\"query\": \"Amazon forward revenue guidance\", \"ticker\": \"AMZN\"}}\n]",
+  "llm_elapsed_ms": 2549,
+  "llm_prompt_tokens": 430,
+  "llm_gen_tokens": 49,
+  "llm_tok_per_sec": 21.5,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "ticker": "AMZN",
+      "guidance": [],
+      "error": "No guidance data found for AMZN",
+      "mode": "offline",
+      "tool": "get_guidance",
+      "latency_ms": 0.3
+    },
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Amazon forward revenue guidance",
+      "ticker": "AMZN",
+      "latency_ms": 41.4
+    }
+  ],
+  "answer": "No data was found to answer this query.\n\nNo guidance data was available for AMZN.\nNo news data was available for this query (tool: search_news).",
+  "sources": [],
+  "latency_ms": 2591.44,
+  "tool_exec_ms": 41.69
+}

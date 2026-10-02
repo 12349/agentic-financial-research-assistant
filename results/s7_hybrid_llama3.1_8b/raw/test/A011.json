@@ -1,0 +1,44 @@
+{
+  "id": "A011",
+  "query_id": "A011",
+  "query": "Break down what's happening with the JPM story.",
+  "category": "ambiguous",
+  "gold_tools": [
+    "search_news",
+    "get_earnings",
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Break down what's happening with the JPM story.",
+        "ticker": "JPM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Break down what's happening with the JPM story.",
+      "ticker": "JPM",
+      "latency_ms": 49.4
+    }
+  ],
+  "answer": "The search results for \"Break down what's happening with the JPM story\" yielded no relevant news articles. The lack of data to analyze means there is nothing to break down regarding the JPM story.",
+  "sources": [],
+  "verification_meta": {
+    "revised": true,
+    "n_initial_issues": 4,
+    "pruned_count": 2
+  },
+  "latency_ms": 8310.96,
+  "tool_exec_ms": 49.44,
+  "synth_ms": 8261.36
+}

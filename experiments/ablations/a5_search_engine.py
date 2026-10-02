@@ -70,6 +70,7 @@ def run_a5() -> dict:
         "precision_at_1_semantic": precision_at_1_sem,
         "precision_at_1_tfidf": precision_at_1_tfidf,
         "precision_at_1_on_retrieved": precision_at_1_retrieved_sem,
+        "relevance_judge_source": "AGENT_JUDGMENT (Relevance judgments came from the assistant/agent, not an independent human annotator)",
         "finding": (
             "FAISS semantic retrieval and TF-IDF achieve identical Top-1 Precision (0.941 across all 17 queries, "
             "1.000 among retrieved). On 16 of 17 queries, both engines retrieve the exact same article."

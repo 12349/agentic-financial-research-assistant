@@ -57,10 +57,10 @@
       "tool": "search_news",
       "query": "When you look at what management is telegraphing for Tesla's production volumes, what's the central figure?",
       "ticker": "TSLA",
-      "latency_ms": 55.8
+      "latency_ms": 228.0
     }
   ],
-  "answer": "Based on the news report from Financial News [Source: news-tsla-001], Tesla maintained its full-year delivery guidance of 1.8 million vehicles for Q3 2024, indicating that this figure is central to management's telegraphing regarding production volumes.\n\nSources used:\n- [Source: news-tsla-001]",
+  "answer": "Based on the news report from Financial News [Source: news-tsla-001], Tesla maintained its full-year delivery guidance of 1.8 million vehicles for Q3 2024, indicating that this figure is central to management's projections.\n\nSources used:\n- [Source: news-tsla-001]",
   "sources": [
     {
       "ticker": "TSLA",
@@ -73,10 +73,10 @@
       "record_id": "news-tsla-002"
     }
   ],
-  "llm_elapsed_ms": 5890,
-  "llm_prompt_tokens": 719,
-  "llm_gen_tokens": 74,
-  "llm_tok_per_sec": 22.1,
-  "latency_ms": 5947.34,
-  "tool_exec_ms": 55.78
+  "llm_elapsed_ms": 5637,
+  "llm_prompt_tokens": 720,
+  "llm_gen_tokens": 69,
+  "llm_tok_per_sec": 22.6,
+  "latency_ms": 5866.98,
+  "tool_exec_ms": 228.0
 }

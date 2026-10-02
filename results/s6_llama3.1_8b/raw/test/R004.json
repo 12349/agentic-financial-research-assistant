@@ -1,0 +1,98 @@
+{
+  "id": "R004",
+  "query_id": "R004",
+  "query": "What is Exxon Mobil's average analyst price target?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "get_ratings"
+  ],
+  "plan": [
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "ticker": "XOM",
+      "ratings": [
+        {
+          "id": "rating-xom-001",
+          "ticker": "XOM",
+          "analyst_firm": "Piper Sandler",
+          "analyst_name": "Ryan Todd",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 135.0,
+          "prior_price_target": 130.0,
+          "action": "Maintains",
+          "date": "2024-11-05",
+          "notes": "Pioneer integration tracking ahead of plan; structural cost advantages intact.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-xom-001"
+          },
+          "ml_sentiment": "neutral",
+          "ml_confidence": 0.752
+        },
+        {
+          "id": "rating-xom-002",
+          "ticker": "XOM",
+          "analyst_firm": "JPMorgan",
+          "analyst_name": "Phil Gresh",
+          "rating": "Neutral",
+          "prior_rating": "Neutral",
+          "price_target": 118.0,
+          "prior_price_target": 118.0,
+          "action": "Maintains",
+          "date": "2024-11-01",
+          "notes": "Oil price uncertainty from OPEC policy caps upside; disciplined capex a positive.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "analyst_ratings",
+            "record_id": "rating-xom-002"
+          },
+          "ml_sentiment": "bearish",
+          "ml_confidence": 0.799
+        }
+      ],
+      "summary": {
+        "total_ratings": 2,
+        "bullish": 0,
+        "neutral": 1,
+        "bearish": 1,
+        "consensus": "neutral",
+        "ml_scored_count": 2,
+        "avg_price_target": 126.5
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 27.2
+    }
+  ],
+  "answer": "Exxon Mobil's average analyst price target is $126.50, based on the consensus of two analysts from Piper Sandler and JPMorgan [Source: rating-xom-001, rating-xom-002]. The analysts have a neutral sentiment towards the company, with one maintaining an \"Overweight\" rating and the other maintaining a \"Neutral\" rating. The average price target is calculated by taking the mean of the two individual price targets.\n\nSources used:\n* [rating-xom-001]\n* [rating-xom-002]",
+  "sources": [
+    {
+      "ticker": "XOM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-xom-001"
+    },
+    {
+      "ticker": "XOM",
+      "channel": "analyst_ratings",
+      "record_id": "rating-xom-002"
+    }
+  ],
+  "llm_elapsed_ms": 7800,
+  "llm_prompt_tokens": 630,
+  "llm_gen_tokens": 110,
+  "llm_tok_per_sec": 20.9,
+  "latency_ms": 7828.34,
+  "tool_exec_ms": 27.2
+}

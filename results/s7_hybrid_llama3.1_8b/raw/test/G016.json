@@ -1,0 +1,64 @@
+{
+  "id": "G016",
+  "query_id": "G016",
+  "query": "Can you summarize the spread between JPMorgan's NII guidance floor and ceiling for FY2024?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_guidance"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Can you summarize the spread between JPMorgan's NII guidance floor and ceiling for FY2024?",
+        "ticker": "JPM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [
+        {
+          "id": "news-jpm-002",
+          "ticker": "JPM",
+          "headline": "JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B",
+          "body": "JPMorgan Chase raised its full-year net interest income guidance to approximately $92.5 billion, up from its prior guidance of $91 billion. The revision reflects higher-for-longer interest rates and strong loan growth. Analysts viewed the revision positively as it signals confidence in the bank's core earnings power.",
+          "published_at": "2024-10-12T09:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/jpm-guidance-raise",
+          "score": 0.4199,
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "news",
+            "record_id": "news-jpm-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Can you summarize the spread between JPMorgan's NII guidance floor and ceiling for FY2024?",
+      "ticker": "JPM",
+      "latency_ms": 49.4
+    }
+  ],
+  "answer": "JPMorgan Chase raised its full-year net interest income (NII) guidance to approximately $92.5 billion for FY2024 [Source: news-jpm-002]. This is an increase from its prior guidance of $91 billion, as stated in the same source [Source: news-jpm-002].",
+  "sources": [
+    {
+      "ticker": "JPM",
+      "channel": "news",
+      "record_id": "news-jpm-002"
+    }
+  ],
+  "verification_meta": {
+    "revised": true,
+    "n_initial_issues": 3,
+    "pruned_count": 3
+  },
+  "latency_ms": 11222.48,
+  "tool_exec_ms": 49.41,
+  "synth_ms": 11172.93
+}

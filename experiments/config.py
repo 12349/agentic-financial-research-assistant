@@ -78,6 +78,7 @@ RAW_DIR = {
     "s4": f"{RESULTS_DIR}/s4_call_all/raw",
     "s5": f"{RESULTS_DIR}/s5_react/raw",
     "s6": f"{RESULTS_DIR}/s6_llm_synth/raw",
+    "s7": f"{RESULTS_DIR}/s7_hybrid_synth/raw",
 }
 
 # ---------------------------------------------------------------------------

@@ -1,0 +1,45 @@
+{
+  "id": "A027",
+  "query_id": "A027",
+  "query": "I'm looking at XOM for my portfolio \u2014 what do I need to know?",
+  "category": "ambiguous",
+  "gold_tools": [
+    "get_ratings",
+    "get_earnings",
+    "search_news",
+    "get_guidance"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "I'm looking at XOM for my portfolio \u2014 what do I need to know?",
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "I'm looking at XOM for my portfolio \u2014 what do I need to know?",
+      "ticker": "XOM",
+      "latency_ms": 50.4
+    }
+  ],
+  "answer": "However, it's important to consider XOM\u2019s historical performance, financial health, and industry position when making investment decisions.",
+  "sources": [],
+  "verification_meta": {
+    "revised": true,
+    "n_initial_issues": 3,
+    "pruned_count": 2
+  },
+  "latency_ms": 8340.39,
+  "tool_exec_ms": 50.42,
+  "synth_ms": 8289.82
+}

@@ -1,0 +1,63 @@
+{
+  "id": "D042",
+  "query_id": "D042",
+  "query": "XOM earnings plus how Piper Sandler views the stock \u2014 side by side please.",
+  "category": "dual_tool",
+  "gold_tools": [
+    "get_earnings",
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "XOM earnings plus how Piper Sandler views the stock \u2014 side by side please.",
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [
+        {
+          "id": "news-xom-003",
+          "ticker": "XOM",
+          "headline": "Exxon Q3 Earnings Beat on Pioneer Synergies; OPEC Uncertainty Clouds Q4 Outlook",
+          "body": "Exxon Mobil reported Q3 earnings of $1.92 per share, beating estimates of $1.88. The Pioneer Natural Resources acquisition added $500 million in synergies ahead of schedule. However, executives cautioned that the OPEC+ production policy uncertainty and global demand softness could weigh on Q4 results. The company maintained its $35 billion share buyback program.",
+          "published_at": "2024-11-01T13:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/xom-q3-results",
+          "score": 0.3668,
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "news",
+            "record_id": "news-xom-003"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "XOM earnings plus how Piper Sandler views the stock \u2014 side by side please.",
+      "ticker": "XOM",
+      "latency_ms": 366.2
+    }
+  ],
+  "answer": "Exxon Mobil (XOM) reported Q3 earnings of $1.92 per share, beating estimates of $1.88. The Pioneer Natural Resources acquisition added $500 million in synergies ahead of schedule. However, executives cautioned that the OPEC+ production policy uncertainty and global demand softness could weigh on Q4 results. The company maintained its $35 billion share buyback program [Source: news-xom-003].\n\nUnfortunately, no specific information regarding Piper Sandler's view on XOM was found in the provided data.\n\nSources used:\n- [Source: news-xom-003]",
+  "sources": [
+    {
+      "ticker": "XOM",
+      "channel": "news",
+      "record_id": "news-xom-003"
+    }
+  ],
+  "llm_elapsed_ms": 14738,
+  "llm_prompt_tokens": 503,
+  "llm_gen_tokens": 131,
+  "llm_tok_per_sec": 10.3,
+  "latency_ms": 15107.29,
+  "tool_exec_ms": 366.22
+}

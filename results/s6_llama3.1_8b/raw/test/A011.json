@@ -1,0 +1,42 @@
+{
+  "id": "A011",
+  "query_id": "A011",
+  "query": "Break down what's happening with the JPM story.",
+  "category": "ambiguous",
+  "gold_tools": [
+    "search_news",
+    "get_earnings",
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Break down what's happening with the JPM story.",
+        "ticker": "JPM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Break down what's happening with the JPM story.",
+      "ticker": "JPM",
+      "latency_ms": 48.7
+    }
+  ],
+  "answer": "Unfortunately, the tool output indicates that no relevant news articles were found to break down the JPM story. The search results are empty, and there is no data to analyze.\n\nSources used:\n\n* [Source: 0] Tool output indicating empty search results.",
+  "sources": [],
+  "llm_elapsed_ms": 3023,
+  "llm_prompt_tokens": 225,
+  "llm_gen_tokens": 53,
+  "llm_tok_per_sec": 21.5,
+  "latency_ms": 3072.71,
+  "tool_exec_ms": 48.68
+}

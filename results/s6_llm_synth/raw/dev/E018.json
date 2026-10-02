@@ -72,7 +72,7 @@
       "tool": "search_news",
       "query": "How did Nvidia's data center revenue compare between Q2 and Q3 FY2025?",
       "ticker": "NVDA",
-      "latency_ms": 31.7
+      "latency_ms": 848.6
     }
   ],
   "answer": "Based on the available information, Nvidia reported record data center revenue of $22.6 billion for Q3 FY2025, up 112% year-over-year and exceeding Wall Street consensus [Source: news-nvda-001]. However, there is no direct comparison provided between Q2 and Q3 FY2025 in the given data.\n\nSources used:\n- [Source: news-nvda-001]",
@@ -93,10 +93,10 @@
       "record_id": "news-nvda-002"
     }
   ],
-  "llm_elapsed_ms": 7744,
-  "llm_prompt_tokens": 972,
+  "llm_elapsed_ms": 8054,
+  "llm_prompt_tokens": 973,
   "llm_gen_tokens": 95,
-  "llm_tok_per_sec": 22.3,
-  "latency_ms": 7776.48,
-  "tool_exec_ms": 31.73
+  "llm_tok_per_sec": 21.6,
+  "latency_ms": 8904.66,
+  "tool_exec_ms": 848.62
 }

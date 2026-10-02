@@ -93,7 +93,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 36.3
+      "latency_ms": 44.5
     }
   ],
   "answer": "Based on the data provided, Wedbush Securities has set the highest price target of $400.00 for Tesla (TSLA), followed by Morgan Stanley with a price target of $310.00 and UBS with a lower target at $226.00.\n\n[Source: rating-tsla-001]\n[Source: rating-tsla-002]\n[Source: rating-tsla-003]\n\nSources used:\n- [Source: rating-tsla-001]\n- [Source: rating-tsla-002]\n- [Source: rating-tsla-003]",
@@ -114,10 +114,10 @@
       "record_id": "rating-tsla-002"
     }
   ],
-  "llm_elapsed_ms": 13701,
+  "llm_elapsed_ms": 9557,
   "llm_prompt_tokens": 890,
   "llm_gen_tokens": 136,
-  "llm_tok_per_sec": 22.0,
-  "latency_ms": 13738.45,
-  "tool_exec_ms": 36.31
+  "llm_tok_per_sec": 22.1,
+  "latency_ms": 9602.98,
+  "tool_exec_ms": 44.56
 }

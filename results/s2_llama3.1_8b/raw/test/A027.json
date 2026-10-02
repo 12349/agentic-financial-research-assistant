@@ -1,0 +1,84 @@
+{
+  "id": "A027",
+  "query_id": "A027",
+  "query": "I'm looking at XOM for my portfolio \u2014 what do I need to know?",
+  "category": "ambiguous",
+  "gold_tools": [
+    "get_ratings",
+    "get_earnings",
+    "search_news",
+    "get_guidance"
+  ],
+  "pred_tools": [
+    "search_news",
+    "get_guidance"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "XOM portfolio",
+        "ticker": "XOM"
+      }
+    },
+    {
+      "tool": "get_guidance",
+      "args": {
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "llm_raw_response": "[\n  {\"tool\": \"search_news\", \"args\": {\"query\": \"XOM portfolio\", \"ticker\": \"XOM\"}},\n  {\"tool\": \"get_guidance\", \"args\": {\"ticker\": \"XOM\"}}\n]",
+  "llm_elapsed_ms": 2650,
+  "llm_prompt_tokens": 439,
+  "llm_gen_tokens": 48,
+  "llm_tok_per_sec": 21.4,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "XOM portfolio",
+      "ticker": "XOM",
+      "latency_ms": 41.7
+    },
+    {
+      "ticker": "XOM",
+      "guidance": [
+        {
+          "id": "guidance-xom-001",
+          "ticker": "XOM",
+          "period": "FY2024",
+          "issued_date": "2024-02-01",
+          "metric": "Capital Expenditure",
+          "guidance_value": 28000000000,
+          "guidance_unit": "USD",
+          "guidance_low": 26000000000,
+          "guidance_high": 30000000000,
+          "analyst_estimate_prior": 27500000000,
+          "notes": "Exxon guided FY2024 capex to $28B, consistent with prior year plan, in line with analyst estimates.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "guidance",
+            "record_id": "guidance-xom-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_guidance",
+      "latency_ms": 0.2
+    }
+  ],
+  "answer": "[Source: guidance-xom-001] XOM issued Capital Expenditure guidance of $28.0B for FY2024 (issued 2024-02-01). Prior analyst estimate was $27.5B.\n  Notes: Exxon guided FY2024 capex to $28B, consistent with prior year plan, in line with analyst estimates.\n\n\u26a0 Data gaps: No news data was available for this query (tool: search_news).",
+  "sources": [
+    {
+      "ticker": "XOM",
+      "channel": "guidance",
+      "record_id": "guidance-xom-001"
+    }
+  ],
+  "latency_ms": 2692.51,
+  "tool_exec_ms": 41.91
+}

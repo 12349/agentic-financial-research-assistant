@@ -1,0 +1,82 @@
+{
+  "id": "ND028",
+  "query_id": "ND028",
+  "query": "Show me JPMorgan's credit default swap spreads.",
+  "category": "no_data",
+  "gold_tools": [],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Show me JPMorgan's credit default swap spreads.",
+        "ticker": "JPM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [
+        {
+          "id": "news-jpm-001",
+          "ticker": "JPM",
+          "headline": "JPMorgan Q3 Net Income Rises 35% on Higher Interest Income",
+          "body": "JPMorgan Chase reported Q3 2024 net income of $12.9 billion, up 35% from a year earlier, driven by rising net interest income and strong investment banking fees. Revenue of $43.3 billion beat analyst expectations of $41.8 billion. CEO Jamie Dimon warned of geopolitical risks and potential credit deterioration ahead.",
+          "published_at": "2024-10-11T12:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/jpm-q3-earnings",
+          "score": 0.503,
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "news",
+            "record_id": "news-jpm-001"
+          }
+        },
+        {
+          "id": "news-jpm-002",
+          "ticker": "JPM",
+          "headline": "JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B",
+          "body": "JPMorgan Chase raised its full-year net interest income guidance to approximately $92.5 billion, up from its prior guidance of $91 billion. The revision reflects higher-for-longer interest rates and strong loan growth. Analysts viewed the revision positively as it signals confidence in the bank's core earnings power.",
+          "published_at": "2024-10-12T09:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/jpm-guidance-raise",
+          "score": 0.5001,
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "news",
+            "record_id": "news-jpm-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Show me JPMorgan's credit default swap spreads.",
+      "ticker": "JPM",
+      "latency_ms": 44.5
+    }
+  ],
+  "answer": "Sources used: - [Source: news-jpm-001] - [Source: news-jpm-002]",
+  "sources": [
+    {
+      "ticker": "JPM",
+      "channel": "news",
+      "record_id": "news-jpm-001"
+    },
+    {
+      "ticker": "JPM",
+      "channel": "news",
+      "record_id": "news-jpm-002"
+    }
+  ],
+  "verification_meta": {
+    "revised": true,
+    "n_initial_issues": 1,
+    "pruned_count": 0
+  },
+  "latency_ms": 7733.62,
+  "tool_exec_ms": 44.5,
+  "synth_ms": 7688.97
+}

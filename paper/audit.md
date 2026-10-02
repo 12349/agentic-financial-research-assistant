@@ -202,7 +202,7 @@ All experiments run locally on Apple M4 (16 GB unified memory, macOS 27.0) via O
   - 23.8% of generated sentences are unsupported by any retrieved record.
   - Numeric faithfulness drops to 97.5% due to occasional hallucinated figures or rounding mismatches.
   - Abstention on unanswerable/out-of-scope queries drops from 42.9% to 14.3% (the generative model fabricates plausible-sounding explanations when tool records are absent).
-  - Latency is ~970× higher (9.6 seconds vs. 9.8 milliseconds).
+  - Latency is higher (9.6 seconds vs. 9.8 milliseconds), representing the computational cost of autoregressive generation.
 - **Framing Correction**: The phrase *"mathematical grounding guarantee"* is permanently removed. The defensible framing is **"Programmatic Structural Attribution vs. Generative LLM Synthesis"**: programmatic field copying structurally prevents citation fabrication by design, whereas prompt-instructed LLM generation degrades across all fidelity dimensions.
 
 ---
@@ -236,10 +236,10 @@ To assess labeling reliability beyond the author's self-consistency pass ($\kapp
 
 1. **A1 (ReAct Tool Cap on Dev, $n=45$)**:
    - Caps tested: 2, 4, 8, unlimited (max 10).
-   - Finding: ReAct agent with `qwen2.5:7b-instruct` exhibits an **early-stopping pathology** (mean steps to termination: **1.38**). The agent almost never engages in runaway tool loops; instead, it prematurely emits `Final Answer:` without invoking necessary tools. Tool calls per query remain virtually flat: 0.36 (cap 2) vs. 0.38 (cap 4, 8, unlimited).
-2. **A5 (News Search Engine on Dev, $n=17$)**:
+   - Finding: ReAct agent with `qwen2.5:7b-instruct` exhibits an **early-stopping pathology** (mean steps to termination: **1.38**). The agent almost never engages in runaway tool loops; instead, it prematurely emits `Final Answer:` withou2. **A5 (News Search Engine on Dev, $n=17$)**:
    - Both FAISS Semantic and TF-IDF achieve identical Top-1 Precision: **0.941** (16/17 relevant; 1 query unretrieved under threshold). Top-1 agreement is **0.941** (16/17 identical articles).
    - **Hypothesis**: In a compact, curated 12-document corpus (3 distinct articles per ticker), distinct company names and topic vocabularies allow keyword matching to converge with dense embeddings.
+   - **Methodological Disclosure**: Relevance judgments were produced by the assistant/agent itself under structured criteria, not by an independent human annotator.
 
 ---
 
@@ -249,14 +249,30 @@ Based strictly on verified, audited empirical data:
 
 1. **Contribution 1 (Empirical Evaluation of Programmatic vs. Generative Synthesis in Financial QA)**:
    - Programmatic structural attribution achieves 100% citation validity and 100% numeric faithfulness with sub-10ms latency.
-   - Generative LLM synthesis degrades citation validity by 14.1%, generates 23.8% unsupported statements, and increases latency by ~970×.
+   - Generative LLM synthesis degrades citation validity by 14.1%, generates 23.8% unsupported statements, and incurs higher latency (9.6 s vs. 9.8 ms).
    - This provides actionable empirical guidance for production financial systems: structured metrics should be rendered programmatically, reserving generative LLMs for natural-language query planning.
 2. **Contribution 2 (Single-Shot Structured Planning Outperforms Multi-Step ReAct in Constrained Tool Routing)**:
    - Single-shot LLM planning (S2) achieves **0.677 F1** and **63.8% Exact Match** ($p=0.0035$ over rule-based baseline via McNemar's test).
-   - ReAct (S5) achieves only **0.433 F1** and **34.0% Exact Match**, hobbled by early stopping (mean 1.38 steps).
+   - ReAct (S5) achieves only **0.433 F1** and **34.0% Exact Match**, hobbled by early stopping (mean 1.83 steps on test).
 3. **Contribution 3 (Rigorous Evaluation Methodology & Provenance for Applied Financial Agent Research)**:
    - Full test-set isolation ($n=47$ held-out split never used for tuning).
    - CI-enforced regression tests guarding against circular label leakage.
    - Transparent documentation of inter-rater reliability boundaries ($\kappa=0.25$ unprompted $\to 0.34$ guided).
 
+---
 
+## 7. Comprehensive Claims-vs-Evidence Matrix
+
+The table below catalogs every claim intended for the manuscript, the primary supporting artifact file, exact empirical metrics, and known experimental limitations.
+
+| Claim ID | Paper Claim | Subsystem / Topic | Supporting Result File | Key Empirical Evidence | Experimental Limitations & Boundary Conditions | Defensive Publication Framing |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **C1** | Programmatic field copying structurally eliminates citation fabrication and numerical errors | Synthesis (S1 vs S6) | `results/s1_rule_planner/summary_test.json`, `results/metric_validation_report.json` | S1 Citation Validity: **1.000** [1.0, 1.0]; Numeric Faithfulness: **1.000** [1.0, 1.0]; Block Unsupported: **0.000** [0.0, 0.0] | Cannot generate free-form conversational prose; strict sentence unsupported rate is 0.567 due to un-cited intro sentences; lower relevance score on LLM judge (4.20 vs 4.95 for S6). | Frame as a **fundamental trade-off**: deterministic formatting guarantees factual grounding at the expense of conversational fluency and direct query focus. |
+| **C2** | Generative LLM synthesis suffers from citation hallucination and numerical distortion across multiple model families | Synthesis (S6) | `results/s6_llm_synth/summary_test.json`, `results/s6_llama3.1_8b/summary_test.json` | Qwen 2.5 7B: Citation 0.8592, Faithfulness 0.9749, Block Unsupported 0.2304. Llama 3.1 8B: Citation 0.8485, Faithfulness 0.7241, Unsupported 0.5776. | Evaluated at 7B/8B scale with greedy decoding ($T=0$); frontier models (70B+) or larger proprietary APIs may show lower hallucination rates. | Frame as an empirical vulnerability of local edge-deployable open-weights LLMs in financial reporting workflows. |
+| **C3** | Automated verification with single-turn revision (Hybrid S7) restores citation validity and numerical fidelity | Synthesis (S7) | `results/s7_hybrid_synth/summary_test.json` | S7 Citation Validity: **1.000** [1.0, 1.0]; Numeric Faithfulness: **1.000** [1.0, 1.0]; Block Unsupported: **0.106** [0.02, 0.19]. 30/47 revisions triggered. | Revision loop increases mean latency; sentence pruning can truncate narrative context; does not fix out-of-scope abstention. | Position S7 as an effective engineering compromise that enforces factual safety while preserving natural language flexibility. |
+| **C4** | Single-shot structured LLM planning outperforms multi-step ReAct routing in constrained financial tool routing | Tool Planning (S2 vs S5) | `results/s2_llm_planner/summary_test.json`, `results/s5_react/summary_test.json`, `results/statistical_significance.json` | S2 (Qwen) F1: **0.6773** [0.57, 0.78], Exact Match: **63.8%** [0.49, 0.77]. S5 (ReAct) F1: **0.4333** [0.31, 0.56], Exact Match: **34.0%** [0.21, 0.49]. McNemar test $p=0.0013$. | 4-tool domain with defined parameters; does not generalize to open-web recursive browsing where multi-step feedback is essential. | Conclude that for structured metric databases with low branching factors, single-shot plan generation is superior to iterative ReAct loops. |
+| **C5** | ReAct tool budget caps do not bind in practice due to autonomous early stopping | Agent Dynamics (A1) | `results/ablations/a1_tool_cap_live.json` | Baseline prompt mean steps: **1.53** (cap 4/8 bind rate: 0.0%; cap 2 binds in 12.8%). Improved prompt mean steps: **1.79** (bind rate: 0.0%). | Evaluated on financial query benchmark; complex multi-hop question answering might exhibit longer reasoning chains. | Document the early-stopping pathology: 7B/8B ReAct agents terminate prematurely rather than entering infinite loops. |
+| **C6** | TF-IDF keyword retrieval converges with dense semantic embeddings on compact domain corpora | Information Retrieval (A5) | `results/ablations/a5_search_engine.json` | Top-1 Precision: **0.9412** on both FAISS and TF-IDF; 94.12% Top-1 article agreement (16/17 queries). | Small corpus (12 curated articles, 3 per ticker); relevance judgments from the agent, not human annotators. | Present as an empirical finding and hypothesis: high keyword specificity (distinct ticker names) diminishes the marginal benefit of vector search in compact corpora. |
+| **C7** | Generative models exhibit lower abstention accuracy than rule-based systems on unanswerable financial queries | Abstention / Guardrails | `results/s1_rule_planner/summary_test.json`, `results/s6_llm_synth/summary_test.json`, `results/s7_hybrid_synth/summary_test.json` | S1 Abstention Acc: **0.4286** (3/7); S6 Abstention Acc: **0.1429** (1/7); S7 Abstention Acc: **0.0000** (0/7). | Sample size is extremely small ($n=7$ `no_data` queries); statistically underpowered for significance claims. | Explicitly state limitation: reported strictly as descriptive observational data without $p$-value claims. |
+| **C8** | SEC 10-K financial QA presents a qualitative paradigm boundary for structured tool agents | Benchmarking / Generalization | `results/financebench/qualitative_case_study.md` | Qualitative analysis of $n=5$ in-scope FinanceBench queries (Islam et al., 2023). | Small qualitative case study, not a statistical benchmark. Significant temporal and modality mismatch. | Frame strictly as an architectural domain boundary analysis (structured API routing vs. multi-page document PDF parsing). |
+| **C9** | Labeling guidelines significantly enhance model annotation consistency | Annotation Methodology | `eval/gold_label_agreement.md`, `eval/external_queries/README.md` | Author self-consistency: $\kappa=0.967$ ($n=34$). External Llama 3.1 8B rater: unguided $\kappa=0.2507 \to$ guided $\kappa=0.3419$ ($\Delta\kappa=+0.091$). | Model-based rater, not human annotator; external query labels are marked exploratory until human CSV is merged. | Transparently disclose all rater identities and provide an open CSV loader for future independent human validation. |

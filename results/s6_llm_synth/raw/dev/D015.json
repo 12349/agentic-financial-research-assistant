@@ -1,0 +1,167 @@
+{
+  "id": "D015",
+  "query_id": "D015",
+  "query": "Correlate Tesla's EPS surprise with how analyst sentiment has shifted since the report.",
+  "category": "dual_tool",
+  "gold_tools": [
+    "get_earnings",
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "get_earnings",
+    "get_ratings"
+  ],
+  "plan": [
+    {
+      "tool": "get_earnings",
+      "args": {
+        "ticker": "TSLA"
+      }
+    },
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "TSLA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "ticker": "TSLA",
+      "earnings": [
+        {
+          "id": "earnings-tsla-001",
+          "ticker": "TSLA",
+          "period": "Q3 2024",
+          "report_date": "2024-10-23",
+          "revenue_actual": 25182000000,
+          "revenue_estimate": 25500000000,
+          "revenue_beat_miss": "miss",
+          "revenue_surprise_pct": -1.25,
+          "eps_actual": 0.72,
+          "eps_estimate": 0.58,
+          "eps_beat_miss": "beat",
+          "eps_surprise_pct": 24.14,
+          "net_income_actual": 2167000000,
+          "data_center_revenue": null,
+          "yoy_revenue_growth_pct": 8.2,
+          "notes": "Revenue slightly missed but EPS significantly beat on cost improvements. Vehicle deliveries of 462,890 beat estimates. Automotive gross margin improved to 17.1%.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "earnings",
+            "record_id": "earnings-tsla-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_earnings",
+      "latency_ms": 0.2
+    },
+    {
+      "ticker": "TSLA",
+      "ratings": [
+        {
+          "id": "rating-tsla-001",
+          "ticker": "TSLA",
+          "analyst_firm": "Wedbush Securities",
+          "analyst_name": "Dan Ives",
+          "rating": "Outperform",
+          "prior_rating": "Outperform",
+          "price_target": 400.0,
+          "prior_price_target": 300.0,
+          "action": "Raises Price Target",
+          "date": "2024-12-01",
+          "notes": "Tesla AI and FSD monetization opportunity undervalued; Cybercab a long-term catalyst.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-tsla-001"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.914
+        },
+        {
+          "id": "rating-tsla-003",
+          "ticker": "TSLA",
+          "analyst_firm": "UBS",
+          "analyst_name": "Joseph Spak",
+          "rating": "Neutral",
+          "prior_rating": "Neutral",
+          "price_target": 226.0,
+          "prior_price_target": 197.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-25",
+          "notes": "Cautious on near-term EV competition; autonomous timeline uncertain.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-tsla-003"
+          },
+          "ml_sentiment": "bearish",
+          "ml_confidence": 0.499
+        },
+        {
+          "id": "rating-tsla-002",
+          "ticker": "TSLA",
+          "analyst_firm": "Morgan Stanley",
+          "analyst_name": "Adam Jonas",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 310.0,
+          "prior_price_target": 270.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-15",
+          "notes": "Full self-driving revenue model gaining credibility post-Cybercab reveal.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-tsla-002"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.524
+        }
+      ],
+      "summary": {
+        "total_ratings": 3,
+        "bullish": 2,
+        "neutral": 0,
+        "bearish": 1,
+        "consensus": "bullish",
+        "ml_scored_count": 3,
+        "avg_price_target": 312.0
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 743.7
+    }
+  ],
+  "answer": "Tesla's third-quarter 2024 earnings report showed a significant positive surprise in EPS, with an actual EPS of $0.72 compared to the estimate of $0.58, representing a 24.14% beat [Source: earnings-tsla-001]. This strong performance was supported by cost improvements and higher-than-expected vehicle deliveries.\n\nSince the report, analyst sentiment has shifted towards a more bullish stance overall. Two out of three analysts have raised their price targets, with Morgan Stanley's Adam Jonas raising his target to $310 from $270 [Source: rating-tsla-002], and Wedbush Securities' Dan Ives raising his to $400 from $300 [Source: rating-tsla-001]. The third analyst, UBS's Joseph Spak, maintained a neutral stance but raised the price target to $226 from $197 [Source: rating-tsla-003], indicating some cautious optimism. The consensus sentiment is bullish with an average price target of $312 [Source: summary].\n\nSources used:\n- earnings-tsla-001\n- rating-tsla-001, rating-tsla-002, rating-tsla-003",
+  "sources": [
+    {
+      "ticker": "TSLA",
+      "channel": "earnings",
+      "record_id": "earnings-tsla-001"
+    },
+    {
+      "ticker": "TSLA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-tsla-001"
+    },
+    {
+      "ticker": "TSLA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-tsla-003"
+    },
+    {
+      "ticker": "TSLA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-tsla-002"
+    }
+  ],
+  "llm_elapsed_ms": 17401,
+  "llm_prompt_tokens": 1235,
+  "llm_gen_tokens": 268,
+  "llm_tok_per_sec": 21.7,
+  "latency_ms": 18146.24,
+  "tool_exec_ms": 743.85
+}

@@ -1,0 +1,82 @@
+{
+  "id": "N002",
+  "query_id": "N002",
+  "query": "Any recent news about Tesla deliveries?",
+  "category": "single_tool",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Any recent news about Tesla deliveries?",
+        "ticker": "TSLA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [
+        {
+          "id": "news-tsla-001",
+          "ticker": "TSLA",
+          "headline": "Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles",
+          "body": "Tesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000. The beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.",
+          "published_at": "2024-10-02T16:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/tsla-q3-deliveries",
+          "score": 0.5608,
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "news",
+            "record_id": "news-tsla-001"
+          }
+        },
+        {
+          "id": "news-tsla-002",
+          "ticker": "TSLA",
+          "headline": "Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline",
+          "body": "Tesla unveiled its long-awaited robotaxi, the Cybercab, at a Hollywood event. The two-seater autonomous vehicle is priced under $30,000 and is expected to enter production in 2026. Analysts expressed optimism about the long-term vision but concerns about regulatory approvals and production timelines.",
+          "published_at": "2024-10-11T22:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/tsla-robotaxi-cybercab",
+          "score": 0.4472,
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "news",
+            "record_id": "news-tsla-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Any recent news about Tesla deliveries?",
+      "ticker": "TSLA",
+      "latency_ms": 41.1
+    }
+  ],
+  "answer": "According to the latest news, Tesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000 [Source: news-tsla-001]. This beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.\n\nSources used:\n* Financial News (news-tsla-001)",
+  "sources": [
+    {
+      "ticker": "TSLA",
+      "channel": "news",
+      "record_id": "news-tsla-001"
+    },
+    {
+      "ticker": "TSLA",
+      "channel": "news",
+      "record_id": "news-tsla-002"
+    }
+  ],
+  "llm_elapsed_ms": 6613,
+  "llm_prompt_tokens": 624,
+  "llm_gen_tokens": 86,
+  "llm_tok_per_sec": 21.0,
+  "latency_ms": 6654.8,
+  "tool_exec_ms": 41.11
+}

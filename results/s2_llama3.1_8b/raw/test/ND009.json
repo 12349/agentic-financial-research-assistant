@@ -1,0 +1,135 @@
+{
+  "id": "ND009",
+  "query_id": "ND009",
+  "query": "What dividend does Exxon Mobil pay?",
+  "category": "no_data",
+  "gold_tools": [],
+  "pred_tools": [
+    "search_news",
+    "get_guidance"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Exxon Mobil dividend",
+        "ticker": "XOM"
+      }
+    },
+    {
+      "tool": "get_guidance",
+      "args": {
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "llm_raw_response": "[\n  {\"tool\": \"search_news\", \"args\": {\"query\": \"Exxon Mobil dividend\", \"ticker\": \"XOM\"}},\n  {\"tool\": \"get_guidance\", \"args\": {\"ticker\": \"XOM\"}}\n]",
+  "llm_elapsed_ms": 2553,
+  "llm_prompt_tokens": 429,
+  "llm_gen_tokens": 49,
+  "llm_tok_per_sec": 21.5,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "results": [
+        {
+          "id": "news-xom-001",
+          "ticker": "XOM",
+          "headline": "Exxon Mobil Warns OPEC Meeting Outcome Could Pressure Oil Prices Further",
+          "body": "Exxon Mobil executives flagged concern over the upcoming OPEC+ ministerial meeting, noting that a potential production increase could pressure crude oil prices into the $70-$75 range. The company reaffirmed its capital discipline strategy, saying it would not alter its $28 billion capex plan regardless of short-term oil price movements.",
+          "published_at": "2024-11-29T13:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/xom-opec-warning",
+          "score": 0.5653,
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "news",
+            "record_id": "news-xom-001"
+          }
+        },
+        {
+          "id": "news-xom-002",
+          "ticker": "XOM",
+          "headline": "OPEC Postpones Production Increases as Oil Prices Slip; Exxon Benefits from Capital Discipline",
+          "body": "Following OPEC's decision to delay production hikes, oil prices stabilized around $75 per barrel. Exxon Mobil's disciplined capital allocation strategy has positioned the company to remain profitable at oil prices as low as $35 per barrel. Analysts note Exxon's Pioneer acquisition integration is proceeding ahead of schedule, adding 300,000 barrels per day of production.",
+          "published_at": "2024-12-05T11:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/xom-opec-production",
+          "score": 0.5521,
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "news",
+            "record_id": "news-xom-002"
+          }
+        },
+        {
+          "id": "news-xom-003",
+          "ticker": "XOM",
+          "headline": "Exxon Q3 Earnings Beat on Pioneer Synergies; OPEC Uncertainty Clouds Q4 Outlook",
+          "body": "Exxon Mobil reported Q3 earnings of $1.92 per share, beating estimates of $1.88. The Pioneer Natural Resources acquisition added $500 million in synergies ahead of schedule. However, executives cautioned that the OPEC+ production policy uncertainty and global demand softness could weigh on Q4 results. The company maintained its $35 billion share buyback program.",
+          "published_at": "2024-11-01T13:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/xom-q3-results",
+          "score": 0.5327,
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "news",
+            "record_id": "news-xom-003"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Exxon Mobil dividend",
+      "ticker": "XOM",
+      "latency_ms": 43.9
+    },
+    {
+      "ticker": "XOM",
+      "guidance": [
+        {
+          "id": "guidance-xom-001",
+          "ticker": "XOM",
+          "period": "FY2024",
+          "issued_date": "2024-02-01",
+          "metric": "Capital Expenditure",
+          "guidance_value": 28000000000,
+          "guidance_unit": "USD",
+          "guidance_low": 26000000000,
+          "guidance_high": 30000000000,
+          "analyst_estimate_prior": 27500000000,
+          "notes": "Exxon guided FY2024 capex to $28B, consistent with prior year plan, in line with analyst estimates.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "guidance",
+            "record_id": "guidance-xom-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_guidance",
+      "latency_ms": 0.1
+    }
+  ],
+  "answer": "[Source: news-xom-001] Exxon Mobil Warns OPEC Meeting Outcome Could Pressure Oil Prices Further\nExxon Mobil executives flagged concern over the upcoming OPEC+ ministerial meeting, noting that a potential production increase could pressure crude oil prices into the $70-$75 range. The company reaffirmed its capital discipline strategy, saying it would not alter its $28 billion capex plan regardless of short-term oil price movements.\n[Source: news-xom-002] Additionally: OPEC Postpones Production Increases as Oil Prices Slip; Exxon Benefits from Capital Discipline\n\n[Source: guidance-xom-001] XOM issued Capital Expenditure guidance of $28.0B for FY2024 (issued 2024-02-01). Prior analyst estimate was $27.5B.\n  Notes: Exxon guided FY2024 capex to $28B, consistent with prior year plan, in line with analyst estimates.",
+  "sources": [
+    {
+      "ticker": "XOM",
+      "channel": "news",
+      "record_id": "news-xom-001"
+    },
+    {
+      "ticker": "XOM",
+      "channel": "news",
+      "record_id": "news-xom-002"
+    },
+    {
+      "ticker": "XOM",
+      "channel": "guidance",
+      "record_id": "guidance-xom-001"
+    }
+  ],
+  "latency_ms": 2597.77,
+  "tool_exec_ms": 44.04
+}

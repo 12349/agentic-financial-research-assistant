@@ -1,0 +1,67 @@
+{
+  "system_id": "s7_hybrid_synth",
+  "split": "dev",
+  "timestamp": "2026-10-02T06:14:01Z",
+  "n_queries": 2,
+  "tool_selection": {
+    "n_queries": 2,
+    "precision_mean": 1.0,
+    "precision_ci_95": [
+      1.0,
+      1.0
+    ],
+    "recall_mean": 1.0,
+    "recall_ci_95": [
+      1.0,
+      1.0
+    ],
+    "f1_mean": 1.0,
+    "f1_ci_95": [
+      1.0,
+      1.0
+    ],
+    "exact_match_rate": 1.0,
+    "exact_ci_95": [
+      1.0,
+      1.0
+    ],
+    "abstention_acc": NaN,
+    "tool_calls_per_q": 1.0,
+    "per_category": {
+      "single_tool": {
+        "n": 2,
+        "precision_mean": 1.0,
+        "recall_mean": 1.0,
+        "f1_mean": 1.0,
+        "exact_rate": 1.0
+      }
+    }
+  },
+  "synthesis_quality": {
+    "n_queries": 2,
+    "citation_valid_mean": 1.0,
+    "citation_ci_95": [
+      1.0,
+      1.0
+    ],
+    "faithfulness_mean": 1.0,
+    "faithfulness_ci_95": [
+      1.0,
+      1.0
+    ],
+    "unsupported_rate_mean": 0.0,
+    "unsupported_ci_95": [
+      0.0,
+      0.0
+    ],
+    "strict_unsupported_rate_mean": 0.125,
+    "strict_unsupported_ci_95": [
+      0.0,
+      0.25
+    ],
+    "abstention_acc": NaN
+  },
+  "model": "qwen2.5:7b-instruct",
+  "mean_latency_ms": 21971.21,
+  "total_revisions": 1
+}

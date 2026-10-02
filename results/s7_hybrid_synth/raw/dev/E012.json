@@ -1,0 +1,69 @@
+{
+  "id": "E012",
+  "query_id": "E012",
+  "query": "How much profit did Exxon Mobil generate in Q3 2024 after all expenses?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_earnings"
+  ],
+  "pred_tools": [
+    "get_earnings"
+  ],
+  "plan": [
+    {
+      "tool": "get_earnings",
+      "args": {
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "ticker": "XOM",
+      "earnings": [
+        {
+          "id": "earnings-xom-001",
+          "ticker": "XOM",
+          "period": "Q3 2024",
+          "report_date": "2024-11-01",
+          "revenue_actual": 90025000000,
+          "revenue_estimate": 90200000000,
+          "revenue_beat_miss": "miss",
+          "revenue_surprise_pct": -0.19,
+          "eps_actual": 1.92,
+          "eps_estimate": 1.88,
+          "eps_beat_miss": "beat",
+          "eps_surprise_pct": 2.13,
+          "net_income_actual": 8610000000,
+          "data_center_revenue": null,
+          "yoy_revenue_growth_pct": -5.0,
+          "notes": "EPS beat driven by Pioneer synergies of $500M ahead of schedule. Revenue slightly missed due to lower oil prices. $35B buyback program maintained.",
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "earnings",
+            "record_id": "earnings-xom-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_earnings",
+      "latency_ms": 0.3
+    }
+  ],
+  "answer": "Exxon Mobil reported a net income of $8,610,000,000 for Q3 2024 after all expenses [Source: earnings-xom-001].",
+  "sources": [
+    {
+      "ticker": "XOM",
+      "channel": "earnings",
+      "record_id": "earnings-xom-001"
+    }
+  ],
+  "verification_meta": {
+    "revised": true,
+    "n_initial_issues": 2,
+    "pruned_count": 1
+  },
+  "latency_ms": 30105.19,
+  "tool_exec_ms": 0.3,
+  "synth_ms": 30104.77
+}

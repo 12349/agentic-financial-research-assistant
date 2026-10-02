@@ -1,0 +1,84 @@
+{
+  "id": "A019",
+  "query_id": "A019",
+  "query": "Can you run a quick check on Tesla for me?",
+  "category": "ambiguous",
+  "gold_tools": [
+    "search_news",
+    "get_earnings",
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Can you run a quick check on Tesla for me?",
+        "ticker": "TSLA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [
+        {
+          "id": "news-tsla-001",
+          "ticker": "TSLA",
+          "headline": "Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles",
+          "body": "Tesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000. The beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.",
+          "published_at": "2024-10-02T16:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/tsla-q3-deliveries",
+          "score": 0.4128,
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "news",
+            "record_id": "news-tsla-001"
+          }
+        },
+        {
+          "id": "news-tsla-002",
+          "ticker": "TSLA",
+          "headline": "Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline",
+          "body": "Tesla unveiled its long-awaited robotaxi, the Cybercab, at a Hollywood event. The two-seater autonomous vehicle is priced under $30,000 and is expected to enter production in 2026. Analysts expressed optimism about the long-term vision but concerns about regulatory approvals and production timelines.",
+          "published_at": "2024-10-11T22:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/tsla-robotaxi-cybercab",
+          "score": 0.4055,
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "news",
+            "record_id": "news-tsla-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Can you run a quick check on Tesla for me?",
+      "ticker": "TSLA",
+      "latency_ms": 126.0
+    }
+  ],
+  "answer": "Tesla's Q3 2024 deliveries exceeded expectations, reaching 462,890 vehicles, surpassing the analyst consensus of 458,000. This success was attributed to strong demand for the Model Y in China and price reductions in the US market [Source: news-tsla-001]. Additionally, Tesla recently unveiled its Cybercab robotaxi at a Hollywood event; this two-seater autonomous vehicle is priced under $30,000 and is expected to enter production in 2026. Analysts are divided on the timeline for regulatory approvals and mass production [Source: news-tsla-002].\n\nSources used:\n- [Source: news-tsla-001]\n- [Source: news-tsla-002]",
+  "sources": [
+    {
+      "ticker": "TSLA",
+      "channel": "news",
+      "record_id": "news-tsla-001"
+    },
+    {
+      "ticker": "TSLA",
+      "channel": "news",
+      "record_id": "news-tsla-002"
+    }
+  ],
+  "llm_elapsed_ms": 10212,
+  "llm_prompt_tokens": 698,
+  "llm_gen_tokens": 167,
+  "llm_tok_per_sec": 22.1,
+  "latency_ms": 10340.81,
+  "tool_exec_ms": 126.1
+}

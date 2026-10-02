@@ -1,0 +1,42 @@
+{
+  "id": "A004",
+  "query_id": "A004",
+  "query": "What's going on with XOM?",
+  "category": "ambiguous",
+  "gold_tools": [
+    "search_news",
+    "get_earnings",
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "What's going on with XOM?",
+        "ticker": "XOM"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "What's going on with XOM?",
+      "ticker": "XOM",
+      "latency_ms": 281.9
+    }
+  ],
+  "answer": "Based on the available data, there is no recent news or specific events reported for ExxonMobil (XOM) that would indicate any significant changes or issues currently affecting the company.\n\nSources used:\n- [Source: search_news_0]",
+  "sources": [],
+  "llm_elapsed_ms": 2875,
+  "llm_prompt_tokens": 240,
+  "llm_gen_tokens": 49,
+  "llm_tok_per_sec": 20.9,
+  "latency_ms": 3158.22,
+  "tool_exec_ms": 281.89
+}

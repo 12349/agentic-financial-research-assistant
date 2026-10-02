@@ -1,0 +1,107 @@
+{
+  "id": "E002",
+  "query_id": "E002",
+  "query": "Did Tesla beat or miss on EPS last quarter?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_earnings"
+  ],
+  "pred_tools": [
+    "get_guidance",
+    "get_earnings"
+  ],
+  "plan": [
+    {
+      "tool": "get_guidance",
+      "args": {
+        "ticker": "TSLA"
+      }
+    },
+    {
+      "tool": "get_earnings",
+      "args": {
+        "ticker": "TSLA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "ticker": "TSLA",
+      "guidance": [
+        {
+          "id": "guidance-tsla-001",
+          "ticker": "TSLA",
+          "period": "FY2024",
+          "issued_date": "2024-07-23",
+          "metric": "Vehicle Deliveries",
+          "guidance_value": 1800000,
+          "guidance_unit": "units",
+          "guidance_low": 1750000,
+          "guidance_high": 1850000,
+          "analyst_estimate_prior": 1820000,
+          "notes": "Tesla reaffirmed FY2024 delivery guidance of approximately 1.8 million vehicles, slightly below analyst consensus of 1.82M.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "guidance",
+            "record_id": "guidance-tsla-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_guidance",
+      "latency_ms": 0.2
+    },
+    {
+      "ticker": "TSLA",
+      "earnings": [
+        {
+          "id": "earnings-tsla-001",
+          "ticker": "TSLA",
+          "period": "Q3 2024",
+          "report_date": "2024-10-23",
+          "revenue_actual": 25182000000,
+          "revenue_estimate": 25500000000,
+          "revenue_beat_miss": "miss",
+          "revenue_surprise_pct": -1.25,
+          "eps_actual": 0.72,
+          "eps_estimate": 0.58,
+          "eps_beat_miss": "beat",
+          "eps_surprise_pct": 24.14,
+          "net_income_actual": 2167000000,
+          "data_center_revenue": null,
+          "yoy_revenue_growth_pct": 8.2,
+          "notes": "Revenue slightly missed but EPS significantly beat on cost improvements. Vehicle deliveries of 462,890 beat estimates. Automotive gross margin improved to 17.1%.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "earnings",
+            "record_id": "earnings-tsla-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_earnings",
+      "latency_ms": 0.3
+    }
+  ],
+  "answer": "Tesla beat EPS last quarter [Source: earnings-tsla-001]. According to the earnings data, Tesla's actual EPS was $0.72, which is a significant beat of the estimated $0.58 [Source: earnings-tsla-001]. This represents an EPS surprise percentage of 24.14% [Source: earnings-tsla-001].",
+  "sources": [
+    {
+      "ticker": "TSLA",
+      "channel": "guidance",
+      "record_id": "guidance-tsla-001"
+    },
+    {
+      "ticker": "TSLA",
+      "channel": "earnings",
+      "record_id": "earnings-tsla-001"
+    }
+  ],
+  "verification_meta": {
+    "revised": true,
+    "n_initial_issues": 6,
+    "pruned_count": 4
+  },
+  "latency_ms": 13493.73,
+  "tool_exec_ms": 0.51,
+  "synth_ms": 13493.12
+}

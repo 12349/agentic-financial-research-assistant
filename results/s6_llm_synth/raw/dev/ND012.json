@@ -1,0 +1,102 @@
+{
+  "id": "ND012",
+  "query_id": "ND012",
+  "query": "How did Meta Platforms do on earnings last quarter?",
+  "category": "no_data",
+  "gold_tools": [
+    "get_earnings"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "How did Meta Platforms do on earnings last quarter?",
+        "ticker": null
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [
+        {
+          "id": "news-jpm-001",
+          "ticker": "JPM",
+          "headline": "JPMorgan Q3 Net Income Rises 35% on Higher Interest Income",
+          "body": "JPMorgan Chase reported Q3 2024 net income of $12.9 billion, up 35% from a year earlier, driven by rising net interest income and strong investment banking fees. Revenue of $43.3 billion beat analyst expectations of $41.8 billion. CEO Jamie Dimon warned of geopolitical risks and potential credit deterioration ahead.",
+          "published_at": "2024-10-11T12:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/jpm-q3-earnings",
+          "score": 0.3486,
+          "source_ref": {
+            "ticker": "JPM",
+            "channel": "news",
+            "record_id": "news-jpm-001"
+          }
+        },
+        {
+          "id": "news-xom-003",
+          "ticker": "XOM",
+          "headline": "Exxon Q3 Earnings Beat on Pioneer Synergies; OPEC Uncertainty Clouds Q4 Outlook",
+          "body": "Exxon Mobil reported Q3 earnings of $1.92 per share, beating estimates of $1.88. The Pioneer Natural Resources acquisition added $500 million in synergies ahead of schedule. However, executives cautioned that the OPEC+ production policy uncertainty and global demand softness could weigh on Q4 results. The company maintained its $35 billion share buyback program.",
+          "published_at": "2024-11-01T13:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/xom-q3-results",
+          "score": 0.3287,
+          "source_ref": {
+            "ticker": "XOM",
+            "channel": "news",
+            "record_id": "news-xom-003"
+          }
+        },
+        {
+          "id": "news-nvda-001",
+          "ticker": "NVDA",
+          "headline": "Nvidia Data Center Revenue Hits Record $22.6B in Q3 FY2025, Surpassing Analyst Expectations",
+          "body": "Nvidia reported record data center revenue of $22.6 billion for Q3 FY2025, up 112% year-over-year. The result exceeded Wall Street consensus of $21.1 billion. CEO Jensen Huang cited explosive demand for H100 and H200 GPUs from hyperscalers and cloud providers. The company guided Q4 data center revenue above $37 billion.",
+          "published_at": "2024-11-20T21:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/nvda-data-center-q3",
+          "score": 0.3094,
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "news",
+            "record_id": "news-nvda-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "How did Meta Platforms do on earnings last quarter?",
+      "ticker": null,
+      "latency_ms": 346.5
+    }
+  ],
+  "answer": "The provided data does not contain specific information about Meta Platforms' (formerly Facebook) earnings for the most recent quarter. The available news items focus on JPMorgan Chase, Exxon Mobil, and Nvidia.\n\nSources used:\n- [Source: news-jpm-001]\n- [Source: news-xom-003]\n- [Source: news-nvda-001]",
+  "sources": [
+    {
+      "ticker": "JPM",
+      "channel": "news",
+      "record_id": "news-jpm-001"
+    },
+    {
+      "ticker": "XOM",
+      "channel": "news",
+      "record_id": "news-xom-003"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "news",
+      "record_id": "news-nvda-001"
+    }
+  ],
+  "llm_elapsed_ms": 11954,
+  "llm_prompt_tokens": 968,
+  "llm_gen_tokens": 81,
+  "llm_tok_per_sec": 21.9,
+  "latency_ms": 12302.48,
+  "tool_exec_ms": 346.52
+}

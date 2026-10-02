@@ -57,10 +57,10 @@
       "tool": "search_news",
       "query": "I want to see JPMorgan's revenue growth trajectory \u2014 how fast was top-line expanding in Q3 2024?",
       "ticker": "JPM",
-      "latency_ms": 45.3
+      "latency_ms": 140.0
     }
   ],
-  "answer": "Based on the available data, JPMorgan Chase reported a significant revenue growth in Q3 2024. The company's revenue reached $43.3 billion, surpassing analyst expectations of $41.8 billion [Source: news-jpm-001]. However, the specific rate of top-line expansion for Q3 2024 is not directly provided; it can be inferred that there was substantial growth given the beat against expectations.\n\nSources used:\n- [Source: news-jpm-001]",
+  "answer": "Based on the available data, JPMorgan Chase reported a revenue of $43.3 billion for Q3 2024, which exceeded analyst expectations by $1.5 billion. However, the specific growth rate in top-line expansion is not directly provided in the given information.\n\n[Source: news-jpm-001]\n\nSources used:\n- [Source: news-jpm-001]",
   "sources": [
     {
       "ticker": "JPM",
@@ -73,10 +73,10 @@
       "record_id": "news-jpm-002"
     }
   ],
-  "llm_elapsed_ms": 7541,
-  "llm_prompt_tokens": 734,
-  "llm_gen_tokens": 111,
-  "llm_tok_per_sec": 22.4,
-  "latency_ms": 7587.2,
-  "tool_exec_ms": 45.32
+  "llm_elapsed_ms": 6515,
+  "llm_prompt_tokens": 735,
+  "llm_gen_tokens": 86,
+  "llm_tok_per_sec": 22.2,
+  "latency_ms": 6657.34,
+  "tool_exec_ms": 140.06
 }

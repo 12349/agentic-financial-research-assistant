@@ -1,0 +1,178 @@
+{
+  "id": "N002",
+  "query_id": "N002",
+  "query": "Any recent news about Tesla deliveries?",
+  "category": "single_tool",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [
+    "search_news",
+    "get_ratings"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Tesla deliveries",
+        "ticker": "TSLA"
+      }
+    },
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "TSLA"
+      }
+    }
+  ],
+  "llm_raw_response": "[\n  {\"tool\": \"search_news\", \"args\": {\"query\": \"Tesla deliveries\", \"ticker\": \"TSLA\"}},\n  {\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"TSLA\"}}\n]",
+  "llm_elapsed_ms": 2563,
+  "llm_prompt_tokens": 429,
+  "llm_gen_tokens": 48,
+  "llm_tok_per_sec": 21.0,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "results": [
+        {
+          "id": "news-tsla-001",
+          "ticker": "TSLA",
+          "headline": "Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles",
+          "body": "Tesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000. The beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.",
+          "published_at": "2024-10-02T16:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/tsla-q3-deliveries",
+          "score": 0.6327,
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "news",
+            "record_id": "news-tsla-001"
+          }
+        },
+        {
+          "id": "news-tsla-002",
+          "ticker": "TSLA",
+          "headline": "Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline",
+          "body": "Tesla unveiled its long-awaited robotaxi, the Cybercab, at a Hollywood event. The two-seater autonomous vehicle is priced under $30,000 and is expected to enter production in 2026. Analysts expressed optimism about the long-term vision but concerns about regulatory approvals and production timelines.",
+          "published_at": "2024-10-11T22:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/tsla-robotaxi-cybercab",
+          "score": 0.4158,
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "news",
+            "record_id": "news-tsla-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Tesla deliveries",
+      "ticker": "TSLA",
+      "latency_ms": 34.1
+    },
+    {
+      "ticker": "TSLA",
+      "ratings": [
+        {
+          "id": "rating-tsla-001",
+          "ticker": "TSLA",
+          "analyst_firm": "Wedbush Securities",
+          "analyst_name": "Dan Ives",
+          "rating": "Outperform",
+          "prior_rating": "Outperform",
+          "price_target": 400.0,
+          "prior_price_target": 300.0,
+          "action": "Raises Price Target",
+          "date": "2024-12-01",
+          "notes": "Tesla AI and FSD monetization opportunity undervalued; Cybercab a long-term catalyst.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-tsla-001"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.914
+        },
+        {
+          "id": "rating-tsla-003",
+          "ticker": "TSLA",
+          "analyst_firm": "UBS",
+          "analyst_name": "Joseph Spak",
+          "rating": "Neutral",
+          "prior_rating": "Neutral",
+          "price_target": 226.0,
+          "prior_price_target": 197.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-25",
+          "notes": "Cautious on near-term EV competition; autonomous timeline uncertain.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-tsla-003"
+          },
+          "ml_sentiment": "bearish",
+          "ml_confidence": 0.499
+        },
+        {
+          "id": "rating-tsla-002",
+          "ticker": "TSLA",
+          "analyst_firm": "Morgan Stanley",
+          "analyst_name": "Adam Jonas",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 310.0,
+          "prior_price_target": 270.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-15",
+          "notes": "Full self-driving revenue model gaining credibility post-Cybercab reveal.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-tsla-002"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.524
+        }
+      ],
+      "summary": {
+        "total_ratings": 3,
+        "bullish": 2,
+        "neutral": 0,
+        "bearish": 1,
+        "consensus": "bullish",
+        "ml_scored_count": 3,
+        "avg_price_target": 312.0
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 22.2
+    }
+  ],
+  "answer": "[Source: news-tsla-001] Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles\nTesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000. The beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.\n[Source: news-tsla-002] Additionally: Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline\n\nAnalyst sentiment on TSLA is currently BULLISH.\n[Source: rating-tsla-001] Of 3 recent ratings: 2 bullish, 0 neutral, 1 bearish. Average price target: $312.\n[Source: rating-tsla-001] Wedbush Securities (Dan Ives) Raises Price Target at Outperform, PT $400.0 (from $300.0). Tesla AI and FSD monetization opportunity undervalued; Cybercab a long-term catalyst.\n[Source: rating-tsla-003] UBS (Joseph Spak) Raises Price Target at Neutral, PT $226.0 (from $197.0). Cautious on near-term EV competition; autonomous timeline uncertain.",
+  "sources": [
+    {
+      "ticker": "TSLA",
+      "channel": "news",
+      "record_id": "news-tsla-001"
+    },
+    {
+      "ticker": "TSLA",
+      "channel": "news",
+      "record_id": "news-tsla-002"
+    },
+    {
+      "ticker": "TSLA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-tsla-001"
+    },
+    {
+      "ticker": "TSLA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-tsla-003"
+    }
+  ],
+  "latency_ms": 2620.1,
+  "tool_exec_ms": 56.36
+}

@@ -1,0 +1,62 @@
+{
+  "id": "E008",
+  "query_id": "E008",
+  "query": "I'm curious how the top line came in for Tesla's third-quarter report.",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_earnings"
+  ],
+  "pred_tools": [
+    "search_news"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "I'm curious how the top line came in for Tesla's third-quarter report.",
+        "ticker": "TSLA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "results": [
+        {
+          "id": "news-tsla-001",
+          "ticker": "TSLA",
+          "headline": "Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles",
+          "body": "Tesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000. The beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.",
+          "published_at": "2024-10-02T16:00:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/tsla-q3-deliveries",
+          "score": 0.4833,
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "news",
+            "record_id": "news-tsla-001"
+          }
+        }
+      ],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "I'm curious how the top line came in for Tesla's third-quarter report.",
+      "ticker": "TSLA",
+      "latency_ms": 48.1
+    }
+  ],
+  "answer": "According to a news article, Tesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000 [Source: news-tsla-001]. This beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.\n\nSources used:\n* [news-tsla-001]",
+  "sources": [
+    {
+      "ticker": "TSLA",
+      "channel": "news",
+      "record_id": "news-tsla-001"
+    }
+  ],
+  "llm_elapsed_ms": 5560,
+  "llm_prompt_tokens": 437,
+  "llm_gen_tokens": 84,
+  "llm_tok_per_sec": 20.9,
+  "latency_ms": 5608.49,
+  "tool_exec_ms": 48.12
+}

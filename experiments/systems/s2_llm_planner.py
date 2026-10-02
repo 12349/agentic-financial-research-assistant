@@ -54,11 +54,11 @@ def plan_with_llm(query: str, client) -> tuple[list[dict], OllamaResponse, bool]
     return [], resp, False
 
 
-def run_s2(split_path: str, split_name: str = "test", limit: Optional[int] = None) -> dict:
+def run_s2(split_path: str, split_name: str = "test", limit: Optional[int] = None, model: str = PRIMARY_MODEL) -> dict:
     """Run S2 evaluation on a dataset split."""
-    client = planner_client(model=PRIMARY_MODEL)
+    client = planner_client(model=model)
     if not client.is_available():
-        raise RuntimeError(f"Model '{PRIMARY_MODEL}' not available in Ollama. Run: ollama pull {PRIMARY_MODEL}")
+        raise RuntimeError(f"Model '{model}' not available in Ollama. Run: ollama pull {model}")
 
     queries = load_queries(split_path)
     if limit:
@@ -70,7 +70,7 @@ def run_s2(split_path: str, split_name: str = "test", limit: Optional[int] = Non
     gen_tokens_list = []
     parse_successes = 0
 
-    print(f"--- Running S2 (llm-planner with {PRIMARY_MODEL}) on {split_name} (n={len(queries)}) ---")
+    print(f"--- Running S2 (llm-planner with {model}) on {split_name} (n={len(queries)}) ---")
 
     for i, q in enumerate(queries):
         query_text = q["query"]
@@ -121,15 +121,16 @@ def run_s2(split_path: str, split_name: str = "test", limit: Optional[int] = Non
     synth_eval = evaluate_synthesis_quality(records)
 
     extra_summary = {
-        "model": PRIMARY_MODEL,
+        "model": model,
         "mean_latency_ms": round(sum(latencies) / len(latencies), 2) if latencies else 0.0,
         "mean_llm_latency_ms": round(sum(llm_latencies) / len(llm_latencies), 2) if llm_latencies else 0.0,
         "mean_gen_tokens": round(sum(gen_tokens_list) / len(gen_tokens_list), 2) if gen_tokens_list else 0.0,
         "parse_success_rate": round(parse_successes / len(queries), 4) if queries else 0.0,
     }
 
+    system_id = "s2_llm_planner" if model == PRIMARY_MODEL else f"s2_{model.replace(':', '_')}"
     summary_file = save_system_results(
-        system_id="s2_llm_planner",
+        system_id=system_id,
         split_name=split_name,
         records=records,
         tool_eval=tool_eval,
@@ -158,7 +159,9 @@ if __name__ == "__main__":
                         help="Split to evaluate: 'dev' (default) or 'test'")
     parser.add_argument("--limit", type=int, default=None,
                         help="Optional limit on number of queries")
+    parser.add_argument("--model", type=str, default=PRIMARY_MODEL,
+                        help="Model name (default: PRIMARY_MODEL)")
     args = parser.parse_args()
 
     split_path = QUERIES_TEST if args.split == "test" else QUERIES_DEV
-    run_s2(split_path, split_name=args.split, limit=args.limit)
+    run_s2(split_path, split_name=args.split, limit=args.limit, model=args.model)

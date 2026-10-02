@@ -47,7 +47,7 @@
       ],
       "mode": "offline",
       "tool": "get_earnings",
-      "latency_ms": 0.1
+      "latency_ms": 0.2
     }
   ],
   "answer": "Exxon Mobil reported a net income of $8,610,000,000 for Q3 2024 after all expenses [Source: earnings-xom-001].\n\nSources used:\n- Source: earnings-xom-001",
@@ -58,10 +58,10 @@
       "record_id": "earnings-xom-001"
     }
   ],
-  "llm_elapsed_ms": 6423,
+  "llm_elapsed_ms": 8787,
   "llm_prompt_tokens": 518,
   "llm_gen_tokens": 58,
-  "llm_tok_per_sec": 22.2,
-  "latency_ms": 6423.77,
-  "tool_exec_ms": 0.12
+  "llm_tok_per_sec": 21.9,
+  "latency_ms": 8788.1,
+  "tool_exec_ms": 0.25
 }

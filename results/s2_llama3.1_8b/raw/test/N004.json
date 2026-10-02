@@ -1,0 +1,22 @@
+{
+  "id": "N004",
+  "query_id": "N004",
+  "query": "Is there news about OPEC and Exxon?",
+  "category": "single_tool",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [],
+  "plan": [],
+  "llm_raw_response": "[\n  {\"tool\": \"search_news\", \"args\": {\"query\": \"OPEC Exxon\", \"ticker\": null}},\n]",
+  "llm_elapsed_ms": 1618,
+  "llm_prompt_tokens": 431,
+  "llm_gen_tokens": 27,
+  "llm_tok_per_sec": 22.1,
+  "parsed_ok": false,
+  "tool_outputs": [],
+  "answer": "No data was found to answer this query.",
+  "sources": [],
+  "latency_ms": 1618.56,
+  "tool_exec_ms": 0.0
+}

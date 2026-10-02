@@ -47,7 +47,7 @@
       ],
       "mode": "offline",
       "tool": "get_earnings",
-      "latency_ms": 0.6
+      "latency_ms": 0.9
     }
   ],
   "answer": "XOM's quarterly earnings per share (EPS) for Q3 2024 came in above expectations, with an actual EPS of $1.92 compared to the estimated EPS of $1.88 [Source: earnings-xom-001]. This beat was driven by Pioneer synergies of $500 million that were achieved ahead of schedule [Source: earnings-xom-001].\n\nSources used:\n- [Source: earnings-xom-001]",
@@ -58,10 +58,10 @@
       "record_id": "earnings-xom-001"
     }
   ],
-  "llm_elapsed_ms": 6238,
+  "llm_elapsed_ms": 6311,
   "llm_prompt_tokens": 514,
   "llm_gen_tokens": 102,
-  "llm_tok_per_sec": 22.2,
-  "latency_ms": 6240.09,
-  "tool_exec_ms": 0.57
+  "llm_tok_per_sec": 22.1,
+  "latency_ms": 6314.2,
+  "tool_exec_ms": 0.93
 }

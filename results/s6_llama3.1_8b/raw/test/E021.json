@@ -1,0 +1,95 @@
+{
+  "id": "E021",
+  "query_id": "E021",
+  "query": "What was NVDA's Q2 FY2025 EPS?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_earnings"
+  ],
+  "pred_tools": [
+    "get_earnings"
+  ],
+  "plan": [
+    {
+      "tool": "get_earnings",
+      "args": {
+        "ticker": "NVDA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "ticker": "NVDA",
+      "earnings": [
+        {
+          "id": "earnings-nvda-001",
+          "ticker": "NVDA",
+          "period": "Q3 FY2025",
+          "report_date": "2024-11-20",
+          "revenue_actual": 35082000000,
+          "revenue_estimate": 33170000000,
+          "revenue_beat_miss": "beat",
+          "revenue_surprise_pct": 5.76,
+          "eps_actual": 0.81,
+          "eps_estimate": 0.74,
+          "eps_beat_miss": "beat",
+          "eps_surprise_pct": 9.46,
+          "net_income_actual": 19309000000,
+          "data_center_revenue": 30770000000,
+          "yoy_revenue_growth_pct": 93.6,
+          "notes": "Record quarter driven by data center segment at $30.8B. Gaming revenue was $3.3B. CEO Jensen Huang cited 'insane' Blackwell demand.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "earnings",
+            "record_id": "earnings-nvda-001"
+          }
+        },
+        {
+          "id": "earnings-nvda-002",
+          "ticker": "NVDA",
+          "period": "Q2 FY2025",
+          "report_date": "2024-08-28",
+          "revenue_actual": 30040000000,
+          "revenue_estimate": 28710000000,
+          "revenue_beat_miss": "beat",
+          "revenue_surprise_pct": 4.63,
+          "eps_actual": 0.68,
+          "eps_estimate": 0.64,
+          "eps_beat_miss": "beat",
+          "eps_surprise_pct": 6.25,
+          "net_income_actual": 16599000000,
+          "data_center_revenue": 26272000000,
+          "yoy_revenue_growth_pct": 122.4,
+          "notes": "Another record quarter; data center revenue up 154% YoY.",
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "earnings",
+            "record_id": "earnings-nvda-002"
+          }
+        }
+      ],
+      "mode": "offline",
+      "tool": "get_earnings",
+      "latency_ms": 0.8
+    }
+  ],
+  "answer": "Based on the tool outputs, NVDA's Q2 FY2025 EPS was $0.68 [Source: earnings-nvda-002]. This is an increase of 6.25% compared to the estimated EPS of $0.64 [Source: earnings-nvda-002]. The company reported a record quarter with data center revenue up 122.4% YoY [Source: earnings-nvda-002].\n\nSources used:\n* Tool output for NVDA's Q2 FY2025 earnings report (record_id: earnings-nvda-002)",
+  "sources": [
+    {
+      "ticker": "NVDA",
+      "channel": "earnings",
+      "record_id": "earnings-nvda-001"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "earnings",
+      "record_id": "earnings-nvda-002"
+    }
+  ],
+  "llm_elapsed_ms": 8385,
+  "llm_prompt_tokens": 699,
+  "llm_gen_tokens": 117,
+  "llm_tok_per_sec": 20.9,
+  "latency_ms": 8386.39,
+  "tool_exec_ms": 0.81
+}

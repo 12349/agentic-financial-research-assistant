@@ -77,7 +77,7 @@
       ],
       "mode": "offline",
       "tool": "get_earnings",
-      "latency_ms": 0.5
+      "latency_ms": 2.0
     },
     {
       "ticker": "NVDA",
@@ -121,10 +121,10 @@
       ],
       "mode": "offline",
       "tool": "get_guidance",
-      "latency_ms": 0.3
+      "latency_ms": 1.0
     }
   ],
-  "answer": "Nvidia provided revenue guidance for Q4 FY2025, with a target of approximately $37.5 billion (USD), indicating an expected range between $37 billion and $38 billion [Source: guidance-nvda-001]. This guidance was issued on November 20, 2024, and it exceeded the Street consensus estimate of $37.1 billion at the time of the guidance.\n\nSources used:\n- [Source: guidance-nvda-001]",
+  "answer": "Nvidia provided revenue guidance for Q4 FY2025, expecting the revenue to be approximately $37.5 billion (USD), with a range of $37 billion to $38 billion [Source: guidance-nvda-001]. This guidance was issued on November 20, 2024, and it exceeded the Street consensus estimate of $37.1 billion at the time of the guidance.\n\nSources used:\n- [Source: guidance-nvda-001]",
   "sources": [
     {
       "ticker": "NVDA",
@@ -147,10 +147,10 @@
       "record_id": "guidance-nvda-002"
     }
   ],
-  "llm_elapsed_ms": 9782,
+  "llm_elapsed_ms": 9819,
   "llm_prompt_tokens": 1320,
   "llm_gen_tokens": 108,
   "llm_tok_per_sec": 22.4,
-  "latency_ms": 9783.52,
-  "tool_exec_ms": 0.8
+  "latency_ms": 9824.2,
+  "tool_exec_ms": 3.06
 }

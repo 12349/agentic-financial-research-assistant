@@ -1,0 +1,58 @@
+{
+  "id": "ND004",
+  "query_id": "ND004",
+  "query": "Any news about Alphabet's antitrust case?",
+  "category": "no_data",
+  "gold_tools": [
+    "search_news"
+  ],
+  "pred_tools": [
+    "search_news",
+    "get_ratings"
+  ],
+  "plan": [
+    {
+      "tool": "search_news",
+      "args": {
+        "query": "Alphabet antitrust case",
+        "ticker": "GOOG"
+      }
+    },
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "GOOG"
+      }
+    }
+  ],
+  "llm_raw_response": "[\n  {\"tool\": \"search_news\", \"args\": {\"query\": \"Alphabet antitrust case\", \"ticker\": \"GOOG\"}},\n  {\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"GOOG\"}}\n]",
+  "llm_elapsed_ms": 2682,
+  "llm_prompt_tokens": 431,
+  "llm_gen_tokens": 49,
+  "llm_tok_per_sec": 21.5,
+  "parsed_ok": true,
+  "tool_outputs": [
+    {
+      "results": [],
+      "mode": "offline",
+      "engine": "semantic",
+      "tool": "search_news",
+      "query": "Alphabet antitrust case",
+      "ticker": "GOOG",
+      "latency_ms": 43.1
+    },
+    {
+      "ticker": "GOOG",
+      "ratings": [],
+      "summary": null,
+      "error": "No ratings data found for GOOG",
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 0.1
+    }
+  ],
+  "answer": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).\nNo analyst ratings data was available for GOOG.",
+  "sources": [],
+  "latency_ms": 2726.08,
+  "tool_exec_ms": 43.28
+}
