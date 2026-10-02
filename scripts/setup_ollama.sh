@@ -84,21 +84,70 @@ smoke_test() {
     local model="$1"
     local label="$2"
     info "Smoke-testing ${label} (${model})..."
-    local start_ns
-    start_ns=$(python3 -c "import time; print(int(time.time_ns()))")
-    local output
-    output=$(echo "${SMOKE_PROMPT}" | ollama run "${model}" --nowordwrap 2>/dev/null | tr -d '\n')
-    local end_ns
-    end_ns=$(python3 -c "import time; print(int(time.time_ns()))")
-    local elapsed_ms=$(( (end_ns - start_ns) / 1000000 ))
-    info "  Output: ${output:0:120}..."
-    info "  Elapsed: ${elapsed_ms}ms"
+    info "  (Using REST API with think=false — do NOT use 'ollama run' which triggers"
+    info "   unbounded extended thinking mode for qwen3.6, inflating latency by 5-30x)"
 
-    # Basic validity: does output contain a JSON array?
-    if echo "${output}" | python3 -c "import json,sys; d=json.loads(sys.stdin.read().strip()); assert isinstance(d,list)" 2>/dev/null; then
-        info "  ✅ Valid JSON array returned"
+    local result
+    local elapsed_ms
+    result=$(python3 - << PYEOF
+import json, time, urllib.request
+
+payload = {
+    "model": "${model}",
+    "prompt": (
+        "Output ONLY a raw JSON array, no explanation. "
+        "Query: 'What is the current analyst sentiment on Tesla stock?' "
+        "Tools available: search_news, get_ratings, get_guidance, get_earnings. "
+        "Return: [{\"tool\": \"<name>\", \"args\": {\"ticker\": \"<ticker>\"}}]"
+    ),
+    "stream": False,
+    "think": False,          # Disable extended thinking (qwen3.6 specific)
+    "options": {
+        "temperature": 0,
+        "seed": 42,
+        "num_predict": 128,  # Cap output tokens for structured tasks
+    },
+}
+
+t0 = time.time()
+req = urllib.request.Request(
+    "http://localhost:11434/api/generate",
+    data=json.dumps(payload).encode(),
+    headers={"Content-Type": "application/json"},
+)
+with urllib.request.urlopen(req, timeout=300) as resp:
+    raw = json.loads(resp.read())
+elapsed_ms = int((time.time() - t0) * 1000)
+
+response_text = raw.get("response", "").strip()
+prompt_tokens = raw.get("prompt_eval_count", 0)
+gen_tokens    = raw.get("eval_count", 0)
+eval_ns       = raw.get("eval_duration", 1)
+tok_per_sec   = round(gen_tokens / (eval_ns / 1e9), 1) if eval_ns else 0
+
+print(json.dumps({
+    "response": response_text,
+    "elapsed_ms": elapsed_ms,
+    "prompt_tokens": prompt_tokens,
+    "gen_tokens": gen_tokens,
+    "tok_per_sec": tok_per_sec,
+}))
+PYEOF
+    )
+
+    local response elapsed_ms tok_per_sec valid
+    response=$(echo "${result}" | python3 -c "import json,sys; d=json.loads(sys.stdin.read()); print(d['response'][:120])")
+    elapsed_ms=$(echo "${result}" | python3 -c "import json,sys; d=json.loads(sys.stdin.read()); print(d['elapsed_ms'])")
+    tok_per_sec=$(echo "${result}" | python3 -c "import json,sys; d=json.loads(sys.stdin.read()); print(d['tok_per_sec'])")
+
+    info "  Output:     ${response}..."
+    info "  Elapsed:    ${elapsed_ms}ms"
+    info "  Speed:      ${tok_per_sec} tok/s"
+
+    if echo "${response}" | python3 -c "import json,sys; d=json.loads(sys.stdin.read().strip()); assert isinstance(d,list)" 2>/dev/null; then
+        info "  ✅ Valid JSON array"
     else
-        warn "  ⚠️  Output is not a clean JSON array — parser fallback will be used"
+        warn "  ⚠️  Not a clean JSON array — _parse_llm_response fallback will handle"
     fi
     echo "${elapsed_ms}"
 }
