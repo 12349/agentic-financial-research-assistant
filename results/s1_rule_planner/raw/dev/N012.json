@@ -73,7 +73,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 12.8
+      "latency_ms": 13.7
     }
   ],
   "answer": "Analyst sentiment on XOM is currently NEUTRAL.\n[Source: rating-xom-001] Of 2 recent ratings: 0 bullish, 1 neutral, 1 bearish. Average price target: $126.\n[Source: rating-xom-001] Piper Sandler (Ryan Todd) Maintains at Overweight, PT $135.0 (from $130.0). Pioneer integration tracking ahead of plan; structural cost advantages intact.\n[Source: rating-xom-002] JPMorgan (Phil Gresh) Maintains at Neutral, PT $118.0 (from $118.0). Oil price uncertainty from OPEC policy caps upside; disciplined capex a positive.",
@@ -89,6 +89,6 @@
       "record_id": "rating-xom-002"
     }
   ],
-  "latency_ms": 12.8,
-  "tool_exec_ms": 12.77
+  "latency_ms": 13.69,
+  "tool_exec_ms": 13.66
 }

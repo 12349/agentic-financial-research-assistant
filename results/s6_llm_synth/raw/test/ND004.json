@@ -26,15 +26,15 @@
       "tool": "search_news",
       "query": "Any news about Alphabet's antitrust case?",
       "ticker": null,
-      "latency_ms": 29.5
+      "latency_ms": 39.7
     }
   ],
   "answer": "Based on the available data, there is no recent information regarding Alphabet's antitrust case.\n\nSources used:\n- [Source: search_news_01]",
   "sources": [],
-  "llm_elapsed_ms": 1889,
+  "llm_elapsed_ms": 1896,
   "llm_prompt_tokens": 239,
   "llm_gen_tokens": 32,
-  "llm_tok_per_sec": 22.8,
-  "latency_ms": 1919.39,
-  "tool_exec_ms": 29.46
+  "llm_tok_per_sec": 23.1,
+  "latency_ms": 1936.98,
+  "tool_exec_ms": 39.73
 }

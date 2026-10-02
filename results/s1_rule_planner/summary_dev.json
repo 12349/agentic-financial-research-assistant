@@ -1,7 +1,7 @@
 {
   "system_id": "s1_rule_planner",
   "split": "dev",
-  "timestamp": "2026-10-02T03:55:43Z",
+  "timestamp": "2026-10-02T05:20:45Z",
   "n_queries": 45,
   "tool_selection": {
     "n_queries": 45,
@@ -65,19 +65,19 @@
       1.0,
       1.0
     ],
-    "faithfulness_mean": 0.1004,
+    "faithfulness_mean": 1.0,
     "faithfulness_ci_95": [
-      0.0624,
-      0.1404
+      1.0,
+      1.0
     ],
-    "unsupported_rate_mean": 0.6002,
+    "unsupported_rate_mean": 0.0,
     "unsupported_ci_95": [
-      0.5567,
-      0.6473
+      0.0,
+      0.0
     ],
     "abstention_acc": 0.0
   },
-  "mean_latency_ms": 27.19,
-  "max_latency_ms": 130.08,
-  "min_latency_ms": 0.09
+  "mean_latency_ms": 37.23,
+  "max_latency_ms": 1267.96,
+  "min_latency_ms": 0.1
 }

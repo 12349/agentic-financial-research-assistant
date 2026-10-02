@@ -58,6 +58,6 @@
       "record_id": "earnings-xom-001"
     }
   ],
-  "latency_ms": 0.09,
+  "latency_ms": 0.1,
   "tool_exec_ms": 0.04
 }

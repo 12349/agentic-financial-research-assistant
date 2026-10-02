@@ -67,7 +67,7 @@
       ],
       "mode": "offline",
       "tool": "get_guidance",
-      "latency_ms": 0.5
+      "latency_ms": 0.4
     }
   ],
   "answer": "[Source: guidance-nvda-001] NVDA issued Revenue guidance of $37.5B for Q4 FY2025 (issued 2024-11-20). Prior analyst estimate was $37.1B.\n  Notes: Company guided Q4 FY2025 revenue to approximately $37.5B (+/- 2%), above Street consensus of $37.1B at time of guidance.",
@@ -78,6 +78,6 @@
       "record_id": "guidance-nvda-001"
     }
   ],
-  "latency_ms": 1131.3,
-  "tool_exec_ms": 0.49
+  "latency_ms": 1131.33,
+  "tool_exec_ms": 0.44
 }

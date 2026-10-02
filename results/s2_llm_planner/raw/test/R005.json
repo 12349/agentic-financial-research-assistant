@@ -18,10 +18,10 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"NVDA\"}}]",
-  "llm_elapsed_ms": 1232,
+  "llm_elapsed_ms": 1230,
   "llm_prompt_tokens": 453,
   "llm_gen_tokens": 20,
-  "llm_tok_per_sec": 23.4,
+  "llm_tok_per_sec": 23.6,
   "parsed_ok": true,
   "tool_outputs": [
     {
@@ -119,7 +119,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 37.0
+      "latency_ms": 38.1
     }
   ],
   "answer": "Analyst sentiment on NVDA is currently BULLISH.\n[Source: rating-nvda-002] Of 4 recent ratings: 3 bullish, 0 neutral, 1 bearish. Average price target: $172.\n[Source: rating-nvda-002] Bank of America (Vivek Arya) Raises Price Target at Buy, PT $190.0 (from $165.0). Sees Blackwell cycle as multi-year AI infrastructure tailwind.\n[Source: rating-nvda-001] Goldman Sachs (Toshiya Hari) Raises Price Target at Buy, PT $165.0 (from $135.0). Raised PT on data center demand strength and Blackwell ramp confirmation.",
@@ -135,6 +135,6 @@
       "record_id": "rating-nvda-001"
     }
   ],
-  "latency_ms": 1269.86,
-  "tool_exec_ms": 36.99
+  "latency_ms": 1268.83,
+  "tool_exec_ms": 38.13
 }

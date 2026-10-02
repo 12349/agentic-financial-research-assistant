@@ -47,7 +47,7 @@
       ],
       "mode": "offline",
       "tool": "get_earnings",
-      "latency_ms": 0.1
+      "latency_ms": 0.2
     }
   ],
   "answer": "[Source: earnings-xom-001] XOM Q3 2024 earnings (reported 2024-11-01): Revenue $90.0B vs. estimate $90.2B \u2014 MISS (-0.2%). EPS $1.92 vs. estimate $1.88 \u2014 BEAT (+2.1%). Revenue grew -5.0% year-over-year.\n  Notes: EPS beat driven by Pioneer synergies of $500M ahead of schedule. Revenue slightly missed due to lower oil prices. $35B buyback program maintained.",
@@ -58,6 +58,6 @@
       "record_id": "earnings-xom-001"
     }
   ],
-  "latency_ms": 0.1,
-  "tool_exec_ms": 0.07
+  "latency_ms": 0.27,
+  "tool_exec_ms": 0.24
 }

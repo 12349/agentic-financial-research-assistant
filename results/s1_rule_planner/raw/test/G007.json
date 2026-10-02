@@ -121,7 +121,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 1195.7
+      "latency_ms": 73.4
     },
     {
       "results": [
@@ -176,7 +176,7 @@
       "tool": "search_news",
       "query": "Did Nvidia's forward revenue outlook land above or below what analysts were estimating?",
       "ticker": "NVDA",
-      "latency_ms": 21.0
+      "latency_ms": 10.8
     }
   ],
   "answer": "Analyst sentiment on NVDA is currently BULLISH.\n[Source: rating-nvda-002] Of 4 recent ratings: 3 bullish, 0 neutral, 1 bearish. Average price target: $172.\n[Source: rating-nvda-002] Bank of America (Vivek Arya) Raises Price Target at Buy, PT $190.0 (from $165.0). Sees Blackwell cycle as multi-year AI infrastructure tailwind.\n[Source: rating-nvda-001] Goldman Sachs (Toshiya Hari) Raises Price Target at Buy, PT $165.0 (from $135.0). Raised PT on data center demand strength and Blackwell ramp confirmation.\n\n[Source: news-nvda-003] Nvidia Q4 Guidance Tops Estimates; Analysts Raise Price Targets Across the Board\nFollowing Nvidia's blowout Q3 earnings, at least 15 analysts raised their price targets for NVDA stock. The company guided Q4 revenue to approximately $37.5 billion, versus Street estimates of $37.1 billion. Several analysts noted that data center infrastructure spending shows no signs of slowing despite macro uncertainty.\n[Source: news-nvda-001] Additionally: Nvidia Data Center Revenue Hits Record $22.6B in Q3 FY2025, Surpassing Analyst Expectations",
@@ -202,6 +202,6 @@
       "record_id": "news-nvda-001"
     }
   ],
-  "latency_ms": 1216.78,
-  "tool_exec_ms": 1216.76
+  "latency_ms": 84.25,
+  "tool_exec_ms": 84.2
 }

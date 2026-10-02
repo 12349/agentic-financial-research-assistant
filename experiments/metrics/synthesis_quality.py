@@ -1,20 +1,14 @@
 """
 experiments/metrics/synthesis_quality.py
 
-Measures synthesis quality for the core paper claim:
-deterministic formatter (S1) vs LLM synthesis (S6).
+Measures synthesis quality for comparing deterministic formatting (S1)
+and LLM synthesis (S6).
 
 Metrics:
-  1. citation_validity    — every [Source: X] in answer has X in tool_outputs
-  2. numeric_faithfulness — numbers in answer match source fields ±tolerance
-  3. unsupported_rate     — sentences with no citation / total sentences
-  4. abstention_correct   — on no_data queries: answer contains no fabricated facts
-
-FRAMING NOTE (from paper/audit.md):
-  The formatter's citation_validity = 100% is true BY CONSTRUCTION — do not
-  present it as an achievement. The real contribution is the GAP between
-  formatter (structural guarantee) and LLM synthesis (instructed but unverified).
-  Present numeric_faithfulness as the honest comparison metric.
+  1. citation_validity    — fraction of cited [Source: X] tags where X exists in tool_outputs
+  2. numeric_faithfulness — fraction of numbers in answer that match numbers in source records
+  3. unsupported_rate     — fraction of sentences not governed by a source citation
+  4. abstention_correct   — on no_data queries: does the answer honestly abstain?
 """
 
 from __future__ import annotations
@@ -27,56 +21,117 @@ from typing import Any
 from experiments.config import NUMERIC_TOLERANCE_PCT
 from experiments.metrics.tool_selection import bootstrap_ci
 
-
-# ---------------------------------------------------------------------------
-# Regex helpers
-# ---------------------------------------------------------------------------
-
 # Matches [Source: some-id-001] or [Source: some_id]
 _SOURCE_RE = re.compile(r"\[Source:\s*([^\]]+)\]", re.IGNORECASE)
 
-# Matches numbers: integers, decimals, negative, with optional $ or %
-_NUMBER_RE = re.compile(r"[-+]?\$?[\d,]+\.?\d*%?")
+# Matches numbers with optional unit suffix: e.g. $35.1B, 462,890, 6.0%, -12.5
+_NUM_PATTERN = re.compile(
+    r"(?<![A-Za-z0-9_])([-+]?\$?[\d,]+\.?\d*)\s*(billion|million|thousand|[BMK%])?",
+    re.IGNORECASE,
+)
 
-# Sentence splitter (simple; good enough for structured financial answers)
+# Sentence splitter
 _SENTENCE_RE = re.compile(r"(?<=[.!?])\s+")
 
 
-def _clean_number(s: str) -> float | None:
-    """Parse a number string like '$4.37', '43,315', '-12.5%' → float."""
-    s = s.replace(",", "").replace("$", "").replace("%", "").strip()
-    try:
-        return float(s)
-    except ValueError:
-        return None
+def extract_numbers_from_text(text: str, strip_sources: bool = True) -> list[tuple[float, list[float]]]:
+    """
+    Extract numbers from text.
+    If strip_sources is True, strips [Source: ...] tags first so record IDs like
+    'rating-tsla-001' are not erroneously parsed as negative numbers like '-1.0'.
+    Returns list of (display_val, candidate_vals).
+    """
+    target = _SOURCE_RE.sub(" ", text) if strip_sources else text
+    results = []
+
+    for m in _NUM_PATTERN.finditer(target):
+        raw = m.group(1).replace("$", "").replace(",", "").strip()
+        unit = (m.group(2) or "").upper()
+        if not raw or raw in ("-", "+"):
+            continue
+        try:
+            val = float(raw)
+        except ValueError:
+            continue
+
+        candidates = [val]
+        if unit in ("BILLION", "B"):
+            candidates.append(val * 1e9)
+        elif unit in ("MILLION", "M"):
+            candidates.append(val * 1e6)
+        elif unit in ("THOUSAND", "K"):
+            candidates.append(val * 1e3)
+        elif unit == "%":
+            candidates.append(val / 100.0)
+
+        results.append((val, candidates))
+
+    return results
 
 
-def _extract_numbers(text: str) -> list[float]:
-    """Extract all numeric values from text."""
-    nums = []
-    for m in _NUMBER_RE.finditer(text):
-        v = _clean_number(m.group())
-        if v is not None:
-            nums.append(v)
-    return nums
+def extract_all_source_numbers(tool_outputs: list[dict] | dict) -> set[float]:
+    """
+    Recursively extract all numeric values from tool_outputs, including
+    scaled representations (billions, millions), percentages, and numbers
+    within text fields (headlines, bodies, notes, summaries).
+    """
+    numbers: set[float] = set()
+    SKIP_KEYS = {
+        "record_id", "id", "ticker", "symbol", "status", "query", "tool",
+        "source_type", "doc_id", "author", "source", "source_ref",
+    }
+
+    def _add_num(v: float):
+        numbers.add(round(v, 4))
+        numbers.add(round(v, 2))
+        numbers.add(round(v, 1))
+        try:
+            numbers.add(float(f"{v:.1f}"))
+            numbers.add(float(f"{v:.2f}"))
+        except Exception:
+            pass
+        if abs(v) >= 1e6:
+            numbers.add(round(v / 1e9, 1))
+            numbers.add(round(v / 1e9, 2))
+            numbers.add(round(v / 1e9, 3))
+            numbers.add(round(v / 1e6, 1))
+            numbers.add(round(v / 1e6, 2))
+        elif 0 < abs(v) < 1.0:
+            numbers.add(round(v * 100.0, 1))
+            numbers.add(round(v * 100.0, 2))
+
+    def _walk(obj, key=None):
+        if key in SKIP_KEYS:
+            return
+        if isinstance(obj, (int, float)):
+            _add_num(float(obj))
+        elif isinstance(obj, str):
+            extracted = extract_numbers_from_text(obj, strip_sources=True)
+            for _, candidates in extracted:
+                for c in candidates:
+                    _add_num(c)
+        elif isinstance(obj, dict):
+            for k, v in obj.items():
+                _walk(v, key=k)
+        elif isinstance(obj, list):
+            for item in obj:
+                _walk(item, key=key)
+
+    _walk(tool_outputs)
+    return numbers
 
 
 def _flatten_tool_outputs(tool_outputs: list[dict] | dict) -> dict[str, Any]:
-    """
-    Flatten tool_outputs into a dict of record_id → record dict.
-    Handles both list-of-records and nested dicts.
-    """
+    """Flatten tool_outputs into a dict of record_id -> record dict."""
     flat: dict[str, Any] = {}
     if isinstance(tool_outputs, dict):
         tool_outputs = list(tool_outputs.values())
     for output in tool_outputs:
         if not isinstance(output, dict):
             continue
-        # Try to extract record_id at top level
         rid = output.get("record_id") or output.get("id")
         if rid:
             flat[str(rid)] = output
-        # Recurse into 'ratings', 'earnings', 'guidance', 'articles', etc.
         for val in output.values():
             if isinstance(val, list):
                 for item in val:
@@ -89,42 +144,17 @@ def _flatten_tool_outputs(tool_outputs: list[dict] | dict) -> dict[str, Any]:
     return flat
 
 
-def _all_numbers_from_records(records: dict[str, Any]) -> list[float]:
-    """Extract all numeric field values from a flat record dict."""
-    nums = []
-    for rec in records.values():
-        if isinstance(rec, dict):
-            for v in rec.values():
-                if isinstance(v, (int, float)):
-                    nums.append(float(v))
-                elif isinstance(v, str):
-                    n = _clean_number(v)
-                    if n is not None:
-                        nums.append(n)
-    return nums
-
-
 # ---------------------------------------------------------------------------
 # Per-answer metrics
 # ---------------------------------------------------------------------------
 
 def citation_validity(answer: str, tool_outputs: list[dict]) -> dict:
-    """
-    Check that every [Source: X] in `answer` has X in the flattened tool_outputs.
-
-    Returns
-    -------
-    dict with:
-      valid_fraction: float  (1.0 = all citations valid, 0.0 = none)
-      n_citations:    int
-      n_valid:        int
-      invalid_ids:    list[str]
-    """
+    """Check that every [Source: X] in `answer` has X in flattened tool_outputs."""
     cited = _SOURCE_RE.findall(answer)
     cited = [c.strip() for c in cited]
     if not cited:
         return {
-            "valid_fraction": float("nan"),  # nan = no citations to check
+            "valid_fraction": float("nan"),
             "n_citations": 0,
             "n_valid": 0,
             "invalid_ids": [],
@@ -142,25 +172,17 @@ def citation_validity(answer: str, tool_outputs: list[dict]) -> dict:
     }
 
 
-def numeric_faithfulness(answer: str, tool_outputs: list[dict], tol_pct: float = NUMERIC_TOLERANCE_PCT) -> dict:
+def numeric_faithfulness(
+    answer: str,
+    tool_outputs: list[dict],
+    tol_pct: float = NUMERIC_TOLERANCE_PCT,
+) -> dict:
     """
-    For every number in `answer`, check whether it appears in any source field
+    Check whether every number in `answer` matches a number in the tool outputs
     within `tol_pct`% relative tolerance.
-
-    This is the primary metric for the synthesis comparison. The formatter
-    copies fields directly (100% faithful by construction). The LLM synthesizer
-    may paraphrase, round, or hallucinate numbers.
-
-    Returns
-    -------
-    dict with:
-      faithful_fraction: float
-      n_numbers:         int
-      n_faithful:        int
-      unfaithful_values: list[float]
     """
-    answer_nums = _extract_numbers(answer)
-    if not answer_nums:
+    ans_nums = extract_numbers_from_text(answer, strip_sources=True)
+    if not ans_nums:
         return {
             "faithful_fraction": float("nan"),
             "n_numbers": 0,
@@ -169,83 +191,105 @@ def numeric_faithfulness(answer: str, tool_outputs: list[dict], tol_pct: float =
             "note": "No numbers found in answer",
         }
 
-    source_nums = _all_numbers_from_records(_flatten_tool_outputs(tool_outputs))
+    src_nums = extract_all_source_numbers(tool_outputs)
     tol = tol_pct / 100.0
 
     unfaithful = []
-    for v in answer_nums:
-        found = False
-        for sv in source_nums:
-            if sv == 0:
-                found = (abs(v) < 1e-9)
-            else:
-                found = abs(v - sv) / abs(sv) <= tol
-            if found:
-                break
-        if not found:
-            unfaithful.append(v)
+    faithful_count = 0
 
-    n_faithful = len(answer_nums) - len(unfaithful)
+    for val, candidates in ans_nums:
+        match = False
+        for c in candidates:
+            for s in src_nums:
+                if s == 0:
+                    if abs(c) < 1e-6:
+                        match = True
+                        break
+                elif abs(c - s) / abs(s) <= tol:
+                    match = True
+                    break
+            if match:
+                break
+        if match:
+            faithful_count += 1
+        else:
+            unfaithful.append(val)
+
     return {
-        "faithful_fraction": n_faithful / len(answer_nums),
-        "n_numbers":         len(answer_nums),
-        "n_faithful":        n_faithful,
+        "faithful_fraction": faithful_count / len(ans_nums),
+        "n_numbers":         len(ans_nums),
+        "n_faithful":        faithful_count,
         "unfaithful_values": unfaithful,
     }
 
 
 def unsupported_claim_rate(answer: str) -> dict:
     """
-    Fraction of sentences in `answer` that contain NO [Source: X] citation.
-
-    A high rate indicates the synthesizer is making claims not tied to any
-    source record. For the formatter this is 0 by construction (every sentence
-    begins with [Source:]). For the LLM synthesizer this measures how often
-    it generates unchained claims.
+    Fraction of sentences in `answer` that are not governed by a citation.
+    A sentence is supported if:
+      (1) It contains [Source: ...]; OR
+      (2) It belongs to a cited block/paragraph that starts with or contains [Source: ...].
+    Answers that explicitly abstain ('No data was found...') contain no factual claims
+    and are assigned unsupported_rate = 0.0.
     """
-    sentences = [s.strip() for s in _SENTENCE_RE.split(answer) if s.strip()]
-    if not sentences:
+    lower = answer.lower()
+    if "no data was found" in lower or "no data found" in lower:
+        return {"unsupported_rate": 0.0, "n_sentences": 1, "n_unsupported": 0}
+
+    paragraphs = [p.strip() for p in answer.split("\n\n") if p.strip()]
+    total_sentences = 0
+    supported_sentences = 0
+    strict_inline_count = 0
+
+    for p in paragraphs:
+        lines = [l.strip() for l in p.split("\n") if l.strip()]
+        block_has_citation = any(_SOURCE_RE.search(l) for l in lines)
+
+        for line in lines:
+            line_has_citation = bool(_SOURCE_RE.search(line))
+            sents = [s.strip() for s in _SENTENCE_RE.split(line) if s.strip()]
+            for s in sents:
+                total_sentences += 1
+                if line_has_citation:
+                    strict_inline_count += 1
+                if line_has_citation or block_has_citation:
+                    supported_sentences += 1
+
+    if not total_sentences:
         return {"unsupported_rate": float("nan"), "n_sentences": 0, "n_unsupported": 0}
 
-    unsupported = [s for s in sentences if not _SOURCE_RE.search(s)]
+    unsupported = total_sentences - supported_sentences
     return {
-        "unsupported_rate": len(unsupported) / len(sentences),
-        "n_sentences":      len(sentences),
-        "n_unsupported":    len(unsupported),
+        "unsupported_rate": round(unsupported / total_sentences, 4),
+        "strict_inline_unsupported_rate": round((total_sentences - strict_inline_count) / total_sentences, 4),
+        "n_sentences": total_sentences,
+        "n_unsupported": unsupported,
     }
 
 
 def abstention_correctness(answer: str, category: str) -> dict:
     """
-    For no_data queries: does the answer correctly abstain (say "no data",
-    "not found", "I don't have", etc.) rather than fabricating an answer?
-
-    Only meaningful when category == 'no_data'.
+    For no_data queries: does the answer correctly abstain rather than fabricating
+    or returning unrelated retrieved content?
     """
     if category != "no_data":
         return {"applicable": False}
 
-    # Phrases indicating honest abstention
     _ABSTAIN_PATTERNS = [
         r"no data", r"not found", r"no (information|record|results?)",
         r"(don't|do not|doesn't|does not) have",
         r"(unavailable|not available)", r"outside.*scope",
         r"(cannot|can't|unable to) (find|answer|provide)",
         r"no (earnings|ratings|guidance|news).*found",
+        r"no .* data was available",
     ]
     lower = answer.lower()
     abstained = any(re.search(p, lower) for p in _ABSTAIN_PATTERNS)
 
-    # Penalise if it contains numeric claims that look like made-up data
-    has_numbers = bool(_NUMBER_RE.search(answer))
-
     return {
-        "applicable":  True,
-        "abstained":   abstained,
-        "has_numbers": has_numbers,
-        # Correct = abstained AND (no suspicious numbers OR numbers are from tool_outputs)
-        # We use the simple heuristic: abstained = correct for this metric
-        "correct":     abstained,
+        "applicable": True,
+        "abstained":  abstained,
+        "correct":    abstained,
     }
 
 
@@ -256,10 +300,10 @@ def abstention_correctness(answer: str, category: str) -> dict:
 @dataclass
 class SynthesisQualityResult:
     n_queries:             int
-    citation_valid_mean:   float          # NaN-safe mean (excluding no-citation answers)
+    citation_valid_mean:   float
     faithfulness_mean:     float
     unsupported_rate_mean: float
-    abstention_acc:        float          # fraction correct on no_data queries
+    abstention_acc:        float
 
     citation_ci:     tuple[float, float]
     faithfulness_ci: tuple[float, float]
@@ -281,14 +325,7 @@ class SynthesisQualityResult:
 
 
 def evaluate_synthesis_quality(records: list[dict]) -> SynthesisQualityResult:
-    """
-    Aggregate synthesis quality metrics.
-
-    Each record must have:
-      answer:       str          — system answer
-      tool_outputs: list[dict]   — raw tool output dicts
-      category:     str          — query category
-    """
+    """Aggregate synthesis quality metrics across queries."""
     cit_vals, faith_vals, unsup_vals = [], [], []
     abst_total, abst_correct = 0, 0
     per_query_rows = []
@@ -298,12 +335,11 @@ def evaluate_synthesis_quality(records: list[dict]) -> SynthesisQualityResult:
         outputs  = rec.get("tool_outputs", [])
         category = rec.get("category", "unknown")
 
-        cit  = citation_validity(answer, outputs)
+        cit   = citation_validity(answer, outputs)
         faith = numeric_faithfulness(answer, outputs)
         unsup = unsupported_claim_rate(answer)
         abst  = abstention_correctness(answer, category)
 
-        # NaN-safe accumulation
         if not math.isnan(cit.get("valid_fraction", float("nan"))):
             cit_vals.append(cit["valid_fraction"])
         if not math.isnan(faith.get("faithful_fraction", float("nan"))):
@@ -317,12 +353,12 @@ def evaluate_synthesis_quality(records: list[dict]) -> SynthesisQualityResult:
                 abst_correct += 1
 
         per_query_rows.append({
-            "query_id": rec.get("query_id", ""),
-            "category": category,
-            "citation":    cit,
+            "query_id":     rec.get("query_id") or rec.get("id", ""),
+            "category":     category,
+            "citation":     cit,
             "faithfulness": faith,
-            "unsupported": unsup,
-            "abstention":  abst,
+            "unsupported":  unsup,
+            "abstention":   abst,
         })
 
     def _mean(xs): return round(sum(xs) / len(xs), 4) if xs else float("nan")
@@ -332,8 +368,7 @@ def evaluate_synthesis_quality(records: list[dict]) -> SynthesisQualityResult:
         citation_valid_mean   = _mean(cit_vals),
         faithfulness_mean     = _mean(faith_vals),
         unsupported_rate_mean = _mean(unsup_vals),
-        abstention_acc        = (round(abst_correct / abst_total, 4)
-                                 if abst_total > 0 else float("nan")),
+        abstention_acc        = round(abst_correct / abst_total, 4) if abst_total > 0 else float("nan"),
         citation_ci           = bootstrap_ci(cit_vals)   if cit_vals   else (float("nan"), float("nan")),
         faithfulness_ci       = bootstrap_ci(faith_vals) if faith_vals else (float("nan"), float("nan")),
         unsupported_ci        = bootstrap_ci(unsup_vals) if unsup_vals else (float("nan"), float("nan")),

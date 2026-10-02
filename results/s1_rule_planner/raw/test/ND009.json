@@ -70,7 +70,7 @@
       "tool": "search_news",
       "query": "What dividend does Exxon Mobil pay?",
       "ticker": "XOM",
-      "latency_ms": 7.0
+      "latency_ms": 5.4
     }
   ],
   "answer": "[Source: news-xom-002] OPEC Postpones Production Increases as Oil Prices Slip; Exxon Benefits from Capital Discipline\nFollowing OPEC's decision to delay production hikes, oil prices stabilized around $75 per barrel. Exxon Mobil's disciplined capital allocation strategy has positioned the company to remain profitable at oil prices as low as $35 per barrel. Analysts note Exxon's Pioneer acquisition integration is proceeding ahead of schedule, adding 300,000 barrels per day of production.\n[Source: news-xom-003] Additionally: Exxon Q3 Earnings Beat on Pioneer Synergies; OPEC Uncertainty Clouds Q4 Outlook",
@@ -86,6 +86,6 @@
       "record_id": "news-xom-003"
     }
   ],
-  "latency_ms": 7.04,
-  "tool_exec_ms": 7.03
+  "latency_ms": 5.46,
+  "tool_exec_ms": 5.44
 }

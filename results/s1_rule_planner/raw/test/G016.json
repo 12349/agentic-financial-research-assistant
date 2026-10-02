@@ -42,7 +42,7 @@
       "tool": "search_news",
       "query": "Can you summarize the spread between JPMorgan's NII guidance floor and ceiling for FY2024?",
       "ticker": "JPM",
-      "latency_ms": 11.0
+      "latency_ms": 13.1
     }
   ],
   "answer": "[Source: news-jpm-002] JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B\nJPMorgan Chase raised its full-year net interest income guidance to approximately $92.5 billion, up from its prior guidance of $91 billion. The revision reflects higher-for-longer interest rates and strong loan growth. Analysts viewed the revision positively as it signals confidence in the bank's core earnings power.",
@@ -53,6 +53,6 @@
       "record_id": "news-jpm-002"
     }
   ],
-  "latency_ms": 10.98,
-  "tool_exec_ms": 10.96
+  "latency_ms": 13.1,
+  "tool_exec_ms": 13.06
 }

@@ -58,7 +58,7 @@
       "tool": "search_news",
       "query": "Nvidia update please.",
       "ticker": "NVDA",
-      "latency_ms": 55.8
+      "latency_ms": 58.9
     }
   ],
   "answer": "Recent updates on Nvidia (NVDA) indicate strong performance and growing demand for its products, particularly in the data center segment.\n\n- **Data Center Revenue**: Nvidia reported a record $22.6 billion in Q3 FY2025 data center revenue, up 112% year-over-year, surpassing analyst expectations [Source: news-nvda-001]. CEO Jensen Huang attributed this growth to explosive demand for H100 and H200 GPUs from major cloud providers.\n\n- **Blackwell GPU Demand**: Nvidia's next-generation Blackwell GPU architecture is experiencing high demand from leading cloud providers such as Microsoft Azure, Google Cloud, and Amazon AWS. CFO Colette Kress noted that supply is ramping rapidly, with the company expecting sequential revenue growth [Source: news-nvda-002].\n\nSources used:\n- [Source: news-nvda-001]\n- [Source: news-nvda-002]",
@@ -74,10 +74,10 @@
       "record_id": "news-nvda-001"
     }
   ],
-  "llm_elapsed_ms": 11758,
+  "llm_elapsed_ms": 11661,
   "llm_prompt_tokens": 717,
   "llm_gen_tokens": 201,
-  "llm_tok_per_sec": 22.1,
-  "latency_ms": 11814.78,
-  "tool_exec_ms": 55.84
+  "llm_tok_per_sec": 22.3,
+  "latency_ms": 11720.72,
+  "tool_exec_ms": 58.88
 }

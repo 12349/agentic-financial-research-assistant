@@ -127,7 +127,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 36.9
+      "latency_ms": 37.1
     },
     {
       "tool": "search_news",
@@ -151,6 +151,6 @@
       "record_id": "rating-nvda-001"
     }
   ],
-  "latency_ms": 2024.17,
-  "tool_exec_ms": 36.96
+  "latency_ms": 2024.13,
+  "tool_exec_ms": 37.07
 }

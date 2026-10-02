@@ -29,11 +29,11 @@
       "tool": "search_news",
       "query": "I'm looking at XOM for my portfolio \u2014 what do I need to know?",
       "ticker": "XOM",
-      "latency_ms": 4.1
+      "latency_ms": 3.9
     }
   ],
   "answer": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).",
   "sources": [],
-  "latency_ms": 4.15,
-  "tool_exec_ms": 4.13
+  "latency_ms": 3.97,
+  "tool_exec_ms": 3.95
 }

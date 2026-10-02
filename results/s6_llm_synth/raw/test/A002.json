@@ -59,7 +59,7 @@
       "tool": "search_news",
       "query": "What's the outlook for Tesla?",
       "ticker": "TSLA",
-      "latency_ms": 47.6
+      "latency_ms": 48.4
     }
   ],
   "answer": "Tesla's Q3 2024 deliveries exceeded expectations, reaching 462,890 vehicles compared to the analyst consensus of 458,000 [Source: news-tsla-001]. This success was attributed to strong demand for the Model Y in China and price reductions in the US market. The company has maintained its full-year delivery guidance at 1.8 million vehicles.\n\nTesla recently unveiled its Cybercab robotaxi at a Hollywood event, with an expected production start in 2026 [Source: news-tsla-002]. While analysts are optimistic about Tesla's long-term vision, concerns remain regarding regulatory approvals and production timelines.\n\nSources used:\n- [Source: news-tsla-001]\n- [Source: news-tsla-002]",
@@ -75,10 +75,10 @@
       "record_id": "news-tsla-002"
     }
   ],
-  "llm_elapsed_ms": 10113,
+  "llm_elapsed_ms": 10109,
   "llm_prompt_tokens": 689,
   "llm_gen_tokens": 170,
   "llm_tok_per_sec": 22.3,
-  "latency_ms": 10161.3,
-  "tool_exec_ms": 47.56
+  "latency_ms": 10158.08,
+  "tool_exec_ms": 48.42
 }

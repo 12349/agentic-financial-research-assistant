@@ -26,7 +26,7 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"get_earnings\", \"args\": {\"ticker\": \"TSLA\"}}, {\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"TSLA\"}}]",
-  "llm_elapsed_ms": 2166,
+  "llm_elapsed_ms": 2167,
   "llm_prompt_tokens": 460,
   "llm_gen_tokens": 42,
   "llm_tok_per_sec": 23.1,
@@ -61,7 +61,7 @@
       ],
       "mode": "offline",
       "tool": "get_earnings",
-      "latency_ms": 0.5
+      "latency_ms": 0.2
     },
     {
       "ticker": "TSLA",
@@ -138,7 +138,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 40.0
+      "latency_ms": 36.3
     }
   ],
   "answer": "[Source: earnings-tsla-001] TSLA Q3 2024 earnings (reported 2024-10-23): Revenue $25.2B vs. estimate $25.5B \u2014 MISS (-1.2%). EPS $0.72 vs. estimate $0.58 \u2014 BEAT (+24.1%). Revenue grew 8.2% year-over-year.\n  Notes: Revenue slightly missed but EPS significantly beat on cost improvements. Vehicle deliveries of 462,890 beat estimates. Automotive gross margin improved to 17.1%.\n\nAnalyst sentiment on TSLA is currently BULLISH.\n[Source: rating-tsla-001] Of 3 recent ratings: 2 bullish, 0 neutral, 1 bearish. Average price target: $312.\n[Source: rating-tsla-001] Wedbush Securities (Dan Ives) Raises Price Target at Outperform, PT $400.0 (from $300.0). Tesla AI and FSD monetization opportunity undervalued; Cybercab a long-term catalyst.\n[Source: rating-tsla-003] UBS (Joseph Spak) Raises Price Target at Neutral, PT $226.0 (from $197.0). Cautious on near-term EV competition; autonomous timeline uncertain.",
@@ -159,6 +159,6 @@
       "record_id": "rating-tsla-003"
     }
   ],
-  "latency_ms": 2207.43,
-  "tool_exec_ms": 40.5
+  "latency_ms": 2203.96,
+  "tool_exec_ms": 36.52
 }

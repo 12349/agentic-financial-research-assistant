@@ -19,7 +19,7 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"search_news\", \"args\": {\"query\": \"Coinbase regulatory battles\", \"ticker\": \"COIN\"}}]",
-  "llm_elapsed_ms": 1593,
+  "llm_elapsed_ms": 1592,
   "llm_prompt_tokens": 451,
   "llm_gen_tokens": 29,
   "llm_tok_per_sec": 23.2,
@@ -32,11 +32,11 @@
       "tool": "search_news",
       "query": "Coinbase regulatory battles",
       "ticker": "COIN",
-      "latency_ms": 45.1
+      "latency_ms": 45.2
     }
   ],
   "answer": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).",
   "sources": [],
-  "latency_ms": 1638.68,
-  "tool_exec_ms": 45.09
+  "latency_ms": 1637.87,
+  "tool_exec_ms": 45.25
 }

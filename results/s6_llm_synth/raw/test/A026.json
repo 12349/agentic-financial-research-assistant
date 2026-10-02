@@ -60,7 +60,7 @@
       "tool": "search_news",
       "query": "Give me a Tesla deep dive.",
       "ticker": "TSLA",
-      "latency_ms": 41.8
+      "latency_ms": 46.6
     }
   ],
   "answer": "Tesla recently unveiled its long-awaited robotaxi, the Cybercab, at a Hollywood event. The two-seater autonomous vehicle is priced under $30,000 and is expected to enter production in 2026. Analysts are optimistic about Tesla's long-term vision but express concerns regarding regulatory approvals and production timelines [Source: news-tsla-002].\n\nIn Q3 2024, Tesla delivered 462,890 vehicles, surpassing the analyst consensus of 458,000. This beat was driven by strong Model Y demand in China and price reductions in the US market [Source: news-tsla-001].\n\nSources used:\n- [Source: news-tsla-002]\n- [Source: news-tsla-001]",
@@ -76,10 +76,10 @@
       "record_id": "news-tsla-001"
     }
   ],
-  "llm_elapsed_ms": 10136,
+  "llm_elapsed_ms": 10292,
   "llm_prompt_tokens": 689,
   "llm_gen_tokens": 171,
-  "llm_tok_per_sec": 22.4,
-  "latency_ms": 10179.15,
-  "tool_exec_ms": 41.79
+  "llm_tok_per_sec": 21.9,
+  "latency_ms": 10339.05,
+  "tool_exec_ms": 46.59
 }

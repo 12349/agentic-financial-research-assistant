@@ -71,10 +71,10 @@
       ],
       "mode": "offline",
       "tool": "get_earnings",
-      "latency_ms": 0.6
+      "latency_ms": 1.1
     }
   ],
-  "answer": "Nvidia's Q3 FY2025 earnings report showed a significant EPS surprise, with the actual EPS of $0.81 beating the estimate of $0.74 by 9.46% [Source: earnings-nvda-001]. This strong performance is indicative of robust demand in Nvidia\u2019s data center segment, which grew at an impressive year-over-year (YoY) rate of 93.6%, reaching a record revenue of $30.8 billion [Source: earnings-nvda-001].\n\nThe Q2 FY2025 report also demonstrated strong growth with a YoY revenue increase of 122.4% and an EPS beat, suggesting consistent positive momentum in the company's financial performance [Source: earnings-nvda-002]. Given these trends, Nvidia\u2019s guidance for Q4 FY2025 is likely to reflect continued strength across its segments.\n\nSources used:\n- [earnings-nvda-001]\n- [earnings-nvda-002]",
+  "answer": "Nvidia's Q3 FY2025 earnings report showed a significant EPS surprise, with the actual EPS of $0.81 beating the estimate of $0.74 by 9.46% [Source: earnings-nvda-001]. This strong performance is indicative of robust demand in Nvidia\u2019s data center segment, which grew at an impressive year-over-year rate of 93.6%, driven by the \"insane\" Blackwell demand as cited by CEO Jensen Huang [Source: earnings-nvda-001].\n\nSimilarly, Q2 FY2025 also demonstrated a strong EPS beat with an actual EPS of $0.68 surpassing the estimate of $0.64 by 6.25% [Source: earnings-nvda-002]. The data center revenue for this period was particularly notable, growing by 154% year-over-year.\n\nThese strong EPS surprises suggest that Nvidia is likely to maintain or even exceed its Q4 FY2025 revenue guide, given the consistent positive performance across multiple quarters [Source: earnings-nvda-001, earnings-nvda-002].\n\nSources used:\n- [earnings-nvda-001]\n- [earnings-nvda-002]",
   "sources": [
     {
       "ticker": "NVDA",
@@ -87,10 +87,10 @@
       "record_id": "earnings-nvda-002"
     }
   ],
-  "llm_elapsed_ms": 12967,
+  "llm_elapsed_ms": 15371,
   "llm_prompt_tokens": 811,
-  "llm_gen_tokens": 221,
-  "llm_tok_per_sec": 22.3,
-  "latency_ms": 12968.41,
-  "tool_exec_ms": 0.58
+  "llm_gen_tokens": 273,
+  "llm_tok_per_sec": 22.2,
+  "latency_ms": 15373.47,
+  "tool_exec_ms": 1.08
 }

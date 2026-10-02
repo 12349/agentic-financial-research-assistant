@@ -74,7 +74,7 @@
       "tool": "search_news",
       "query": "Give me a summary of Exxon Mobil.",
       "ticker": "XOM",
-      "latency_ms": 123.1
+      "latency_ms": 10.7
     }
   ],
   "answer": "[Source: news-xom-002] OPEC Postpones Production Increases as Oil Prices Slip; Exxon Benefits from Capital Discipline\nFollowing OPEC's decision to delay production hikes, oil prices stabilized around $75 per barrel. Exxon Mobil's disciplined capital allocation strategy has positioned the company to remain profitable at oil prices as low as $35 per barrel. Analysts note Exxon's Pioneer acquisition integration is proceeding ahead of schedule, adding 300,000 barrels per day of production.\n[Source: news-xom-001] Additionally: Exxon Mobil Warns OPEC Meeting Outcome Could Pressure Oil Prices Further",
@@ -90,6 +90,6 @@
       "record_id": "news-xom-001"
     }
   ],
-  "latency_ms": 123.08,
-  "tool_exec_ms": 123.06
+  "latency_ms": 10.68,
+  "tool_exec_ms": 10.67
 }

@@ -57,7 +57,7 @@
       "tool": "search_news",
       "query": "What is JPMorgan's NII guidance for FY2024?",
       "ticker": "JPM",
-      "latency_ms": 45.2
+      "latency_ms": 29.0
     }
   ],
   "answer": "According to a recent news report, JPMorgan Chase has raised its full-year net interest income (NII) guidance for fiscal year 2024 to approximately $92.5 billion, up from the previous guidance of $91 billion. This revision is attributed to higher-for-longer interest rates and strong loan growth, signaling confidence in the bank's core earnings power [Source: news-jpm-002].\n\nSources used:\n- Source: news-jpm-002",
@@ -73,10 +73,10 @@
       "record_id": "news-jpm-001"
     }
   ],
-  "llm_elapsed_ms": 6991,
+  "llm_elapsed_ms": 6995,
   "llm_prompt_tokens": 707,
   "llm_gen_tokens": 102,
-  "llm_tok_per_sec": 22.7,
-  "latency_ms": 7036.87,
-  "tool_exec_ms": 45.22
+  "llm_tok_per_sec": 22.5,
+  "latency_ms": 7024.38,
+  "tool_exec_ms": 29.0
 }

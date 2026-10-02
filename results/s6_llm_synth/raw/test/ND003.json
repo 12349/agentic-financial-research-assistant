@@ -80,7 +80,7 @@
       "tool": "search_news",
       "query": "What is Amazon's forward revenue guidance?",
       "ticker": null,
-      "latency_ms": 61.3
+      "latency_ms": 47.6
     },
     {
       "results": [
@@ -135,10 +135,10 @@
       "tool": "search_news",
       "query": "What is Amazon's forward revenue guidance?",
       "ticker": null,
-      "latency_ms": 7.6
+      "latency_ms": 6.0
     }
   ],
-  "answer": "The provided news sources do not contain any information about Amazon\u2019s forward revenue guidance. The available data focuses on Nvidia's financial performance and guidance, particularly for its Q4 fiscal year 2025, where it guided data center revenue above $37 billion [Source: news-nvda-003].\n\nSources used:\n- [Source: news-nvda-003]",
+  "answer": "The provided news sources do not contain any information about Amazon\u2019s forward revenue guidance. The available data focuses on Nvidia's financial performance and guidance, specifically related to its Q4 FY2025 revenue expectations.\n\nSources used:\n- [Source: news-nvda-003]\n- [Source: news-nvda-001]\n- [Source: news-nvda-002]",
   "sources": [
     {
       "ticker": "NVDA",
@@ -156,10 +156,10 @@
       "record_id": "news-nvda-002"
     }
   ],
-  "llm_elapsed_ms": 11012,
+  "llm_elapsed_ms": 11128,
   "llm_prompt_tokens": 1720,
-  "llm_gen_tokens": 81,
-  "llm_tok_per_sec": 21.3,
-  "latency_ms": 11081.92,
-  "tool_exec_ms": 68.9
+  "llm_gen_tokens": 85,
+  "llm_tok_per_sec": 22.1,
+  "latency_ms": 11183.21,
+  "tool_exec_ms": 53.58
 }

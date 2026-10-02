@@ -60,7 +60,7 @@
       "tool": "search_news",
       "query": "Give me a Tesla deep dive.",
       "ticker": "TSLA",
-      "latency_ms": 6.0
+      "latency_ms": 5.4
     }
   ],
   "answer": "[Source: news-tsla-002] Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline\nTesla unveiled its long-awaited robotaxi, the Cybercab, at a Hollywood event. The two-seater autonomous vehicle is priced under $30,000 and is expected to enter production in 2026. Analysts expressed optimism about the long-term vision but concerns about regulatory approvals and production timelines.\n[Source: news-tsla-001] Additionally: Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles",
@@ -76,6 +76,6 @@
       "record_id": "news-tsla-001"
     }
   ],
-  "latency_ms": 6.06,
-  "tool_exec_ms": 6.05
+  "latency_ms": 5.37,
+  "tool_exec_ms": 5.36
 }

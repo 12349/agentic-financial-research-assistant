@@ -93,7 +93,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 20.4
+      "latency_ms": 19.8
     }
   ],
   "answer": "Analyst sentiment on TSLA is currently BULLISH.\n[Source: rating-tsla-001] Of 3 recent ratings: 2 bullish, 0 neutral, 1 bearish. Average price target: $312.\n[Source: rating-tsla-001] Wedbush Securities (Dan Ives) Raises Price Target at Outperform, PT $400.0 (from $300.0). Tesla AI and FSD monetization opportunity undervalued; Cybercab a long-term catalyst.\n[Source: rating-tsla-003] UBS (Joseph Spak) Raises Price Target at Neutral, PT $226.0 (from $197.0). Cautious on near-term EV competition; autonomous timeline uncertain.",
@@ -109,6 +109,6 @@
       "record_id": "rating-tsla-003"
     }
   ],
-  "latency_ms": 20.47,
-  "tool_exec_ms": 20.44
+  "latency_ms": 19.8,
+  "tool_exec_ms": 19.77
 }

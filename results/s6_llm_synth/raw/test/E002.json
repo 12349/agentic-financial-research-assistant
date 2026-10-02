@@ -96,10 +96,10 @@
       "record_id": "earnings-tsla-001"
     }
   ],
-  "llm_elapsed_ms": 6603,
+  "llm_elapsed_ms": 9417,
   "llm_prompt_tokens": 773,
   "llm_gen_tokens": 75,
-  "llm_tok_per_sec": 22.4,
-  "latency_ms": 6603.92,
-  "tool_exec_ms": 0.13
+  "llm_tok_per_sec": 22.5,
+  "latency_ms": 9418.45,
+  "tool_exec_ms": 0.12
 }

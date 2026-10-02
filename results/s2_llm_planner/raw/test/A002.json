@@ -11,7 +11,7 @@
   "pred_tools": [],
   "plan": [],
   "llm_raw_response": "[\"search_news\", {\"query\": \"outlook for Tesla\", \"ticker\": \"TSLA\"}]",
-  "llm_elapsed_ms": 1225,
+  "llm_elapsed_ms": 1223,
   "llm_prompt_tokens": 448,
   "llm_gen_tokens": 23,
   "llm_tok_per_sec": 23.5,
@@ -19,6 +19,6 @@
   "tool_outputs": [],
   "answer": "No data was found to answer this query.",
   "sources": [],
-  "latency_ms": 1226.33,
+  "latency_ms": 1224.13,
   "tool_exec_ms": 0.0
 }

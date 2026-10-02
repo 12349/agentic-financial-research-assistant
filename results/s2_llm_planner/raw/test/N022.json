@@ -19,7 +19,7 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"search_news\", \"args\": {\"query\": \"Exxon capital discipline strategy\", \"ticker\": \"XOM\"}}]",
-  "llm_elapsed_ms": 1640,
+  "llm_elapsed_ms": 1638,
   "llm_prompt_tokens": 453,
   "llm_gen_tokens": 30,
   "llm_tok_per_sec": 23.1,
@@ -78,7 +78,7 @@
       "tool": "search_news",
       "query": "Exxon capital discipline strategy",
       "ticker": "XOM",
-      "latency_ms": 43.9
+      "latency_ms": 45.8
     }
   ],
   "answer": "[Source: news-xom-002] OPEC Postpones Production Increases as Oil Prices Slip; Exxon Benefits from Capital Discipline\nFollowing OPEC's decision to delay production hikes, oil prices stabilized around $75 per barrel. Exxon Mobil's disciplined capital allocation strategy has positioned the company to remain profitable at oil prices as low as $35 per barrel. Analysts note Exxon's Pioneer acquisition integration is proceeding ahead of schedule, adding 300,000 barrels per day of production.\n[Source: news-xom-001] Additionally: Exxon Mobil Warns OPEC Meeting Outcome Could Pressure Oil Prices Further",
@@ -94,6 +94,6 @@
       "record_id": "news-xom-001"
     }
   ],
-  "latency_ms": 1685.23,
-  "tool_exec_ms": 43.92
+  "latency_ms": 1684.98,
+  "tool_exec_ms": 45.8
 }

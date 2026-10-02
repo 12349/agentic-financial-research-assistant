@@ -94,7 +94,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 9.9
+      "latency_ms": 9.6
     }
   ],
   "answer": "Analyst sentiment on JPM is currently BULLISH.\n[Source: rating-jpm-003] Of 3 recent ratings: 3 bullish, 0 neutral, 0 bearish. Average price target: $273.\n[Source: rating-jpm-003] Deutsche Bank (Matt O'Connor) Raises Price Target at Buy, PT $275.0 (from $255.0). Strong capital markets rebound; credit quality better than feared.\n[Source: rating-jpm-001] Wells Fargo (Mike Mayo) Raises Price Target at Overweight, PT $280.0 (from $250.0). Best-in-class franchise; NII guidance raise signals sustained earnings power.",
@@ -110,6 +110,6 @@
       "record_id": "rating-jpm-001"
     }
   ],
-  "latency_ms": 9.89,
-  "tool_exec_ms": 9.87
+  "latency_ms": 9.62,
+  "tool_exec_ms": 9.6
 }

@@ -73,7 +73,7 @@
       "tool": "search_news",
       "query": "What revenue did NVDA post last quarter and what forward outlook did they give?",
       "ticker": "NVDA",
-      "latency_ms": 39.1
+      "latency_ms": 40.1
     }
   ],
   "answer": "Nvidia guided Q4 revenue to approximately $37.5 billion, which exceeded the Street estimates of $37.1 billion. This guidance indicates a strong forward outlook for the company.\n\nSources used:\n- [Source: news-nvda-003]",
@@ -94,10 +94,10 @@
       "record_id": "news-nvda-002"
     }
   ],
-  "llm_elapsed_ms": 6220,
+  "llm_elapsed_ms": 6241,
   "llm_prompt_tokens": 966,
   "llm_gen_tokens": 56,
-  "llm_tok_per_sec": 22.6,
-  "latency_ms": 6260.43,
-  "tool_exec_ms": 39.12
+  "llm_tok_per_sec": 22.5,
+  "latency_ms": 6282.55,
+  "tool_exec_ms": 40.14
 }

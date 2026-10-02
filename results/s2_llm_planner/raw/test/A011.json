@@ -34,11 +34,11 @@
       "tool": "search_news",
       "query": "JPM story",
       "ticker": "JPM",
-      "latency_ms": 395.1
+      "latency_ms": 54.2
     }
   ],
   "answer": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).",
   "sources": [],
-  "latency_ms": 1936.08,
-  "tool_exec_ms": 395.07
+  "latency_ms": 1595.14,
+  "tool_exec_ms": 54.16
 }

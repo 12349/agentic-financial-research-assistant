@@ -9,14 +9,14 @@
   "pred_tools": [],
   "plan": [],
   "llm_raw_response": "[]",
-  "llm_elapsed_ms": 380,
+  "llm_elapsed_ms": 387,
   "llm_prompt_tokens": 458,
   "llm_gen_tokens": 2,
-  "llm_tok_per_sec": 44.5,
+  "llm_tok_per_sec": 40.4,
   "parsed_ok": true,
   "tool_outputs": [],
   "answer": "No data was found to answer this query.",
   "sources": [],
-  "latency_ms": 380.41,
+  "latency_ms": 388.17,
   "tool_exec_ms": 0.0
 }

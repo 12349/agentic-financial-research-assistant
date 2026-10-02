@@ -26,7 +26,7 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"get_earnings\", \"args\": {\"ticker\": \"XOM\"}}, {\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"XOM\"}}]",
-  "llm_elapsed_ms": 2107,
+  "llm_elapsed_ms": 2104,
   "llm_prompt_tokens": 459,
   "llm_gen_tokens": 40,
   "llm_tok_per_sec": 23.1,
@@ -118,7 +118,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 32.4
+      "latency_ms": 31.5
     }
   ],
   "answer": "[Source: earnings-xom-001] XOM Q3 2024 earnings (reported 2024-11-01): Revenue $90.0B vs. estimate $90.2B \u2014 MISS (-0.2%). EPS $1.92 vs. estimate $1.88 \u2014 BEAT (+2.1%). Revenue grew -5.0% year-over-year.\n  Notes: EPS beat driven by Pioneer synergies of $500M ahead of schedule. Revenue slightly missed due to lower oil prices. $35B buyback program maintained.\n\nAnalyst sentiment on XOM is currently NEUTRAL.\n[Source: rating-xom-001] Of 2 recent ratings: 0 bullish, 1 neutral, 1 bearish. Average price target: $126.\n[Source: rating-xom-001] Piper Sandler (Ryan Todd) Maintains at Overweight, PT $135.0 (from $130.0). Pioneer integration tracking ahead of plan; structural cost advantages intact.\n[Source: rating-xom-002] JPMorgan (Phil Gresh) Maintains at Neutral, PT $118.0 (from $118.0). Oil price uncertainty from OPEC policy caps upside; disciplined capex a positive.",
@@ -139,6 +139,6 @@
       "record_id": "rating-xom-002"
     }
   ],
-  "latency_ms": 2140.79,
-  "tool_exec_ms": 32.86
+  "latency_ms": 2136.69,
+  "tool_exec_ms": 32.02
 }

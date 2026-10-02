@@ -42,7 +42,7 @@
       "tool": "search_news",
       "query": "Can you summarize the spread between JPMorgan's NII guidance floor and ceiling for FY2024?",
       "ticker": "JPM",
-      "latency_ms": 46.0
+      "latency_ms": 48.3
     }
   ],
   "answer": "The provided news does not explicitly mention a specific floor or ceiling for JPMorgan's Net Interest Income (NII) guidance for FY2024. Instead, it reports that the bank raised its full-year NII guidance to approximately $92.5 billion from an earlier estimate of $91 billion. This revision is attributed to higher interest rates and strong loan growth.\n\n[Source: news-jpm-002]\n\nSources used:\n- [Source: news-jpm-002]",
@@ -53,10 +53,10 @@
       "record_id": "news-jpm-002"
     }
   ],
-  "llm_elapsed_ms": 6239,
+  "llm_elapsed_ms": 6121,
   "llm_prompt_tokens": 489,
   "llm_gen_tokens": 104,
-  "llm_tok_per_sec": 22.5,
-  "latency_ms": 6285.83,
-  "tool_exec_ms": 46.04
+  "llm_tok_per_sec": 22.7,
+  "latency_ms": 6170.48,
+  "tool_exec_ms": 48.35
 }

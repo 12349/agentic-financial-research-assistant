@@ -57,7 +57,7 @@
       "tool": "search_news",
       "query": "I'd like to understand Exxon's capex commitment range for the current fiscal year.",
       "ticker": "XOM",
-      "latency_ms": 43.5
+      "latency_ms": 49.3
     }
   ],
   "answer": "Based on recent financial news, Exxon Mobil has reaffirmed its capital discipline strategy and stated that it would not alter its $28 billion capex plan regardless of short-term oil price movements.\n\n[Source: news-xom-001]\n\nSources used:\n- [Source: news-xom-001]",
@@ -73,10 +73,10 @@
       "record_id": "news-xom-002"
     }
   ],
-  "llm_elapsed_ms": 5470,
+  "llm_elapsed_ms": 5312,
   "llm_prompt_tokens": 704,
   "llm_gen_tokens": 65,
-  "llm_tok_per_sec": 22.6,
-  "latency_ms": 5514.72,
-  "tool_exec_ms": 43.48
+  "llm_tok_per_sec": 22.8,
+  "latency_ms": 5362.59,
+  "tool_exec_ms": 49.34
 }

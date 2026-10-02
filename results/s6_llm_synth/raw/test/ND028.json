@@ -55,7 +55,7 @@
       "tool": "search_news",
       "query": "Show me JPMorgan's credit default swap spreads.",
       "ticker": "JPM",
-      "latency_ms": 44.1
+      "latency_ms": 45.8
     }
   ],
   "answer": "The provided data does not contain any information about JPMorgan\u2019s credit default swap (CDS) spreads.\n\nSources used:\n- [Source: news-jpm-001]\n- [Source: news-jpm-002]",
@@ -71,10 +71,10 @@
       "record_id": "news-jpm-002"
     }
   ],
-  "llm_elapsed_ms": 4809,
+  "llm_elapsed_ms": 4808,
   "llm_prompt_tokens": 696,
   "llm_gen_tokens": 50,
-  "llm_tok_per_sec": 22.8,
-  "latency_ms": 4853.8,
-  "tool_exec_ms": 44.12
+  "llm_tok_per_sec": 22.7,
+  "latency_ms": 4855.21,
+  "tool_exec_ms": 45.8
 }

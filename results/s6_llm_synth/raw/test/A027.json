@@ -29,15 +29,15 @@
       "tool": "search_news",
       "query": "I'm looking at XOM for my portfolio \u2014 what do I need to know?",
       "ticker": "XOM",
-      "latency_ms": 45.8
+      "latency_ms": 66.4
     }
   ],
-  "answer": "Based on the available data, there is no recent news or specific information directly related to ExxonMobil (XOM) that would provide insights for your portfolio decision at this moment [Source: <record_id>]. However, it's important to consider XOM\u2019s historical performance, financial health, and industry position when making investment decisions.\n\nSources used:\n- [Source: <record_id>]",
+  "answer": "Based on the available data, there is no recent news or specific information directly related to ExxonMobil (XOM) that would provide insights for your portfolio decision at this moment [Source: <record_id>]. However, it's important to consider XOM\u2019s historical performance, financial health, and industry position when making investment decisions.\n\nSources used:\n- search_news:XOM",
   "sources": [],
-  "llm_elapsed_ms": 4141,
+  "llm_elapsed_ms": 4020,
   "llm_prompt_tokens": 262,
-  "llm_gen_tokens": 79,
-  "llm_tok_per_sec": 22.7,
-  "latency_ms": 4187.89,
-  "tool_exec_ms": 45.76
+  "llm_gen_tokens": 76,
+  "llm_tok_per_sec": 22.6,
+  "latency_ms": 4087.62,
+  "tool_exec_ms": 66.46
 }

@@ -57,7 +57,7 @@
       "tool": "search_news",
       "query": "Any recent news about Tesla deliveries?",
       "ticker": "TSLA",
-      "latency_ms": 45.8
+      "latency_ms": 33.4
     }
   ],
   "answer": "Tesla reported strong Q3 2024 delivery numbers, exceeding expectations with 462,890 vehicles delivered, driven by robust demand for the Model Y in China and price reductions in the US market [Source: news-tsla-001]. The company maintained its full-year guidance of 1.8 million deliveries.\n\nSources used:\n- [Source: news-tsla-001]",
@@ -73,10 +73,10 @@
       "record_id": "news-tsla-002"
     }
   ],
-  "llm_elapsed_ms": 6316,
+  "llm_elapsed_ms": 6309,
   "llm_prompt_tokens": 689,
   "llm_gen_tokens": 86,
   "llm_tok_per_sec": 22.4,
-  "latency_ms": 6362.59,
-  "tool_exec_ms": 45.84
+  "latency_ms": 6343.88,
+  "tool_exec_ms": 33.43
 }

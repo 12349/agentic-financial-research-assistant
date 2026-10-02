@@ -68,7 +68,7 @@
       ],
       "mode": "offline",
       "tool": "get_guidance",
-      "latency_ms": 0.5
+      "latency_ms": 0.2
     },
     {
       "ticker": "NVDA",
@@ -122,7 +122,7 @@
       ],
       "mode": "offline",
       "tool": "get_earnings",
-      "latency_ms": 0.2
+      "latency_ms": 0.1
     }
   ],
   "answer": "Nvidia's net income for Q3 FY2025 was $19.3 billion, significantly beating analyst estimates by 9.46% [Source: earnings-nvda-001]. The company reported a year-over-year revenue growth of 93.6%, driven primarily by the data center segment, which generated $30.8 billion in revenue [Source: earnings-nvda-001].\n\nRegarding future outlook, Nvidia has raised its revenue forecast for Q4 FY2025 to approximately $37.5 billion (+/- 2%), above the Street consensus of $37.1 billion at the time of guidance [Source: guidance-nvda-001]. Additionally, in Q3 FY2025, Nvidia guided Q3 FY2025 revenue to approximately $32.5 billion, slightly exceeding analyst estimates [Source: guidance-nvda-002].\n\nSources used:\n- earnings-nvda-001\n- earnings-nvda-002\n- guidance-nvda-001\n- guidance-nvda-002",
@@ -148,10 +148,10 @@
       "record_id": "earnings-nvda-002"
     }
   ],
-  "llm_elapsed_ms": 16124,
+  "llm_elapsed_ms": 16195,
   "llm_prompt_tokens": 1323,
   "llm_gen_tokens": 238,
   "llm_tok_per_sec": 22.1,
-  "latency_ms": 16126.44,
-  "tool_exec_ms": 0.69
+  "latency_ms": 16196.04,
+  "tool_exec_ms": 0.35
 }

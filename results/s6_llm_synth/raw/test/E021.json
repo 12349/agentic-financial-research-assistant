@@ -70,7 +70,7 @@
       ],
       "mode": "offline",
       "tool": "get_earnings",
-      "latency_ms": 1.7
+      "latency_ms": 1.0
     }
   ],
   "answer": "NVDA's Q2 FY2025 EPS was reported as $0.68 [Source: earnings-nvda-002].\n\nSources used:\n- [Source: earnings-nvda-002]",
@@ -86,10 +86,10 @@
       "record_id": "earnings-nvda-002"
     }
   ],
-  "llm_elapsed_ms": 5110,
+  "llm_elapsed_ms": 5108,
   "llm_prompt_tokens": 810,
   "llm_gen_tokens": 48,
-  "llm_tok_per_sec": 22.6,
-  "latency_ms": 5112.95,
-  "tool_exec_ms": 1.71
+  "llm_tok_per_sec": 22.7,
+  "latency_ms": 5110.24,
+  "tool_exec_ms": 1.0
 }

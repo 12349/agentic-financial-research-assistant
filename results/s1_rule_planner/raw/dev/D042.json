@@ -43,7 +43,7 @@
       "tool": "search_news",
       "query": "XOM earnings plus how Piper Sandler views the stock \u2014 side by side please.",
       "ticker": "XOM",
-      "latency_ms": 8.8
+      "latency_ms": 9.1
     }
   ],
   "answer": "[Source: news-xom-003] Exxon Q3 Earnings Beat on Pioneer Synergies; OPEC Uncertainty Clouds Q4 Outlook\nExxon Mobil reported Q3 earnings of $1.92 per share, beating estimates of $1.88. The Pioneer Natural Resources acquisition added $500 million in synergies ahead of schedule. However, executives cautioned that the OPEC+ production policy uncertainty and global demand softness could weigh on Q4 results. The company maintained its $35 billion share buyback program.",
@@ -54,6 +54,6 @@
       "record_id": "news-xom-003"
     }
   ],
-  "latency_ms": 8.85,
-  "tool_exec_ms": 8.82
+  "latency_ms": 9.13,
+  "tool_exec_ms": 9.11
 }

@@ -57,7 +57,7 @@
       "tool": "search_news",
       "query": "Did JPMorgan raise its net interest income outlook? What was reported?",
       "ticker": "JPM",
-      "latency_ms": 40.9
+      "latency_ms": 29.7
     }
   ],
   "answer": "JPMorgan Chase raised its full-year net interest income guidance to approximately $92.5 billion, up from its prior guidance of $91 billion. This revision reflects higher-for-longer interest rates and strong loan growth, signaling confidence in the bank's core earnings power [Source: news-jpm-002].\n\nSources used:\n- [Source: news-jpm-002]",
@@ -73,10 +73,10 @@
       "record_id": "news-jpm-001"
     }
   ],
-  "llm_elapsed_ms": 6263,
+  "llm_elapsed_ms": 6280,
   "llm_prompt_tokens": 704,
   "llm_gen_tokens": 82,
-  "llm_tok_per_sec": 22.5,
-  "latency_ms": 6304.61,
-  "tool_exec_ms": 40.91
+  "llm_tok_per_sec": 22.4,
+  "latency_ms": 6310.27,
+  "tool_exec_ms": 29.75
 }

@@ -18,10 +18,10 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"GOOGL\"}}]",
-  "llm_elapsed_ms": 1242,
+  "llm_elapsed_ms": 1230,
   "llm_prompt_tokens": 451,
   "llm_gen_tokens": 21,
-  "llm_tok_per_sec": 23.2,
+  "llm_tok_per_sec": 23.5,
   "parsed_ok": true,
   "tool_outputs": [
     {
@@ -31,11 +31,11 @@
       "error": "No ratings data found for GOOGL",
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 0.1
+      "latency_ms": 0.5
     }
   ],
   "answer": "No data was found to answer this query.\n\nNo analyst ratings data was available for GOOGL.",
   "sources": [],
-  "latency_ms": 1243.32,
-  "tool_exec_ms": 0.15
+  "latency_ms": 1231.45,
+  "tool_exec_ms": 0.51
 }

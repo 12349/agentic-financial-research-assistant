@@ -58,7 +58,7 @@
       "tool": "search_news",
       "query": "Tesla set delivery expectations for FY2024 \u2014 was that mentioned in any recent coverage?",
       "ticker": "TSLA",
-      "latency_ms": 43.9
+      "latency_ms": 46.8
     }
   ],
   "answer": "The recent news coverage does not explicitly mention Tesla setting specific delivery expectations for fiscal year 2024 (FY2024). However, the company maintained its full-year delivery guidance of 1.8 million vehicles in Q3 2024, which indicates that it has provided some level of guidance for the year.\n\n[Source: news-tsla-001]\n\nSources used:\n- [Source: news-tsla-001]",
@@ -74,10 +74,10 @@
       "record_id": "news-tsla-002"
     }
   ],
-  "llm_elapsed_ms": 6856,
+  "llm_elapsed_ms": 6893,
   "llm_prompt_tokens": 718,
   "llm_gen_tokens": 95,
-  "llm_tok_per_sec": 22.4,
-  "latency_ms": 6900.77,
-  "tool_exec_ms": 43.92
+  "llm_tok_per_sec": 22.3,
+  "latency_ms": 6941.27,
+  "tool_exec_ms": 46.78
 }

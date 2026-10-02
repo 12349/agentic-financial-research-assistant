@@ -19,10 +19,10 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"search_news\", \"args\": {\"query\": \"Tesla deliveries\", \"ticker\": \"TSLA\"}}]",
-  "llm_elapsed_ms": 1464,
+  "llm_elapsed_ms": 1459,
   "llm_prompt_tokens": 448,
   "llm_gen_tokens": 28,
-  "llm_tok_per_sec": 23.3,
+  "llm_tok_per_sec": 22.8,
   "parsed_ok": true,
   "tool_outputs": [
     {
@@ -63,7 +63,7 @@
       "tool": "search_news",
       "query": "Tesla deliveries",
       "ticker": "TSLA",
-      "latency_ms": 43.2
+      "latency_ms": 46.3
     }
   ],
   "answer": "[Source: news-tsla-001] Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles\nTesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000. The beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.\n[Source: news-tsla-002] Additionally: Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline",
@@ -79,6 +79,6 @@
       "record_id": "news-tsla-002"
     }
   ],
-  "latency_ms": 1508.54,
-  "tool_exec_ms": 43.23
+  "latency_ms": 1505.8,
+  "tool_exec_ms": 46.36
 }

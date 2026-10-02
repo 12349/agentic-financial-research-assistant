@@ -72,7 +72,7 @@
       "tool": "search_news",
       "query": "Give me Google's analyst ratings and price targets.",
       "ticker": null,
-      "latency_ms": 39.6
+      "latency_ms": 47.8
     }
   ],
   "answer": "The provided data does not contain specific information about Google\u2019s (GOOGL) analyst ratings or price targets. The available news articles focus on Nvidia (NVDA), discussing its financial performance and analyst reactions, but do not provide the requested details for Google.\n\nSources used:\n- [Source: news-nvda-003]\n- [Source: news-nvda-002]\n- [Source: news-nvda-001]",
@@ -97,6 +97,6 @@
   "llm_prompt_tokens": 952,
   "llm_gen_tokens": 94,
   "llm_tok_per_sec": 22.4,
-  "latency_ms": 7964.14,
-  "tool_exec_ms": 39.58
+  "latency_ms": 7972.29,
+  "tool_exec_ms": 47.8
 }

@@ -42,7 +42,7 @@
       "tool": "search_news",
       "query": "I'm curious how the top line came in for Tesla's third-quarter report.",
       "ticker": "TSLA",
-      "latency_ms": 45.2
+      "latency_ms": 42.4
     }
   ],
   "answer": "According to a recent news report, Tesla delivered 462,890 vehicles in Q3 2024, surpassing the analyst consensus of 458,000 [Source: news-tsla-001]. This strong performance was attributed to robust demand for the Model Y in China and price reductions in the US market.\n\nSources used:\n- [Source: news-tsla-001]",
@@ -53,10 +53,10 @@
       "record_id": "news-tsla-001"
     }
   ],
-  "llm_elapsed_ms": 5484,
+  "llm_elapsed_ms": 5518,
   "llm_prompt_tokens": 484,
   "llm_gen_tokens": 90,
-  "llm_tok_per_sec": 22.8,
-  "latency_ms": 5530.53,
-  "tool_exec_ms": 45.2
+  "llm_tok_per_sec": 22.6,
+  "latency_ms": 5560.72,
+  "tool_exec_ms": 42.41
 }

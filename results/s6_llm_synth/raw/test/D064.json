@@ -61,7 +61,7 @@
       ],
       "mode": "offline",
       "tool": "get_guidance",
-      "latency_ms": 0.5
+      "latency_ms": 1.0
     }
   ],
   "answer": "Based on the guidance provided by NVIDIA (NVDA) for Q4 FY2025, the company guided revenue to approximately $37.5B (+/- 2%), which was above the Street consensus of $37.1B at the time of guidance [Source: guidance-nvda-001]. However, there is no direct evidence from this data that financial press coverage picked up on this specific guidance event.\n\nSources used:\n- [Source: guidance-nvda-001]",
@@ -77,10 +77,10 @@
       "record_id": "guidance-nvda-002"
     }
   ],
-  "llm_elapsed_ms": 7183,
+  "llm_elapsed_ms": 7192,
   "llm_prompt_tokens": 693,
   "llm_gen_tokens": 106,
   "llm_tok_per_sec": 22.4,
-  "latency_ms": 7184.64,
-  "tool_exec_ms": 0.53
+  "latency_ms": 7194.04,
+  "tool_exec_ms": 1.01
 }

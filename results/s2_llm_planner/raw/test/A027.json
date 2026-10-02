@@ -28,10 +28,10 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"XOM\"}}, {\"tool\": \"search_news\", \"args\": {\"ticker\": \"XOM\"}}]",
-  "llm_elapsed_ms": 2024,
+  "llm_elapsed_ms": 2025,
   "llm_prompt_tokens": 458,
   "llm_gen_tokens": 38,
-  "llm_tok_per_sec": 23.0,
+  "llm_tok_per_sec": 23.1,
   "parsed_ok": true,
   "tool_outputs": [
     {
@@ -89,7 +89,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 31.8
+      "latency_ms": 32.9
     },
     {
       "tool": "search_news",
@@ -113,6 +113,6 @@
       "record_id": "rating-xom-002"
     }
   ],
-  "latency_ms": 2057.04,
-  "tool_exec_ms": 31.8
+  "latency_ms": 2058.35,
+  "tool_exec_ms": 32.91
 }

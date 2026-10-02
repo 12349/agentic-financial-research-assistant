@@ -121,7 +121,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 263.7
+      "latency_ms": 1131.9
     },
     {
       "results": [
@@ -176,7 +176,7 @@
       "tool": "search_news",
       "query": "Did Nvidia's forward revenue outlook land above or below what analysts were estimating?",
       "ticker": "NVDA",
-      "latency_ms": 18.8
+      "latency_ms": 41.6
     }
   ],
   "answer": "Nvidia's Q4 guidance of approximately $37.5 billion exceeded the Street estimates of $37.1 billion, as reported in a financial news article published on November 22, 2024 [Source: news-nvda-003]. This indicates that Nvidia\u2019s forward revenue outlook was above what analysts were estimating.\n\nSources used:\n- [Source: news-nvda-003]",
@@ -217,10 +217,10 @@
       "record_id": "news-nvda-002"
     }
   ],
-  "llm_elapsed_ms": 11743,
-  "llm_prompt_tokens": 1867,
+  "llm_elapsed_ms": 11291,
+  "llm_prompt_tokens": 1868,
   "llm_gen_tokens": 89,
-  "llm_tok_per_sec": 22.2,
-  "latency_ms": 12027.17,
-  "tool_exec_ms": 282.51
+  "llm_tok_per_sec": 22.3,
+  "latency_ms": 12466.16,
+  "tool_exec_ms": 1173.54
 }

@@ -82,7 +82,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 33.7
+      "latency_ms": 32.5
     },
     {
       "results": [
@@ -122,7 +122,7 @@
       "tool": "search_news",
       "query": "XOM's latest financials and where analysts have their price targets \u2014 give me both.",
       "ticker": "XOM",
-      "latency_ms": 23.3
+      "latency_ms": 26.2
     }
   ],
   "answer": "Based on the analyst ratings, there are two recent reports for Exxon Mobil (XOM). Piper Sandler's Ryan Todd maintains an \"Overweight\" rating with a price target of $135.00, up from $130.00 previously [Source: rating-xom-001]. JPMorgan's Phil Gresh also maintains a \"Neutral\" rating but has lowered the price target to $118.00 from $118.00 [Source: rating-xom-002].\n\nThe consensus among analysts is neutral, with an average price target of $126.50 based on two ratings [Source: get_ratings]. \n\nSources used:\n- Source: rating-xom-001\n- Source: rating-xom-002\n- Source: get_ratings",
@@ -148,10 +148,10 @@
       "record_id": "news-xom-002"
     }
   ],
-  "llm_elapsed_ms": 12819,
+  "llm_elapsed_ms": 12827,
   "llm_prompt_tokens": 1214,
   "llm_gen_tokens": 174,
-  "llm_tok_per_sec": 22.2,
-  "latency_ms": 12876.99,
-  "tool_exec_ms": 56.97
+  "llm_tok_per_sec": 22.1,
+  "latency_ms": 12887.12,
+  "tool_exec_ms": 58.63
 }

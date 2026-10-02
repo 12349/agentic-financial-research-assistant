@@ -10,7 +10,7 @@
   "pred_tools": [],
   "plan": [],
   "llm_raw_response": "[\"search_news\"={\"query\": \"Tesla set delivery expectations for FY2024\", \"ticker\": \"TSLA\"}]",
-  "llm_elapsed_ms": 1613,
+  "llm_elapsed_ms": 1611,
   "llm_prompt_tokens": 460,
   "llm_gen_tokens": 29,
   "llm_tok_per_sec": 23.3,
@@ -18,6 +18,6 @@
   "tool_outputs": [],
   "answer": "No data was found to answer this query.",
   "sources": [],
-  "latency_ms": 1614.25,
+  "latency_ms": 1611.65,
   "tool_exec_ms": 0.0
 }

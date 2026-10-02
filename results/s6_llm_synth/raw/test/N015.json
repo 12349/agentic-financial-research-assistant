@@ -72,7 +72,7 @@
       "tool": "search_news",
       "query": "What percentage of Nvidia's total revenue now comes from data center?",
       "ticker": "NVDA",
-      "latency_ms": 41.6
+      "latency_ms": 44.0
     }
   ],
   "answer": "According to the latest financial news, as of Q3 FY2025, the data center segment accounted for 88% of Nvidia's total revenue. This significant share reflects the strong demand for Nvidia's GPUs from major cloud providers and hyperscalers.\n\n[Source: news-nvda-002]\n\nSources used:\n- [Source: news-nvda-002]",
@@ -93,10 +93,10 @@
       "record_id": "news-nvda-003"
     }
   ],
-  "llm_elapsed_ms": 7413,
+  "llm_elapsed_ms": 7402,
   "llm_prompt_tokens": 960,
   "llm_gen_tokens": 82,
   "llm_tok_per_sec": 22.4,
-  "latency_ms": 7455.95,
-  "tool_exec_ms": 41.6
+  "latency_ms": 7447.37,
+  "tool_exec_ms": 44.05
 }

@@ -138,6 +138,6 @@
       "record_id": "earnings-nvda-001"
     }
   ],
-  "latency_ms": 0.19,
-  "tool_exec_ms": 0.16
+  "latency_ms": 0.18,
+  "tool_exec_ms": 0.15
 }

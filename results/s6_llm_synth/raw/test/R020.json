@@ -57,7 +57,7 @@
       "tool": "search_news",
       "query": "Is JPMorgan Securities neutral on XOM shares and why?",
       "ticker": "JPM",
-      "latency_ms": 42.0
+      "latency_ms": 40.3
     }
   ],
   "answer": "The provided data does not contain any information regarding JPMorgan Securities' stance on ExxonMobil (XOM) shares or the reasons behind their position. Therefore, it is not possible to determine if JPMorgan Securities is neutral on XOM shares based on the given sources.\n\nSources used:\n- [Source: news-jpm-001]\n- [Source: news-jpm-002]",
@@ -73,10 +73,10 @@
       "record_id": "news-jpm-002"
     }
   ],
-  "llm_elapsed_ms": 6356,
+  "llm_elapsed_ms": 6325,
   "llm_prompt_tokens": 701,
   "llm_gen_tokens": 84,
-  "llm_tok_per_sec": 22.4,
-  "latency_ms": 6399.01,
-  "tool_exec_ms": 41.98
+  "llm_tok_per_sec": 22.5,
+  "latency_ms": 6366.61,
+  "tool_exec_ms": 40.28
 }

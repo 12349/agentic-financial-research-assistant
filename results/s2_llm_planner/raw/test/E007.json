@@ -18,7 +18,7 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"get_earnings\", \"args\": {\"ticker\": \"JPM\"}}]",
-  "llm_elapsed_ms": 1281,
+  "llm_elapsed_ms": 1282,
   "llm_prompt_tokens": 464,
   "llm_gen_tokens": 22,
   "llm_tok_per_sec": 23.4,
@@ -87,6 +87,6 @@
       "record_id": "earnings-jpm-001"
     }
   ],
-  "latency_ms": 1282.83,
-  "tool_exec_ms": 0.5
+  "latency_ms": 1283.06,
+  "tool_exec_ms": 0.55
 }

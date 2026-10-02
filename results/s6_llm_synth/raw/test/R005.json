@@ -121,7 +121,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 38.1
+      "latency_ms": 35.2
     },
     {
       "results": [
@@ -176,7 +176,7 @@
       "tool": "search_news",
       "query": "Has Goldman Sachs changed their price target on NVDA recently?",
       "ticker": "NVDA",
-      "latency_ms": 31.6
+      "latency_ms": 30.6
     }
   ],
   "answer": "Goldman Sachs has indeed raised its price target for NVIDIA Corporation (NVDA) stock. On November 21, 2024, Goldman Sachs analyst Toshiya Hari raised the price target to $165.0 from $135.0, citing data center demand strength and confirmation of Blackwell ramp as key factors [Source: rating-nvda-001].\n\nSources used:\n- [Source: rating-nvda-001]",
@@ -217,10 +217,10 @@
       "record_id": "news-nvda-002"
     }
   ],
-  "llm_elapsed_ms": 12355,
+  "llm_elapsed_ms": 12072,
   "llm_prompt_tokens": 1860,
   "llm_gen_tokens": 99,
-  "llm_tok_per_sec": 22.1,
-  "latency_ms": 12425.53,
-  "tool_exec_ms": 69.71
+  "llm_tok_per_sec": 22.2,
+  "latency_ms": 12139.07,
+  "tool_exec_ms": 65.84
 }

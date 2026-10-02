@@ -78,7 +78,7 @@
       ],
       "mode": "offline",
       "tool": "get_earnings",
-      "latency_ms": 0.6
+      "latency_ms": 0.5
     },
     {
       "ticker": "NVDA",
@@ -148,10 +148,10 @@
       "record_id": "guidance-nvda-002"
     }
   ],
-  "llm_elapsed_ms": 20499,
+  "llm_elapsed_ms": 20515,
   "llm_prompt_tokens": 1320,
   "llm_gen_tokens": 335,
   "llm_tok_per_sec": 22.1,
-  "latency_ms": 20501.3,
-  "tool_exec_ms": 1.33
+  "latency_ms": 20517.56,
+  "tool_exec_ms": 1.23
 }

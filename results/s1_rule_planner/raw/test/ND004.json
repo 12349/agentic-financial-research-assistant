@@ -26,11 +26,11 @@
       "tool": "search_news",
       "query": "Any news about Alphabet's antitrust case?",
       "ticker": null,
-      "latency_ms": 7.0
+      "latency_ms": 4.1
     }
   ],
   "answer": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).",
   "sources": [],
-  "latency_ms": 7.0,
-  "tool_exec_ms": 6.97
+  "latency_ms": 4.14,
+  "tool_exec_ms": 4.12
 }

@@ -1,7 +1,7 @@
 {
   "system_id": "s6_llm_synth",
   "split": "test",
-  "timestamp": "2026-10-02T04:19:03Z",
+  "timestamp": "2026-10-02T05:19:18Z",
   "n_queries": 47,
   "tool_selection": {
     "n_queries": 47,
@@ -60,24 +60,24 @@
   },
   "synthesis_quality": {
     "n_queries": 47,
-    "citation_valid_mean": 0.861,
+    "citation_valid_mean": 0.8592,
     "citation_ci_95": [
-      0.7638,
-      0.9468
+      0.7617,
+      0.9433
     ],
-    "faithfulness_mean": 0.0714,
+    "faithfulness_mean": 0.9749,
     "faithfulness_ci_95": [
-      0.0326,
-      0.1186
+      0.9518,
+      0.9946
     ],
-    "unsupported_rate_mean": 0.4652,
+    "unsupported_rate_mean": 0.2375,
     "unsupported_ci_95": [
-      0.4064,
-      0.5215
+      0.1758,
+      0.2997
     ],
     "abstention_acc": 0.1429
   },
   "model": "qwen2.5:7b-instruct",
-  "mean_latency_ms": 9528.93,
-  "mean_llm_latency_ms": 9483.38
+  "mean_latency_ms": 9642.93,
+  "mean_llm_latency_ms": 9574.21
 }

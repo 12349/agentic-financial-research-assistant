@@ -18,10 +18,10 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"get_earnings\", \"args\": {\"ticker\": \"TSLA\"}}]",
-  "llm_elapsed_ms": 1362,
+  "llm_elapsed_ms": 1328,
   "llm_prompt_tokens": 457,
   "llm_gen_tokens": 23,
-  "llm_tok_per_sec": 23.1,
+  "llm_tok_per_sec": 23.3,
   "parsed_ok": true,
   "tool_outputs": [
     {
@@ -64,6 +64,6 @@
       "record_id": "earnings-tsla-001"
     }
   ],
-  "latency_ms": 1364.08,
-  "tool_exec_ms": 0.59
+  "latency_ms": 1329.75,
+  "tool_exec_ms": 0.57
 }

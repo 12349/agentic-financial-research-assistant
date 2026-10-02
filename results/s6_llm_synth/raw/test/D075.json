@@ -94,7 +94,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 30.0
+      "latency_ms": 33.6
     }
   ],
   "answer": "The JPMorgan analyst maintains a neutral stance on the stock, which contrasts with the bullish sentiment from other analysts. Deutsche Bank's Matt O'Connor has raised the price target to $275.00, Wells Fargo's Mike Mayo has also increased his price target to $280.00, and Oppenheimer's Chris Kotowski similarly raised his price target to $265.00. These analysts highlight factors such as a strong capital markets rebound, best-in-class franchise, investment banking recovery, and NII strength.\n\nSources used:\n- [Source: rating-jpm-003]\n- [Source: rating-jpm-001]\n- [Source: rating-jpm-002]",
@@ -115,10 +115,10 @@
       "record_id": "rating-jpm-002"
     }
   ],
-  "llm_elapsed_ms": 10177,
+  "llm_elapsed_ms": 10118,
   "llm_prompt_tokens": 882,
   "llm_gen_tokens": 151,
-  "llm_tok_per_sec": 22.0,
-  "latency_ms": 10207.85,
-  "tool_exec_ms": 29.97
+  "llm_tok_per_sec": 22.3,
+  "latency_ms": 10152.49,
+  "tool_exec_ms": 33.56
 }

@@ -26,7 +26,7 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"get_earnings\", \"args\": {\"ticker\": \"NVDA\"}}, {\"tool\": \"get_guidance\", \"args\": {\"ticker\": \"NVDA\"}}]",
-  "llm_elapsed_ms": 2158,
+  "llm_elapsed_ms": 2161,
   "llm_prompt_tokens": 456,
   "llm_gen_tokens": 41,
   "llm_tok_per_sec": 22.9,
@@ -128,7 +128,7 @@
       ],
       "mode": "offline",
       "tool": "get_guidance",
-      "latency_ms": 0.3
+      "latency_ms": 0.2
     }
   ],
   "answer": "[Source: earnings-nvda-001] NVDA Q3 FY2025 earnings (reported 2024-11-20): Revenue $35.1B vs. estimate $33.2B \u2014 BEAT (+5.8%). EPS $0.81 vs. estimate $0.74 \u2014 BEAT (+9.5%). Revenue grew 93.6% year-over-year.\n  Notes: Record quarter driven by data center segment at $30.8B. Gaming revenue was $3.3B. CEO Jensen Huang cited 'insane' Blackwell demand.\n\n[Source: guidance-nvda-001] NVDA issued Revenue guidance of $37.5B for Q4 FY2025 (issued 2024-11-20). Prior analyst estimate was $37.1B.\n  Notes: Company guided Q4 FY2025 revenue to approximately $37.5B (+/- 2%), above Street consensus of $37.1B at time of guidance.",
@@ -144,6 +144,6 @@
       "record_id": "guidance-nvda-001"
     }
   ],
-  "latency_ms": 2160.07,
-  "tool_exec_ms": 0.78
+  "latency_ms": 2162.18,
+  "tool_exec_ms": 0.68
 }

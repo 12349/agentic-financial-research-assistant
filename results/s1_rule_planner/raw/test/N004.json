@@ -72,7 +72,7 @@
       "tool": "search_news",
       "query": "Is there news about OPEC and Exxon?",
       "ticker": "XOM",
-      "latency_ms": 10.8
+      "latency_ms": 9.7
     }
   ],
   "answer": "[Source: news-xom-001] Exxon Mobil Warns OPEC Meeting Outcome Could Pressure Oil Prices Further\nExxon Mobil executives flagged concern over the upcoming OPEC+ ministerial meeting, noting that a potential production increase could pressure crude oil prices into the $70-$75 range. The company reaffirmed its capital discipline strategy, saying it would not alter its $28 billion capex plan regardless of short-term oil price movements.\n[Source: news-xom-002] Additionally: OPEC Postpones Production Increases as Oil Prices Slip; Exxon Benefits from Capital Discipline",
@@ -88,6 +88,6 @@
       "record_id": "news-xom-002"
     }
   ],
-  "latency_ms": 10.81,
-  "tool_exec_ms": 10.8
+  "latency_ms": 9.68,
+  "tool_exec_ms": 9.67
 }

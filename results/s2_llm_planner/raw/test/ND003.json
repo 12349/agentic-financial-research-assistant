@@ -18,10 +18,10 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"get_guidance\", \"args\": {\"ticker\": \"AMZN\"}}]",
-  "llm_elapsed_ms": 1105,
+  "llm_elapsed_ms": 1106,
   "llm_prompt_tokens": 449,
   "llm_gen_tokens": 21,
-  "llm_tok_per_sec": 23.6,
+  "llm_tok_per_sec": 23.5,
   "parsed_ok": true,
   "tool_outputs": [
     {
@@ -30,11 +30,11 @@
       "error": "No guidance data found for AMZN",
       "mode": "offline",
       "tool": "get_guidance",
-      "latency_ms": 0.3
+      "latency_ms": 0.4
     }
   ],
   "answer": "No data was found to answer this query.\n\nNo guidance data was available for AMZN.",
   "sources": [],
-  "latency_ms": 1106.54,
-  "tool_exec_ms": 0.35
+  "latency_ms": 1107.08,
+  "tool_exec_ms": 0.46
 }

@@ -26,15 +26,15 @@
       "tool": "search_news",
       "query": "What's the news on Coinbase's regulatory battles?",
       "ticker": null,
-      "latency_ms": 45.6
+      "latency_ms": 45.1
     }
   ],
-  "answer": "Based on the available data, there is no recent specific news reported regarding Coinbase's ongoing regulatory battles.\n\nSources used:\n- [Source: search_news_01]",
+  "answer": "Based on the available data, there is no recent specific news reported regarding Coinbase's ongoing regulatory battles.\n\nSources used:\n- [Source: search_news_0]",
   "sources": [],
-  "llm_elapsed_ms": 1973,
+  "llm_elapsed_ms": 1936,
   "llm_prompt_tokens": 241,
-  "llm_gen_tokens": 34,
+  "llm_gen_tokens": 33,
   "llm_tok_per_sec": 23.1,
-  "latency_ms": 2019.43,
-  "tool_exec_ms": 45.62
+  "latency_ms": 1982.44,
+  "tool_exec_ms": 45.15
 }

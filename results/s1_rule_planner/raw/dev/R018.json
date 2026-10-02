@@ -57,7 +57,7 @@
       "tool": "search_news",
       "query": "What's Adam Jonas at Morgan Stanley saying about Tesla's self-driving prospects?",
       "ticker": "TSLA",
-      "latency_ms": 6.6
+      "latency_ms": 6.0
     }
   ],
   "answer": "[Source: news-tsla-002] Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline\nTesla unveiled its long-awaited robotaxi, the Cybercab, at a Hollywood event. The two-seater autonomous vehicle is priced under $30,000 and is expected to enter production in 2026. Analysts expressed optimism about the long-term vision but concerns about regulatory approvals and production timelines.\n[Source: news-tsla-001] Additionally: Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles",
@@ -73,6 +73,6 @@
       "record_id": "news-tsla-001"
     }
   ],
-  "latency_ms": 6.61,
-  "tool_exec_ms": 6.59
+  "latency_ms": 6.08,
+  "tool_exec_ms": 6.05
 }

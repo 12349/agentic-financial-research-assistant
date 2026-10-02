@@ -72,7 +72,7 @@
       "tool": "search_news",
       "query": "How did Meta Platforms do on earnings last quarter?",
       "ticker": null,
-      "latency_ms": 6.0
+      "latency_ms": 5.5
     }
   ],
   "answer": "[Source: news-jpm-001] JPMorgan Q3 Net Income Rises 35% on Higher Interest Income\nJPMorgan Chase reported Q3 2024 net income of $12.9 billion, up 35% from a year earlier, driven by rising net interest income and strong investment banking fees. Revenue of $43.3 billion beat analyst expectations of $41.8 billion. CEO Jamie Dimon warned of geopolitical risks and potential credit deterioration ahead.\n[Source: news-xom-003] Additionally: Exxon Q3 Earnings Beat on Pioneer Synergies; OPEC Uncertainty Clouds Q4 Outlook",
@@ -88,6 +88,6 @@
       "record_id": "news-xom-003"
     }
   ],
-  "latency_ms": 6.06,
-  "tool_exec_ms": 6.03
+  "latency_ms": 5.49,
+  "tool_exec_ms": 5.46
 }

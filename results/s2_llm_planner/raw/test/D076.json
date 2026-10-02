@@ -26,7 +26,7 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"get_earnings\", \"args\": {\"ticker\": \"NVDA\"}}, {\"tool\": \"get_ratings\", \"args\": {\"ticker\": \"NVDA\"}}]",
-  "llm_elapsed_ms": 2111,
+  "llm_elapsed_ms": 2103,
   "llm_prompt_tokens": 458,
   "llm_gen_tokens": 40,
   "llm_tok_per_sec": 23.1,
@@ -181,7 +181,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 36.3
+      "latency_ms": 36.4
     }
   ],
   "answer": "[Source: earnings-nvda-001] NVDA Q3 FY2025 earnings (reported 2024-11-20): Revenue $35.1B vs. estimate $33.2B \u2014 BEAT (+5.8%). EPS $0.81 vs. estimate $0.74 \u2014 BEAT (+9.5%). Revenue grew 93.6% year-over-year.\n  Notes: Record quarter driven by data center segment at $30.8B. Gaming revenue was $3.3B. CEO Jensen Huang cited 'insane' Blackwell demand.\n\nAnalyst sentiment on NVDA is currently BULLISH.\n[Source: rating-nvda-002] Of 4 recent ratings: 3 bullish, 0 neutral, 1 bearish. Average price target: $172.\n[Source: rating-nvda-002] Bank of America (Vivek Arya) Raises Price Target at Buy, PT $190.0 (from $165.0). Sees Blackwell cycle as multi-year AI infrastructure tailwind.\n[Source: rating-nvda-001] Goldman Sachs (Toshiya Hari) Raises Price Target at Buy, PT $165.0 (from $135.0). Raised PT on data center demand strength and Blackwell ramp confirmation.",
@@ -202,6 +202,6 @@
       "record_id": "rating-nvda-001"
     }
   ],
-  "latency_ms": 2149.14,
-  "tool_exec_ms": 36.8
+  "latency_ms": 2140.71,
+  "tool_exec_ms": 36.89
 }

@@ -73,7 +73,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 31.1
+      "latency_ms": 36.1
     }
   ],
   "answer": "Exxon Mobil's average analyst price target is $126.50 based on the data provided from two ratings reports.\n\nSources used:\n- [Source: rating-xom-001]\n- [Source: rating-xom-002]",
@@ -89,10 +89,10 @@
       "record_id": "rating-xom-002"
     }
   ],
-  "llm_elapsed_ms": 4852,
+  "llm_elapsed_ms": 4780,
   "llm_prompt_tokens": 680,
   "llm_gen_tokens": 54,
-  "llm_tok_per_sec": 22.7,
-  "latency_ms": 4883.82,
-  "tool_exec_ms": 31.06
+  "llm_tok_per_sec": 22.1,
+  "latency_ms": 4817.37,
+  "tool_exec_ms": 36.09
 }

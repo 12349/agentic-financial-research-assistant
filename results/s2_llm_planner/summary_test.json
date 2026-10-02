@@ -1,7 +1,7 @@
 {
   "system_id": "s2_llm_planner",
   "split": "test",
-  "timestamp": "2026-10-02T04:06:55Z",
+  "timestamp": "2026-10-02T05:50:09Z",
   "n_queries": 47,
   "tool_selection": {
     "n_queries": 47,
@@ -65,21 +65,21 @@
       1.0,
       1.0
     ],
-    "faithfulness_mean": 0.186,
+    "faithfulness_mean": 1.0,
     "faithfulness_ci_95": [
-      0.1398,
-      0.2308
+      1.0,
+      1.0
     ],
-    "unsupported_rate_mean": 0.7969,
+    "unsupported_rate_mean": 0.0106,
     "unsupported_ci_95": [
-      0.7483,
-      0.8454
+      0.0027,
+      0.0213
     ],
     "abstention_acc": 1.0
   },
   "model": "qwen2.5:7b-instruct",
-  "mean_latency_ms": 1704.08,
-  "mean_llm_latency_ms": 1647.38,
+  "mean_latency_ms": 1557.88,
+  "mean_llm_latency_ms": 1534.96,
   "mean_gen_tokens": 27.17,
   "parse_success_rate": 0.9787
 }

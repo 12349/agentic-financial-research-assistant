@@ -109,7 +109,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 37.0
+      "latency_ms": 38.9
     },
     {
       "tool": "search_news",
@@ -133,6 +133,6 @@
       "record_id": "rating-tsla-003"
     }
   ],
-  "latency_ms": 1993.01,
-  "tool_exec_ms": 36.97
+  "latency_ms": 1995.04,
+  "tool_exec_ms": 38.87
 }

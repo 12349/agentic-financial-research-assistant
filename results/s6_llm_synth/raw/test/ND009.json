@@ -70,7 +70,7 @@
       "tool": "search_news",
       "query": "What dividend does Exxon Mobil pay?",
       "ticker": "XOM",
-      "latency_ms": 49.6
+      "latency_ms": 46.6
     }
   ],
   "answer": "The provided news articles do not contain specific information about the current dividend paid by Exxon Mobil. The articles focus on broader topics such as OPEC's production decisions, earnings reports, and capital allocation strategies but do not mention any details regarding dividends.\n\nSources used:\n- [Source: news-xom-002]\n- [Source: news-xom-003]\n- [Source: news-xom-001]",
@@ -91,10 +91,10 @@
       "record_id": "news-xom-001"
     }
   ],
-  "llm_elapsed_ms": 7512,
+  "llm_elapsed_ms": 7513,
   "llm_prompt_tokens": 922,
   "llm_gen_tokens": 88,
   "llm_tok_per_sec": 22.4,
-  "latency_ms": 7562.54,
-  "tool_exec_ms": 49.62
+  "latency_ms": 7560.28,
+  "tool_exec_ms": 46.58
 }

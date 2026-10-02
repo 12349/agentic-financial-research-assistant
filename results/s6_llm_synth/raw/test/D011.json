@@ -102,7 +102,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 33.8
+      "latency_ms": 36.2
     },
     {
       "results": [
@@ -145,7 +145,7 @@
       "latency_ms": 23.1
     }
   ],
-  "answer": "Tesla's Q3 earnings report showed strong performance with deliveries exceeding expectations at 462,890 vehicles, surpassing the analyst consensus of 458,000. This was driven by robust demand for the Model Y in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles [Source: news-tsla-001].\n\nAnalysts remain predominantly bullish on Tesla's stock. Out of three recent ratings, two analysts have rated the stock \"Outperform\" or \"Overweight,\" while one has a \"Neutral\" rating. The consensus is bullish with an average price target of $312 [Source: get_ratings].\n\nSources used:\n- [Source: news-tsla-001]\n- [Source: get_ratings]",
+  "answer": "Tesla's Q3 earnings report showed strong performance with deliveries exceeding expectations at 462,890 vehicles, surpassing the analyst consensus of 458,000. This was driven by robust demand for the Model Y in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles [Source: news-tsla-001].\n\nAnalysts remain predominantly bullish on Tesla's stock. Out of three recent ratings, two analysts have rated the stock \"Outperform\" or \"Overweight,\" while one has a \"Neutral\" rating. The consensus is bullish with an average price target of $312 [Source: get_ratings]. Notably, some analysts are optimistic about the long-term vision for Cybercab, Tesla's autonomous vehicle, despite concerns over regulatory approvals and production timelines [Source: news-tsla-002].\n\nSources used:\n- [Source: news-tsla-001]\n- [Source: news-tsla-002]\n- [Source: get_ratings]",
   "sources": [
     {
       "ticker": "TSLA",
@@ -173,10 +173,10 @@
       "record_id": "news-tsla-002"
     }
   ],
-  "llm_elapsed_ms": 13449,
+  "llm_elapsed_ms": 15838,
   "llm_prompt_tokens": 1425,
-  "llm_gen_tokens": 168,
-  "llm_tok_per_sec": 22.1,
-  "latency_ms": 13507.54,
-  "tool_exec_ms": 56.92
+  "llm_gen_tokens": 220,
+  "llm_tok_per_sec": 22.0,
+  "latency_ms": 15898.19,
+  "tool_exec_ms": 59.32
 }

@@ -26,7 +26,7 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"search_news\", \"args\": {\"query\": \"Nvidia forward revenue outlook\", \"ticker\": \"NVDA\"}}, {\"tool\": \"get_guidance\", \"args\": {\"ticker\": \"NVDA\"}}]",
-  "llm_elapsed_ms": 2499,
+  "llm_elapsed_ms": 2512,
   "llm_prompt_tokens": 456,
   "llm_gen_tokens": 49,
   "llm_tok_per_sec": 22.8,
@@ -85,7 +85,7 @@
       "tool": "search_news",
       "query": "Nvidia forward revenue outlook",
       "ticker": "NVDA",
-      "latency_ms": 57.2
+      "latency_ms": 62.6
     },
     {
       "ticker": "NVDA",
@@ -150,6 +150,6 @@
       "record_id": "guidance-nvda-001"
     }
   ],
-  "latency_ms": 2557.48,
-  "tool_exec_ms": 57.36
+  "latency_ms": 2575.96,
+  "tool_exec_ms": 62.72
 }

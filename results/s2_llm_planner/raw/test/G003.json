@@ -18,10 +18,10 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"get_guidance\", \"args\": {\"ticker\": \"JPM\"}}]",
-  "llm_elapsed_ms": 1243,
+  "llm_elapsed_ms": 1235,
   "llm_prompt_tokens": 457,
   "llm_gen_tokens": 21,
-  "llm_tok_per_sec": 23.2,
+  "llm_tok_per_sec": 23.4,
   "parsed_ok": true,
   "tool_outputs": [
     {
@@ -66,7 +66,7 @@
       ],
       "mode": "offline",
       "tool": "get_guidance",
-      "latency_ms": 0.4
+      "latency_ms": 0.6
     }
   ],
   "answer": "[Source: guidance-jpm-001] JPM issued Net Interest Income guidance of $92.5B for FY2024 (issued 2024-10-11). Prior analyst estimate was $91.0B.\n  Notes: JPMorgan raised FY2024 NII guidance to approximately $92.5B from prior guidance of $91B, ahead of analyst consensus of $91B.",
@@ -77,6 +77,6 @@
       "record_id": "guidance-jpm-001"
     }
   ],
-  "latency_ms": 1244.46,
-  "tool_exec_ms": 0.45
+  "latency_ms": 1236.29,
+  "tool_exec_ms": 0.61
 }

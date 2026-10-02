@@ -57,7 +57,7 @@
       "tool": "search_news",
       "query": "How well did JPMorgan do relative to Wall Street's revenue expectations in Q2 2024?",
       "ticker": "JPM",
-      "latency_ms": 50.7
+      "latency_ms": 197.7
     }
   ],
   "answer": "Based on the available data, JPMorgan Chase exceeded Wall Street\u2019s revenue expectations for Q3 2024. The company reported a net income of $12.9 billion, up 35% from the previous year, driven by rising net interest income and strong investment banking fees. Revenue reached $43.3 billion, surpassing analyst expectations of $41.8 billion. However, it is important to note that this data pertains to Q3 2024 rather than Q2 as requested.\n\n[Source: news-jpm-001]\n\nSources used:\n- [Source: news-jpm-001]",
@@ -73,10 +73,10 @@
       "record_id": "news-jpm-002"
     }
   ],
-  "llm_elapsed_ms": 8567,
-  "llm_prompt_tokens": 721,
+  "llm_elapsed_ms": 8601,
+  "llm_prompt_tokens": 722,
   "llm_gen_tokens": 136,
   "llm_tok_per_sec": 22.3,
-  "latency_ms": 8619.02,
-  "tool_exec_ms": 50.7
+  "latency_ms": 8800.25,
+  "tool_exec_ms": 197.77
 }

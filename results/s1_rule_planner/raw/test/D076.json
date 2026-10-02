@@ -114,7 +114,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 12.2
+      "latency_ms": 11.8
     }
   ],
   "answer": "Analyst sentiment on NVDA is currently BULLISH.\n[Source: rating-nvda-002] Of 4 recent ratings: 3 bullish, 0 neutral, 1 bearish. Average price target: $172.\n[Source: rating-nvda-002] Bank of America (Vivek Arya) Raises Price Target at Buy, PT $190.0 (from $165.0). Sees Blackwell cycle as multi-year AI infrastructure tailwind.\n[Source: rating-nvda-001] Goldman Sachs (Toshiya Hari) Raises Price Target at Buy, PT $165.0 (from $135.0). Raised PT on data center demand strength and Blackwell ramp confirmation.",
@@ -130,6 +130,6 @@
       "record_id": "rating-nvda-001"
     }
   ],
-  "latency_ms": 12.2,
-  "tool_exec_ms": 12.16
+  "latency_ms": 11.8,
+  "tool_exec_ms": 11.76
 }

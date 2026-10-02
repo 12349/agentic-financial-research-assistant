@@ -28,15 +28,15 @@
       "tool": "search_news",
       "query": "Break down what's happening with the JPM story.",
       "ticker": "JPM",
-      "latency_ms": 48.9
+      "latency_ms": 49.3
     }
   ],
   "answer": "Based on the available data, there is no recent specific information or news updates regarding JPM (presumably referring to JPMorgan Chase & Co.). The search did not return any relevant results for a detailed breakdown of what's currently happening with the JPM story.\n\nSources used:\n- [Source: 001]",
   "sources": [],
-  "llm_elapsed_ms": 3425,
+  "llm_elapsed_ms": 3428,
   "llm_prompt_tokens": 245,
   "llm_gen_tokens": 66,
   "llm_tok_per_sec": 22.7,
-  "latency_ms": 3474.29,
-  "tool_exec_ms": 48.9
+  "latency_ms": 3477.98,
+  "tool_exec_ms": 49.36
 }
