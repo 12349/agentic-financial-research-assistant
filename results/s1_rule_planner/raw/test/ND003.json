@@ -80,7 +80,7 @@
       "tool": "search_news",
       "query": "What is Amazon's forward revenue guidance?",
       "ticker": null,
-      "latency_ms": 9.2
+      "latency_ms": 10.7
     },
     {
       "results": [
@@ -135,7 +135,7 @@
       "tool": "search_news",
       "query": "What is Amazon's forward revenue guidance?",
       "ticker": null,
-      "latency_ms": 6.0
+      "latency_ms": 4.1
     }
   ],
   "answer": "[Source: news-nvda-003] Nvidia Q4 Guidance Tops Estimates; Analysts Raise Price Targets Across the Board\nFollowing Nvidia's blowout Q3 earnings, at least 15 analysts raised their price targets for NVDA stock. The company guided Q4 revenue to approximately $37.5 billion, versus Street estimates of $37.1 billion. Several analysts noted that data center infrastructure spending shows no signs of slowing despite macro uncertainty.\n[Source: news-nvda-001] Additionally: Nvidia Data Center Revenue Hits Record $22.6B in Q3 FY2025, Surpassing Analyst Expectations\n\n[Source: news-nvda-003] Nvidia Q4 Guidance Tops Estimates; Analysts Raise Price Targets Across the Board\nFollowing Nvidia's blowout Q3 earnings, at least 15 analysts raised their price targets for NVDA stock. The company guided Q4 revenue to approximately $37.5 billion, versus Street estimates of $37.1 billion. Several analysts noted that data center infrastructure spending shows no signs of slowing despite macro uncertainty.\n[Source: news-nvda-001] Additionally: Nvidia Data Center Revenue Hits Record $22.6B in Q3 FY2025, Surpassing Analyst Expectations",
@@ -151,6 +151,6 @@
       "record_id": "news-nvda-001"
     }
   ],
-  "latency_ms": 15.17,
-  "tool_exec_ms": 15.14
+  "latency_ms": 14.87,
+  "tool_exec_ms": 14.84
 }

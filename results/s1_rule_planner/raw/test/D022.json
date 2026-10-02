@@ -102,7 +102,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 9.7
+      "latency_ms": 10.1
     },
     {
       "results": [
@@ -168,6 +168,6 @@
       "record_id": "news-jpm-002"
     }
   ],
-  "latency_ms": 20.09,
-  "tool_exec_ms": 20.06
+  "latency_ms": 20.54,
+  "tool_exec_ms": 20.52
 }

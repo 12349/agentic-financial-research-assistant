@@ -1,0 +1,123 @@
+{
+  "id": "R006",
+  "query_id": "R006",
+  "query": "Which analyst firm has the highest price target on Tesla?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_ratings"
+  ],
+  "pred_tools": [
+    "get_ratings"
+  ],
+  "plan": [
+    {
+      "tool": "get_ratings",
+      "args": {
+        "ticker": "TSLA"
+      }
+    }
+  ],
+  "tool_outputs": [
+    {
+      "ticker": "TSLA",
+      "ratings": [
+        {
+          "id": "rating-tsla-001",
+          "ticker": "TSLA",
+          "analyst_firm": "Wedbush Securities",
+          "analyst_name": "Dan Ives",
+          "rating": "Outperform",
+          "prior_rating": "Outperform",
+          "price_target": 400.0,
+          "prior_price_target": 300.0,
+          "action": "Raises Price Target",
+          "date": "2024-12-01",
+          "notes": "Tesla AI and FSD monetization opportunity undervalued; Cybercab a long-term catalyst.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-tsla-001"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.914
+        },
+        {
+          "id": "rating-tsla-003",
+          "ticker": "TSLA",
+          "analyst_firm": "UBS",
+          "analyst_name": "Joseph Spak",
+          "rating": "Neutral",
+          "prior_rating": "Neutral",
+          "price_target": 226.0,
+          "prior_price_target": 197.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-25",
+          "notes": "Cautious on near-term EV competition; autonomous timeline uncertain.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-tsla-003"
+          },
+          "ml_sentiment": "bearish",
+          "ml_confidence": 0.499
+        },
+        {
+          "id": "rating-tsla-002",
+          "ticker": "TSLA",
+          "analyst_firm": "Morgan Stanley",
+          "analyst_name": "Adam Jonas",
+          "rating": "Overweight",
+          "prior_rating": "Overweight",
+          "price_target": 310.0,
+          "prior_price_target": 270.0,
+          "action": "Raises Price Target",
+          "date": "2024-11-15",
+          "notes": "Full self-driving revenue model gaining credibility post-Cybercab reveal.",
+          "source_ref": {
+            "ticker": "TSLA",
+            "channel": "analyst_ratings",
+            "record_id": "rating-tsla-002"
+          },
+          "ml_sentiment": "bullish",
+          "ml_confidence": 0.524
+        }
+      ],
+      "summary": {
+        "total_ratings": 3,
+        "bullish": 2,
+        "neutral": 0,
+        "bearish": 1,
+        "consensus": "bullish",
+        "ml_scored_count": 3,
+        "avg_price_target": 312.0
+      },
+      "mode": "offline",
+      "tool": "get_ratings",
+      "latency_ms": 36.3
+    }
+  ],
+  "answer": "Based on the data provided, Wedbush Securities has set the highest price target of $400.00 for Tesla (TSLA), followed by Morgan Stanley with a price target of $310.00 and UBS with a lower target at $226.00.\n\n[Source: rating-tsla-001]\n[Source: rating-tsla-002]\n[Source: rating-tsla-003]\n\nSources used:\n- [Source: rating-tsla-001]\n- [Source: rating-tsla-002]\n- [Source: rating-tsla-003]",
+  "sources": [
+    {
+      "ticker": "TSLA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-tsla-001"
+    },
+    {
+      "ticker": "TSLA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-tsla-003"
+    },
+    {
+      "ticker": "TSLA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-tsla-002"
+    }
+  ],
+  "llm_elapsed_ms": 13701,
+  "llm_prompt_tokens": 890,
+  "llm_gen_tokens": 136,
+  "llm_tok_per_sec": 22.0,
+  "latency_ms": 13738.45,
+  "tool_exec_ms": 36.31
+}

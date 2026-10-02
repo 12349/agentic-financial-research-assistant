@@ -73,6 +73,6 @@
       "record_id": "news-jpm-001"
     }
   ],
-  "latency_ms": 8.72,
-  "tool_exec_ms": 8.71
+  "latency_ms": 8.75,
+  "tool_exec_ms": 8.73
 }

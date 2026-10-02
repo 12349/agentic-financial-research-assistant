@@ -1,10 +1,10 @@
 {
-  "id": "N001",
-  "query_id": "N001",
-  "query": "What's the latest news on Nvidia?",
+  "id": "E018",
+  "query_id": "E018",
+  "query": "How did Nvidia's data center revenue compare between Q2 and Q3 FY2025?",
   "category": "single_tool",
   "gold_tools": [
-    "search_news"
+    "get_earnings"
   ],
   "pred_tools": [
     "search_news"
@@ -13,7 +13,7 @@
     {
       "tool": "search_news",
       "args": {
-        "query": "What's the latest news on Nvidia?",
+        "query": "How did Nvidia's data center revenue compare between Q2 and Q3 FY2025?",
         "ticker": "NVDA"
       }
     }
@@ -22,21 +22,6 @@
     {
       "results": [
         {
-          "id": "news-nvda-002",
-          "ticker": "NVDA",
-          "headline": "Nvidia Blackwell GPU Demand Described as 'Insane' as Supply Constraints Ease",
-          "body": "Nvidia's next-generation Blackwell GPU architecture has seen overwhelming demand from major cloud providers including Microsoft Azure, Google Cloud, and Amazon AWS. CFO Colette Kress stated during the earnings call that Blackwell supply is ramping rapidly and the company expects sequential revenue growth. Data center segment remains the primary growth driver, accounting for 88% of total revenue.",
-          "published_at": "2024-11-21T14:30:00Z",
-          "source": "Financial News",
-          "url": "https://example.com/news/nvda-blackwell-demand",
-          "score": 0.5148,
-          "source_ref": {
-            "ticker": "NVDA",
-            "channel": "news",
-            "record_id": "news-nvda-002"
-          }
-        },
-        {
           "id": "news-nvda-001",
           "ticker": "NVDA",
           "headline": "Nvidia Data Center Revenue Hits Record $22.6B in Q3 FY2025, Surpassing Analyst Expectations",
@@ -44,7 +29,7 @@
           "published_at": "2024-11-20T21:00:00Z",
           "source": "Financial News",
           "url": "https://example.com/news/nvda-data-center-q3",
-          "score": 0.4485,
+          "score": 0.81,
           "source_ref": {
             "ticker": "NVDA",
             "channel": "news",
@@ -59,35 +44,59 @@
           "published_at": "2024-11-22T09:00:00Z",
           "source": "Financial News",
           "url": "https://example.com/news/nvda-q4-guidance-analysts",
-          "score": 0.4275,
+          "score": 0.5505,
           "source_ref": {
             "ticker": "NVDA",
             "channel": "news",
             "record_id": "news-nvda-003"
+          }
+        },
+        {
+          "id": "news-nvda-002",
+          "ticker": "NVDA",
+          "headline": "Nvidia Blackwell GPU Demand Described as 'Insane' as Supply Constraints Ease",
+          "body": "Nvidia's next-generation Blackwell GPU architecture has seen overwhelming demand from major cloud providers including Microsoft Azure, Google Cloud, and Amazon AWS. CFO Colette Kress stated during the earnings call that Blackwell supply is ramping rapidly and the company expects sequential revenue growth. Data center segment remains the primary growth driver, accounting for 88% of total revenue.",
+          "published_at": "2024-11-21T14:30:00Z",
+          "source": "Financial News",
+          "url": "https://example.com/news/nvda-blackwell-demand",
+          "score": 0.4213,
+          "source_ref": {
+            "ticker": "NVDA",
+            "channel": "news",
+            "record_id": "news-nvda-002"
           }
         }
       ],
       "mode": "offline",
       "engine": "semantic",
       "tool": "search_news",
-      "query": "What's the latest news on Nvidia?",
+      "query": "How did Nvidia's data center revenue compare between Q2 and Q3 FY2025?",
       "ticker": "NVDA",
-      "latency_ms": 12.1
+      "latency_ms": 31.7
     }
   ],
-  "answer": "[Source: news-nvda-002] Nvidia Blackwell GPU Demand Described as 'Insane' as Supply Constraints Ease\nNvidia's next-generation Blackwell GPU architecture has seen overwhelming demand from major cloud providers including Microsoft Azure, Google Cloud, and Amazon AWS. CFO Colette Kress stated during the earnings call that Blackwell supply is ramping rapidly and the company expects sequential revenue growth. Data center segment remains the primary growth driver, accounting for 88% of total revenue.\n[Source: news-nvda-001] Additionally: Nvidia Data Center Revenue Hits Record $22.6B in Q3 FY2025, Surpassing Analyst Expectations",
+  "answer": "Based on the available information, Nvidia reported record data center revenue of $22.6 billion for Q3 FY2025, up 112% year-over-year and exceeding Wall Street consensus [Source: news-nvda-001]. However, there is no direct comparison provided between Q2 and Q3 FY2025 in the given data.\n\nSources used:\n- [Source: news-nvda-001]",
   "sources": [
     {
       "ticker": "NVDA",
       "channel": "news",
-      "record_id": "news-nvda-002"
+      "record_id": "news-nvda-001"
     },
     {
       "ticker": "NVDA",
       "channel": "news",
-      "record_id": "news-nvda-001"
+      "record_id": "news-nvda-003"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "news",
+      "record_id": "news-nvda-002"
     }
   ],
-  "latency_ms": 12.13,
-  "tool_exec_ms": 12.12
+  "llm_elapsed_ms": 7744,
+  "llm_prompt_tokens": 972,
+  "llm_gen_tokens": 95,
+  "llm_tok_per_sec": 22.3,
+  "latency_ms": 7776.48,
+  "tool_exec_ms": 31.73
 }

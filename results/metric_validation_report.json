@@ -1,0 +1,590 @@
+{
+  "n_samples": 30,
+  "breakdown": {
+    "s1_dev": 10,
+    "s6_dev": 10,
+    "synthetic": 10
+  },
+  "agreement_metrics": {
+    "citation_validity_exact_match": 1.0,
+    "citation_eval_count": 28,
+    "numeric_faithfulness_exact_match": 1.0,
+    "faithfulness_eval_count": 27,
+    "unsupported_rate_block_mae": 0.0,
+    "unsupported_rate_strict_sentence_mae": 0.0,
+    "abstention_correctness_accuracy": 1.0,
+    "abstention_eval_count": 3
+  },
+  "items": [
+    {
+      "id": "s1_E012",
+      "origin": "s1_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.875,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.875,
+        "abstention_correct": null
+      },
+      "rationale": "S1 deterministic formatter copies directly from source record. All cited IDs exist (1.0). All numbers copy source values (1.0). Block-governed unsupported is 0.0. Strict sentence-level unsupported is 0.875 because note lines lack inline citation."
+    },
+    {
+      "id": "s1_E015",
+      "origin": "s1_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.875,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.875,
+        "abstention_correct": null
+      },
+      "rationale": "S1 deterministic formatter copies directly from source record. All cited IDs exist (1.0). All numbers copy source values (1.0). Block-governed unsupported is 0.0. Strict sentence-level unsupported is 0.875 because note lines lack inline citation."
+    },
+    {
+      "id": "s1_E018",
+      "origin": "s1_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.6667,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.6667,
+        "abstention_correct": null
+      },
+      "rationale": "S1 deterministic formatter copies directly from source record. All cited IDs exist (1.0). All numbers copy source values (1.0). Block-governed unsupported is 0.0. Strict sentence-level unsupported is 0.6667 because note lines lack inline citation."
+    },
+    {
+      "id": "s1_E019",
+      "origin": "s1_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.6,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.6,
+        "abstention_correct": null
+      },
+      "rationale": "S1 deterministic formatter copies directly from source record. All cited IDs exist (1.0). All numbers copy source values (1.0). Block-governed unsupported is 0.0. Strict sentence-level unsupported is 0.6 because note lines lack inline citation."
+    },
+    {
+      "id": "s1_G001",
+      "origin": "s1_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.8182,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.8182,
+        "abstention_correct": null
+      },
+      "rationale": "S1 deterministic formatter copies directly from source record. All cited IDs exist (1.0). All numbers copy source values (1.0). Block-governed unsupported is 0.0. Strict sentence-level unsupported is 0.8182 because note lines lack inline citation."
+    },
+    {
+      "id": "s1_G005",
+      "origin": "s1_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.6,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.6,
+        "abstention_correct": null
+      },
+      "rationale": "S1 deterministic formatter copies directly from source record. All cited IDs exist (1.0). All numbers copy source values (1.0). Block-governed unsupported is 0.0. Strict sentence-level unsupported is 0.6 because note lines lack inline citation."
+    },
+    {
+      "id": "s1_G006",
+      "origin": "s1_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.5714,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.5714,
+        "abstention_correct": null
+      },
+      "rationale": "S1 deterministic formatter copies directly from source record. All cited IDs exist (1.0). All numbers copy source values (1.0). Block-governed unsupported is 0.0. Strict sentence-level unsupported is 0.5714 because note lines lack inline citation."
+    },
+    {
+      "id": "s1_G012",
+      "origin": "s1_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.6,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.6,
+        "abstention_correct": null
+      },
+      "rationale": "S1 deterministic formatter copies directly from source record. All cited IDs exist (1.0). All numbers copy source values (1.0). Block-governed unsupported is 0.0. Strict sentence-level unsupported is 0.6 because note lines lack inline citation."
+    },
+    {
+      "id": "s1_R006",
+      "origin": "s1_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.5714,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.5714,
+        "abstention_correct": null
+      },
+      "rationale": "S1 deterministic formatter copies directly from source record. All cited IDs exist (1.0). All numbers copy source values (1.0). Block-governed unsupported is 0.0. Strict sentence-level unsupported is 0.5714 because note lines lack inline citation."
+    },
+    {
+      "id": "s1_ND012",
+      "origin": "s1_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.6,
+        "abstention_correct": false
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.6,
+        "abstention_correct": false
+      },
+      "rationale": "Query ND012 has category 'no_data'. S1 planner erroneously retrieved news and formatted it instead of abstaining. Therefore expected abstention_correct is False."
+    },
+    {
+      "id": "s6_E012",
+      "origin": "s6_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.6667,
+        "strict_sentence_unsupported_rate": 0.6667,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.6667,
+        "unsupported_rate_strict": 0.6667,
+        "abstention_correct": null
+      },
+      "rationale": "S6 LLM synthesis output. Hand-checked citations: valid_fraction=1.0; hand-checked numbers: faithful_fraction=1.0; block unsupported=0.6667, strict unsupported=0.6667."
+    },
+    {
+      "id": "s6_E015",
+      "origin": "s6_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.25,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.25,
+        "abstention_correct": null
+      },
+      "rationale": "S6 LLM synthesis output. Hand-checked citations: valid_fraction=1.0; hand-checked numbers: faithful_fraction=1.0; block unsupported=0.0, strict unsupported=0.25."
+    },
+    {
+      "id": "s6_E018",
+      "origin": "s6_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.5,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.5,
+        "abstention_correct": null
+      },
+      "rationale": "S6 LLM synthesis output. Hand-checked citations: valid_fraction=1.0; hand-checked numbers: faithful_fraction=1.0; block unsupported=0.0, strict unsupported=0.5."
+    },
+    {
+      "id": "s6_E019",
+      "origin": "s6_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.6,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.6,
+        "abstention_correct": null
+      },
+      "rationale": "S6 LLM synthesis output. Hand-checked citations: valid_fraction=1.0; hand-checked numbers: faithful_fraction=1.0; block unsupported=0.0, strict unsupported=0.6."
+    },
+    {
+      "id": "s6_G001",
+      "origin": "s6_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.5,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.5,
+        "abstention_correct": null
+      },
+      "rationale": "S6 LLM synthesis output. Hand-checked citations: valid_fraction=1.0; hand-checked numbers: faithful_fraction=1.0; block unsupported=0.0, strict unsupported=0.5."
+    },
+    {
+      "id": "s6_G005",
+      "origin": "s6_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.5,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.5,
+        "abstention_correct": null
+      },
+      "rationale": "S6 LLM synthesis output. Hand-checked citations: valid_fraction=1.0; hand-checked numbers: faithful_fraction=1.0; block unsupported=0.0, strict unsupported=0.5."
+    },
+    {
+      "id": "s6_G006",
+      "origin": "s6_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 0.8,
+        "unsupported_rate_block": 0.5714,
+        "strict_sentence_unsupported_rate": 0.8571,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 0.8,
+        "unsupported_rate_block": 0.5714,
+        "unsupported_rate_strict": 0.8571,
+        "abstention_correct": null
+      },
+      "rationale": "S6 LLM synthesis output. Hand-checked citations: valid_fraction=1.0; hand-checked numbers: faithful_fraction=0.8; block unsupported=0.5714, strict unsupported=0.8571."
+    },
+    {
+      "id": "s6_G012",
+      "origin": "s6_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.3333,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.3333,
+        "abstention_correct": null
+      },
+      "rationale": "S6 LLM synthesis output. Hand-checked citations: valid_fraction=1.0; hand-checked numbers: faithful_fraction=1.0; block unsupported=0.0, strict unsupported=0.3333."
+    },
+    {
+      "id": "s6_R006",
+      "origin": "s6_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.125,
+        "strict_sentence_unsupported_rate": 0.25,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.125,
+        "unsupported_rate_strict": 0.25,
+        "abstention_correct": null
+      },
+      "rationale": "S6 LLM synthesis output. Hand-checked citations: valid_fraction=1.0; hand-checked numbers: faithful_fraction=1.0; block unsupported=0.125, strict unsupported=0.25."
+    },
+    {
+      "id": "s6_R008",
+      "origin": "s6_dev",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": null,
+        "unsupported_rate_block": 0.25,
+        "strict_sentence_unsupported_rate": 0.3333,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": null,
+        "unsupported_rate_block": 0.25,
+        "unsupported_rate_strict": 0.3333,
+        "abstention_correct": null
+      },
+      "rationale": "S6 LLM synthesis output. Hand-checked citations: valid_fraction=1.0; hand-checked numbers: faithful_fraction=None; block unsupported=0.25, strict unsupported=0.3333."
+    },
+    {
+      "id": "syn_01_fabricated_citation",
+      "origin": "synthetic_corruption",
+      "calculated": {
+        "citation_validity": 0.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.0,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 0.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.0,
+        "abstention_correct": null
+      },
+      "rationale": "Citation 'fabricated-earnings-999' does not exist in tool outputs. Exactly 0/1 citations are valid. Number $90.0B is faithful to 90025000000."
+    },
+    {
+      "id": "syn_02_half_fabricated_citations",
+      "origin": "synthetic_corruption",
+      "calculated": {
+        "citation_validity": 0.5,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.0,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 0.5,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.0,
+        "abstention_correct": null
+      },
+      "rationale": "Two citations present: earnings-xom-001 (valid) and sec-xom-fake-10q (invalid). Exactly 1/2 = 0.5 citation validity."
+    },
+    {
+      "id": "syn_03_hallucinated_numbers",
+      "origin": "synthetic_corruption",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 0.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.0,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 0.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.0,
+        "abstention_correct": null
+      },
+      "rationale": "Both numbers ($245.8B and $14.20) are completely fabricated and outside any tolerance of 90.025B or 1.92. Faithfulness = 0/2 = 0.0."
+    },
+    {
+      "id": "syn_04_mixed_faithfulness",
+      "origin": "synthetic_corruption",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 0.5,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.0,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 0.5,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.0,
+        "abstention_correct": null
+      },
+      "rationale": "Two numbers: $90.0B matches source (faithful), $999.0B is hallucinated (source says $35B). Faithfulness = 1/2 = 0.5."
+    },
+    {
+      "id": "syn_05_scaled_and_rounded_numbers",
+      "origin": "synthetic_corruption",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.0,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.0,
+        "abstention_correct": null
+      },
+      "rationale": "Both numbers ($1.92 and $500M) match the source records exactly. Faithfulness = 2/2 = 1.0."
+    },
+    {
+      "id": "syn_06_uncited_second_sentence_same_paragraph",
+      "origin": "synthetic_corruption",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.5,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.5,
+        "abstention_correct": null
+      },
+      "rationale": "Two sentences in one paragraph. Sentence 1 has inline citation; Sentence 2 has none. Under block-level governance, block has citation -> 0/2 unsupported (0.0). Under strict sentence-level governance, sentence 2 has no citation -> 1/2 unsupported (0.5)."
+    },
+    {
+      "id": "syn_07_separate_uncited_paragraph",
+      "origin": "synthetic_corruption",
+      "calculated": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.5,
+        "strict_sentence_unsupported_rate": 0.5,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": 1.0,
+        "numeric_faithfulness": 1.0,
+        "unsupported_rate_block": 0.5,
+        "unsupported_rate_strict": 0.5,
+        "abstention_correct": null
+      },
+      "rationale": "Two paragraphs, two sentences. Paragraph 1 has citation. Paragraph 2 has no citation at all. Both block-level and strict sentence-level mark Paragraph 2 as unsupported (1/2 = 0.5)."
+    },
+    {
+      "id": "syn_08_completely_uncited_prose",
+      "origin": "synthetic_corruption",
+      "calculated": {
+        "citation_validity": null,
+        "numeric_faithfulness": null,
+        "unsupported_rate_block": 1.0,
+        "strict_sentence_unsupported_rate": 1.0,
+        "abstention_correct": null
+      },
+      "expected": {
+        "citation_validity": null,
+        "numeric_faithfulness": null,
+        "unsupported_rate_block": 1.0,
+        "unsupported_rate_strict": 1.0,
+        "abstention_correct": null
+      },
+      "rationale": "Three sentences of prose with zero citations and zero numbers. Citation validity = NaN, numeric faithfulness = NaN. Both block-level and strict sentence-level unsupported rate = 3/3 = 1.0."
+    },
+    {
+      "id": "syn_09_failed_abstention_on_no_data",
+      "origin": "synthetic_corruption",
+      "calculated": {
+        "citation_validity": 0.0,
+        "numeric_faithfulness": 0.0,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.0,
+        "abstention_correct": false
+      },
+      "expected": {
+        "citation_validity": 0.0,
+        "numeric_faithfulness": 0.0,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.0,
+        "abstention_correct": false
+      },
+      "rationale": "Query has category 'no_data' because no earnings records exist for XYZ. The model hallucinates an answer instead of abstaining. Expected abstention_correct = False."
+    },
+    {
+      "id": "syn_10_clean_abstention_on_no_data",
+      "origin": "synthetic_corruption",
+      "calculated": {
+        "citation_validity": null,
+        "numeric_faithfulness": null,
+        "unsupported_rate_block": 0.0,
+        "strict_sentence_unsupported_rate": 0.0,
+        "abstention_correct": true
+      },
+      "expected": {
+        "citation_validity": null,
+        "numeric_faithfulness": null,
+        "unsupported_rate_block": 0.0,
+        "unsupported_rate_strict": 0.0,
+        "abstention_correct": true
+      },
+      "rationale": "Query has category 'no_data'. Model explicitly and honestly abstains ('No data was found...'). Abstention correctness = True, unsupported claim rate = 0.0."
+    }
+  ]
+}

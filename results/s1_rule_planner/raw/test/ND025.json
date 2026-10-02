@@ -24,11 +24,11 @@
       "tool": "search_news",
       "query": "What is the options flow on NVDA calls expiring next Friday?",
       "ticker": "NVDA",
-      "latency_ms": 3.7
+      "latency_ms": 3.9
     }
   ],
   "answer": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).",
   "sources": [],
-  "latency_ms": 3.74,
-  "tool_exec_ms": 3.72
+  "latency_ms": 3.94,
+  "tool_exec_ms": 3.92
 }

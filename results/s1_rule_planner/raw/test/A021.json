@@ -75,7 +75,7 @@
       "tool": "search_news",
       "query": "Research Nvidia for me.",
       "ticker": "NVDA",
-      "latency_ms": 5.5
+      "latency_ms": 5.7
     }
   ],
   "answer": "[Source: news-nvda-002] Nvidia Blackwell GPU Demand Described as 'Insane' as Supply Constraints Ease\nNvidia's next-generation Blackwell GPU architecture has seen overwhelming demand from major cloud providers including Microsoft Azure, Google Cloud, and Amazon AWS. CFO Colette Kress stated during the earnings call that Blackwell supply is ramping rapidly and the company expects sequential revenue growth. Data center segment remains the primary growth driver, accounting for 88% of total revenue.\n[Source: news-nvda-001] Additionally: Nvidia Data Center Revenue Hits Record $22.6B in Q3 FY2025, Surpassing Analyst Expectations",
@@ -91,6 +91,6 @@
       "record_id": "news-nvda-001"
     }
   ],
-  "latency_ms": 5.49,
-  "tool_exec_ms": 5.48
+  "latency_ms": 5.68,
+  "tool_exec_ms": 5.66
 }

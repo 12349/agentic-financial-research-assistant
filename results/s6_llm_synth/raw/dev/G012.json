@@ -1,12 +1,10 @@
 {
-  "id": "A014",
-  "query_id": "A014",
-  "query": "How confident should I be about Tesla's future?",
-  "category": "ambiguous",
+  "id": "G012",
+  "query_id": "G012",
+  "query": "When you look at what management is telegraphing for Tesla's production volumes, what's the central figure?",
+  "category": "single_tool",
   "gold_tools": [
-    "get_guidance",
-    "get_ratings",
-    "search_news"
+    "get_guidance"
   ],
   "pred_tools": [
     "search_news"
@@ -15,7 +13,7 @@
     {
       "tool": "search_news",
       "args": {
-        "query": "How confident should I be about Tesla's future?",
+        "query": "When you look at what management is telegraphing for Tesla's production volumes, what's the central figure?",
         "ticker": "TSLA"
       }
     }
@@ -31,7 +29,7 @@
           "published_at": "2024-10-02T16:00:00Z",
           "source": "Financial News",
           "url": "https://example.com/news/tsla-q3-deliveries",
-          "score": 0.4708,
+          "score": 0.4279,
           "source_ref": {
             "ticker": "TSLA",
             "channel": "news",
@@ -46,7 +44,7 @@
           "published_at": "2024-10-11T22:00:00Z",
           "source": "Financial News",
           "url": "https://example.com/news/tsla-robotaxi-cybercab",
-          "score": 0.4296,
+          "score": 0.3248,
           "source_ref": {
             "ticker": "TSLA",
             "channel": "news",
@@ -57,12 +55,12 @@
       "mode": "offline",
       "engine": "semantic",
       "tool": "search_news",
-      "query": "How confident should I be about Tesla's future?",
+      "query": "When you look at what management is telegraphing for Tesla's production volumes, what's the central figure?",
       "ticker": "TSLA",
-      "latency_ms": 6.1
+      "latency_ms": 55.8
     }
   ],
-  "answer": "[Source: news-tsla-001] Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles\nTesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000. The beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.\n[Source: news-tsla-002] Additionally: Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline",
+  "answer": "Based on the news report from Financial News [Source: news-tsla-001], Tesla maintained its full-year delivery guidance of 1.8 million vehicles for Q3 2024, indicating that this figure is central to management's telegraphing regarding production volumes.\n\nSources used:\n- [Source: news-tsla-001]",
   "sources": [
     {
       "ticker": "TSLA",
@@ -75,6 +73,10 @@
       "record_id": "news-tsla-002"
     }
   ],
-  "latency_ms": 6.16,
-  "tool_exec_ms": 6.14
+  "llm_elapsed_ms": 5890,
+  "llm_prompt_tokens": 719,
+  "llm_gen_tokens": 74,
+  "llm_tok_per_sec": 22.1,
+  "latency_ms": 5947.34,
+  "tool_exec_ms": 55.78
 }

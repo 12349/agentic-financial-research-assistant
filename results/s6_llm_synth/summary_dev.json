@@ -1,0 +1,62 @@
+{
+  "system_id": "s6_llm_synth",
+  "split": "dev",
+  "timestamp": "2026-10-02T05:59:50Z",
+  "n_queries": 10,
+  "tool_selection": {
+    "n_queries": 10,
+    "precision_mean": 0.45,
+    "precision_ci_95": [
+      0.15,
+      0.75
+    ],
+    "recall_mean": 0.5,
+    "recall_ci_95": [
+      0.2,
+      0.8
+    ],
+    "f1_mean": 0.4667,
+    "f1_ci_95": [
+      0.1667,
+      0.7667
+    ],
+    "exact_match_rate": 0.4,
+    "exact_ci_95": [
+      0.1,
+      0.7
+    ],
+    "abstention_acc": NaN,
+    "tool_calls_per_q": 1.1,
+    "per_category": {
+      "single_tool": {
+        "n": 10,
+        "precision_mean": 0.45,
+        "recall_mean": 0.5,
+        "f1_mean": 0.4667,
+        "exact_rate": 0.4
+      }
+    }
+  },
+  "synthesis_quality": {
+    "n_queries": 10,
+    "citation_valid_mean": 1.0,
+    "citation_ci_95": [
+      1.0,
+      1.0
+    ],
+    "faithfulness_mean": 0.9778,
+    "faithfulness_ci_95": [
+      0.9333,
+      1.0
+    ],
+    "unsupported_rate_mean": 0.1613,
+    "unsupported_ci_95": [
+      0.025,
+      0.3268
+    ],
+    "abstention_acc": NaN
+  },
+  "model": "qwen2.5:7b-instruct",
+  "mean_latency_ms": 8977.0,
+  "mean_llm_latency_ms": 8946.3
+}

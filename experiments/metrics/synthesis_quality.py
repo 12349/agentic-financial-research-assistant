@@ -226,20 +226,37 @@ def numeric_faithfulness(
 def unsupported_claim_rate(answer: str) -> dict:
     """
     Fraction of sentences in `answer` that are not governed by a citation.
-    A sentence is supported if:
-      (1) It contains [Source: ...]; OR
-      (2) It belongs to a cited block/paragraph that starts with or contains [Source: ...].
-    Answers that explicitly abstain ('No data was found...') contain no factual claims
-    and are assigned unsupported_rate = 0.0.
+    
+    Two variants are reported:
+      1. unsupported_rate (block-governed): A sentence is supported if it contains
+         [Source: ...] OR belongs to a cited block/paragraph containing [Source: ...].
+      2. strict_sentence_unsupported_rate (sentence-level): A sentence is supported
+         ONLY if that specific sentence directly contains a [Source: ...] tag.
+         
+    Answers that explicitly abstain contain no factual claims and receive 0.0 for both.
     """
+    _ABSTAIN_PATTERNS = [
+        r"no data", r"not found", r"no (information|record|results?)",
+        r"(don't|do not|doesn't|does not) have",
+        r"(unavailable|not available)", r"outside.*scope",
+        r"(cannot|can't|unable to) (find|answer|provide)",
+        r"no (earnings|ratings|guidance|news).*found",
+        r"no .* data was available",
+    ]
     lower = answer.lower()
-    if "no data was found" in lower or "no data found" in lower:
-        return {"unsupported_rate": 0.0, "n_sentences": 1, "n_unsupported": 0}
+    if any(re.search(p, lower) for p in _ABSTAIN_PATTERNS) and len(answer.split()) < 40:
+        return {
+            "unsupported_rate": 0.0,
+            "strict_sentence_unsupported_rate": 0.0,
+            "n_sentences": 1,
+            "n_unsupported": 0,
+            "n_strict_unsupported": 0,
+        }
 
     paragraphs = [p.strip() for p in answer.split("\n\n") if p.strip()]
     total_sentences = 0
     supported_sentences = 0
-    strict_inline_count = 0
+    strict_sentence_count = 0
 
     for p in paragraphs:
         lines = [l.strip() for l in p.split("\n") if l.strip()]
@@ -250,20 +267,29 @@ def unsupported_claim_rate(answer: str) -> dict:
             sents = [s.strip() for s in _SENTENCE_RE.split(line) if s.strip()]
             for s in sents:
                 total_sentences += 1
-                if line_has_citation:
-                    strict_inline_count += 1
-                if line_has_citation or block_has_citation:
+                sent_has_citation = bool(_SOURCE_RE.search(s))
+                if sent_has_citation:
+                    strict_sentence_count += 1
+                if sent_has_citation or line_has_citation or block_has_citation:
                     supported_sentences += 1
 
     if not total_sentences:
-        return {"unsupported_rate": float("nan"), "n_sentences": 0, "n_unsupported": 0}
+        return {
+            "unsupported_rate": float("nan"),
+            "strict_sentence_unsupported_rate": float("nan"),
+            "n_sentences": 0,
+            "n_unsupported": 0,
+            "n_strict_unsupported": 0,
+        }
 
     unsupported = total_sentences - supported_sentences
+    strict_unsupported = total_sentences - strict_sentence_count
     return {
         "unsupported_rate": round(unsupported / total_sentences, 4),
-        "strict_inline_unsupported_rate": round((total_sentences - strict_inline_count) / total_sentences, 4),
+        "strict_sentence_unsupported_rate": round(strict_unsupported / total_sentences, 4),
         "n_sentences": total_sentences,
         "n_unsupported": unsupported,
+        "n_strict_unsupported": strict_unsupported,
     }
 
 
@@ -299,34 +325,38 @@ def abstention_correctness(answer: str, category: str) -> dict:
 
 @dataclass
 class SynthesisQualityResult:
-    n_queries:             int
-    citation_valid_mean:   float
-    faithfulness_mean:     float
-    unsupported_rate_mean: float
-    abstention_acc:        float
+    n_queries:                     int
+    citation_valid_mean:           float
+    faithfulness_mean:             float
+    unsupported_rate_mean:         float
+    strict_unsupported_rate_mean:  float
+    abstention_acc:                float
 
-    citation_ci:     tuple[float, float]
-    faithfulness_ci: tuple[float, float]
-    unsupported_ci:  tuple[float, float]
+    citation_ci:            tuple[float, float]
+    faithfulness_ci:        tuple[float, float]
+    unsupported_ci:         tuple[float, float]
+    strict_unsupported_ci:  tuple[float, float]
 
     per_query: list = field(default_factory=list)
 
     def as_dict(self) -> dict:
         return {
-            "n_queries":             self.n_queries,
-            "citation_valid_mean":   self.citation_valid_mean,
-            "citation_ci_95":        list(self.citation_ci),
-            "faithfulness_mean":     self.faithfulness_mean,
-            "faithfulness_ci_95":    list(self.faithfulness_ci),
-            "unsupported_rate_mean": self.unsupported_rate_mean,
-            "unsupported_ci_95":     list(self.unsupported_ci),
-            "abstention_acc":        self.abstention_acc,
+            "n_queries":                     self.n_queries,
+            "citation_valid_mean":           self.citation_valid_mean,
+            "citation_ci_95":                list(self.citation_ci),
+            "faithfulness_mean":             self.faithfulness_mean,
+            "faithfulness_ci_95":            list(self.faithfulness_ci),
+            "unsupported_rate_mean":         self.unsupported_rate_mean,
+            "unsupported_ci_95":             list(self.unsupported_ci),
+            "strict_unsupported_rate_mean":  self.strict_unsupported_rate_mean,
+            "strict_unsupported_ci_95":      list(self.strict_unsupported_ci),
+            "abstention_acc":                self.abstention_acc,
         }
 
 
 def evaluate_synthesis_quality(records: list[dict]) -> SynthesisQualityResult:
     """Aggregate synthesis quality metrics across queries."""
-    cit_vals, faith_vals, unsup_vals = [], [], []
+    cit_vals, faith_vals, unsup_vals, strict_unsup_vals = [], [], [], []
     abst_total, abst_correct = 0, 0
     per_query_rows = []
 
@@ -346,6 +376,8 @@ def evaluate_synthesis_quality(records: list[dict]) -> SynthesisQualityResult:
             faith_vals.append(faith["faithful_fraction"])
         if not math.isnan(unsup.get("unsupported_rate", float("nan"))):
             unsup_vals.append(unsup["unsupported_rate"])
+        if not math.isnan(unsup.get("strict_sentence_unsupported_rate", float("nan"))):
+            strict_unsup_vals.append(unsup["strict_sentence_unsupported_rate"])
 
         if abst.get("applicable"):
             abst_total += 1
@@ -364,13 +396,15 @@ def evaluate_synthesis_quality(records: list[dict]) -> SynthesisQualityResult:
     def _mean(xs): return round(sum(xs) / len(xs), 4) if xs else float("nan")
 
     return SynthesisQualityResult(
-        n_queries             = len(records),
-        citation_valid_mean   = _mean(cit_vals),
-        faithfulness_mean     = _mean(faith_vals),
-        unsupported_rate_mean = _mean(unsup_vals),
-        abstention_acc        = round(abst_correct / abst_total, 4) if abst_total > 0 else float("nan"),
-        citation_ci           = bootstrap_ci(cit_vals)   if cit_vals   else (float("nan"), float("nan")),
-        faithfulness_ci       = bootstrap_ci(faith_vals) if faith_vals else (float("nan"), float("nan")),
-        unsupported_ci        = bootstrap_ci(unsup_vals) if unsup_vals else (float("nan"), float("nan")),
-        per_query             = per_query_rows,
+        n_queries                    = len(records),
+        citation_valid_mean          = _mean(cit_vals),
+        faithfulness_mean            = _mean(faith_vals),
+        unsupported_rate_mean        = _mean(unsup_vals),
+        strict_unsupported_rate_mean = _mean(strict_unsup_vals),
+        abstention_acc               = round(abst_correct / abst_total, 4) if abst_total > 0 else float("nan"),
+        citation_ci                  = bootstrap_ci(cit_vals)          if cit_vals          else (float("nan"), float("nan")),
+        faithfulness_ci              = bootstrap_ci(faith_vals)        if faith_vals        else (float("nan"), float("nan")),
+        unsupported_ci               = bootstrap_ci(unsup_vals)        if unsup_vals        else (float("nan"), float("nan")),
+        strict_unsupported_ci        = bootstrap_ci(strict_unsup_vals) if strict_unsup_vals else (float("nan"), float("nan")),
+        per_query                    = per_query_rows,
     )

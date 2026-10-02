@@ -49,7 +49,7 @@
       ],
       "mode": "offline",
       "tool": "get_guidance",
-      "latency_ms": 0.1
+      "latency_ms": 0.3
     },
     {
       "ticker": "TSLA",
@@ -80,7 +80,7 @@
       ],
       "mode": "offline",
       "tool": "get_earnings",
-      "latency_ms": 0.1
+      "latency_ms": 0.3
     }
   ],
   "answer": "[Source: guidance-tsla-001] TSLA issued Vehicle Deliveries guidance of $1.8M for FY2024 (issued 2024-07-23). Prior analyst estimate was $1.8M.\n  Notes: Tesla reaffirmed FY2024 delivery guidance of approximately 1.8 million vehicles, slightly below analyst consensus of 1.82M.\n\n[Source: earnings-tsla-001] TSLA Q3 2024 earnings (reported 2024-10-23): Revenue $25.2B vs. estimate $25.5B \u2014 MISS (-1.2%). EPS $0.72 vs. estimate $0.58 \u2014 BEAT (+24.1%). Revenue grew 8.2% year-over-year.\n  Notes: Revenue slightly missed but EPS significantly beat on cost improvements. Vehicle deliveries of 462,890 beat estimates. Automotive gross margin improved to 17.1%.",
@@ -96,6 +96,6 @@
       "record_id": "earnings-tsla-001"
     }
   ],
-  "latency_ms": 0.16,
-  "tool_exec_ms": 0.13
+  "latency_ms": 0.57,
+  "tool_exec_ms": 0.53
 }

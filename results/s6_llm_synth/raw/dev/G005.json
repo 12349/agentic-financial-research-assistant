@@ -1,10 +1,9 @@
 {
-  "id": "D039",
-  "query_id": "D039",
-  "query": "What revenue did NVDA post last quarter and what forward outlook did they give?",
-  "category": "dual_tool",
+  "id": "G005",
+  "query_id": "G005",
+  "query": "What range did NVDA provide for their Q4 FY2025 revenue outlook?",
+  "category": "single_tool",
   "gold_tools": [
-    "get_earnings",
     "get_guidance"
   ],
   "pred_tools": [
@@ -14,7 +13,7 @@
     {
       "tool": "search_news",
       "args": {
-        "query": "What revenue did NVDA post last quarter and what forward outlook did they give?",
+        "query": "What range did NVDA provide for their Q4 FY2025 revenue outlook?",
         "ticker": "NVDA"
       }
     }
@@ -30,7 +29,7 @@
           "published_at": "2024-11-22T09:00:00Z",
           "source": "Financial News",
           "url": "https://example.com/news/nvda-q4-guidance-analysts",
-          "score": 0.5289,
+          "score": 0.6495,
           "source_ref": {
             "ticker": "NVDA",
             "channel": "news",
@@ -45,7 +44,7 @@
           "published_at": "2024-11-20T21:00:00Z",
           "source": "Financial News",
           "url": "https://example.com/news/nvda-data-center-q3",
-          "score": 0.4691,
+          "score": 0.5657,
           "source_ref": {
             "ticker": "NVDA",
             "channel": "news",
@@ -60,7 +59,7 @@
           "published_at": "2024-11-21T14:30:00Z",
           "source": "Financial News",
           "url": "https://example.com/news/nvda-blackwell-demand",
-          "score": 0.3375,
+          "score": 0.3037,
           "source_ref": {
             "ticker": "NVDA",
             "channel": "news",
@@ -71,12 +70,12 @@
       "mode": "offline",
       "engine": "semantic",
       "tool": "search_news",
-      "query": "What revenue did NVDA post last quarter and what forward outlook did they give?",
+      "query": "What range did NVDA provide for their Q4 FY2025 revenue outlook?",
       "ticker": "NVDA",
-      "latency_ms": 4.2
+      "latency_ms": 30.6
     }
   ],
-  "answer": "[Source: news-nvda-003] Nvidia Q4 Guidance Tops Estimates; Analysts Raise Price Targets Across the Board\nFollowing Nvidia's blowout Q3 earnings, at least 15 analysts raised their price targets for NVDA stock. The company guided Q4 revenue to approximately $37.5 billion, versus Street estimates of $37.1 billion. Several analysts noted that data center infrastructure spending shows no signs of slowing despite macro uncertainty.\n[Source: news-nvda-001] Additionally: Nvidia Data Center Revenue Hits Record $22.6B in Q3 FY2025, Surpassing Analyst Expectations",
+  "answer": "According to a recent financial news report, Nvidia provided a Q4 FY2025 revenue guidance of approximately $37.5 billion, which exceeded the Street estimates of $37.1 billion. [Source: news-nvda-003]\n\nSources used:\n- [Source: news-nvda-003]",
   "sources": [
     {
       "ticker": "NVDA",
@@ -87,8 +86,17 @@
       "ticker": "NVDA",
       "channel": "news",
       "record_id": "news-nvda-001"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "news",
+      "record_id": "news-nvda-002"
     }
   ],
-  "latency_ms": 4.2,
-  "tool_exec_ms": 4.18
+  "llm_elapsed_ms": 6670,
+  "llm_prompt_tokens": 970,
+  "llm_gen_tokens": 71,
+  "llm_tok_per_sec": 22.3,
+  "latency_ms": 6700.89,
+  "tool_exec_ms": 30.6
 }

@@ -1,10 +1,9 @@
 {
-  "id": "D076",
-  "query_id": "D076",
-  "query": "NVDA's Q3 YoY growth and whether Morgan Stanley adjusted their price target.",
-  "category": "dual_tool",
+  "id": "R008",
+  "query_id": "R008",
+  "query": "How many Wall Street analysts have a buy-equivalent rating on Nvidia?",
+  "category": "single_tool",
   "gold_tools": [
-    "get_earnings",
     "get_ratings"
   ],
   "pred_tools": [
@@ -114,10 +113,10 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 12.0
+      "latency_ms": 20.5
     }
   ],
-  "answer": "Analyst sentiment on NVDA is currently BULLISH.\n[Source: rating-nvda-002] Of 4 recent ratings: 3 bullish, 0 neutral, 1 bearish. Average price target: $172.\n[Source: rating-nvda-002] Bank of America (Vivek Arya) Raises Price Target at Buy, PT $190.0 (from $165.0). Sees Blackwell cycle as multi-year AI infrastructure tailwind.\n[Source: rating-nvda-001] Goldman Sachs (Toshiya Hari) Raises Price Target at Buy, PT $165.0 (from $135.0). Raised PT on data center demand strength and Blackwell ramp confirmation.",
+  "answer": "According to the data provided, there are four Wall Street analysts who have a buy-equivalent rating on Nvidia. Specifically, Bank of America's Vivek Arya, Goldman Sachs' Toshiya Hari, and Citi's Atif Malik all maintain a \"Buy\" rating for Nvidia. Additionally, Morgan Stanley's Joseph Moore has an \"Overweight\" rating, which is also considered a buy-equivalent rating.\n\n[Source: rating-nvda-002]\n[Source: rating-nvda-001]\n[Source: rating-nvda-004]\n[Source: rating-nvda-003]\n\nSources used:\n- [Source: rating-nvda-002]\n- [Source: rating-nvda-001]\n- [Source: rating-nvda-004]\n- [Source: rating-nvda-003]",
   "sources": [
     {
       "ticker": "NVDA",
@@ -128,8 +127,22 @@
       "ticker": "NVDA",
       "channel": "analyst_ratings",
       "record_id": "rating-nvda-001"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-nvda-004"
+    },
+    {
+      "ticker": "NVDA",
+      "channel": "analyst_ratings",
+      "record_id": "rating-nvda-003"
     }
   ],
-  "latency_ms": 12.01,
-  "tool_exec_ms": 11.97
+  "llm_elapsed_ms": 12828,
+  "llm_prompt_tokens": 1084,
+  "llm_gen_tokens": 187,
+  "llm_tok_per_sec": 21.9,
+  "latency_ms": 12849.26,
+  "tool_exec_ms": 20.48
 }

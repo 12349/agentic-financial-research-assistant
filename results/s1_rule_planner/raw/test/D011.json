@@ -102,7 +102,7 @@
       },
       "mode": "offline",
       "tool": "get_ratings",
-      "latency_ms": 11.9
+      "latency_ms": 19.4
     },
     {
       "results": [
@@ -142,7 +142,7 @@
       "tool": "search_news",
       "query": "How did Tesla's Q3 earnings stack up, and are analysts still bullish on the stock?",
       "ticker": "TSLA",
-      "latency_ms": 4.8
+      "latency_ms": 5.0
     }
   ],
   "answer": "Analyst sentiment on TSLA is currently BULLISH.\n[Source: rating-tsla-001] Of 3 recent ratings: 2 bullish, 0 neutral, 1 bearish. Average price target: $312.\n[Source: rating-tsla-001] Wedbush Securities (Dan Ives) Raises Price Target at Outperform, PT $400.0 (from $300.0). Tesla AI and FSD monetization opportunity undervalued; Cybercab a long-term catalyst.\n[Source: rating-tsla-003] UBS (Joseph Spak) Raises Price Target at Neutral, PT $226.0 (from $197.0). Cautious on near-term EV competition; autonomous timeline uncertain.\n\n[Source: news-tsla-001] Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles\nTesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000. The beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.\n[Source: news-tsla-002] Additionally: Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline",
@@ -168,6 +168,6 @@
       "record_id": "news-tsla-002"
     }
   ],
-  "latency_ms": 16.77,
-  "tool_exec_ms": 16.74
+  "latency_ms": 24.52,
+  "tool_exec_ms": 24.49
 }

@@ -1,9 +1,11 @@
 {
-  "id": "ND028",
-  "query_id": "ND028",
-  "query": "Show me JPMorgan's credit default swap spreads.",
-  "category": "no_data",
-  "gold_tools": [],
+  "id": "E019",
+  "query_id": "E019",
+  "query": "I want to see JPMorgan's revenue growth trajectory \u2014 how fast was top-line expanding in Q3 2024?",
+  "category": "single_tool",
+  "gold_tools": [
+    "get_earnings"
+  ],
   "pred_tools": [
     "search_news"
   ],
@@ -11,7 +13,7 @@
     {
       "tool": "search_news",
       "args": {
-        "query": "Show me JPMorgan's credit default swap spreads.",
+        "query": "I want to see JPMorgan's revenue growth trajectory \u2014 how fast was top-line expanding in Q3 2024?",
         "ticker": "JPM"
       }
     }
@@ -27,7 +29,7 @@
           "published_at": "2024-10-11T12:00:00Z",
           "source": "Financial News",
           "url": "https://example.com/news/jpm-q3-earnings",
-          "score": 0.503,
+          "score": 0.7024,
           "source_ref": {
             "ticker": "JPM",
             "channel": "news",
@@ -42,7 +44,7 @@
           "published_at": "2024-10-12T09:00:00Z",
           "source": "Financial News",
           "url": "https://example.com/news/jpm-guidance-raise",
-          "score": 0.5001,
+          "score": 0.6026,
           "source_ref": {
             "ticker": "JPM",
             "channel": "news",
@@ -53,12 +55,12 @@
       "mode": "offline",
       "engine": "semantic",
       "tool": "search_news",
-      "query": "Show me JPMorgan's credit default swap spreads.",
+      "query": "I want to see JPMorgan's revenue growth trajectory \u2014 how fast was top-line expanding in Q3 2024?",
       "ticker": "JPM",
-      "latency_ms": 4.4
+      "latency_ms": 45.3
     }
   ],
-  "answer": "[Source: news-jpm-001] JPMorgan Q3 Net Income Rises 35% on Higher Interest Income\nJPMorgan Chase reported Q3 2024 net income of $12.9 billion, up 35% from a year earlier, driven by rising net interest income and strong investment banking fees. Revenue of $43.3 billion beat analyst expectations of $41.8 billion. CEO Jamie Dimon warned of geopolitical risks and potential credit deterioration ahead.\n[Source: news-jpm-002] Additionally: JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B",
+  "answer": "Based on the available data, JPMorgan Chase reported a significant revenue growth in Q3 2024. The company's revenue reached $43.3 billion, surpassing analyst expectations of $41.8 billion [Source: news-jpm-001]. However, the specific rate of top-line expansion for Q3 2024 is not directly provided; it can be inferred that there was substantial growth given the beat against expectations.\n\nSources used:\n- [Source: news-jpm-001]",
   "sources": [
     {
       "ticker": "JPM",
@@ -71,6 +73,10 @@
       "record_id": "news-jpm-002"
     }
   ],
-  "latency_ms": 4.37,
-  "tool_exec_ms": 4.35
+  "llm_elapsed_ms": 7541,
+  "llm_prompt_tokens": 734,
+  "llm_gen_tokens": 111,
+  "llm_tok_per_sec": 22.4,
+  "latency_ms": 7587.2,
+  "tool_exec_ms": 45.32
 }

@@ -31,6 +31,6 @@
   ],
   "answer": "No data was found to answer this query.\n\nNo news data was available for this query (tool: search_news).",
   "sources": [],
-  "latency_ms": 4.14,
-  "tool_exec_ms": 4.12
+  "latency_ms": 4.11,
+  "tool_exec_ms": 4.09
 }
