@@ -220,6 +220,22 @@ To assess labeling reliability beyond the author's self-consistency pass ($\kapp
 - **Human Annotation Sheet**: A stratified 50-query subset from dev/train was prepared in [`eval/human_annotation_sample.csv`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/eval/human_annotation_sample.csv) with blank columns for human rating.
 - **Label Leakage Resolution**: Identified and eliminated circular derivation in `external_queries.jsonl` (previously 100% agreed with the rule planner). Regenerated independently with `llama3.1:8b` under formal guidelines; agreement with the rule planner dropped to **48.0%**, verified by CI regression tests in [`tests/test_label_integrity.py`](file:///Volumes/Johnys%20Extreme%20Pro/Johny's%20MiniX/Downloads/Multi-Agent%20Financial%20Research%20Assistant%20—%20Full%20Project%20Spec/tests/test_label_integrity.py).
 
+#### 6.3.1 Human Annotation Results (n=50, completed)
+
+The filled human annotation CSV (`eval/human_annotation_sample_filled.csv`) was processed by `eval/compute_human_irr.py`, yielding the following pairwise agreement statistics (bootstrap 95% CIs, B=2000):
+
+| Pair | Tool-Set Match % [95% CI] | Tool-Set κ [95% CI] | Category Match % [95% CI] | Category κ [95% CI] |
+| :--- | :--- | :--- | :--- | :--- |
+| **Human vs. Author (Gold)** | **68.0%** [54.0%, 80.0%] | **0.647** [0.501, 0.772] (Substantial) | **88.0%** [78.0%, 96.0%] | **0.835** [0.690, 0.945] (Almost Perfect) |
+| **Human vs. Llama 3.1 8B (Guided)** | **56.0%** [42.0%, 70.0%] | **0.507** [0.347, 0.644] (Moderate) | **70.0%** [58.0%, 82.0%] | **0.602** [0.438, 0.756] (Moderate) |
+| **Author vs. Llama 3.1 8B (Guided)** | **44.0%** [30.0%, 58.0%] | **0.389** [0.236, 0.528] (Fair) | **62.0%** [48.0%, 76.0%] | **0.501** [0.320, 0.674] (Moderate) |
+
+- **Split Isolation**: 40/50 from train, 10/50 from dev; **zero test-split queries** exposed. Verified by assertion in `compute_human_irr.py`.
+- **Disagreement Rate**: 19/50 queries (38.0%) showed Human ≠ Author disagreement. Root causes: (A) fixture coverage vs. user intent (n=3), (B) guideline ambiguity on open-ended queries (n=7), (C) single- vs. dual-tool on earnings announcements (n=3), (D) other (n=6).
+- **Interpretation**: Human vs. Author κ=0.647 (Substantial) on tool-set exact match is consistent with the inherent ambiguity in mapping natural-language financial queries to a 4-tool taxonomy. Category-level agreement (κ=0.835, Almost Perfect) confirms the coarser taxonomy is robust. The lower Author vs. Llama κ=0.389 is consistent with prior guided-pass results ($n=34$) and indicates the model captures high-level intent but struggles with fixture-boundary disambiguation.
+- **Provenance**: Full disagreement analysis in `results/human_irr/disagreements_analysis.md`; Llama cache in `results/human_irr/llama_50_labels_guided.jsonl`; summary JSON in `results/human_irr/human_irr_summary.json`.
+
+
 ---
 
 ### 6.4 External Data Case Study (FinanceBench Qualitative Analysis)

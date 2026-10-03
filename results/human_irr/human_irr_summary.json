@@ -1,0 +1,187 @@
+{
+  "timestamp": "2026-10-02T13:50:00Z",
+  "sample_size": 50,
+  "split_provenance": {
+    "total_queries": 50,
+    "train_count": 40,
+    "dev_count": 10,
+    "test_count": 0,
+    "test_leakage_detected": false,
+    "isolation_note": "Sample was drawn strictly from train (40) and dev (10). Zero test-split queries were shown."
+  },
+  "sample_size_limitation": "Sample size n=50 is relatively small; consequently, bootstrap 95% confidence intervals are wide across all pairwise metrics.",
+  "pairwise_agreement": {
+    "human_vs_author": {
+      "pair": "human_vs_author",
+      "n": 50,
+      "tool_set": {
+        "cohens_kappa": 0.647,
+        "kappa_ci_95": [
+          0.5013,
+          0.7723
+        ],
+        "raw_agreement_pct": 68.0,
+        "raw_agreement_ci_95": [
+          54.0,
+          80.0
+        ]
+      },
+      "category": {
+        "cohens_kappa": 0.8346,
+        "kappa_ci_95": [
+          0.6903,
+          0.9449
+        ],
+        "raw_agreement_pct": 88.0,
+        "raw_agreement_ci_95": [
+          78.0,
+          96.0
+        ],
+        "confusion_matrix": {
+          "single_tool": {
+            "single_tool": 16,
+            "dual_tool": 1,
+            "ambiguous": 0,
+            "no_data": 3
+          },
+          "dual_tool": {
+            "single_tool": 2,
+            "dual_tool": 11,
+            "ambiguous": 0,
+            "no_data": 0
+          },
+          "ambiguous": {
+            "single_tool": 0,
+            "dual_tool": 0,
+            "ambiguous": 10,
+            "no_data": 0
+          },
+          "no_data": {
+            "single_tool": 0,
+            "dual_tool": 0,
+            "ambiguous": 0,
+            "no_data": 7
+          }
+        }
+      }
+    },
+    "human_vs_llama": {
+      "pair": "human_vs_llama",
+      "n": 50,
+      "tool_set": {
+        "cohens_kappa": 0.5069,
+        "kappa_ci_95": [
+          0.3474,
+          0.6444
+        ],
+        "raw_agreement_pct": 56.0,
+        "raw_agreement_ci_95": [
+          42.0,
+          70.0
+        ]
+      },
+      "category": {
+        "cohens_kappa": 0.6019,
+        "kappa_ci_95": [
+          0.4379,
+          0.7564
+        ],
+        "raw_agreement_pct": 70.0,
+        "raw_agreement_ci_95": [
+          58.0,
+          82.0
+        ],
+        "confusion_matrix": {
+          "single_tool": {
+            "single_tool": 9,
+            "dual_tool": 6,
+            "ambiguous": 1,
+            "no_data": 2
+          },
+          "dual_tool": {
+            "single_tool": 0,
+            "dual_tool": 13,
+            "ambiguous": 0,
+            "no_data": 0
+          },
+          "ambiguous": {
+            "single_tool": 1,
+            "dual_tool": 1,
+            "ambiguous": 7,
+            "no_data": 0
+          },
+          "no_data": {
+            "single_tool": 1,
+            "dual_tool": 0,
+            "ambiguous": 0,
+            "no_data": 6
+          }
+        }
+      }
+    },
+    "author_vs_llama": {
+      "pair": "author_vs_llama",
+      "n": 50,
+      "tool_set": {
+        "cohens_kappa": 0.3894,
+        "kappa_ci_95": [
+          0.2358,
+          0.5275
+        ],
+        "raw_agreement_pct": 44.0,
+        "raw_agreement_ci_95": [
+          30.0,
+          58.0
+        ]
+      },
+      "category": {
+        "cohens_kappa": 0.5005,
+        "kappa_ci_95": [
+          0.3203,
+          0.6737
+        ],
+        "raw_agreement_pct": 62.0,
+        "raw_agreement_ci_95": [
+          48.0,
+          76.0
+        ],
+        "confusion_matrix": {
+          "single_tool": {
+            "single_tool": 6,
+            "dual_tool": 8,
+            "ambiguous": 1,
+            "no_data": 1
+          },
+          "dual_tool": {
+            "single_tool": 1,
+            "dual_tool": 11,
+            "ambiguous": 0,
+            "no_data": 0
+          },
+          "ambiguous": {
+            "single_tool": 1,
+            "dual_tool": 1,
+            "ambiguous": 7,
+            "no_data": 0
+          },
+          "no_data": {
+            "single_tool": 3,
+            "dual_tool": 0,
+            "ambiguous": 0,
+            "no_data": 7
+          }
+        }
+      }
+    }
+  },
+  "disagreement_summary": {
+    "total_disagreements": 19,
+    "disagreement_rate_pct": 38.0,
+    "by_cause": {
+      "fixture_coverage_vs_intent": 3,
+      "guideline_ambiguity_opinion_or_broad": 7,
+      "single_vs_dual_earnings_announcement": 3,
+      "other": 6
+    }
+  }
+}

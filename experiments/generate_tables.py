@@ -191,11 +191,55 @@ def generate_table4():
     return rows
 
 
+def generate_table7_human_irr():
+    """Table 7: Human IRR pairwise agreement (n=50, tool-set and category)."""
+    print("Generating Table 7: Human IRR Pairwise Agreement...")
+    irr_path = Path(RESULTS_DIR) / "human_irr" / "human_irr_summary.json"
+    data = load_json(irr_path)
+    if not data:
+        print("  WARNING: results/human_irr/human_irr_summary.json not found; skipping Table 7.")
+        return []
+
+    pairs = data.get("pairwise_agreement", {})
+    rows = []
+    pair_labels = {
+        "human_vs_author": "Human vs. Author (Gold)",
+        "human_vs_llama": "Human vs. Llama 3.1 8B (Guided)",
+        "author_vs_llama": "Author vs. Llama 3.1 8B (Guided)",
+    }
+    for key, label in pair_labels.items():
+        p = pairs.get(key, {})
+        ts = p.get("tool_set", {})
+        cat = p.get("category", {})
+        ts_ci = ts.get("kappa_ci_95", [None, None])
+        cat_ci = cat.get("kappa_ci_95", [None, None])
+        rows.append({
+            "Pair": label,
+            "n": p.get("n", 50),
+            "Tool-Set Match %": ts.get("raw_agreement_pct", ""),
+            "Tool-Set κ": ts.get("cohens_kappa", ""),
+            "Tool-Set κ 95% CI": f"[{ts_ci[0]}, {ts_ci[1]}]" if ts_ci[0] is not None else "",
+            "Category Match %": cat.get("raw_agreement_pct", ""),
+            "Category κ": cat.get("cohens_kappa", ""),
+            "Category κ 95% CI": f"[{cat_ci[0]}, {cat_ci[1]}]" if cat_ci[0] is not None else "",
+        })
+
+    csv_file = TABLES_DIR / "table7_human_irr.csv"
+    with open(csv_file, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows)
+
+    print(f"  Table 7 written to {csv_file}")
+    return rows
+
+
 def main():
     t1 = generate_table1()
     t2 = generate_table2()
     t3 = generate_table3()
     t4 = generate_table4()
+    t7 = generate_table7_human_irr()
     print("All tables successfully generated in results/tables/!")
 
 

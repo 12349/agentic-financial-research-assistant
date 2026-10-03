@@ -277,6 +277,22 @@ Bootstrap 95% CIs (B=10,000) are reported; wide CIs reflect small n near ceiling
 > A genuinely independent rater (different person or different model family)
 > is needed before claiming IRR for publication. See `eval/gold_label_agreement.md`.
 
+### Human IRR — Independent Annotator (n=50)
+
+A stratified sample of 50 queries (40 train / 10 dev; zero test) was independently annotated using
+`eval/human_annotation_sample_filled.csv`. Agreement was computed via `eval/compute_human_irr.py`
+(bootstrap 95% CIs, B=2000, seed=42):
+
+| Pair | Tool-Set Match % [95% CI] | Tool-Set κ [95% CI] | Category Match % [95% CI] | Category κ [95% CI] |
+|:-----|:--------------------------|:--------------------|:--------------------------|:--------------------|
+| **Human vs. Author (Gold)** | **68.0%** [54%, 80%] | **0.647** [0.501, 0.772] | **88.0%** [78%, 96%] | **0.835** [0.690, 0.945] |
+| Human vs. Llama 3.1 8B (Guided) | 56.0% [42%, 70%] | 0.507 [0.347, 0.644] | 70.0% [58%, 82%] | 0.602 [0.438, 0.756] |
+| Author vs. Llama 3.1 8B (Guided) | 44.0% [30%, 58%] | 0.389 [0.236, 0.528] | 62.0% [48%, 76%] | 0.501 [0.320, 0.674] |
+
+Human vs. Author κ=0.647 (**Substantial**) on tool-set exact match; category-level κ=0.835 (**Almost Perfect**).
+Split isolation confirmed: zero test queries exposed. Detailed disagreement analysis in
+`results/human_irr/disagreements_analysis.md`.
+
 ---
 
 ## LLM vs Rule-Based Planner
