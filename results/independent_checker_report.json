@@ -1,5 +1,5 @@
 {
-  "description": "Independent metric checker \u2014 does NOT import experiments.metrics.synthesis_quality. Uses own regex-based citation matching and number parsing. Compares per-system IC means against stored summary values.",
+  "description": "Consistency check between independent implementation (no imports from synthesis_quality.py) and the metric. Agreement shows the two implementations do not contradict each other; it does NOT prove either is correct. See adversarial_test_cases.json for boundary-condition coverage.",
   "split": "test",
   "systems": {
     "s6_qwen": {
@@ -174,5 +174,12 @@
       "metric_git_commit": "unknown",
       "metric_blob_hash": "unknown"
     }
-  }
+  },
+  "per_answer_agreement": {
+    "s6_qwen": "47/47 citation, 47/47 unsupported (per-answer, tol=0.05)",
+    "s6_llama": "47/47 citation, 47/47 unsupported (per-answer, tol=0.05)",
+    "s7_qwen": "47/47 citation, 47/47 unsupported (per-answer, tol=0.05)",
+    "s7_llama": "47/47 citation, 47/47 unsupported (per-answer, tol=0.05)"
+  },
+  "adversarial_coverage": "20/20 both implementations correct on pre-declared verdicts (results/adversarial_test_cases.json)"
 }

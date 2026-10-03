@@ -1,0 +1,329 @@
+{
+  "pre_declared_verdicts": [
+    {
+      "id": "A01",
+      "desc": "Cites non-existent record ID",
+      "answer": "Revenue was 45.2B [Source: FAKE_001].",
+      "tool_outputs": [
+        {
+          "record_id": "REAL_001",
+          "revenue": 45.2
+        }
+      ],
+      "expected": {
+        "cit_valid": 0.0,
+        "unsup_block": 0.0,
+        "note": "citation invalid"
+      }
+    },
+    {
+      "id": "A02",
+      "desc": "Two citations, one real one fake",
+      "answer": "EPS was 1.23 [Source: REAL_001]. Guidance was raised [Source: FAKE_002].",
+      "tool_outputs": [
+        {
+          "record_id": "REAL_001",
+          "eps": 1.23
+        }
+      ],
+      "expected": {
+        "cit_valid": 0.5,
+        "unsup_block": 0.0,
+        "note": "1/2 citations valid"
+      }
+    },
+    {
+      "id": "A03",
+      "desc": "Number in answer does not match source (45.2 vs 45.5)",
+      "answer": "Revenue was 45.2B [Source: R001].",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "revenue": 45.5
+        }
+      ],
+      "expected": {
+        "cit_valid": 1.0,
+        "unsup_block": 0.0,
+        "note": "citation valid; faithfulness=0 (wrong number)"
+      }
+    },
+    {
+      "id": "A04",
+      "desc": "Number matches within 0.5% tolerance (45.20 vs 45.21)",
+      "answer": "Revenue was 45.20B [Source: R001].",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "revenue": 45.21
+        }
+      ],
+      "expected": {
+        "cit_valid": 1.0,
+        "unsup_block": 0.0,
+        "note": "within tolerance; both metrics pass"
+      }
+    },
+    {
+      "id": "A05",
+      "desc": "Answer reports in millions, source in billions (45.2B vs 45200)",
+      "answer": "Revenue was 45,200M [Source: R001].",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "revenue": 45.2
+        }
+      ],
+      "expected": {
+        "cit_valid": 1.0,
+        "unsup_block": 0.0,
+        "note": "unit change: IC may miss or catch depending on numeric matching"
+      }
+    },
+    {
+      "id": "A06",
+      "desc": "Percentage vs ratio (0.15 vs 15%)",
+      "answer": "Margin was 15% [Source: R001].",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "margin": 0.15
+        }
+      ],
+      "expected": {
+        "cit_valid": 1.0,
+        "unsup_block": 0.0,
+        "note": "IC parses 15 and 0.15 \u2014 may not match"
+      }
+    },
+    {
+      "id": "A07",
+      "desc": "Sentence with no citation and no block citation",
+      "answer": "The company showed strong growth.\nRevenue rose to 45.2B [Source: R001].",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "revenue": 45.2
+        }
+      ],
+      "expected": {
+        "cit_valid": 1.0,
+        "unsup_block": 0.5,
+        "note": "1 uncited sentence out of 2"
+      }
+    },
+    {
+      "id": "A08",
+      "desc": "Block citation covers all sentences in same paragraph",
+      "answer": "Revenue was 45.2B. Earnings grew 10%. [Source: R001]",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "revenue": 45.2,
+          "earnings_growth": 0.1
+        }
+      ],
+      "expected": {
+        "cit_valid": 1.0,
+        "unsup_block": 0.0,
+        "note": "block citation covers whole paragraph"
+      }
+    },
+    {
+      "id": "A09",
+      "desc": "Multiple sentences, only first has citation",
+      "answer": "Revenue was 45.2B [Source: R001]. Earnings were strong. Guidance raised.",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "revenue": 45.2
+        }
+      ],
+      "expected": {
+        "cit_valid": 1.0,
+        "unsup_block": 0.667,
+        "note": "2/3 sentences uncited"
+      }
+    },
+    {
+      "id": "A10",
+      "desc": "Citation ID with trailing whitespace [Source: R001 ]",
+      "answer": "Revenue was 45.2B [Source: R001 ].",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "revenue": 45.2
+        }
+      ],
+      "expected": {
+        "cit_valid": 1.0,
+        "unsup_block": 0.0,
+        "note": "strip() in matching should handle whitespace"
+      }
+    },
+    {
+      "id": "A11",
+      "desc": "Lowercase citation [source: r001] vs uppercase record_id R001",
+      "answer": "Revenue was 45.2B [source: r001].",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "revenue": 45.2
+        }
+      ],
+      "expected": {
+        "cit_valid": 0.0,
+        "unsup_block": 0.0,
+        "note": "case sensitivity: depends on re.IGNORECASE in source regex"
+      }
+    },
+    {
+      "id": "A12",
+      "desc": "Answer is abstention: no data found",
+      "answer": "No data was found for the requested ticker.",
+      "tool_outputs": [],
+      "expected": {
+        "cit_valid": NaN,
+        "unsup_block": 0.0,
+        "note": "abstention: citation NaN, unsup=0 by convention"
+      }
+    },
+    {
+      "id": "A13",
+      "desc": "Hallucinated number not in source",
+      "answer": "Revenue was 99.9B [Source: R001].",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "revenue": 45.2
+        }
+      ],
+      "expected": {
+        "cit_valid": 1.0,
+        "unsup_block": 0.0,
+        "note": "citation valid but number wrong; unsup_block only checks citations"
+      }
+    },
+    {
+      "id": "A14",
+      "desc": "Empty answer",
+      "answer": "",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "revenue": 45.2
+        }
+      ],
+      "expected": {
+        "cit_valid": NaN,
+        "unsup_block": NaN,
+        "note": "empty answer: NaN for both"
+      }
+    },
+    {
+      "id": "A15",
+      "desc": "Multiple citations same record, all valid",
+      "answer": "Revenue [Source: R001] and EPS [Source: R001] both beat estimates.",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "revenue": 45.2,
+          "eps": 1.23
+        }
+      ],
+      "expected": {
+        "cit_valid": 1.0,
+        "unsup_block": 0.0,
+        "note": "duplicate valid citation; both count as valid"
+      }
+    },
+    {
+      "id": "A16",
+      "desc": "Record_id in nested list",
+      "answer": "Analyst rating is Buy [Source: RAT_001].",
+      "tool_outputs": [
+        {
+          "tool": "get_ratings",
+          "ratings": [
+            {
+              "record_id": "RAT_001",
+              "rating": "Buy"
+            }
+          ]
+        }
+      ],
+      "expected": {
+        "cit_valid": 1.0,
+        "unsup_block": 0.0,
+        "note": "nested record_id must be found by recursive walker"
+      }
+    },
+    {
+      "id": "A17",
+      "desc": "Citation in bullet list without sentence terminator",
+      "answer": "- Revenue: 45.2B [Source: R001]\n- EPS: 1.23 [Source: R001]",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "revenue": 45.2,
+          "eps": 1.23
+        }
+      ],
+      "expected": {
+        "cit_valid": 1.0,
+        "unsup_block": 0.0,
+        "note": "list items with citations are supported"
+      }
+    },
+    {
+      "id": "A18",
+      "desc": "Mixed: one valid citation, one fabricated, one uncited sentence",
+      "answer": "Revenue was 45.2B [Source: R001]. Earnings per share beat [Source: FAKE_X]. Outlook is positive.",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "revenue": 45.2,
+          "eps": 1.23
+        }
+      ],
+      "expected": {
+        "cit_valid": 0.5,
+        "unsup_block": 0.333,
+        "note": "1/2 citations valid; 1/3 sentences uncited"
+      }
+    },
+    {
+      "id": "A19",
+      "desc": "Number with comma formatting: 1,234.5 vs 1234.5 in source",
+      "answer": "Cash on hand: 1,234.5M [Source: R001].",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "cash": 1234.5
+        }
+      ],
+      "expected": {
+        "cit_valid": 1.0,
+        "unsup_block": 0.0,
+        "note": "comma stripping should make these match"
+      }
+    },
+    {
+      "id": "A20",
+      "desc": "Negative number in answer matches negative in source",
+      "answer": "Net loss was -23.4M [Source: R001].",
+      "tool_outputs": [
+        {
+          "record_id": "R001",
+          "net_income": -23.4
+        }
+      ],
+      "expected": {
+        "cit_valid": 1.0,
+        "unsup_block": 0.0,
+        "note": "negative number match; IC must handle minus sign"
+      }
+    }
+  ],
+  "note": "Verdicts written BEFORE running either implementation"
+}

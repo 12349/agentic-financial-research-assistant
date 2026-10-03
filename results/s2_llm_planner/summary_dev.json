@@ -1,7 +1,9 @@
 {
   "system_id": "s2_llm_planner",
   "split": "dev",
-  "timestamp": "2026-10-02T03:56:39Z",
+  "timestamp": "2026-10-03T04:37:58Z",
+  "git_commit": "ec7a53963dc1a2e26153c75de83ce1c3bd58ffe1",
+  "metric_blob_hash": "0ccbfdda1b930501c1502e6dea9298ec72242886",
   "n_queries": 3,
   "tool_selection": {
     "n_queries": 3,
@@ -44,21 +46,26 @@
       1.0,
       1.0
     ],
-    "faithfulness_mean": 0.2222,
+    "faithfulness_mean": 1.0,
     "faithfulness_ci_95": [
-      0.2,
-      0.2667
+      1.0,
+      1.0
     ],
-    "unsupported_rate_mean": 0.875,
+    "unsupported_rate_mean": 0.0,
     "unsupported_ci_95": [
+      0.0,
+      0.0
+    ],
+    "strict_unsupported_rate_mean": 0.875,
+    "strict_unsupported_ci_95": [
       0.875,
       0.875
     ],
     "abstention_acc": NaN
   },
   "model": "qwen2.5:7b-instruct",
-  "mean_latency_ms": 3777.62,
-  "mean_llm_latency_ms": 3776.33,
+  "mean_latency_ms": 4291.83,
+  "mean_llm_latency_ms": 4289.67,
   "mean_gen_tokens": 22.0,
   "parse_success_rate": 1.0
 }

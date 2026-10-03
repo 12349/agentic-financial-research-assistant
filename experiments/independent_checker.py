@@ -8,6 +8,12 @@ This module does NOT import from experiments.metrics.synthesis_quality.
 It implements its own citation matching and number parsing from first
 principles, then compares its verdicts against the synthesis_quality metric.
 
+Agreement between implementations is a CONSISTENCY CHECK only — it shows
+the two implementations do not contradict each other. It does NOT prove
+either implementation is correct. Residual errors (e.g., both implementations
+missing a citation pattern) would not be detected by this check.
+See results/adversarial_test_cases.json for boundary-condition coverage.
+
 Outputs:
   results/independent_checker_report.json
     - per-answer agreement/disagreement table

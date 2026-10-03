@@ -18,10 +18,10 @@
     }
   ],
   "llm_raw_response": "[{\"tool\": \"get_earnings\", \"args\": {\"ticker\": \"XOM\"}}]",
-  "llm_elapsed_ms": 8656,
+  "llm_elapsed_ms": 10304,
   "llm_prompt_tokens": 460,
   "llm_gen_tokens": 22,
-  "llm_tok_per_sec": 21.9,
+  "llm_tok_per_sec": 23.2,
   "parsed_ok": true,
   "tool_outputs": [
     {
@@ -53,7 +53,7 @@
       ],
       "mode": "offline",
       "tool": "get_earnings",
-      "latency_ms": 0.3
+      "latency_ms": 1.4
     }
   ],
   "answer": "[Source: earnings-xom-001] XOM Q3 2024 earnings (reported 2024-11-01): Revenue $90.0B vs. estimate $90.2B \u2014 MISS (-0.2%). EPS $1.92 vs. estimate $1.88 \u2014 BEAT (+2.1%). Revenue grew -5.0% year-over-year.\n  Notes: EPS beat driven by Pioneer synergies of $500M ahead of schedule. Revenue slightly missed due to lower oil prices. $35B buyback program maintained.",
@@ -64,6 +64,6 @@
       "record_id": "earnings-xom-001"
     }
   ],
-  "latency_ms": 8656.7,
-  "tool_exec_ms": 0.33
+  "latency_ms": 10306.88,
+  "tool_exec_ms": 1.4
 }

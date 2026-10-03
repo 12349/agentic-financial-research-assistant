@@ -1,0 +1,194 @@
+{
+  "current_commit": "ec7a53963dc1a2e26153c75de83ce1c3bd58ffe1",
+  "systems": [
+    {
+      "label": "S1 rule-planner",
+      "split": "test",
+      "system_type": "tool_selector",
+      "summary_path": "results/s1_rule_planner/summary_test.json",
+      "headline": {
+        "status": "ok",
+        "timestamp": "2026-10-02T06:03:25Z",
+        "git_commit": "pre-freeze",
+        "metric_blob_hash": "pre-freeze",
+        "n_queries": 47,
+        "f1_mean": 0.522,
+        "f1_ci_95": null,
+        "exact_match_rate": 0.3191,
+        "exact_ci_95": null,
+        "mean_latency_ms": 30.23
+      },
+      "is_new": false
+    },
+    {
+      "label": "S2 Qwen planner",
+      "split": "test",
+      "system_type": "tool_selector",
+      "summary_path": "results/s2_llm_planner/summary_test.json",
+      "headline": {
+        "status": "ok",
+        "timestamp": "2026-10-02T05:50:09Z",
+        "git_commit": "pre-freeze",
+        "metric_blob_hash": "pre-freeze",
+        "n_queries": 47,
+        "f1_mean": 0.6773,
+        "f1_ci_95": null,
+        "exact_match_rate": 0.6383,
+        "exact_ci_95": null,
+        "mean_latency_ms": 1557.88
+      },
+      "is_new": false
+    },
+    {
+      "label": "S4 call-all",
+      "split": "test",
+      "system_type": "tool_selector",
+      "summary_path": "results/s4_call_all/summary_test.json",
+      "headline": {
+        "status": "ok",
+        "timestamp": "2026-10-02T04:04:36Z",
+        "git_commit": "pre-freeze",
+        "metric_blob_hash": "pre-freeze",
+        "n_queries": 47,
+        "f1_mean": 0.5157,
+        "f1_ci_95": null,
+        "exact_match_rate": 0.0638,
+        "exact_ci_95": null,
+        "mean_latency_ms": 22.72
+      },
+      "is_new": false
+    },
+    {
+      "label": "S5 ReAct Qwen",
+      "split": "test",
+      "system_type": "react",
+      "summary_path": "results/s5_react/summary_test.json",
+      "headline": {
+        "status": "ok",
+        "timestamp": "2026-10-02T04:49:20Z",
+        "git_commit": "pre-freeze",
+        "metric_blob_hash": "pre-freeze",
+        "n_queries": 47,
+        "f1_mean": 0.4333,
+        "f1_ci_95": null,
+        "exact_match_rate": 0.3404,
+        "exact_ci_95": null,
+        "mean_latency_ms": 17140.25
+      },
+      "is_new": false
+    },
+    {
+      "label": "S5 ReAct Llama",
+      "split": "test",
+      "system_type": "react",
+      "summary_path": "results/s5_react_llama3.1_8b/summary_test.json",
+      "headline": {
+        "status": "NOT_RUN"
+      },
+      "is_new": false
+    },
+    {
+      "label": "S6 LLM synth Qwen",
+      "split": "test",
+      "system_type": "synthesis",
+      "summary_path": "results/s6_llm_synth/summary_test.json",
+      "headline": {
+        "status": "ok",
+        "timestamp": "2026-10-02T05:19:18Z",
+        "git_commit": "pre-freeze",
+        "metric_blob_hash": "pre-freeze",
+        "n_queries": 47,
+        "citation_valid_mean": 0.8592,
+        "numeric_faithfulness_mean": 0.9749,
+        "unsupported_rate_block": 0.2304,
+        "unsupported_rate_strict": 0.5214,
+        "abstention_acc": 0.1429,
+        "mean_latency_ms": 9642.93
+      },
+      "is_new": false
+    },
+    {
+      "label": "S6 LLM synth Llama",
+      "split": "test",
+      "system_type": "synthesis",
+      "summary_path": "results/s6_llama3.1_8b/summary_test.json",
+      "headline": {
+        "status": "ok",
+        "timestamp": "2026-10-02T06:39:02Z",
+        "git_commit": "pre-freeze",
+        "metric_blob_hash": "pre-freeze",
+        "n_queries": 47,
+        "citation_valid_mean": 0.8485,
+        "numeric_faithfulness_mean": 0.7241,
+        "unsupported_rate_block": 0.5776,
+        "unsupported_rate_strict": 0.699,
+        "abstention_acc": 0.4286,
+        "mean_latency_ms": 10383.03
+      },
+      "is_new": false
+    },
+    {
+      "label": "S7 Hybrid Qwen",
+      "split": "test",
+      "system_type": "hybrid",
+      "summary_path": "results/s7_hybrid_synth/summary_test.json",
+      "headline": {
+        "status": "ok",
+        "timestamp": "2026-10-02T06:25:52Z",
+        "git_commit": "pre-freeze",
+        "metric_blob_hash": "pre-freeze",
+        "n_queries": 47,
+        "citation_valid_mean": 1.0,
+        "numeric_faithfulness_mean": 1.0,
+        "unsupported_rate_block": 0.1064,
+        "unsupported_rate_strict": 0.3496,
+        "abstention_acc": 0.0,
+        "mean_latency_ms": 14685.0,
+        "total_revisions": 30,
+        "stratum_counts": null
+      },
+      "is_new": false
+    },
+    {
+      "label": "S7 Hybrid Llama",
+      "split": "test",
+      "system_type": "hybrid",
+      "summary_path": "results/s7_hybrid_llama3.1_8b/summary_test.json",
+      "headline": {
+        "status": "ok",
+        "timestamp": "2026-10-02T06:58:52Z",
+        "git_commit": "pre-freeze",
+        "metric_blob_hash": "pre-freeze",
+        "n_queries": 47,
+        "citation_valid_mean": 1.0,
+        "numeric_faithfulness_mean": 1.0,
+        "unsupported_rate_block": 0.1064,
+        "unsupported_rate_strict": 0.3161,
+        "abstention_acc": 0.0,
+        "mean_latency_ms": 18964.0,
+        "total_revisions": 47,
+        "stratum_counts": null
+      },
+      "is_new": false
+    },
+    {
+      "label": "S2 Llama planner",
+      "split": "test",
+      "system_type": "tool_selector",
+      "summary_path": "results/s2_llama3.1_8b/summary_test.json",
+      "headline": {
+        "status": "ok",
+        "timestamp": "2026-10-02T06:30:04Z",
+        "git_commit": "pre-freeze",
+        "metric_blob_hash": "pre-freeze",
+        "n_queries": 47,
+        "f1_mean": 0.6142,
+        "f1_ci_95": null,
+        "exact_match_rate": 0.2553,
+        "exact_ci_95": null,
+        "mean_latency_ms": 2845.59
+      },
+      "is_new": false
+    }
+  ]
+}

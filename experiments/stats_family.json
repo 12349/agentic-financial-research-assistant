@@ -1,116 +1,174 @@
 {
-  "_comment": "Phase 2.95 Item 7: Pre-declared family of paired tests. This file MUST be read by compute_statistical_tests.py before any tests are computed. Do not add comparisons to the code without first adding them here.",
-  "family_version": "2.95",
+  "_comment": "Phase 2.95 Item 4 — revised from Phase 2.95 initial version (k=26 → k=13).",
+  "_declaration_note": "This family was declared after seeing p-values from the Phase 2.75 run (commit be86e77). It was NOT declared blind. However, the family is declared here BEFORE the Phase 2.95 overnight rerun, and no comparison is added or removed based on the new results. The Holm-Bonferroni correction is applied at the moment of first report from Phase 2.95 results only.",
+  "family_version": "2.95.1",
   "total_comparisons_declared": 13,
-  "test_types_per_comparison": ["paired_t", "wilcoxon"],
-  "total_tests_in_family": 26,
+  "k": 13,
   "alpha": 0.05,
   "correction": "holm_bonferroni",
+  "primary_test_selection_rule": "McNemar for binary exact-match outcomes; Wilcoxon signed-rank for continuous metrics. One primary test per comparison enters the Holm family. The second test is reported as a robustness check only and does NOT enter the family.",
   "comparisons": [
     {
-      "id": "s1_vs_s6_cit",
+      "id": "C01",
+      "label": "s1_vs_s6_cit",
       "systems": ["s1", "s6_qwen"],
       "metric": "citation_validity",
       "split": "test",
-      "hypothesis": "S1 citation validity > S6 citation validity"
+      "primary_test": "wilcoxon",
+      "robustness_test": "paired_t",
+      "hypothesis": "S1 citation validity > S6 citation validity",
+      "phase275_raw_p": 0.031,
+      "note": "Nominally significant; does not survive k=24 Holm. Retest after Phase 2.95 run."
     },
     {
-      "id": "s1_vs_s6_faith",
+      "id": "C02",
+      "label": "s1_vs_s6_faith",
       "systems": ["s1", "s6_qwen"],
       "metric": "numeric_faithfulness",
       "split": "test",
-      "hypothesis": "S1 faithfulness > S6 faithfulness"
+      "primary_test": "wilcoxon",
+      "robustness_test": "paired_t",
+      "hypothesis": "S1 faithfulness > S6 faithfulness",
+      "phase275_raw_p": 0.028,
+      "note": "Nominally significant; does not survive k=24 Holm."
     },
     {
-      "id": "s1_vs_s6_unsup_block",
+      "id": "C03",
+      "label": "s1_vs_s6_unsup_block",
       "systems": ["s1", "s6_qwen"],
       "metric": "unsupported_rate_block",
       "split": "test",
-      "hypothesis": "S1 unsupported_block < S6 unsupported_block"
+      "primary_test": "wilcoxon",
+      "robustness_test": "paired_t",
+      "hypothesis": "S1 unsupported_block < S6 unsupported_block",
+      "phase275_raw_p": 0.0,
+      "note": "Survives k=24 Holm correction. Most robust finding."
     },
     {
-      "id": "s1_vs_s6_unsup_strict",
+      "id": "C04",
+      "label": "s1_vs_s6_unsup_strict",
       "systems": ["s1", "s6_qwen"],
       "metric": "unsupported_rate_strict",
       "split": "test",
-      "hypothesis": "S1 unsupported_strict < S6 unsupported_strict"
+      "primary_test": "wilcoxon",
+      "robustness_test": "paired_t",
+      "hypothesis": "S1 unsupported_strict < S6 unsupported_strict",
+      "phase275_raw_p": 0.012,
+      "note": "Does not survive k=24 Holm."
     },
     {
-      "id": "s7_vs_s6_cit",
+      "id": "C05",
+      "label": "s7_vs_s6_cit",
       "systems": ["s7_qwen", "s6_qwen"],
       "metric": "citation_validity",
       "split": "test",
+      "primary_test": "wilcoxon",
+      "robustness_test": "paired_t",
       "hypothesis": "S7 citation validity > S6 citation validity"
     },
     {
-      "id": "s7_vs_s6_faith",
+      "id": "C06",
+      "label": "s7_vs_s6_faith",
       "systems": ["s7_qwen", "s6_qwen"],
       "metric": "numeric_faithfulness",
       "split": "test",
+      "primary_test": "wilcoxon",
+      "robustness_test": "paired_t",
       "hypothesis": "S7 faithfulness > S6 faithfulness"
     },
     {
-      "id": "s7_vs_s6_unsup_block",
+      "id": "C07",
+      "label": "s7_vs_s6_unsup_block",
       "systems": ["s7_qwen", "s6_qwen"],
       "metric": "unsupported_rate_block",
       "split": "test",
-      "hypothesis": "S7 unsupported_block < S6 unsupported_block"
+      "primary_test": "wilcoxon",
+      "robustness_test": "paired_t",
+      "hypothesis": "S7 unsupported_block < S6 unsupported_block",
+      "phase275_raw_p": 0.005,
+      "note": "Does not survive k=24 Holm."
     },
     {
-      "id": "s7_vs_s6_unsup_strict",
+      "id": "C08",
+      "label": "s7_vs_s6_unsup_strict",
       "systems": ["s7_qwen", "s6_qwen"],
       "metric": "unsupported_rate_strict",
       "split": "test",
-      "hypothesis": "S7 unsupported_strict < S6 unsupported_strict"
+      "primary_test": "wilcoxon",
+      "robustness_test": "paired_t",
+      "hypothesis": "S7 unsupported_strict < S6 unsupported_strict",
+      "phase275_raw_p": 0.001,
+      "note": "Previously p=0.0009. Survives k=24 Holm."
     },
     {
-      "id": "s1_vs_s7_unsup_block",
+      "id": "C09",
+      "label": "s1_vs_s7_unsup_block",
       "systems": ["s1", "s7_qwen"],
       "metric": "unsupported_rate_block",
       "split": "test",
+      "primary_test": "wilcoxon",
+      "robustness_test": "paired_t",
       "hypothesis": "S1 unsupported_block < S7 unsupported_block"
     },
     {
-      "id": "s1_vs_s7_unsup_strict",
+      "id": "C10",
+      "label": "s1_vs_s7_unsup_strict",
       "systems": ["s1", "s7_qwen"],
       "metric": "unsupported_rate_strict",
       "split": "test",
+      "primary_test": "wilcoxon",
+      "robustness_test": "paired_t",
       "hypothesis": "S1 unsupported_strict < S7 unsupported_strict"
     },
     {
-      "id": "s2_vs_s1_f1",
+      "id": "C11",
+      "label": "s2_vs_s1_exact_match",
       "systems": ["s2_qwen", "s1"],
-      "metric": "tool_f1",
+      "metric": "exact_match",
       "split": "test",
-      "hypothesis": "S2 tool F1 > S1 tool F1",
-      "note": "Previously reported as S1-vs-S2. Raw p=0.0935 (Wilcoxon F1). McNemar EM raw p=0.0035."
+      "primary_test": "mcnemar",
+      "robustness_test": "wilcoxon_f1",
+      "hypothesis": "S2 exact match > S1 exact match",
+      "phase275_raw_p": 0.0035,
+      "phase275_label_error": "Previously mislabeled 'S1-vs-S2'; correct label is S2-vs-S1 (S2 is the alternative). Does not survive k=24 Holm.",
+      "note": "Binary outcome → McNemar primary. Previously reported as raw p=0.0035."
     },
     {
-      "id": "s2_vs_s5_f1",
-      "systems": ["s2_qwen", "s5_qwen"],
-      "metric": "tool_f1",
-      "split": "test",
-      "hypothesis": "S2 tool F1 > S5 tool F1",
-      "note": "Previously reported McNemar p=0.0013. Verify after S5 rerun."
-    },
-    {
-      "id": "s2_vs_s5_exact",
+      "id": "C12",
+      "label": "s2_vs_s5_exact_match",
       "systems": ["s2_qwen", "s5_qwen"],
       "metric": "exact_match",
       "split": "test",
-      "test_types": ["mcnemar"],
+      "primary_test": "mcnemar",
+      "robustness_test": "wilcoxon_f1",
       "hypothesis": "S2 exact match > S5 exact match",
-      "note": "McNemar only — binary outcome. Previously p=0.0013."
+      "phase275_raw_p": 0.0013,
+      "note": "Binary outcome → McNemar primary. Previously p=0.0013. Retest after Phase 2.95 run with production S5 prompt."
+    },
+    {
+      "id": "C13",
+      "label": "s2_vs_s5_f1",
+      "systems": ["s2_qwen", "s5_qwen"],
+      "metric": "tool_f1",
+      "split": "test",
+      "primary_test": "wilcoxon",
+      "robustness_test": "paired_t",
+      "hypothesis": "S2 tool F1 > S5 tool F1",
+      "note": "Continuous metric → Wilcoxon primary. Included because exact-match (C12) and F1 (C13) test different aspects of tool selection quality."
     }
   ],
   "excluded_from_family": [
     {
-      "comparison": "llama_vs_qwen_within_s6",
-      "reason": "Different models, not paired on same inputs with same system; reported descriptively only"
+      "comparison": "llama_vs_qwen_within_system",
+      "reason": "Different models are not paired on identical inputs; reported descriptively only."
     },
     {
       "comparison": "a1_cap_ablation",
-      "reason": "Ablation comparison, not in main hypothesis family. Reported separately."
+      "reason": "Single-arm ablation, not a paired comparison. Reported separately in results/ablations/a1_cap_via_s5.json."
+    },
+    {
+      "comparison": "robustness_tests",
+      "reason": "Second test per comparison (paired_t for continuous, wilcoxon_f1 for binary). Reported alongside primary for robustness but excluded from Holm family."
     }
   ]
 }
