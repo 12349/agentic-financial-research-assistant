@@ -1,0 +1,90 @@
+item_id,query,answer,human_relevance_1_5,human_completeness_1_5,human_notes
+item_20,How many Wall Street analysts have a buy-equivalent rating on Nvidia?,"According to the data provided, there are four Wall Street analysts who have a buy-equivalent rating on Nvidia. Specifically, Bank of America's Vivek Arya, Goldman Sachs' Toshiya Hari, and Citi's Atif Malik all maintain a ""Buy"" rating for Nvidia. Additionally, Morgan Stanley's Joseph Moore has an ""Overweight"" rating, which is also considered a buy-equivalent rating.
+
+[Source: rating-nvda-002]
+[Source: rating-nvda-001]
+[Source: rating-nvda-004]
+[Source: rating-nvda-003]
+
+Sources used:
+- [Source: rating-nvda-002]
+- [Source: rating-nvda-001]
+- [Source: rating-nvda-004]
+- [Source: rating-nvda-003]",,,
+item_06,How did Nvidia's data center revenue compare between Q2 and Q3 FY2025?,"Based on the available information, Nvidia reported record data center revenue of $22.6 billion for Q3 FY2025, up 112% year-over-year and exceeding Wall Street consensus [Source: news-nvda-001]. However, there is no direct comparison provided between Q2 and Q3 FY2025 in the given data.
+
+Sources used:
+- [Source: news-nvda-001]",,,
+item_15,"When you look at what management is telegraphing for Tesla's production volumes, what's the central figure?","[Source: news-tsla-001] Tesla Q3 Deliveries Beat Expectations at 462,890 Vehicles
+Tesla delivered 462,890 vehicles in Q3 2024, beating analyst consensus of 458,000. The beat was driven by strong Model Y demand in China and price reductions in the US market. The company maintained its full-year delivery guidance of 1.8 million vehicles.
+[Source: news-tsla-002] Additionally: Tesla Robotaxi Event Reveals Cybercab; Analysts Split on Timeline",,,
+item_05,How did Nvidia's data center revenue compare between Q2 and Q3 FY2025?,"[Source: news-nvda-001] Nvidia Data Center Revenue Hits Record $22.6B in Q3 FY2025, Surpassing Analyst Expectations
+Nvidia reported record data center revenue of $22.6 billion for Q3 FY2025, up 112% year-over-year. The result exceeded Wall Street consensus of $21.1 billion. CEO Jensen Huang cited explosive demand for H100 and H200 GPUs from hyperscalers and cloud providers. The company guided Q4 data center revenue above $37 billion.
+[Source: news-nvda-003] Additionally: Nvidia Q4 Guidance Tops Estimates; Analysts Raise Price Targets Across the Board",,,
+item_10,What is Nvidia's revenue guidance for Q4 FY2025?,"Nvidia provided revenue guidance for Q4 FY2025, with a target of approximately $37.5 billion (USD), indicating an expected range between $37 billion and $38 billion [Source: guidance-nvda-001]. This guidance was issued on November 20, 2024, and it exceeded the Street consensus estimate of $37.1 billion at the time of the guidance.
+
+Sources used:
+- [Source: guidance-nvda-001]",,,
+item_14,How does JPMorgan's full-year NII forecast compare to where analysts had been?,"Based on the analyst ratings provided, JPMorgan Chase & Co.'s (JPM) analysts have been consistently bullish, with all three analysts maintaining a positive outlook and raising their price targets. Specifically, Deutsche Bank's Matt O'Connor raised the price target to $275.00 from $255.00 [Source: rating-jpm-003], Wells Fargo's Mike Mayo increased it to $280.00 from $250.00 [Source: rating-jpm-001], and Oppenheimer's Chris Kotowski raised his target to $265.00 from $240.00 [Source: rating-jpm-002]. The consensus among these analysts is bullish, with an average price target of $273.33.
+
+Sources used:
+- Source: rating-jpm-003
+- Source: rating-jpm-001
+- Source: rating-jpm-002",,,
+item_16,"When you look at what management is telegraphing for Tesla's production volumes, what's the central figure?","Based on the news report from Financial News [Source: news-tsla-001], Tesla maintained its full-year delivery guidance of 1.8 million vehicles for Q3 2024, indicating that this figure is central to management's telegraphing regarding production volumes.
+
+Sources used:
+- [Source: news-tsla-001]",,,
+item_19,How many Wall Street analysts have a buy-equivalent rating on Nvidia?,"Analyst sentiment on NVDA is currently BULLISH.
+[Source: rating-nvda-002] Of 4 recent ratings: 3 bullish, 0 neutral, 1 bearish. Average price target: $172.
+[Source: rating-nvda-002] Bank of America (Vivek Arya) Raises Price Target at Buy, PT $190.0 (from $165.0). Sees Blackwell cycle as multi-year AI infrastructure tailwind.
+[Source: rating-nvda-001] Goldman Sachs (Toshiya Hari) Raises Price Target at Buy, PT $165.0 (from $135.0). Raised PT on data center demand strength and Blackwell ramp confirmation.",,,
+item_07,I want to see JPMorgan's revenue growth trajectory — how fast was top-line expanding in Q3 2024?,"[Source: news-jpm-001] JPMorgan Q3 Net Income Rises 35% on Higher Interest Income
+JPMorgan Chase reported Q3 2024 net income of $12.9 billion, up 35% from a year earlier, driven by rising net interest income and strong investment banking fees. Revenue of $43.3 billion beat analyst expectations of $41.8 billion. CEO Jamie Dimon warned of geopolitical risks and potential credit deterioration ahead.
+[Source: news-jpm-002] Additionally: JPMorgan Raises Full-Year Net Interest Income Guidance to $92.5B",,,
+item_13,How does JPMorgan's full-year NII forecast compare to where analysts had been?,"Analyst sentiment on JPM is currently BULLISH.
+[Source: rating-jpm-003] Of 3 recent ratings: 3 bullish, 0 neutral, 0 bearish. Average price target: $273.
+[Source: rating-jpm-003] Deutsche Bank (Matt O'Connor) Raises Price Target at Buy, PT $275.0 (from $255.0). Strong capital markets rebound; credit quality better than feared.
+[Source: rating-jpm-001] Wells Fargo (Mike Mayo) Raises Price Target at Overweight, PT $280.0 (from $250.0). Best-in-class franchise; NII guidance raise signals sustained earnings power.",,,
+item_18,Which analyst firm has the highest price target on Tesla?,"Based on the data provided, Wedbush Securities has set the highest price target of $400.00 for Tesla (TSLA), followed by Morgan Stanley with a price target of $310.00 and UBS with a lower target at $226.00.
+
+[Source: rating-tsla-001]
+[Source: rating-tsla-002]
+[Source: rating-tsla-003]
+
+Sources used:
+- [Source: rating-tsla-001]
+- [Source: rating-tsla-002]
+- [Source: rating-tsla-003]",,,
+item_11,What range did NVDA provide for their Q4 FY2025 revenue outlook?,"[Source: news-nvda-003] Nvidia Q4 Guidance Tops Estimates; Analysts Raise Price Targets Across the Board
+Following Nvidia's blowout Q3 earnings, at least 15 analysts raised their price targets for NVDA stock. The company guided Q4 revenue to approximately $37.5 billion, versus Street estimates of $37.1 billion. Several analysts noted that data center infrastructure spending shows no signs of slowing despite macro uncertainty.
+[Source: news-nvda-001] Additionally: Nvidia Data Center Revenue Hits Record $22.6B in Q3 FY2025, Surpassing Analyst Expectations",,,
+item_02,How much profit did Exxon Mobil generate in Q3 2024 after all expenses?,"Exxon Mobil reported a net income of $8,610,000,000 for Q3 2024 after all expenses [Source: earnings-xom-001].
+
+Sources used:
+- Source: earnings-xom-001",,,
+item_12,What range did NVDA provide for their Q4 FY2025 revenue outlook?,"According to a recent financial news report, Nvidia provided a Q4 FY2025 revenue guidance of approximately $37.5 billion, which exceeded the Street estimates of $37.1 billion. [Source: news-nvda-003]
+
+Sources used:
+- [Source: news-nvda-003]",,,
+item_03,Did XOM's quarterly earnings per share come in above or below expectations?,"[Source: earnings-xom-001] XOM Q3 2024 earnings (reported 2024-11-01): Revenue $90.0B vs. estimate $90.2B — MISS (-0.2%). EPS $1.92 vs. estimate $1.88 — BEAT (+2.1%). Revenue grew -5.0% year-over-year.
+  Notes: EPS beat driven by Pioneer synergies of $500M ahead of schedule. Revenue slightly missed due to lower oil prices. $35B buyback program maintained.",,,
+item_17,Which analyst firm has the highest price target on Tesla?,"Analyst sentiment on TSLA is currently BULLISH.
+[Source: rating-tsla-001] Of 3 recent ratings: 2 bullish, 0 neutral, 1 bearish. Average price target: $312.
+[Source: rating-tsla-001] Wedbush Securities (Dan Ives) Raises Price Target at Outperform, PT $400.0 (from $300.0). Tesla AI and FSD monetization opportunity undervalued; Cybercab a long-term catalyst.
+[Source: rating-tsla-003] UBS (Joseph Spak) Raises Price Target at Neutral, PT $226.0 (from $197.0). Cautious on near-term EV competition; autonomous timeline uncertain.",,,
+item_08,I want to see JPMorgan's revenue growth trajectory — how fast was top-line expanding in Q3 2024?,"Based on the available data, JPMorgan Chase reported a significant revenue growth in Q3 2024. The company's revenue reached $43.3 billion, surpassing analyst expectations of $41.8 billion [Source: news-jpm-001]. However, the specific rate of top-line expansion for Q3 2024 is not directly provided; it can be inferred that there was substantial growth given the beat against expectations.
+
+Sources used:
+- [Source: news-jpm-001]",,,
+item_09,What is Nvidia's revenue guidance for Q4 FY2025?,"[Source: earnings-nvda-001] NVDA Q3 FY2025 earnings (reported 2024-11-20): Revenue $35.1B vs. estimate $33.2B — BEAT (+5.8%). EPS $0.81 vs. estimate $0.74 — BEAT (+9.5%). Revenue grew 93.6% year-over-year.
+  Notes: Record quarter driven by data center segment at $30.8B. Gaming revenue was $3.3B. CEO Jensen Huang cited 'insane' Blackwell demand.
+
+[Source: guidance-nvda-001] NVDA issued Revenue guidance of $37.5B for Q4 FY2025 (issued 2024-11-20). Prior analyst estimate was $37.1B.
+  Notes: Company guided Q4 FY2025 revenue to approximately $37.5B (+/- 2%), above Street consensus of $37.1B at time of guidance.",,,
+item_01,How much profit did Exxon Mobil generate in Q3 2024 after all expenses?,"[Source: earnings-xom-001] XOM Q3 2024 earnings (reported 2024-11-01): Revenue $90.0B vs. estimate $90.2B — MISS (-0.2%). EPS $1.92 vs. estimate $1.88 — BEAT (+2.1%). Revenue grew -5.0% year-over-year.
+  Notes: EPS beat driven by Pioneer synergies of $500M ahead of schedule. Revenue slightly missed due to lower oil prices. $35B buyback program maintained.",,,
+item_04,Did XOM's quarterly earnings per share come in above or below expectations?,"XOM's quarterly earnings per share (EPS) for Q3 2024 came in above expectations, with an actual EPS of $1.92 compared to the estimated EPS of $1.88 [Source: earnings-xom-001]. This beat was driven by Pioneer synergies of $500 million that were achieved ahead of schedule [Source: earnings-xom-001].
+
+Sources used:
+- [Source: earnings-xom-001]",,,
