@@ -1,0 +1,101 @@
+{
+  "gate_description": "Entity-match gate: returns True (in-scope) if query contains a known ticker symbol or company name. Developed on DEV no_data queries (n=3).",
+  "gate_limitation": "Most no_data queries DO mention in-fixture entities but ask for data types not in fixtures (short interest, options flow, CDS spreads, dividends, institutional holders). Entity matching alone cannot detect fixture coverage gaps.",
+  "dev_calibration": {
+    "n": 3,
+    "abstention_accuracy": 0.0,
+    "details": [
+      {
+        "qid": "ND012",
+        "query": "How did Meta Platforms do on earnings last quarter?",
+        "category": "no_data",
+        "entity_gate_result": true,
+        "predicted_action": "answer",
+        "correct_abstention": false
+      },
+      {
+        "qid": "ND021",
+        "query": "What is Tesla's short interest percentage?",
+        "category": "no_data",
+        "entity_gate_result": true,
+        "predicted_action": "answer",
+        "correct_abstention": false
+      },
+      {
+        "qid": "ND023",
+        "query": "What are the top institutional holders of XOM shares?",
+        "category": "no_data",
+        "entity_gate_result": true,
+        "predicted_action": "answer",
+        "correct_abstention": false
+      }
+    ]
+  },
+  "test_evaluation_descriptive": {
+    "n": 7,
+    "abstention_accuracy": 0.0,
+    "baseline_s1": 0.4286,
+    "baseline_s6": 0.1429,
+    "baseline_s7": 0.0,
+    "gate_vs_s1_delta": -0.4286,
+    "details": [
+      {
+        "qid": "ND003",
+        "query": "What is Amazon's forward revenue guidance?",
+        "category": "no_data",
+        "entity_gate_result": true,
+        "predicted_action": "answer",
+        "correct_abstention": false
+      },
+      {
+        "qid": "ND004",
+        "query": "Any news about Alphabet's antitrust case?",
+        "category": "no_data",
+        "entity_gate_result": true,
+        "predicted_action": "answer",
+        "correct_abstention": false
+      },
+      {
+        "qid": "ND009",
+        "query": "What dividend does Exxon Mobil pay?",
+        "category": "no_data",
+        "entity_gate_result": true,
+        "predicted_action": "answer",
+        "correct_abstention": false
+      },
+      {
+        "qid": "ND024",
+        "query": "Give me Google's analyst ratings and price targets.",
+        "category": "no_data",
+        "entity_gate_result": true,
+        "predicted_action": "answer",
+        "correct_abstention": false
+      },
+      {
+        "qid": "ND025",
+        "query": "What is the options flow on NVDA calls expiring next Friday?",
+        "category": "no_data",
+        "entity_gate_result": true,
+        "predicted_action": "answer",
+        "correct_abstention": false
+      },
+      {
+        "qid": "ND028",
+        "query": "Show me JPMorgan's credit default swap spreads.",
+        "category": "no_data",
+        "entity_gate_result": true,
+        "predicted_action": "answer",
+        "correct_abstention": false
+      },
+      {
+        "qid": "ND031",
+        "query": "What's the news on Coinbase's regulatory battles?",
+        "category": "no_data",
+        "entity_gate_result": true,
+        "predicted_action": "answer",
+        "correct_abstention": false
+      }
+    ]
+  },
+  "conclusion": "Entity gate abstention accuracy = 0.000 (0/7), below S1 baseline 0.429. Gate NOT applied to S1/S7. A meaningful gate requires fixture-coverage awareness beyond entity matching. Reported descriptively only; n=7 is insufficient for statistical claims."
+}

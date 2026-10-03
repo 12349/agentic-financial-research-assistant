@@ -183,16 +183,19 @@ All experiments run locally on Apple M4 (16 GB unified memory, macOS 27.0) via O
 | S4 | Call-All | 0.383 | **0.936** | 0.516 [0.45, 0.58] | 0.064 [0.00, 0.15] | 4.00 | 18.8 |
 | S5 | ReAct (Qwen2.5-7B) | 0.486 | 0.436 | 0.433 [0.31, 0.56] | 0.340 [0.21, 0.49] | 0.89 | 17,140.3 |
 
-**Statistical Significance**:
-- Paired McNemar's test on exact match (S1 vs S2): $\chi^2 = 8.5217$, **$p = 0.0035$** (statistically significant at $p < 0.01$).
-- Wilcoxon signed-rank test on F1 (S1 vs S2): $W = 130.0$, $p = 0.0935$.
+**Statistical Significance (Holm-Bonferroni corrected, k=24 family)**:
+- Paired McNemar's test on exact match (S1 vs S2): $\chi^2 = 8.5217$, raw **$p = 0.0035$**; Holm rank 24 (threshold 0.002083) — **does not survive correction**. Nominally significant at $p < 0.01$ but MCC-corrected p-value exceeds threshold.
+- Wilcoxon signed-rank test on F1 (S1 vs S2): $W = 130.0$, raw $p = 0.0935$; **not significant**.
+- **Corrected significant results**: only S1 vs S6 block-unsupported-rate (t-test p≈0 and Wilcoxon p≈0, both survive Holm-Bonferroni). See `results/REPORT_RECONCILIATION.md` §9 for the full correction table.
 
 ### 6.2 Synthesis Grounding Comparison (Held-Out Test Split, n=47)
 
 | System | Citation Validity | Numeric Faithfulness | Unsupported Claim Rate | Abstention Accuracy | Latency (Mean) |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | **S1 (Deterministic Formatter)** | **1.000** [1.0, 1.0] *(By construction)* | **1.000** [1.0, 1.0] | **0.000** [0.0, 0.0] | **0.429** (3/7) | **9.8 ms** |
-| **S6 (LLM Synthesis, Qwen2.5-7B)** | 0.859 [0.76, 0.94] | 0.975 [0.95, 0.99] | 0.238 [0.18, 0.30] | 0.143 (1/7) | 9,574.2 ms |
+| **S6 (LLM Synthesis, Qwen2.5-7B)** | **0.859** [0.76, 0.94] | 0.975 [0.95, 0.99] | **0.230** [0.17, 0.29] | 0.143 (1/7) | 9,574.2 ms |
+
+> **⚠️ METRIC VERSION NOTE (Phase 2.9)**: S6 citation validity = **0.8592** from `results/s6_llm_synth/summary_test.json` (metric git blob `0ccbfdd`). The `results/statistical_significance.json` file records mean_b = **0.9615** because `compute_statistical_tests.py` re-ran `citation_validity()` live on the same raw answer files at a later time. Root cause: the live re-computation filters NaN pairs differently (n_pairs=42 instead of 47), raising the mean. **The authoritative value is 0.8592** (direct summary file). The stats file value 0.9615 is an artifact of the paired-comparison NaN filter. All claims in this document use 0.8592. Metric code frozen at commit `ac35d4c`, blob hash `0ccbfdda1b930501c1502e6dea9298ec72242886`.
 
 **Reassessment of the Core Synthesis Finding**:
 - **Status: CONFIRMED & SOLIDIFIED**.
@@ -204,6 +207,10 @@ All experiments run locally on Apple M4 (16 GB unified memory, macOS 27.0) via O
   - Abstention on unanswerable/out-of-scope queries drops from 42.9% to 14.3% (the generative model fabricates plausible-sounding explanations when tool records are absent).
   - Latency is higher (9.6 seconds vs. 9.8 milliseconds), representing the computational cost of autoregressive generation.
 - **Framing Correction**: The phrase *"mathematical grounding guarantee"* is permanently removed. The defensible framing is **"Programmatic Structural Attribution vs. Generative LLM Synthesis"**: programmatic field copying structurally prevents citation fabrication by design, whereas prompt-instructed LLM generation degrades across all fidelity dimensions.
+
+> **⚠️ Phase 2.9 Correction**: Section 6.2 previously reported unsupported rate as 0.238 in narrative text; corrected to **0.230** (= 0.2304 from `summary_test.json`). The earlier 0.238 came from a `b8f8f4f`-era table. The 0.2304 is the authoritative value.
+
+> **⚠️ Phase 2.9 Note — S7 Identical block-unsupported**: S7-Qwen and S7-Llama both report block_unsupported = 0.1064 [0.0213, 0.1915]. This is expected-by-construction: S7-Llama triggered revisions on all 47 answers (vs 30/47 for Qwen), but both produce deterministic-formatter outputs as final answers. The block-unsupported metric is computed on the final formatter output, not the LLM draft. The strict-unsupported rates DO differ (Qwen: 0.3496, Llama: 0.3161), confirming LLM draft differences.
 
 ---
 
@@ -265,11 +272,12 @@ Based strictly on verified, audited empirical data:
 
 1. **Contribution 1 (Empirical Evaluation of Programmatic vs. Generative Synthesis in Financial QA)**:
    - Programmatic structural attribution achieves 100% citation validity and 100% numeric faithfulness with sub-10ms latency.
-   - Generative LLM synthesis degrades citation validity by 14.1%, generates 23.8% unsupported statements, and incurs higher latency (9.6 s vs. 9.8 ms).
+   - Generative LLM synthesis degrades citation validity by 14.1% (0.8592 vs 1.000), generates **23.0%** unsupported statements (corrected from 23.8%; see §6.2 metric version note), and incurs higher latency (9.6 s vs. 9.8 ms).
    - This provides actionable empirical guidance for production financial systems: structured metrics should be rendered programmatically, reserving generative LLMs for natural-language query planning.
 2. **Contribution 2 (Single-Shot Structured Planning Outperforms Multi-Step ReAct in Constrained Tool Routing)**:
-   - Single-shot LLM planning (S2) achieves **0.677 F1** and **63.8% Exact Match** ($p=0.0035$ over rule-based baseline via McNemar's test).
+   - Single-shot LLM planning (S2) achieves **0.677 F1** and **63.8% Exact Match** (raw McNemar $p=0.0035$, **not significant after Holm-Bonferroni correction over k=24 family**).
    - ReAct (S5) achieves only **0.433 F1** and **34.0% Exact Match**, hobbled by early stopping (mean 1.83 steps on test).
+   - ⚠️ **Phase 2.9 Note**: The A1 ablation used an alternative baseline ReAct prompt (F1=0.200), NOT the S5 production prompt. The "straw-man" claim (baseline vs improved-prompt) should NOT be cited until A1 is rerun with cap=4 applied to the exact S5 prompt, confirming cap=4 reproduces F1≈0.433.
 3. **Contribution 3 (Rigorous Evaluation Methodology & Provenance for Applied Financial Agent Research)**:
    - Full test-set isolation ($n=47$ held-out split never used for tuning).
    - CI-enforced regression tests guarding against circular label leakage.
@@ -283,8 +291,8 @@ The table below catalogs every claim intended for the manuscript, the primary su
 
 | Claim ID | Paper Claim | Subsystem / Topic | Supporting Result File | Key Empirical Evidence | Experimental Limitations & Boundary Conditions | Defensive Publication Framing |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **C1** | Programmatic field copying structurally eliminates citation fabrication and numerical errors | Synthesis (S1 vs S6) | `results/s1_rule_planner/summary_test.json`, `results/metric_validation_report.json` | S1 Citation Validity: **1.000** [1.0, 1.0]; Numeric Faithfulness: **1.000** [1.0, 1.0]; Block Unsupported: **0.000** [0.0, 0.0] | Cannot generate free-form conversational prose; strict sentence unsupported rate is 0.567 due to un-cited intro sentences; lower relevance score on LLM judge (4.20 vs 4.95 for S6). | Frame as a **fundamental trade-off**: deterministic formatting guarantees factual grounding at the expense of conversational fluency and direct query focus. |
-| **C2** | Generative LLM synthesis suffers from citation hallucination and numerical distortion across multiple model families | Synthesis (S6) | `results/s6_llm_synth/summary_test.json`, `results/s6_llama3.1_8b/summary_test.json` | Qwen 2.5 7B: Citation 0.8592, Faithfulness 0.9749, Block Unsupported 0.2304. Llama 3.1 8B: Citation 0.8485, Faithfulness 0.7241, Unsupported 0.5776. | Evaluated at 7B/8B scale with greedy decoding ($T=0$); frontier models (70B+) or larger proprietary APIs may show lower hallucination rates. | Frame as an empirical vulnerability of local edge-deployable open-weights LLMs in financial reporting workflows. |
+| **C1** | Programmatic field copying structurally eliminates citation fabrication and numerical errors | Synthesis (S1 vs S6) | `results/s1_rule_planner/summary_test.json`, `results/metric_validation_report.json` | S1 Citation Validity: **1.000** [1.0, 1.0]; Numeric Faithfulness: **1.000** [1.0, 1.0]; Block Unsupported: **0.000** [0.0, 0.0] | Cannot generate free-form conversational prose; strict sentence unsupported rate is 0.567 due to un-cited intro sentences; lower relevance score on LLM judge (4.20 vs 4.60 for S6, from `results/answer_quality_report.json` judge scores only; **agent-written** ratings in `eval/run_answer_quality_study.py` are NOT independent human scores). | Frame as a **fundamental trade-off**: deterministic formatting guarantees factual grounding at the expense of conversational fluency and direct query focus. |
+| **C2** | Generative LLM synthesis suffers from citation hallucination and numerical distortion across multiple model families | Synthesis (S6) | `results/s6_llm_synth/summary_test.json`, `results/s6_llama3.1_8b/summary_test.json` | Qwen 2.5 7B: Citation **0.8592** [0.76, 0.94], Faithfulness 0.9749, Block Unsupported **0.2304**. Llama 3.1 8B: Citation 0.8485, Faithfulness 0.7241, Unsupported 0.5776. Metric blob: `0ccbfdda`. | Evaluated at 7B/8B scale with greedy decoding ($T=0$); frontier models (70B+) or larger proprietary APIs may show lower hallucination rates. | Frame as an empirical vulnerability of local edge-deployable open-weights LLMs in financial reporting workflows. |
 | **C3** | Automated verification with single-turn revision (Hybrid S7) restores citation validity and numerical fidelity | Synthesis (S7) | `results/s7_hybrid_synth/summary_test.json` | S7 Citation Validity: **1.000** [1.0, 1.0]; Numeric Faithfulness: **1.000** [1.0, 1.0]; Block Unsupported: **0.106** [0.02, 0.19]. 30/47 revisions triggered. | Revision loop increases mean latency; sentence pruning can truncate narrative context; does not fix out-of-scope abstention. | Position S7 as an effective engineering compromise that enforces factual safety while preserving natural language flexibility. |
 | **C4** | Single-shot structured LLM planning outperforms multi-step ReAct routing in constrained financial tool routing | Tool Planning (S2 vs S5) | `results/s2_llm_planner/summary_test.json`, `results/s5_react/summary_test.json`, `results/statistical_significance.json` | S2 (Qwen) F1: **0.6773** [0.57, 0.78], Exact Match: **63.8%** [0.49, 0.77]. S5 (ReAct) F1: **0.4333** [0.31, 0.56], Exact Match: **34.0%** [0.21, 0.49]. McNemar test $p=0.0013$. | 4-tool domain with defined parameters; does not generalize to open-web recursive browsing where multi-step feedback is essential. | Conclude that for structured metric databases with low branching factors, single-shot plan generation is superior to iterative ReAct loops. |
 | **C5** | ReAct tool budget caps do not bind in practice due to autonomous early stopping | Agent Dynamics (A1) | `results/ablations/a1_tool_cap_live.json` | Baseline prompt mean steps: **1.53** (cap 4/8 bind rate: 0.0%; cap 2 binds in 12.8%). Improved prompt mean steps: **1.79** (bind rate: 0.0%). | Evaluated on financial query benchmark; complex multi-hop question answering might exhibit longer reasoning chains. | Document the early-stopping pathology: 7B/8B ReAct agents terminate prematurely rather than entering infinite loops. |

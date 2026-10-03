@@ -1,0 +1,72 @@
+{
+  "description": "Label-noise sensitivity analysis on n=10 dev queries with both S1 raw results and human labels. NOT a tuning set. Gold labels unchanged.",
+  "n_overlap": 10,
+  "n_disagreements_in_overlap": 2,
+  "overlap_qids": [
+    "A004",
+    "D041",
+    "D043",
+    "D077",
+    "E019",
+    "N003",
+    "N020",
+    "ND021",
+    "R008",
+    "R018"
+  ],
+  "disagreements_in_overlap": [
+    {
+      "qid": "A004",
+      "author_tools": [
+        "search_news",
+        "get_earnings",
+        "get_ratings"
+      ],
+      "human_tools": [
+        "search_news"
+      ],
+      "author_category": "ambiguous",
+      "human_category": "ambiguous"
+    },
+    {
+      "qid": "N003",
+      "author_tools": [
+        "get_earnings",
+        "search_news"
+      ],
+      "human_tools": [
+        "get_earnings"
+      ],
+      "author_category": "dual_tool",
+      "human_category": "single_tool"
+    }
+  ],
+  "s1_under_author_labels": {
+    "n": 10,
+    "f1_mean": 0.45,
+    "f1_ci_95": [
+      0.2,
+      0.7
+    ],
+    "em_mean": 0.2,
+    "em_ci_95": [
+      0.0,
+      0.5
+    ]
+  },
+  "s1_under_human_labels": {
+    "n": 10,
+    "f1_mean": 0.4333,
+    "f1_ci_95": [
+      0.1667,
+      0.7
+    ],
+    "em_mean": 0.3,
+    "em_ci_95": [
+      0.0,
+      0.6
+    ]
+  },
+  "s2_note": "S2 raw dev results do not overlap with the 10 human-labeled dev queries. S2 sensitivity cannot be computed from existing results.",
+  "interpretation": "Label swap changes S1 F1 by delta=-0.017 on n=10. CIs are extremely wide [0.17, 0.70]. No significance claim is warranted at this sample size. This analysis shows label uncertainty does not qualitatively change S1 performance on the overlap subset, but the subset is too small to generalize."
+}

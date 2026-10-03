@@ -80,7 +80,9 @@
       0.477,
       0.5637
     ],
-    "abstention_acc": 0.1429
+    "abstention_acc": 0.1429,
+    "metric_blob_hash": "0ccbfdda1b930501c1502e6dea9298ec72242886",
+    "metric_commit": "ac35d4c"
   },
   "model": "qwen2.5:7b-instruct",
   "mean_latency_ms": 9642.93,
