@@ -1,0 +1,178 @@
+{
+  "description": "Independent metric checker \u2014 does NOT import experiments.metrics.synthesis_quality. Uses own regex-based citation matching and number parsing. Compares per-system IC means against stored summary values.",
+  "split": "test",
+  "systems": {
+    "s6_qwen": {
+      "n_answers": 47,
+      "split": "test",
+      "metric_citation_valid_mean": 0.8592,
+      "ic_citation_valid_mean": 0.8592,
+      "citation_mean_delta": 0.0,
+      "metric_unsupported_block_mean": 0.2304,
+      "ic_unsupported_block_mean": 0.2304,
+      "unsupported_mean_delta": 0.0,
+      "answers_with_invalid_citations_ic": 10,
+      "disagree_citation_details": [
+        {
+          "qid": "A011",
+          "ic_citation_valid": 0.0,
+          "ic_n_cited": 1,
+          "ic_n_valid": 0
+        },
+        {
+          "qid": "A027",
+          "ic_citation_valid": 0.0,
+          "ic_n_cited": 1,
+          "ic_n_valid": 0
+        },
+        {
+          "qid": "D011",
+          "ic_citation_valid": 0.6667,
+          "ic_n_cited": 6,
+          "ic_n_valid": 4
+        },
+        {
+          "qid": "D012",
+          "ic_citation_valid": 0.6667,
+          "ic_n_cited": 3,
+          "ic_n_valid": 2
+        },
+        {
+          "qid": "D022",
+          "ic_citation_valid": 0.5,
+          "ic_n_cited": 4,
+          "ic_n_valid": 2
+        },
+        {
+          "qid": "D054",
+          "ic_citation_valid": 0.75,
+          "ic_n_cited": 4,
+          "ic_n_valid": 3
+        },
+        {
+          "qid": "N004",
+          "ic_citation_valid": 0.8,
+          "ic_n_cited": 5,
+          "ic_n_valid": 4
+        },
+        {
+          "qid": "ND004",
+          "ic_citation_valid": 0.0,
+          "ic_n_cited": 1,
+          "ic_n_valid": 0
+        },
+        {
+          "qid": "ND025",
+          "ic_citation_valid": 0.0,
+          "ic_n_cited": 1,
+          "ic_n_valid": 0
+        },
+        {
+          "qid": "ND031",
+          "ic_citation_valid": 0.0,
+          "ic_n_cited": 1,
+          "ic_n_valid": 0
+        }
+      ],
+      "metric_git_commit": "unknown",
+      "metric_blob_hash": "unknown"
+    },
+    "s6_llama": {
+      "n_answers": 47,
+      "split": "test",
+      "metric_citation_valid_mean": 0.8485,
+      "ic_citation_valid_mean": 0.8485,
+      "citation_mean_delta": 0.0,
+      "metric_unsupported_block_mean": 0.5776,
+      "ic_unsupported_block_mean": 0.5776,
+      "unsupported_mean_delta": 0.0,
+      "answers_with_invalid_citations_ic": 9,
+      "disagree_citation_details": [
+        {
+          "qid": "A011",
+          "ic_citation_valid": 0.0,
+          "ic_n_cited": 1,
+          "ic_n_valid": 0
+        },
+        {
+          "qid": "A027",
+          "ic_citation_valid": 0.0,
+          "ic_n_cited": 1,
+          "ic_n_valid": 0
+        },
+        {
+          "qid": "D011",
+          "ic_citation_valid": 0.3333,
+          "ic_n_cited": 3,
+          "ic_n_valid": 1
+        },
+        {
+          "qid": "D012",
+          "ic_citation_valid": 0.75,
+          "ic_n_cited": 4,
+          "ic_n_valid": 3
+        },
+        {
+          "qid": "D033",
+          "ic_citation_valid": 0.0,
+          "ic_n_cited": 6,
+          "ic_n_valid": 0
+        },
+        {
+          "qid": "D076",
+          "ic_citation_valid": 0.5,
+          "ic_n_cited": 2,
+          "ic_n_valid": 1
+        },
+        {
+          "qid": "G007",
+          "ic_citation_valid": 0.75,
+          "ic_n_cited": 4,
+          "ic_n_valid": 3
+        },
+        {
+          "qid": "ND025",
+          "ic_citation_valid": 0.0,
+          "ic_n_cited": 1,
+          "ic_n_valid": 0
+        },
+        {
+          "qid": "R004",
+          "ic_citation_valid": 0.0,
+          "ic_n_cited": 1,
+          "ic_n_valid": 0
+        }
+      ],
+      "metric_git_commit": "unknown",
+      "metric_blob_hash": "unknown"
+    },
+    "s7_qwen": {
+      "n_answers": 47,
+      "split": "test",
+      "metric_citation_valid_mean": 1.0,
+      "ic_citation_valid_mean": 1.0,
+      "citation_mean_delta": 0.0,
+      "metric_unsupported_block_mean": 0.1064,
+      "ic_unsupported_block_mean": 0.1064,
+      "unsupported_mean_delta": 0.0,
+      "answers_with_invalid_citations_ic": 0,
+      "disagree_citation_details": [],
+      "metric_git_commit": "unknown",
+      "metric_blob_hash": "unknown"
+    },
+    "s7_llama": {
+      "n_answers": 47,
+      "split": "test",
+      "metric_citation_valid_mean": 1.0,
+      "ic_citation_valid_mean": 1.0,
+      "citation_mean_delta": 0.0,
+      "metric_unsupported_block_mean": 0.1064,
+      "ic_unsupported_block_mean": 0.1064,
+      "unsupported_mean_delta": 0.0,
+      "answers_with_invalid_citations_ic": 0,
+      "disagree_citation_details": [],
+      "metric_git_commit": "unknown",
+      "metric_blob_hash": "unknown"
+    }
+  }
+}

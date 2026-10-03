@@ -80,9 +80,7 @@
       0.2278,
       0.4089
     ],
-    "abstention_acc": 0.0,
-    "metric_blob_hash": "0ccbfdda1b930501c1502e6dea9298ec72242886",
-    "metric_commit": "ac35d4c"
+    "abstention_acc": 0.0
   },
   "model": "llama3.1:8b",
   "mean_latency_ms": 18964.0,

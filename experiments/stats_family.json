@@ -1,0 +1,116 @@
+{
+  "_comment": "Phase 2.95 Item 7: Pre-declared family of paired tests. This file MUST be read by compute_statistical_tests.py before any tests are computed. Do not add comparisons to the code without first adding them here.",
+  "family_version": "2.95",
+  "total_comparisons_declared": 13,
+  "test_types_per_comparison": ["paired_t", "wilcoxon"],
+  "total_tests_in_family": 26,
+  "alpha": 0.05,
+  "correction": "holm_bonferroni",
+  "comparisons": [
+    {
+      "id": "s1_vs_s6_cit",
+      "systems": ["s1", "s6_qwen"],
+      "metric": "citation_validity",
+      "split": "test",
+      "hypothesis": "S1 citation validity > S6 citation validity"
+    },
+    {
+      "id": "s1_vs_s6_faith",
+      "systems": ["s1", "s6_qwen"],
+      "metric": "numeric_faithfulness",
+      "split": "test",
+      "hypothesis": "S1 faithfulness > S6 faithfulness"
+    },
+    {
+      "id": "s1_vs_s6_unsup_block",
+      "systems": ["s1", "s6_qwen"],
+      "metric": "unsupported_rate_block",
+      "split": "test",
+      "hypothesis": "S1 unsupported_block < S6 unsupported_block"
+    },
+    {
+      "id": "s1_vs_s6_unsup_strict",
+      "systems": ["s1", "s6_qwen"],
+      "metric": "unsupported_rate_strict",
+      "split": "test",
+      "hypothesis": "S1 unsupported_strict < S6 unsupported_strict"
+    },
+    {
+      "id": "s7_vs_s6_cit",
+      "systems": ["s7_qwen", "s6_qwen"],
+      "metric": "citation_validity",
+      "split": "test",
+      "hypothesis": "S7 citation validity > S6 citation validity"
+    },
+    {
+      "id": "s7_vs_s6_faith",
+      "systems": ["s7_qwen", "s6_qwen"],
+      "metric": "numeric_faithfulness",
+      "split": "test",
+      "hypothesis": "S7 faithfulness > S6 faithfulness"
+    },
+    {
+      "id": "s7_vs_s6_unsup_block",
+      "systems": ["s7_qwen", "s6_qwen"],
+      "metric": "unsupported_rate_block",
+      "split": "test",
+      "hypothesis": "S7 unsupported_block < S6 unsupported_block"
+    },
+    {
+      "id": "s7_vs_s6_unsup_strict",
+      "systems": ["s7_qwen", "s6_qwen"],
+      "metric": "unsupported_rate_strict",
+      "split": "test",
+      "hypothesis": "S7 unsupported_strict < S6 unsupported_strict"
+    },
+    {
+      "id": "s1_vs_s7_unsup_block",
+      "systems": ["s1", "s7_qwen"],
+      "metric": "unsupported_rate_block",
+      "split": "test",
+      "hypothesis": "S1 unsupported_block < S7 unsupported_block"
+    },
+    {
+      "id": "s1_vs_s7_unsup_strict",
+      "systems": ["s1", "s7_qwen"],
+      "metric": "unsupported_rate_strict",
+      "split": "test",
+      "hypothesis": "S1 unsupported_strict < S7 unsupported_strict"
+    },
+    {
+      "id": "s2_vs_s1_f1",
+      "systems": ["s2_qwen", "s1"],
+      "metric": "tool_f1",
+      "split": "test",
+      "hypothesis": "S2 tool F1 > S1 tool F1",
+      "note": "Previously reported as S1-vs-S2. Raw p=0.0935 (Wilcoxon F1). McNemar EM raw p=0.0035."
+    },
+    {
+      "id": "s2_vs_s5_f1",
+      "systems": ["s2_qwen", "s5_qwen"],
+      "metric": "tool_f1",
+      "split": "test",
+      "hypothesis": "S2 tool F1 > S5 tool F1",
+      "note": "Previously reported McNemar p=0.0013. Verify after S5 rerun."
+    },
+    {
+      "id": "s2_vs_s5_exact",
+      "systems": ["s2_qwen", "s5_qwen"],
+      "metric": "exact_match",
+      "split": "test",
+      "test_types": ["mcnemar"],
+      "hypothesis": "S2 exact match > S5 exact match",
+      "note": "McNemar only — binary outcome. Previously p=0.0013."
+    }
+  ],
+  "excluded_from_family": [
+    {
+      "comparison": "llama_vs_qwen_within_s6",
+      "reason": "Different models, not paired on same inputs with same system; reported descriptively only"
+    },
+    {
+      "comparison": "a1_cap_ablation",
+      "reason": "Ablation comparison, not in main hypothesis family. Reported separately."
+    }
+  ]
+}

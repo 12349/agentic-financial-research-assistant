@@ -149,11 +149,11 @@ def run_react_query(query: str, client: OllamaClient, max_steps: int = REACT_MAX
     }
 
 
-def run_s5(split_path: str, split_name: str = "test", limit: Optional[int] = None) -> dict:
+def run_s5(split_path: str, split_name: str = "test", limit: Optional[int] = None, model: str = PRIMARY_MODEL) -> dict:
     """Run S5 evaluation on a dataset split."""
-    client = OllamaClient(model=PRIMARY_MODEL, think=False, num_predict=256)
+    client = OllamaClient(model=model, think=False, num_predict=256)
     if not client.is_available():
-        raise RuntimeError(f"Model '{PRIMARY_MODEL}' not available in Ollama. Run: ollama pull {PRIMARY_MODEL}")
+        raise RuntimeError(f"Model '{model}' not available in Ollama. Run: ollama pull {model}")
 
     queries = load_queries(split_path)
     if limit:
@@ -163,7 +163,7 @@ def run_s5(split_path: str, split_name: str = "test", limit: Optional[int] = Non
     latencies = []
     steps_list = []
 
-    print(f"--- Running S5 (ReAct agent with {PRIMARY_MODEL}) on {split_name} (n={len(queries)}) ---")
+    print(f"--- Running S5 (ReAct agent with {model}) on {split_name} (n={len(queries)}) ---")
 
     for i, q in enumerate(queries):
         query_text = q["query"]
@@ -202,13 +202,16 @@ def run_s5(split_path: str, split_name: str = "test", limit: Optional[int] = Non
     synth_eval = evaluate_synthesis_quality(records)
 
     extra_summary = {
-        "model": PRIMARY_MODEL,
+        "model": model,
         "mean_latency_ms": round(sum(latencies) / len(latencies), 2) if latencies else 0.0,
         "mean_steps": round(sum(steps_list) / len(steps_list), 2) if steps_list else 0.0,
     }
 
+    # system_id is model-dependent so results don't overwrite each other
+    system_id = "s5_react" if model == PRIMARY_MODEL else f"s5_react_{model.replace(':', '_')}"
+
     summary_file = save_system_results(
-        system_id="s5_react",
+        system_id=system_id,
         split_name=split_name,
         records=records,
         tool_eval=tool_eval,
@@ -236,7 +239,9 @@ if __name__ == "__main__":
                         help="Split to evaluate: 'dev' (default) or 'test'")
     parser.add_argument("--limit", type=int, default=None,
                         help="Optional limit on number of queries")
+    parser.add_argument("--model", type=str, default=PRIMARY_MODEL,
+                        help="Model name (default: PRIMARY_MODEL from config)")
     args = parser.parse_args()
 
     split_path = QUERIES_TEST if args.split == "test" else QUERIES_DEV
-    run_s5(split_path, split_name=args.split, limit=args.limit)
+    run_s5(split_path, split_name=args.split, limit=args.limit, model=args.model)

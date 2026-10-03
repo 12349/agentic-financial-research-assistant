@@ -162,10 +162,25 @@ def synthesize_hybrid(
 
     elapsed_ms = (time.perf_counter() - t0) * 1000
     sources = _extract_sources(tool_outputs)
+
+    # Stratum: how was the final answer produced?
+    if not is_valid and issues:
+        # Revision was attempted
+        is_valid_2_check = len(issues_2) == 0  # already computed above
+        if is_valid_2_check:
+            stratum = "revised_passed"
+        elif valid_sents_2 if not is_valid and issues else []:
+            stratum = "pruned"
+        else:
+            stratum = "fell_back_to_formatter"
+    else:
+        stratum = "draft_passed"
+
     meta = {
         "revised": revised,
         "n_initial_issues": len(issues),
         "pruned_count": max(0, pruned_count),
+        "synthesis_stratum": stratum,
     }
     return final_text, sources, elapsed_ms, meta
 
@@ -217,6 +232,7 @@ def run_s7(
             "answer": answer_text,
             "sources": sources,
             "verification_meta": meta,
+            "synthesis_stratum": meta["synthesis_stratum"],
             "latency_ms": round(t_total_ms, 2),
             "tool_exec_ms": exec_ms,
             "synth_ms": round(synth_ms, 2),
@@ -232,6 +248,10 @@ def run_s7(
         "model": model,
         "mean_latency_ms": round(sum(latencies) / len(latencies), 2) if latencies else 0.0,
         "total_revisions": sum(1 for r in records if r["verification_meta"]["revised"]),
+        "stratum_counts": {
+            s: sum(1 for r in records if r["synthesis_stratum"] == s)
+            for s in ["draft_passed", "revised_passed", "pruned", "fell_back_to_formatter"]
+        },
     }
 
     system_id = f"s7_hybrid_{model.replace(':', '_')}" if model != PRIMARY_MODEL else "s7_hybrid_synth"

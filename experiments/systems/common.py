@@ -1,13 +1,21 @@
 """
 experiments/systems/common.py
 
-Shared execution, loading, and evaluation utilities for all systems (S1-S6).
+Shared execution, loading, and evaluation utilities for all systems (S1-S7).
+
+PROVENANCE GUARANTEE (Phase 2.95):
+  save_system_results() automatically stamps every summary JSON with:
+    - git_commit: the HEAD commit hash at run time (requires clean working tree)
+    - metric_blob_hash: git hash of experiments/metrics/synthesis_quality.py
+  These fields are written by code, never by hand.
+  run_all.sh refuses to run on a dirty working tree (Phase 2.95 Item 1).
 """
 
 from __future__ import annotations
 
 import json
 import os
+import subprocess
 import time
 from pathlib import Path
 from typing import Any, Callable, Optional
@@ -23,6 +31,29 @@ TOOL_REGISTRY: dict[str, Any] = {
     "get_guidance": get_guidance,
     "get_earnings": get_earnings,
 }
+
+# Metric file whose blob hash is stamped into every results JSON.
+_METRIC_FILE = Path(__file__).resolve().parent.parent / "metrics" / "synthesis_quality.py"
+
+
+def _git_commit_hash() -> str:
+    """Return the current HEAD commit hash, or 'unknown' on failure."""
+    try:
+        return subprocess.check_output(
+            ["git", "rev-parse", "HEAD"], stderr=subprocess.DEVNULL
+        ).decode().strip()
+    except Exception:
+        return "unknown"
+
+
+def _metric_blob_hash() -> str:
+    """Return the git blob hash of synthesis_quality.py at HEAD, or 'unknown'."""
+    try:
+        return subprocess.check_output(
+            ["git", "hash-object", str(_METRIC_FILE)], stderr=subprocess.DEVNULL
+        ).decode().strip()
+    except Exception:
+        return "unknown"
 
 
 def load_queries(split_path: str) -> list[dict]:
@@ -92,6 +123,9 @@ def save_system_results(
 ) -> Path:
     """
     Persist per-query raw JSONs and aggregate summary JSON.
+
+    Stamps git_commit and metric_blob_hash into the summary at write time.
+    These are always set by this function — never injected by hand.
     """
     base_dir = Path(RESULTS_DIR) / system_id
     raw_dir = base_dir / "raw" / split_name
@@ -103,10 +137,15 @@ def save_system_results(
         with open(q_path, "w", encoding="utf-8") as f:
             json.dump(rec, f, indent=2)
 
+    commit = _git_commit_hash()
+    blob = _metric_blob_hash()
+
     summary = {
         "system_id": system_id,
         "split": split_name,
         "timestamp": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+        "git_commit": commit,
+        "metric_blob_hash": blob,
         "n_queries": len(records),
         "tool_selection": tool_eval.as_dict() if tool_eval else None,
         "synthesis_quality": synth_eval.as_dict() if synth_eval else None,
